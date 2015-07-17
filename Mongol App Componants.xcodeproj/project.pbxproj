@@ -1,0 +1,471 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		505CADA91B34FBB200A99031 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505CADA81B34FBB200A99031 /* AppDelegate.swift */; };
+		505CADAE1B34FBB200A99031 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 505CADAC1B34FBB200A99031 /* Main.storyboard */; };
+		505CADB01B34FBB200A99031 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 505CADAF1B34FBB200A99031 /* Images.xcassets */; };
+		505CADB31B34FBB200A99031 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 505CADB11B34FBB200A99031 /* LaunchScreen.xib */; };
+		505CADBF1B34FBB200A99031 /* Mongol_App_ComponantsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505CADBE1B34FBB200A99031 /* Mongol_App_ComponantsTests.swift */; };
+		505CADC91B34FC3200A99031 /* TextViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505CADC81B34FC3200A99031 /* TextViewVC.swift */; };
+		505CADCB1B34FE7F00A99031 /* UIMongolTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505CADCA1B34FE7F00A99031 /* UIMongolTextView.swift */; };
+		5062F3301B37CA2600EC4E67 /* ChimeeWhiteMirrored.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5062F32D1B37CA2600EC4E67 /* ChimeeWhiteMirrored.ttf */; };
+		50633BD31B51ED49005CE35F /* TempRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50633BD21B51ED49005CE35F /* TempRenderer.swift */; };
+		5065F5211B3E311C00400FE3 /* UITextView+CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5065F5201B3E311C00400FE3 /* UITextView+CustomFont.swift */; };
+		50857D691B55DD0200B33AAD /* ScalarString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50857D681B55DD0200B33AAD /* ScalarString.swift */; };
+		50CB52BB1B5891EF00AFB77A /* MongolUnicodeRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CB52BA1B5891EF00AFB77A /* MongolUnicodeRenderer.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		505CADB91B34FBB200A99031 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 505CAD9B1B34FBB200A99031 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 505CADA21B34FBB200A99031;
+			remoteInfo = "Mongol App Componants";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		505CADA31B34FBB200A99031 /* Mongol App Componants.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mongol App Componants.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		505CADA71B34FBB200A99031 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		505CADA81B34FBB200A99031 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		505CADAD1B34FBB200A99031 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		505CADAF1B34FBB200A99031 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		505CADB21B34FBB200A99031 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		505CADB81B34FBB200A99031 /* Mongol App ComponantsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mongol App ComponantsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		505CADBD1B34FBB200A99031 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		505CADBE1B34FBB200A99031 /* Mongol_App_ComponantsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mongol_App_ComponantsTests.swift; sourceTree = "<group>"; };
+		505CADC81B34FC3200A99031 /* TextViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewVC.swift; sourceTree = "<group>"; };
+		505CADCA1B34FE7F00A99031 /* UIMongolTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIMongolTextView.swift; sourceTree = "<group>"; };
+		5062F32D1B37CA2600EC4E67 /* ChimeeWhiteMirrored.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ChimeeWhiteMirrored.ttf; sourceTree = "<group>"; };
+		50633BD21B51ED49005CE35F /* TempRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempRenderer.swift; sourceTree = "<group>"; };
+		5065F5201B3E311C00400FE3 /* UITextView+CustomFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextView+CustomFont.swift"; sourceTree = "<group>"; };
+		50857D681B55DD0200B33AAD /* ScalarString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalarString.swift; sourceTree = "<group>"; };
+		50CB52BA1B5891EF00AFB77A /* MongolUnicodeRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MongolUnicodeRenderer.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		505CADA01B34FBB200A99031 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		505CADB51B34FBB200A99031 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		505CAD9A1B34FBB200A99031 = {
+			isa = PBXGroup;
+			children = (
+				505CADA51B34FBB200A99031 /* Mongol App Componants */,
+				505CADBB1B34FBB200A99031 /* Mongol App ComponantsTests */,
+				505CADA41B34FBB200A99031 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		505CADA41B34FBB200A99031 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				505CADA31B34FBB200A99031 /* Mongol App Componants.app */,
+				505CADB81B34FBB200A99031 /* Mongol App ComponantsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		505CADA51B34FBB200A99031 /* Mongol App Componants */ = {
+			isa = PBXGroup;
+			children = (
+				505CADC81B34FC3200A99031 /* TextViewVC.swift */,
+				505CADCA1B34FE7F00A99031 /* UIMongolTextView.swift */,
+				505CADAC1B34FBB200A99031 /* Main.storyboard */,
+				50633BD21B51ED49005CE35F /* TempRenderer.swift */,
+				50CB52BA1B5891EF00AFB77A /* MongolUnicodeRenderer.swift */,
+				50857D681B55DD0200B33AAD /* ScalarString.swift */,
+				506795341B35771000FA0C9B /* Resources */,
+				505CADA61B34FBB200A99031 /* Supporting Files */,
+				5065F5201B3E311C00400FE3 /* UITextView+CustomFont.swift */,
+			);
+			path = "Mongol App Componants";
+			sourceTree = "<group>";
+		};
+		505CADA61B34FBB200A99031 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				505CADB11B34FBB200A99031 /* LaunchScreen.xib */,
+				505CADAF1B34FBB200A99031 /* Images.xcassets */,
+				505CADA81B34FBB200A99031 /* AppDelegate.swift */,
+				505CADA71B34FBB200A99031 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		505CADBB1B34FBB200A99031 /* Mongol App ComponantsTests */ = {
+			isa = PBXGroup;
+			children = (
+				505CADBE1B34FBB200A99031 /* Mongol_App_ComponantsTests.swift */,
+				505CADBC1B34FBB200A99031 /* Supporting Files */,
+			);
+			path = "Mongol App ComponantsTests";
+			sourceTree = "<group>";
+		};
+		505CADBC1B34FBB200A99031 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				505CADBD1B34FBB200A99031 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		506795341B35771000FA0C9B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				506795351B35772700FA0C9B /* Fonts */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		506795351B35772700FA0C9B /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				5062F32D1B37CA2600EC4E67 /* ChimeeWhiteMirrored.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		505CADA21B34FBB200A99031 /* Mongol App Componants */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 505CADC21B34FBB200A99031 /* Build configuration list for PBXNativeTarget "Mongol App Componants" */;
+			buildPhases = (
+				505CAD9F1B34FBB200A99031 /* Sources */,
+				505CADA01B34FBB200A99031 /* Frameworks */,
+				505CADA11B34FBB200A99031 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Mongol App Componants";
+			productName = "Mongol App Componants";
+			productReference = 505CADA31B34FBB200A99031 /* Mongol App Componants.app */;
+			productType = "com.apple.product-type.application";
+		};
+		505CADB71B34FBB200A99031 /* Mongol App ComponantsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 505CADC51B34FBB200A99031 /* Build configuration list for PBXNativeTarget "Mongol App ComponantsTests" */;
+			buildPhases = (
+				505CADB41B34FBB200A99031 /* Sources */,
+				505CADB51B34FBB200A99031 /* Frameworks */,
+				505CADB61B34FBB200A99031 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				505CADBA1B34FBB200A99031 /* PBXTargetDependency */,
+			);
+			name = "Mongol App ComponantsTests";
+			productName = "Mongol App ComponantsTests";
+			productReference = 505CADB81B34FBB200A99031 /* Mongol App ComponantsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		505CAD9B1B34FBB200A99031 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = MongolSuragch;
+				TargetAttributes = {
+					505CADA21B34FBB200A99031 = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+					505CADB71B34FBB200A99031 = {
+						CreatedOnToolsVersion = 6.3.2;
+						TestTargetID = 505CADA21B34FBB200A99031;
+					};
+				};
+			};
+			buildConfigurationList = 505CAD9E1B34FBB200A99031 /* Build configuration list for PBXProject "Mongol App Componants" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 505CAD9A1B34FBB200A99031;
+			productRefGroup = 505CADA41B34FBB200A99031 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				505CADA21B34FBB200A99031 /* Mongol App Componants */,
+				505CADB71B34FBB200A99031 /* Mongol App ComponantsTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		505CADA11B34FBB200A99031 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				505CADAE1B34FBB200A99031 /* Main.storyboard in Resources */,
+				505CADB31B34FBB200A99031 /* LaunchScreen.xib in Resources */,
+				505CADB01B34FBB200A99031 /* Images.xcassets in Resources */,
+				5062F3301B37CA2600EC4E67 /* ChimeeWhiteMirrored.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		505CADB61B34FBB200A99031 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		505CAD9F1B34FBB200A99031 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50CB52BB1B5891EF00AFB77A /* MongolUnicodeRenderer.swift in Sources */,
+				5065F5211B3E311C00400FE3 /* UITextView+CustomFont.swift in Sources */,
+				50857D691B55DD0200B33AAD /* ScalarString.swift in Sources */,
+				50633BD31B51ED49005CE35F /* TempRenderer.swift in Sources */,
+				505CADCB1B34FE7F00A99031 /* UIMongolTextView.swift in Sources */,
+				505CADA91B34FBB200A99031 /* AppDelegate.swift in Sources */,
+				505CADC91B34FC3200A99031 /* TextViewVC.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		505CADB41B34FBB200A99031 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				505CADBF1B34FBB200A99031 /* Mongol_App_ComponantsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		505CADBA1B34FBB200A99031 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 505CADA21B34FBB200A99031 /* Mongol App Componants */;
+			targetProxy = 505CADB91B34FBB200A99031 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		505CADAC1B34FBB200A99031 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				505CADAD1B34FBB200A99031 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		505CADB11B34FBB200A99031 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				505CADB21B34FBB200A99031 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		505CADC01B34FBB200A99031 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		505CADC11B34FBB200A99031 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		505CADC31B34FBB200A99031 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Mongol App Componants/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		505CADC41B34FBB200A99031 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Mongol App Componants/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		505CADC61B34FBB200A99031 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Mongol App ComponantsTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mongol App Componants.app/Mongol App Componants";
+			};
+			name = Debug;
+		};
+		505CADC71B34FBB200A99031 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Mongol App ComponantsTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mongol App Componants.app/Mongol App Componants";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		505CAD9E1B34FBB200A99031 /* Build configuration list for PBXProject "Mongol App Componants" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				505CADC01B34FBB200A99031 /* Debug */,
+				505CADC11B34FBB200A99031 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		505CADC21B34FBB200A99031 /* Build configuration list for PBXNativeTarget "Mongol App Componants" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				505CADC31B34FBB200A99031 /* Debug */,
+				505CADC41B34FBB200A99031 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		505CADC51B34FBB200A99031 /* Build configuration list for PBXNativeTarget "Mongol App ComponantsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				505CADC61B34FBB200A99031 /* Debug */,
+				505CADC71B34FBB200A99031 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 505CAD9B1B34FBB200A99031 /* Project object */;
+}
