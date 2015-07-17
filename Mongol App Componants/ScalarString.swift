@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 MongolSuragch. All rights reserved.
 //
 
-import Foundation
+//import Foundation
 
 // This struct is an array of UInt32 to hold Unicode scalar values
 struct ScalarString: SequenceType, Hashable, Printable {
@@ -131,8 +131,6 @@ struct ScalarString: SequenceType, Hashable, Printable {
         }
     }
     
-    
-    
     // length
     var length: Int {
         get {
@@ -147,12 +145,6 @@ struct ScalarString: SequenceType, Hashable, Printable {
     func removingAllInstancesOfChar(character: UInt32) -> ScalarString {
         
         var returnString = ScalarString()
-        
-        //        for var i = self.scalarArray.count - 1; i >= 0; i-- {
-        //            if self.scalarArray[i] == character {
-        //                self.scalarArray.removeAtIndex(i)
-        //            }
-        //        }
         
         for scalar in self.scalarArray {
             if scalar != character {
@@ -254,9 +246,6 @@ struct ScalarString: SequenceType, Hashable, Printable {
         return self.scalarArray
     }
     
-    
-    
-    
 }
 
 func ==(left: ScalarString, right: ScalarString) -> Bool {
@@ -273,16 +262,3 @@ func +(left: ScalarString, right: ScalarString) -> ScalarString {
     }
     return returnString
 }
-
-
-
-//func +=(left: ScalarString, right: ScalarString) -> ScalarString {
-//    var returnString = ScalarString()
-//    for scalar in left.values() {
-//        returnString.append(scalar)
-//    }
-//    for scalar in right.values() {
-//        returnString.append(scalar)
-//    }
-//    return returnString
-//}

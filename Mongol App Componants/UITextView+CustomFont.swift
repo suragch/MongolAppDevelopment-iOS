@@ -10,6 +10,8 @@ import UIKit
 
 extension UITextView {
     
+    // TODO write some help for how and where and why this is used
+    
     public var myFontName: String {
         get {
             return self.font!.fontName

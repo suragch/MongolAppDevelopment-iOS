@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="buY-tN-kMS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="l3P-jS-1yq">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -25,7 +25,7 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="text">
-                                        <mutableString key="value">This is some text    ᠂         ᠃    ᠂         ᠃    ᠂         ᠃    ᠂         ᠃    ᠂         ᠃ </mutableString>
+                                        <string key="value">This is some text Mongol   ᠳᠣᠪᠴᠢᠳᠠᠪᠠᠯ ᠨᠠᠢᠷᠠᠭᠤᠯᠬᠤ ᠴᠣᠩᠬᠣᠨ ᠳᠤ ᠬᠠᠭᠤᠯᠤᠨ ᠠᠪᠴᠢᠷᠠᠨ᠎ᠠ᠃ ᠵᠠᠬᠢᠶ᠎ᠠ ᠶᠢ ᠳᠣᠪᠴᠢᠳᠠᠪᠠᠯ ᠨᠠᠢᠷᠠᠭᠤᠯᠬᠤ ᠴᠣᠩᠬᠣᠨ ᠳᠤ ᠬᠠᠭᠤᠯᠤᠨ ᠠᠪᠴᠢᠷᠠᠨ᠎ᠠ᠃ </string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -37,10 +37,60 @@
                             <constraint firstItem="WoO-bg-lUi" firstAttribute="top" secondItem="vNJ-OA-5gq" secondAttribute="bottom" id="cYI-yZ-vYW"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="textView" destination="WoO-bg-lUi" id="3pJ-GI-AEh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H5a-d2-aaI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="18" y="142"/>
+            <point key="canvasLocation" x="-878" y="22"/>
+        </scene>
+        <!--Label DemoVC-->
+        <scene sceneID="Z4T-3f-c1A">
+            <objects>
+                <viewController id="l3P-jS-1yq" customClass="LabelDemoVC" customModule="Mongol_App_Componants" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UV4-Se-1Ea"/>
+                        <viewControllerLayoutGuide type="bottom" id="s19-SF-YgO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9gX-ZP-jI2">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Regular label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e28-PM-p7R">
+                                <rect key="frame" x="16" y="28" width="101" height="21"/>
+                                <color key="backgroundColor" red="0.46631239241635308" green="0.83187342171717171" blue="0.44808017726765931" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MuU-Kt-eEE" customClass="UIMongolLabel" customModule="Mongol_App_Componants" customModuleProvider="target">
+                                <rect key="frame" x="540" y="183" width="44" height="233"/>
+                                <color key="backgroundColor" red="0.2129652316" green="0.70965070210000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="cr8-JF-ntv"/>
+                                    <constraint firstAttribute="height" constant="233" id="nca-pQ-auj"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="ᠨᠢᠭᠡ ᠬᠣᠶᠠᠷ ᠭᠤᠷᠪᠠ"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="MuU-Kt-eEE" firstAttribute="trailing" secondItem="9gX-ZP-jI2" secondAttribute="trailingMargin" id="Lke-pX-riY"/>
+                            <constraint firstAttribute="centerY" secondItem="MuU-Kt-eEE" secondAttribute="centerY" id="LpJ-r3-w4H"/>
+                            <constraint firstItem="e28-PM-p7R" firstAttribute="leading" secondItem="9gX-ZP-jI2" secondAttribute="leadingMargin" id="boF-aF-6U1"/>
+                            <constraint firstItem="e28-PM-p7R" firstAttribute="top" secondItem="UV4-Se-1Ea" secondAttribute="bottom" constant="8" id="qpk-Uc-xye"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="label" destination="MuU-Kt-eEE" id="Syv-YQ-gX6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UXD-XT-1Gp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-6" y="14"/>
         </scene>
     </scenes>
 </document>
