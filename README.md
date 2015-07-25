@@ -5,6 +5,7 @@ This is just a testing area to try out new UI componants used to build Mongolian
 UI
 
 - UIMongolTextView.swift
+- UIMongolLabel.swift
 
 Text rendering
 
