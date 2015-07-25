@@ -14,5 +14,5 @@ Text rendering
 
 Font
 
-- Add ChimeeWhiteMirrored to project
+- Add ChimeeWhiteMirrored.ttf to project
 - In Info.plist file add "Fonts provided by application" with font name "ChimeeWhiteMirrored.ttf"
