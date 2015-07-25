@@ -18,9 +18,9 @@ class TextViewVC: UIViewController {
         //myUITextView.font = UIFont(name: "ChimeeWhiteMirrored", size: myUITextView.font.pointSize)
         //myUITextView.setTheFont("ChimeeWhiteMirrored")
         
-        println(textView.text)
+        print(textView.text)
         
-        println("THis is a test.")
+        print("THis is a test.")
         let renderer = MongolUnicodeRenderer()
         var myString = ScalarString("This is a test.")
         //println(myString.values())

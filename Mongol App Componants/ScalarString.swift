@@ -2,14 +2,14 @@
 //  File.swift
 //  Mongol App Componants
 //
-//  Created by MongolSuragch on 7/14/15.
+//  Created on 7/14/15.
 //  Copyright (c) 2015 MongolSuragch. All rights reserved.
 //
 
 //import Foundation
 
 // This struct is an array of UInt32 to hold Unicode scalar values
-struct ScalarString: SequenceType, Hashable, Printable {
+struct ScalarString: SequenceType, Hashable, CustomStringConvertible {
     
     private var scalarArray: [UInt32] = []
     
@@ -36,13 +36,13 @@ struct ScalarString: SequenceType, Hashable, Printable {
         }
     }
     
-    // Generator in order to conform to SequenceType protocol 
+    // Generator in order to conform to SequenceType protocol
     // (to allow users to iterate as in `for myScalarValue in myScalarString` { ... })
-    func generate() -> GeneratorOf<UInt32> {
+    func generate() -> AnyGenerator<UInt32> {
         
         var nextIndex = 0
         
-        return GeneratorOf<UInt32> {
+        return anyGenerator {
             if (nextIndex > self.scalarArray.count-1) {
                 return nil
             }
@@ -107,7 +107,7 @@ struct ScalarString: SequenceType, Hashable, Printable {
     mutating func insert(scalar: UInt32, atIndex index: Int) {
         self.scalarArray.insert(scalar, atIndex: index)
     }
-       
+    
     // isEmpty
     var isEmpty: Bool {
         get {
