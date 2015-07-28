@@ -1,18 +1,7 @@
-//
-//  File.swift
-//  Mongol App Componants
-//
-//  Created on 7/14/15.
-//  Copyright (c) 2015 MongolSuragch. All rights reserved.
-//
-
-//import Foundation
-
 // This struct is an array of UInt32 to hold Unicode scalar values
 struct ScalarString: SequenceType, Hashable, CustomStringConvertible {
     
     private var scalarArray: [UInt32] = []
-    
     
     
     init() {
@@ -249,7 +238,18 @@ struct ScalarString: SequenceType, Hashable, CustomStringConvertible {
 }
 
 func ==(left: ScalarString, right: ScalarString) -> Bool {
-    return left.hashValue == right.hashValue
+    
+    if left.length != right.length {
+        return false
+    }
+    
+    for var i = 0; i < left.length; ++i {
+        if left.charAt(i) != right.charAt(i) {
+            return false
+        }
+    }
+    
+    return true
 }
 
 func +(left: ScalarString, right: ScalarString) -> ScalarString {
