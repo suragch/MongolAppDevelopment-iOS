@@ -10,13 +10,16 @@ import UIKit
 
 class LabelDemoVC: UIViewController {
 
-    @IBOutlet weak var label: UIMongolLabel!
+    //@IBOutlet weak var label: UIMongolLabel!
+    
+    @IBOutlet weak var label2: UIMongolLabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let renderer = MongolUnicodeRenderer()
-        label.text = renderer.unicodeToGlyphs(label.text)
+        //label.text = renderer.unicodeToGlyphs(label.text)
+        label2.text = renderer.unicodeToGlyphs(label2.text)
     }
     
 }

@@ -1,7 +1,7 @@
 /*
 * Chimee Mongol Unicode Rendering Engine for iOS
 *
-* Version 1.1
+* Version 1.1.1
 *
 * Current version needs to be used with Almas font glyphs
 * copied to PUA starting at \uE360. To use different glyph
@@ -1629,7 +1629,7 @@ class MongolUnicodeRenderer {
     }
     
     
-    func convertWord(mongolWord: ScalarString) -> ScalarString {
+    private func convertWord(mongolWord: ScalarString) -> ScalarString {
         
         // Error checking
         if mongolWord.length == 0 {

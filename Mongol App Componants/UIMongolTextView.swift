@@ -2,12 +2,41 @@ import UIKit
 
 @IBDesignable class UIMongolTextView: UIView {
 
-    // properties
-    private var rotationView: UIView!
+    // ********* Unique to TextView *********
+    private let view = UITextView()
+    
+    let mongolFontName = "ChimeeWhiteMirrored"
+    
+    @IBInspectable var text: String {
+        get {
+            if let txt = view.text {
+                return txt
+            } else {
+                return ""
+            }
+        }
+        set {
+            view.text = newValue
+        }
+    }
+    
+    func setup() {
+        // 1-10: ᠨᠢᠭᠡ ᠬᠣᠶᠠᠷ ᠭᠤᠷᠪᠠ ᠳᠦᠷᠪᠡ ᠲᠠᠪᠤ ᠳᠣᠯᠣᠭ᠎ᠠ ᠨᠠᠢ᠌ᠮᠠ ᠶᠢᠰᠦ ᠠᠷᠪᠠ
+        view.text = self.text
+        view.backgroundColor = self.backgroundColor
+        view.font = UIFont(name: mongolFontName, size: 24)
+        
+    }
+    
+    
+    
+    
+    // *******************************************
+    // ****** General code for Mongol views ******
+    // *******************************************
+    
     private var oldWidth: CGFloat = 0
     private var oldHeight: CGFloat = 0
-    @IBInspectable var text: String = ""
-    let mongolFontName: String! = "ChimeeWhiteMirrored"
     
     // This method gets called if you create the view in the Interface Builder
     required init(coder aDecoder: NSCoder) {
@@ -25,19 +54,6 @@ import UIKit
         self.setup()
     }
     
-    func setup() {
-        
-        // 1-10: ᠨᠢᠭᠡ ᠬᠣᠶᠠᠷ ᠭᠤᠷᠪᠠ ᠳᠦᠷᠪᠡ ᠲᠠᠪᠤ ᠳᠣᠯᠣᠭ᠎ᠠ ᠨᠠᠢ᠌ᠮᠠ ᠶᠢᠰᠦ ᠠᠷᠪᠠ
-        //text =  "   ᠂         ᠃ This is some text This is some text This is some text This is some text This is some text This is some text This is some text This is some text This is some text This is some text This is some text This is some text This is some text This is some text This is some text This is some text This is some text This is some text This is some text This is some text This is some text This is some text This is some text This is some text This is some"
-        //text =  "ᠨᠢᠭᠡ ᠬᠣᠶᠠᠷ ᠭᠤᠷᠪᠠ ᠳᠦᠷᠪᠡ ᠲᠠᠪᠤ ᠳᠣᠯᠣᠭ᠎ᠠ ᠨᠠᠢ᠌ᠮᠠ ᠶᠢᠰᠦ ᠠᠷᠪᠠ ᠨᠢᠭᠡ ᠬᠣᠶᠠᠷ ᠭᠤᠷᠪᠠ ᠳᠦᠷᠪᠡ ᠲᠠᠪᠤ ᠳᠣᠯᠣᠭ᠎ᠠ ᠨᠠᠢ᠌ᠮᠠ ᠶᠢᠰᠦ ᠠᠷᠪᠠ ᠨᠢᠭᠡ ᠬᠣᠶᠠᠷ ᠭᠤᠷᠪᠠ ᠳᠦᠷᠪᠡ ᠲᠠᠪᠤ ᠳᠣᠯᠣᠭ᠎ᠠ ᠨᠠᠢ᠌ᠮᠠ ᠶᠢᠰᠦ ᠠᠷᠪᠠ ᠨᠢᠭᠡ ᠬᠣᠶᠠᠷ ᠭᠤᠷᠪᠠ ᠳᠦᠷᠪᠡ ᠲᠠᠪᠤ ᠳᠣᠯᠣᠭ᠎ᠠ ᠨᠠᠢ᠌ᠮᠠ ᠶᠢᠰᠦ ᠠᠷᠪᠠ ᠨᠢᠭᠡ ᠬᠣᠶᠠᠷ ᠭᠤᠷᠪᠠ ᠳᠦᠷᠪᠡ ᠲᠠᠪᠤ ᠳᠣᠯᠣᠭ᠎ᠠ ᠨᠠᠢ᠌ᠮᠠ ᠶᠢᠰᠦ ᠠᠷᠪᠠ ᠨᠢᠭᠡ ᠬᠣᠶᠠᠷ ᠭᠤᠷᠪᠠ ᠳᠦᠷᠪᠡ ᠲᠠᠪᠤ ᠳᠣᠯᠣᠭ᠎ᠠ ᠨᠠᠢ᠌ᠮᠠ ᠶᠢᠰᠦ ᠠᠷᠪᠠ ᠨᠢᠭᠡ ᠬᠣᠶᠠᠷ ᠭᠤᠷᠪᠠ ᠳᠦᠷᠪᠡ ᠲᠠᠪᠤ ᠳᠣᠯᠣᠭ᠎ᠠ ᠨᠠᠢ᠌ᠮᠠ ᠶᠢᠰᠦ ᠠᠷᠪᠠ ᠨᠢᠭᠡ ᠬᠣᠶᠠᠷ ᠭᠤᠷᠪᠠ ᠳᠦᠷᠪᠡ ᠲᠠᠪᠤ ᠳᠣᠯᠣᠭ᠎ᠠ ᠨᠠᠢ᠌ᠮᠠ ᠶᠢᠰᠦ ᠠᠷᠪᠠ ᠨᠢᠭᠡ ᠬᠣᠶᠠᠷ ᠭᠤᠷᠪᠠ ᠳᠦᠷᠪᠡ ᠲᠠᠪᠤ ᠳᠣᠯᠣᠭ᠎ᠠ ᠨᠠᠢ᠌ᠮᠠ ᠶᠢᠰᠦ ᠠᠷᠪᠠ ᠨᠢᠭᠡ ᠬᠣᠶᠠᠷ ᠭᠤᠷᠪᠠ ᠳᠦᠷᠪᠡ ᠲᠠᠪᠤ ᠳᠣᠯᠣᠭ᠎ᠠ ᠨᠠᠢ᠌ᠮᠠ ᠶᠢᠰᠦ ᠠᠷᠪᠠ ᠨᠢᠭᠡ ᠬᠣᠶᠠᠷ ᠭᠤᠷᠪᠠ ᠳᠦᠷᠪᠡ ᠲᠠᠪᠤ ᠳᠣᠯᠣᠭ᠎ᠠ ᠨᠠᠢ᠌ᠮᠠ ᠶᠢᠰᠦ ᠠᠷᠪᠠ ᠨᠢᠭᠡ ᠬᠣᠶᠠᠷ ᠭᠤᠷᠪᠠ ᠳᠦᠷᠪᠡ ᠲᠠᠪᠤ ᠳᠣᠯᠣᠭ᠎ᠠ ᠨᠠᠢ᠌ᠮᠠ ᠶᠢᠰᠦ ᠠᠷᠪᠠ  This is some text This is some text This is some text This is some text This is some text This is some text This is some text This is some text This is some text This is some text This is some text This is some text This is some text This is some text This is some text This is some text This is some text This is some text This is some text This is some text This is some text This is some text This is some text This is some text This is some"
-        
-        //let renderer = MongolUnicodeRenderer()
-        
-        //text = renderer.unicodeToGlyphs(text)
-    }
-    
-    
-    
     override func layoutSubviews() {
         super.layoutSubviews()
         
@@ -49,31 +65,34 @@ import UIKit
             oldHeight = self.frame.height
         }
         
-        // Remove old rotationView if it exists
-        if rotationView != nil && rotationView.isDescendantOfView(self) {
-            self.rotationView.removeFromSuperview()
-        }
-        
         // setup rotationView container
-        rotationView = UIView(frame: self.frame)
+        let rotationView = UIView()
         rotationView.frame = CGRect(origin: CGPointZero, size: CGSize(width: self.bounds.height, height: self.bounds.width))
-        //rotationView.frame = CGRect(origin: CGPoint(x: CGFloat(0), y: CGFloat(0)), size: CGSize(width: self.bounds.height, height: self.bounds.width))
         self.addSubview(rotationView)
         
-        // setup UITextView
-        let textView = UITextView(frame: rotationView.bounds)
-        textView.backgroundColor = self.backgroundColor // TODO make a different setter
-        textView.text = self.text
-        textView.font = UIFont(name: mongolFontName, size: 24)
-        rotationView.addSubview(textView)
+        // transform rotationView (so that it covers the same frame as self)
+        rotationView.transform = translateRotateFlip()
         
-        // rotate, translate, flip (so that container view covers same frame as self)
+        
+        
+        // add view (UILabel)
+        view.frame = rotationView.bounds
+        rotationView.addSubview(view)
+        
+    }
+    
+    func translateRotateFlip() -> CGAffineTransform {
+        
         var transform = CGAffineTransformIdentity
-        transform = CGAffineTransformTranslate(transform, (rotationView.bounds.height / 2)-(rotationView.bounds.width / 2), (rotationView.bounds.width / 2)-(rotationView.bounds.height / 2))
-        transform = CGAffineTransformRotate(transform, CGFloat(-M_PI_2))
         
+        // translate to new center
+        transform = CGAffineTransformTranslate(transform, (self.bounds.width / 2)-(self.bounds.height / 2), (self.bounds.height / 2)-(self.bounds.width / 2))
+        // rotate counterclockwise around center
+        transform = CGAffineTransformRotate(transform, CGFloat(-M_PI_2))
+        // flip vertically
         transform = CGAffineTransformScale(transform, CGFloat(-1), CGFloat(1))
-        rotationView.transform = transform
+        
+        return transform
     }
 
 }

@@ -1,33 +1,48 @@
+
 import UIKit
 
-@IBDesignable class UIMongolLabel: UIView {
+@IBDesignable class UIMongolTableView: UIView {
     
-    // TODO: make view resize to label length
-    
-    // ********* Unique to Label *********
-    private let view = UILabel()
-    
-    let mongolFontName = "ChimeeWhiteMirrored"
-    
-    @IBInspectable var text: String {
-        get {
-            if let txt = view.text {
-                return txt
-            } else {
-                return ""
-            }
-        }
-        set {
-            view.text = newValue
-        }
-    }
+    // ********* Unique to TableView *********
+    private var view = UITableView()
     
     func setup() {
+        // do any setup necessary
         
-        view.text = self.text
-        view.font = UIFont(name: mongolFontName, size: 24)
-        
+        //view.text = self.text
+        view.backgroundColor = self.backgroundColor
+        //view.font = UIFont(name: mongolFontName, size: 24)
     }
+    
+    // FIXME: @IBOutlet still can't be set in IB
+    @IBOutlet weak var delegate: UITableViewDelegate? {
+        get {
+            return view.delegate
+        }
+        set {
+            view.delegate = newValue
+        }
+    }
+    
+    // FIXME: @IBOutlet still can't be set in IB
+    @IBOutlet weak var dataSource: UITableViewDataSource? {
+        get {
+            return view.dataSource
+        }
+        set {
+            view.dataSource = newValue
+        }
+    }
+    
+    func registerClass(cellClass: AnyClass?, forCellReuseIdentifier identifier: String) {
+        view.registerClass(cellClass, forCellReuseIdentifier: identifier)
+    }
+    
+    func dequeueReusableCellWithIdentifier(identifier: String) -> UITableViewCell? {
+        return view.dequeueReusableCellWithIdentifier(identifier)
+    }
+    
+    
     
     
     
@@ -95,6 +110,4 @@ import UIKit
         
         return transform
     }
-    
 }
-

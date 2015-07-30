@@ -12,7 +12,6 @@
 		505CADB01B34FBB200A99031 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 505CADAF1B34FBB200A99031 /* Images.xcassets */; };
 		505CADB31B34FBB200A99031 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 505CADB11B34FBB200A99031 /* LaunchScreen.xib */; };
 		505CADBF1B34FBB200A99031 /* Mongol_App_ComponantsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505CADBE1B34FBB200A99031 /* Mongol_App_ComponantsTests.swift */; };
-		505CADC91B34FC3200A99031 /* TextViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505CADC81B34FC3200A99031 /* TextViewVC.swift */; };
 		505CADCB1B34FE7F00A99031 /* UIMongolTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505CADCA1B34FE7F00A99031 /* UIMongolTextView.swift */; };
 		5062F3301B37CA2600EC4E67 /* ChimeeWhiteMirrored.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5062F32D1B37CA2600EC4E67 /* ChimeeWhiteMirrored.ttf */; };
 		5065F5211B3E311C00400FE3 /* UITextView+CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5065F5201B3E311C00400FE3 /* UITextView+CustomFont.swift */; };
@@ -20,6 +19,9 @@
 		506B2DCF1B59C98500B93D61 /* LabelDemoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506B2DCE1B59C98500B93D61 /* LabelDemoVC.swift */; };
 		50857D691B55DD0200B33AAD /* ScalarString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50857D681B55DD0200B33AAD /* ScalarString.swift */; };
 		50CB52BB1B5891EF00AFB77A /* MongolUnicodeRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CB52BA1B5891EF00AFB77A /* MongolUnicodeRenderer.swift */; };
+		50CDEE9B1B67FE0200C7C405 /* UIMongolTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CDEE9A1B67FE0200C7C405 /* UIMongolTableView.swift */; };
+		50CDEE9D1B67FE8400C7C405 /* TableViewDemoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CDEE9C1B67FE8400C7C405 /* TableViewDemoVC.swift */; };
+		50E572601B69D07F0041E0AE /* TextViewDemoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E5725F1B69D07F0041E0AE /* TextViewDemoVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +44,6 @@
 		505CADB81B34FBB200A99031 /* Mongol App ComponantsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mongol App ComponantsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		505CADBD1B34FBB200A99031 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		505CADBE1B34FBB200A99031 /* Mongol_App_ComponantsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mongol_App_ComponantsTests.swift; sourceTree = "<group>"; };
-		505CADC81B34FC3200A99031 /* TextViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewVC.swift; sourceTree = "<group>"; };
 		505CADCA1B34FE7F00A99031 /* UIMongolTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIMongolTextView.swift; sourceTree = "<group>"; };
 		5062F32D1B37CA2600EC4E67 /* ChimeeWhiteMirrored.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ChimeeWhiteMirrored.ttf; sourceTree = "<group>"; };
 		5065F5201B3E311C00400FE3 /* UITextView+CustomFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextView+CustomFont.swift"; sourceTree = "<group>"; };
@@ -50,6 +51,9 @@
 		506B2DCE1B59C98500B93D61 /* LabelDemoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelDemoVC.swift; sourceTree = "<group>"; };
 		50857D681B55DD0200B33AAD /* ScalarString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalarString.swift; sourceTree = "<group>"; };
 		50CB52BA1B5891EF00AFB77A /* MongolUnicodeRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MongolUnicodeRenderer.swift; sourceTree = "<group>"; };
+		50CDEE9A1B67FE0200C7C405 /* UIMongolTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIMongolTableView.swift; sourceTree = "<group>"; };
+		50CDEE9C1B67FE8400C7C405 /* TableViewDemoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDemoVC.swift; sourceTree = "<group>"; };
+		50E5725F1B69D07F0041E0AE /* TextViewDemoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewDemoVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,11 +95,9 @@
 		505CADA51B34FBB200A99031 /* Mongol App Componants */ = {
 			isa = PBXGroup;
 			children = (
-				505CADC81B34FC3200A99031 /* TextViewVC.swift */,
-				506B2DCE1B59C98500B93D61 /* LabelDemoVC.swift */,
-				506B2DCC1B59C57900B93D61 /* UIMongolLabel.swift */,
-				505CADCA1B34FE7F00A99031 /* UIMongolTextView.swift */,
 				505CADAC1B34FBB200A99031 /* Main.storyboard */,
+				50E572571B692E110041E0AE /* Controllers */,
+				50E572581B692E4A0041E0AE /* Views */,
 				50CB52BA1B5891EF00AFB77A /* MongolUnicodeRenderer.swift */,
 				50857D681B55DD0200B33AAD /* ScalarString.swift */,
 				506795341B35771000FA0C9B /* Resources */,
@@ -149,6 +151,26 @@
 			name = Fonts;
 			sourceTree = "<group>";
 		};
+		50E572571B692E110041E0AE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				506B2DCE1B59C98500B93D61 /* LabelDemoVC.swift */,
+				50CDEE9C1B67FE8400C7C405 /* TableViewDemoVC.swift */,
+				50E5725F1B69D07F0041E0AE /* TextViewDemoVC.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		50E572581B692E4A0041E0AE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				506B2DCC1B59C57900B93D61 /* UIMongolLabel.swift */,
+				50CDEE9A1B67FE0200C7C405 /* UIMongolTableView.swift */,
+				505CADCA1B34FE7F00A99031 /* UIMongolTextView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -194,7 +216,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = MongolSuragch;
 				TargetAttributes = {
 					505CADA21B34FBB200A99031 = {
@@ -253,12 +275,14 @@
 			files = (
 				50CB52BB1B5891EF00AFB77A /* MongolUnicodeRenderer.swift in Sources */,
 				5065F5211B3E311C00400FE3 /* UITextView+CustomFont.swift in Sources */,
+				50CDEE9B1B67FE0200C7C405 /* UIMongolTableView.swift in Sources */,
+				50CDEE9D1B67FE8400C7C405 /* TableViewDemoVC.swift in Sources */,
 				506B2DCF1B59C98500B93D61 /* LabelDemoVC.swift in Sources */,
 				50857D691B55DD0200B33AAD /* ScalarString.swift in Sources */,
+				50E572601B69D07F0041E0AE /* TextViewDemoVC.swift in Sources */,
 				505CADCB1B34FE7F00A99031 /* UIMongolTextView.swift in Sources */,
 				506B2DCD1B59C57900B93D61 /* UIMongolLabel.swift in Sources */,
 				505CADA91B34FBB200A99031 /* AppDelegate.swift in Sources */,
-				505CADC91B34FC3200A99031 /* TextViewVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +345,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -390,6 +415,7 @@
 				INFOPLIST_FILE = "Mongol App Componants/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Suragch.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -401,6 +427,7 @@
 				INFOPLIST_FILE = "Mongol App Componants/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Suragch.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -409,16 +436,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Mongol App ComponantsTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Suragch.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mongol App Componants.app/Mongol App Componants";
 			};
@@ -428,12 +453,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "Mongol App ComponantsTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Suragch.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mongol App Componants.app/Mongol App Componants";
 			};
