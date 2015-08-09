@@ -6,6 +6,13 @@ import UIKit
     // ********* Unique to TableView *********
     private var view = UITableView()
     
+    // read only refernce to the underlying tableview
+    var tableView: UITableView {
+        get {
+            return view
+        }
+    }
+    
     func setup() {
         // do any setup necessary
         
