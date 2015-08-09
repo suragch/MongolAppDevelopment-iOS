@@ -98,8 +98,7 @@
 				505CADAC1B34FBB200A99031 /* Main.storyboard */,
 				50E572571B692E110041E0AE /* Controllers */,
 				50E572581B692E4A0041E0AE /* Views */,
-				50CB52BA1B5891EF00AFB77A /* MongolUnicodeRenderer.swift */,
-				50857D681B55DD0200B33AAD /* ScalarString.swift */,
+				50E572611B69D16F0041E0AE /* Models */,
 				506795341B35771000FA0C9B /* Resources */,
 				505CADA61B34FBB200A99031 /* Supporting Files */,
 				5065F5201B3E311C00400FE3 /* UITextView+CustomFont.swift */,
@@ -169,6 +168,15 @@
 				505CADCA1B34FE7F00A99031 /* UIMongolTextView.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		50E572611B69D16F0041E0AE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				50CB52BA1B5891EF00AFB77A /* MongolUnicodeRenderer.swift */,
+				50857D681B55DD0200B33AAD /* ScalarString.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -81,6 +81,11 @@ import UIKit
             oldHeight = self.frame.height
         }
         
+        // Remove the old rotation view
+        if self.subviews.count > 0 {
+            self.subviews[0].removeFromSuperview()
+        }
+        
         // setup rotationView container
         let rotationView = UIView()
         rotationView.frame = CGRect(origin: CGPointZero, size: CGSize(width: self.bounds.height, height: self.bounds.width))
@@ -91,7 +96,7 @@ import UIKit
         
         
         
-        // add view (UILabel)
+        // add view
         view.frame = rotationView.bounds
         rotationView.addSubview(view)
         
