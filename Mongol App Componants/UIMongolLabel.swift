@@ -6,26 +6,37 @@ import UIKit
     
     // ********* Unique to Label *********
     private let view = UILabel()
-    
     let mongolFontName = "ChimeeWhiteMirrored"
+    let defaultFontSize: CGFloat = 17
     
     @IBInspectable var text: String {
         get {
-            if let txt = view.text {
-                return txt
-            } else {
-                return ""
-            }
+            return view.text ?? ""
         }
         set {
             view.text = newValue
         }
     }
+        
+    @IBInspectable var fontSize: CGFloat {
+        get {
+            if let font = view.font {
+                return font.pointSize
+            } else {
+                return 0.0
+            }
+        }
+        set {
+            view.font = UIFont(name: mongolFontName, size: newValue)
+        }
+    }
     
     func setup() {
         
-        view.text = self.text
-        view.font = UIFont(name: mongolFontName, size: 24)
+        // set font if user didn't specify size in IB
+        if self.view.font.fontName != mongolFontName {
+            view.font = UIFont(name: mongolFontName, size: defaultFontSize)
+        }
         
     }
     
@@ -96,7 +107,7 @@ import UIKit
         // rotate counterclockwise around center
         transform = CGAffineTransformRotate(transform, CGFloat(-M_PI_2))
         // flip vertically
-        transform = CGAffineTransformScale(transform, CGFloat(-1), CGFloat(1))
+        transform = CGAffineTransformScale(transform, -1, 1)
         
         return transform
     }

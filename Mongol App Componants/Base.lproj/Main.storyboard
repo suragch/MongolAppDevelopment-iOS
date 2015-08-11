@@ -1,11 +1,65 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8121.20" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="buY-tN-kMS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8121.20" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Jqd-DF-h7S">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.16"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="Q9D-hf-XtC">
+            <objects>
+                <viewController id="Jqd-DF-h7S" customClass="MainViewController" customModule="Mongol_App_Componants" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qGP-PU-JzS"/>
+                        <viewControllerLayoutGuide type="bottom" id="mdp-aG-vwF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="b2s-0K-MaC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="heF-xn-Y5t">
+                                <rect key="frame" x="226" y="60" width="148" height="30"/>
+                                <state key="normal" title="UIMongolLabel Demo"/>
+                                <connections>
+                                    <action selector="labelButton:" destination="Jqd-DF-h7S" eventType="touchUpInside" id="5CC-9y-5Q1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7pK-1B-Rrp">
+                                <rect key="frame" x="210" y="198" width="180" height="30"/>
+                                <state key="normal" title="UIMongolTableView Demo"/>
+                                <connections>
+                                    <action selector="tableViewButton:" destination="Jqd-DF-h7S" eventType="touchUpInside" id="He5-x9-fMk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zvu-Uu-ZCj">
+                                <rect key="frame" x="214" y="129" width="173" height="30"/>
+                                <state key="normal" title="UIMongolTextView Demo"/>
+                                <connections>
+                                    <action selector="textViewButton:" destination="Jqd-DF-h7S" eventType="touchUpInside" id="INA-W9-y93"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Zvu-Uu-ZCj" firstAttribute="top" secondItem="heF-xn-Y5t" secondAttribute="bottom" constant="39" id="Bdb-RE-X3I"/>
+                            <constraint firstItem="7pK-1B-Rrp" firstAttribute="centerX" secondItem="b2s-0K-MaC" secondAttribute="centerX" id="RgK-PT-SDE"/>
+                            <constraint firstItem="Zvu-Uu-ZCj" firstAttribute="centerX" secondItem="b2s-0K-MaC" secondAttribute="centerX" id="WOM-HT-6gP"/>
+                            <constraint firstItem="heF-xn-Y5t" firstAttribute="centerX" secondItem="b2s-0K-MaC" secondAttribute="centerX" id="dec-9k-fBz"/>
+                            <constraint firstItem="heF-xn-Y5t" firstAttribute="top" secondItem="qGP-PU-JzS" secondAttribute="bottom" constant="40" id="gm6-VO-zn5"/>
+                            <constraint firstItem="7pK-1B-Rrp" firstAttribute="top" secondItem="Zvu-Uu-ZCj" secondAttribute="bottom" constant="39" id="iIG-Vo-4lr"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="buY-tN-kMS" kind="show" identifier="textViewDemo" id="SSM-yx-EKS"/>
+                        <segue destination="l3P-jS-1yq" kind="show" identifier="labelDemo" id="IXd-Hi-w1p"/>
+                        <segue destination="Szp-c5-erE" kind="show" identifier="tableViewDemo" id="93w-FF-VuR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TgB-wD-PL7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-6" y="-731"/>
+        </scene>
         <!--Text View DemoVC-->
         <scene sceneID="0ew-Ll-411">
             <objects>
@@ -18,14 +72,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WoO-bg-lUi" customClass="UIMongolTextView" customModule="Mongol_App_Componants" customModuleProvider="target">
-                                <rect key="frame" x="16" y="20" width="568" height="171"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WoO-bg-lUi" customClass="UIMongolTextView" customModule="Mongol_App_Componants" customModuleProvider="target">
+                                <rect key="frame" x="20" y="20" width="560" height="171"/>
                                 <color key="backgroundColor" red="0.21296523159295744" green="0.70965070212929771" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="171" id="9XC-X8-yTg"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="text" value="1-10: ᠨᠢᠭᠡ ᠬᠤᠶᠠᠷ ᠭᠤᠷᠪᠠ ᠳᠦᠷᠪᠡ ᠲᠠᠪᠤ ᠵᠢᠷᠭᠤᠭ᠎ᠠ ᠳᠤᠯᠤᠭ᠎ᠠ ᠨᠠᠢ᠌ᠮᠠ ᠶᠢᠰᠦ ᠠᠷᠪᠠ one two three four five six seven eight nine ten"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                        <real key="value" value="32"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
@@ -42,7 +99,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H5a-d2-aaI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-685" y="19"/>
+            <point key="canvasLocation" x="-661" y="14"/>
         </scene>
         <!--Label DemoVC-->
         <scene sceneID="Z4T-3f-c1A">
@@ -56,13 +113,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Regular label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e28-PM-p7R">
-                                <rect key="frame" x="16" y="28" width="101" height="21"/>
-                                <color key="backgroundColor" red="0.46631239241635308" green="0.83187342171717171" blue="0.44808017726765931" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Stk-L1-s4j" customClass="UIMongolLabel" customModule="Mongol_App_Componants" customModuleProvider="target">
                                 <rect key="frame" x="278" y="20" width="44" height="572"/>
                                 <color key="backgroundColor" red="0.2129652316" green="0.70965070210000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -71,6 +121,9 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="text" value="ᠨᠢᠭᠡ ᠬᠣᠶᠠᠷ ᠭᠤᠷᠪᠠ one two three"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                        <real key="value" value="17"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>

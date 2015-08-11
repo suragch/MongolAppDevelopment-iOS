@@ -118,7 +118,7 @@ import UIKit
         // rotate counterclockwise around center
         transform = CGAffineTransformRotate(transform, CGFloat(-M_PI_2))
         // flip vertically
-        transform = CGAffineTransformScale(transform, CGFloat(-1), CGFloat(1))
+        transform = CGAffineTransformScale(transform, -1, 1)
         
         return transform
     }

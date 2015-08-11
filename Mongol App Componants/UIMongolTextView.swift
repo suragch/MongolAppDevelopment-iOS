@@ -4,27 +4,41 @@ import UIKit
 
     // ********* Unique to TextView *********
     private let view = UITextView()
-    
-    let mongolFontName = "ChimeeWhiteMirrored"
+    private let mongolFontName = "ChimeeWhiteMirrored"
+    private let defaultFontSize: CGFloat = 17
     
     @IBInspectable var text: String {
         get {
-            if let txt = view.text {
-                return txt
-            } else {
-                return ""
-            }
+            return view.text
         }
         set {
             view.text = newValue
         }
     }
     
+    @IBInspectable var fontSize: CGFloat {
+        get {
+            if let font = view.font {
+                return font.pointSize
+            } else {
+                return 0.0
+            }
+        }
+        set {
+            view.font = UIFont(name: mongolFontName, size: newValue)
+        }
+    }
+    
     func setup() {
         // 1-10: ᠨᠢᠭᠡ ᠬᠤᠶᠠᠷ ᠭᠤᠷᠪᠠ ᠳᠦᠷᠪᠡ ᠲᠠᠪᠤ ᠵᠢᠷᠭᠤᠭ᠎ᠠ ᠳᠤᠯᠤᠭ᠎ᠠ ᠨᠠᠢ᠌ᠮᠠ ᠶᠢᠰᠦ ᠠᠷᠪᠠ
-        view.text = self.text
-        view.backgroundColor = self.backgroundColor
-        view.font = UIFont(name: mongolFontName, size: 24)
+        
+        view.backgroundColor = UIColor.clearColor()
+        
+        // set font if user didn't specify size in IB
+        if self.view.font == nil || self.view.font!.fontName != mongolFontName {
+            
+            view.font = UIFont(name: mongolFontName, size: defaultFontSize)
+        }
         
     }
     
@@ -78,8 +92,6 @@ import UIKit
         // transform rotationView (so that it covers the same frame as self)
         rotationView.transform = translateRotateFlip()
         
-        
-        
         // add view
         view.frame = rotationView.bounds
         rotationView.addSubview(view)
@@ -95,7 +107,7 @@ import UIKit
         // rotate counterclockwise around center
         transform = CGAffineTransformRotate(transform, CGFloat(-M_PI_2))
         // flip vertically
-        transform = CGAffineTransformScale(transform, CGFloat(-1), CGFloat(1))
+        transform = CGAffineTransformScale(transform, -1, 1)
         
         return transform
     }

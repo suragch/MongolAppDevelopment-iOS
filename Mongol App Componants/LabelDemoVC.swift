@@ -18,8 +18,10 @@ class LabelDemoVC: UIViewController {
         super.viewDidLoad()
 
         let renderer = MongolUnicodeRenderer()
-        //label.text = renderer.unicodeToGlyphs(label.text)
+        
         label2.text = renderer.unicodeToGlyphs(label2.text)
+        //label2.fontSize = 12
+        
     }
     
 }
