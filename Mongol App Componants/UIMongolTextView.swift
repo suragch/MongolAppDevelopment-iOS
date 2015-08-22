@@ -27,6 +27,30 @@ import UIKit
         set {
             view.font = UIFont(name: mongolFontName, size: newValue)
         }
+   }
+    
+    @IBInspectable var textColor: UIColor {
+        get {
+            if let color = view.textColor {
+                return color
+            } else {
+                return UIColor.blackColor()
+            }
+        }
+        set {
+            view.textColor = newValue
+        }
+    }
+    
+    @IBInspectable var centerText: Bool {
+        get {
+            return view.textAlignment == NSTextAlignment.Center
+        }
+        set {
+            if newValue {
+                view.textAlignment = NSTextAlignment.Center
+            }
+        }
     }
     
     func setup() {
@@ -35,7 +59,7 @@ import UIKit
         view.backgroundColor = UIColor.clearColor()
         
         // set font if user didn't specify size in IB
-        if self.view.font == nil || self.view.font!.fontName != mongolFontName {
+        if self.view.font?.fontName != mongolFontName {
             
             view.font = UIFont(name: mongolFontName, size: defaultFontSize)
         }
@@ -53,7 +77,7 @@ import UIKit
     private var oldHeight: CGFloat = 0
     
     // This method gets called if you create the view in the Interface Builder
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     

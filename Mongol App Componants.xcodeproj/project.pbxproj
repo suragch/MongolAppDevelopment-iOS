@@ -18,6 +18,7 @@
 		506B2DCD1B59C57900B93D61 /* UIMongolLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506B2DCC1B59C57900B93D61 /* UIMongolLabel.swift */; };
 		506B2DCF1B59C98500B93D61 /* LabelDemoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506B2DCE1B59C98500B93D61 /* LabelDemoVC.swift */; };
 		507334A91B780F60005179B1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507334A81B780F60005179B1 /* MainViewController.swift */; };
+		5084F9421B7D945100DAC421 /* ScalarStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5084F9411B7D945100DAC421 /* ScalarStringTests.swift */; };
 		50857D691B55DD0200B33AAD /* ScalarString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50857D681B55DD0200B33AAD /* ScalarString.swift */; };
 		50CB52BB1B5891EF00AFB77A /* MongolUnicodeRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CB52BA1B5891EF00AFB77A /* MongolUnicodeRenderer.swift */; };
 		50CDEE9B1B67FE0200C7C405 /* UIMongolTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CDEE9A1B67FE0200C7C405 /* UIMongolTableView.swift */; };
@@ -51,6 +52,7 @@
 		506B2DCC1B59C57900B93D61 /* UIMongolLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIMongolLabel.swift; sourceTree = "<group>"; };
 		506B2DCE1B59C98500B93D61 /* LabelDemoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelDemoVC.swift; sourceTree = "<group>"; };
 		507334A81B780F60005179B1 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		5084F9411B7D945100DAC421 /* ScalarStringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalarStringTests.swift; sourceTree = "<group>"; };
 		50857D681B55DD0200B33AAD /* ScalarString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalarString.swift; sourceTree = "<group>"; };
 		50CB52BA1B5891EF00AFB77A /* MongolUnicodeRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MongolUnicodeRenderer.swift; sourceTree = "<group>"; };
 		50CDEE9A1B67FE0200C7C405 /* UIMongolTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIMongolTableView.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				505CADBE1B34FBB200A99031 /* Mongol_App_ComponantsTests.swift */,
+				5084F9411B7D945100DAC421 /* ScalarStringTests.swift */,
 				505CADBC1B34FBB200A99031 /* Supporting Files */,
 			);
 			path = "Mongol App ComponantsTests";
@@ -302,6 +305,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5084F9421B7D945100DAC421 /* ScalarStringTests.swift in Sources */,
 				505CADBF1B34FBB200A99031 /* Mongol_App_ComponantsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

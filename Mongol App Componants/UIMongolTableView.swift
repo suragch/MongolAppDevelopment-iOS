@@ -62,7 +62,7 @@ import UIKit
     private var oldHeight: CGFloat = 0
     
     // This method gets called if you create the view in the Interface Builder
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     

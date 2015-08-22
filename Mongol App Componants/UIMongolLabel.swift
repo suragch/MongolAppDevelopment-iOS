@@ -31,6 +31,35 @@ import UIKit
         }
     }
     
+    @IBInspectable var textColor: UIColor {
+        get {
+            return view.textColor
+        }
+        set {
+            view.textColor = newValue
+        }
+    }
+    
+    @IBInspectable var centerText: Bool {
+        get {
+            return view.textAlignment == NSTextAlignment.Center
+        }
+        set {
+            if newValue {
+                view.textAlignment = NSTextAlignment.Center
+            }
+        }
+    }
+    
+    @IBInspectable var lines: Int {
+        get {
+            return view.numberOfLines
+        }
+        set {
+            view.numberOfLines = newValue
+        }
+    }
+    
     func setup() {
         
         // set font if user didn't specify size in IB
@@ -51,7 +80,7 @@ import UIKit
     private var oldHeight: CGFloat = 0
     
     // This method gets called if you create the view in the Interface Builder
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     

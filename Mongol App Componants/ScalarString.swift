@@ -92,6 +92,26 @@ struct ScalarString: SequenceType, Hashable, CustomStringConvertible {
         return self.scalarArray.last
     }
     
+    // indexOf
+    // returns first index of scalar string match
+    func indexOf(string: ScalarString) -> Int? {
+        
+        for var i = 0; i <= scalarArray.count - string.length; ++i {
+            
+            for var j = 0; j < string.length; ++j {
+                
+                if string.charAt(j) != scalarArray[i + j] {
+                    break // substring mismatch
+                }
+                if j == string.length - 1 {
+                    return i
+                }
+            }
+        }
+        
+        return nil
+    }
+    
     // insert
     mutating func insert(scalar: UInt32, atIndex index: Int) {
         self.scalarArray.insert(scalar, atIndex: index)
@@ -138,6 +158,22 @@ struct ScalarString: SequenceType, Hashable, CustomStringConvertible {
         for scalar in self.scalarArray {
             if scalar != character {
                 returnString.append(scalar)
+            }
+        }
+        
+        return returnString
+    }
+    func removeRange(range: Range<Int>) -> ScalarString? {
+        
+        if range.startIndex < 0 || range.endIndex > scalarArray.count {
+            return nil
+        }
+        
+        var returnString = ScalarString()
+        
+        for var i = 0; i < scalarArray.count; ++i {
+            if i < range.startIndex || i >= range.endIndex {
+                returnString.append(scalarArray[i])
             }
         }
         
