@@ -62,6 +62,21 @@ import UIKit
         }
     }
     
+    var attributedText: NSAttributedString! {
+        get {
+            return view.attributedText
+        }
+        set {
+            view.attributedText = newValue
+        }
+    }
+    
+    var layoutManager: NSLayoutManager {
+        get {
+            return view.layoutManager
+        }
+    }
+    
     func setup() {
         // 1-10: ᠨᠢᠭᠡ ᠬᠤᠶᠠᠷ ᠭᠤᠷᠪᠠ ᠳᠦᠷᠪᠡ ᠲᠠᠪᠤ ᠵᠢᠷᠭᠤᠭ᠎ᠠ ᠳᠤᠯᠤᠭ᠎ᠠ ᠨᠠᠢ᠌ᠮᠠ ᠶᠢᠰᠦ ᠠᠷᠪᠠ
         
