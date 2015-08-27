@@ -1,7 +1,7 @@
 /*
 * Chimee Mongol Unicode Rendering Engine for iOS
 *
-* Version 1.1.1
+* Version 1.1.2
 *
 * Current version needs to be used with Almas font glyphs
 * copied to PUA starting at \uE360. To use different glyph
@@ -11,6 +11,10 @@
 */
 
 class MongolUnicodeRenderer {
+    
+    // Singleton
+    // This class is immutable
+    static let sharedInstance = MongolUnicodeRenderer()
     
     enum Location {
         case ISOLATE, INITIAL, MEDIAL, FINAL, NOT_MONGOLIAN

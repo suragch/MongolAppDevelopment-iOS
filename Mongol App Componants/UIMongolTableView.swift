@@ -16,9 +16,9 @@ import UIKit
     func setup() {
         // do any setup necessary
         
-        //view.text = self.text
         view.backgroundColor = self.backgroundColor
-        //view.font = UIFont(name: mongolFontName, size: 24)
+        view.layoutMargins = UIEdgeInsetsZero
+        view.separatorInset = UIEdgeInsetsZero
     }
     
     // FIXME: @IBOutlet still can't be set in IB
