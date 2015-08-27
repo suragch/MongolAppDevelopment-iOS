@@ -53,6 +53,15 @@ import UIKit
         }
     }
     
+    @IBInspectable var editable: Bool {
+        get {
+            return view.editable
+        }
+        set {
+            view.editable = newValue
+        }
+    }
+    
     func setup() {
         // 1-10: ᠨᠢᠭᠡ ᠬᠤᠶᠠᠷ ᠭᠤᠷᠪᠠ ᠳᠦᠷᠪᠡ ᠲᠠᠪᠤ ᠵᠢᠷᠭᠤᠭ᠎ᠠ ᠳᠤᠯᠤᠭ᠎ᠠ ᠨᠠᠢ᠌ᠮᠠ ᠶᠢᠰᠦ ᠠᠷᠪᠠ
         
