@@ -97,6 +97,24 @@ class ScalarStringTests: XCTestCase {
         
     }
     
+    // MARK: - insert
+    
+    func testInsertString_normalConditions_stringWithInsertAtIndex() {
+        
+        // Arrange
+        let originalCopy = ScalarString("0123")
+        var mutatingCopy = originalCopy
+        let stringToInsert = "abc"
+        let index = 2
+        
+        // Act
+        mutatingCopy.insert(stringToInsert, atIndex: index)
+        
+        // Assert
+        XCTAssertEqual(mutatingCopy.toString(), "01abc23")
+        
+    }
+    
     // MARK: - remove
     
     func testRemoveRange_rangeOutOfBounts_nil() {
