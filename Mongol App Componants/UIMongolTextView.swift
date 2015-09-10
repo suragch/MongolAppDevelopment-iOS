@@ -62,6 +62,15 @@ import UIKit
         }
     }
     
+    var scrollEnabled: Bool {
+        get {
+            return view.scrollEnabled
+        }
+        set {
+            view.scrollEnabled = newValue
+        }
+    }
+    
     var attributedText: NSAttributedString! {
         get {
             return view.attributedText
@@ -75,6 +84,21 @@ import UIKit
         get {
             return view.layoutManager
         }
+    }
+    
+    var contentSize: CGSize {
+        get {
+            return CGSize(width: view.contentSize.height, height: view.contentSize.width)
+        }
+        set {
+            view.contentSize = CGSize(width: newValue.height, height: newValue.width)
+        }
+    }
+    
+    override func sizeThatFits(size: CGSize) -> CGSize {
+        // swap the length and width coming in and going out
+        let fitSize = view.sizeThatFits(CGSize(width: size.height, height: size.width))
+        return CGSize(width: fitSize.height, height: fitSize.width)
     }
     
     func setup() {

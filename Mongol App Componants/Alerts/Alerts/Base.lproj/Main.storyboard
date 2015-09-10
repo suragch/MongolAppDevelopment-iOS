@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8173.3" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8142"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Alerts" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="owu-LV-szN">
+                                <rect key="frame" x="263" y="20" width="75" height="30"/>
+                                <state key="normal" title="Show Alert"/>
+                                <connections>
+                                    <action selector="showAlert:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LEo-CN-dyZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bnb-Gi-IBe">
+                                <rect key="frame" x="237" y="71" width="127" height="30"/>
+                                <state key="normal" title="show mongol alert"/>
+                                <connections>
+                                    <action selector="showMongolAlert:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qpI-bK-o1J"/>
+                                    <segue destination="Fbn-t4-l5q" kind="show" id="Jn4-2j-fTb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="owu-LV-szN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5Eb-br-DQM"/>
+                            <constraint firstItem="owu-LV-szN" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Ext-T5-8JM"/>
+                            <constraint firstItem="Bnb-Gi-IBe" firstAttribute="top" secondItem="owu-LV-szN" secondAttribute="bottom" constant="21" id="JP0-wG-6Tk"/>
+                            <constraint firstItem="Bnb-Gi-IBe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hxg-d0-FMb"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-648" y="215"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="SZN-0L-VkB">
+            <objects>
+                <viewController id="Fbn-t4-l5q" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ggS-dK-f5t"/>
+                        <viewControllerLayoutGuide type="bottom" id="iXb-Mj-QIl"/>
+                    </layoutGuides>
+                    <view key="view" alpha="0.25" contentMode="scaleToFill" id="jZh-EK-Znb">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AwF-9P-OLX">
+                                <rect key="frame" x="180" y="236" width="240" height="128"/>
+                                <color key="backgroundColor" red="0.34404083882572045" green="0.2725515321346621" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="a12-hS-chw"/>
+                                    <constraint firstAttribute="height" constant="128" id="csk-QK-Okw"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0037484217171717127" green="0.0037484217171717127" blue="0.0037484217171717127" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="AwF-9P-OLX" firstAttribute="centerY" secondItem="jZh-EK-Znb" secondAttribute="centerY" id="Kqz-vm-VWJ"/>
+                            <constraint firstItem="AwF-9P-OLX" firstAttribute="centerX" secondItem="jZh-EK-Znb" secondAttribute="centerX" id="aRJ-bq-HZk"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3w9-1S-aoR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="20" y="215"/>
+        </scene>
+    </scenes>
+</document>
