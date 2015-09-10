@@ -1,11 +1,13 @@
 # iOS-Mongol-App-Components
 
-This is just a testing area to try out new UI componants used to build Mongolian apps for iOS
+This is a demo app to show how various Mongolian language UI componants cab be used to build Mongolian apps for iOS. It is not finished. Other developers are welcome to contribute their ideas.
 
 UI
 
+- UIMongolTableView.swift
 - UIMongolTextView.swift
 - UIMongolLabel.swift
+- Alert (not finished)
 
 Text rendering
 
