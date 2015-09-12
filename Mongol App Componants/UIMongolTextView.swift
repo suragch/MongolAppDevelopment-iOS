@@ -3,7 +3,7 @@ import UIKit
 @IBDesignable class UIMongolTextView: UIView {
 
     // ********* Unique to TextView *********
-    private let view = UITextView()
+    private var view = UITextView()
     private let mongolFontName = "ChimeeWhiteMirrored"
     private let defaultFontSize: CGFloat = 17
     
@@ -92,6 +92,15 @@ import UIKit
         }
         set {
             view.contentSize = CGSize(width: newValue.height, height: newValue.width)
+        }
+    }
+    
+    var underlyingTextView: UITextView {
+        get {
+            return view
+        }
+        set {
+            view = newValue
         }
     }
     
