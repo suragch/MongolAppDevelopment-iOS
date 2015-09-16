@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8173.3" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cHd-Ca-xD1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cHd-Ca-xD1">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8142"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -19,44 +19,53 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="heF-xn-Y5t">
-                                <rect key="frame" x="249" y="104" width="103" height="30"/>
+                                <rect key="frame" x="249" y="84" width="103" height="30"/>
                                 <state key="normal" title="UIMongolLabel"/>
                                 <connections>
                                     <action selector="labelButton:" destination="Jqd-DF-h7S" eventType="touchUpInside" id="5CC-9y-5Q1"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7pK-1B-Rrp">
-                                <rect key="frame" x="232" y="242" width="136" height="30"/>
+                                <rect key="frame" x="232" y="184" width="136" height="30"/>
                                 <state key="normal" title="UIMongolTableView"/>
                                 <connections>
                                     <action selector="tableViewButton:" destination="Jqd-DF-h7S" eventType="touchUpInside" id="He5-x9-fMk"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zvu-Uu-ZCj">
-                                <rect key="frame" x="236" y="173" width="128" height="30"/>
+                                <rect key="frame" x="236" y="134" width="128" height="30"/>
                                 <state key="normal" title="UIMongolTextView"/>
                                 <connections>
                                     <action selector="textViewButton:" destination="Jqd-DF-h7S" eventType="touchUpInside" id="INA-W9-y93"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LZD-5u-qCO">
-                                <rect key="frame" x="251" y="311" width="99" height="30"/>
+                                <rect key="frame" x="251" y="234" width="99" height="30"/>
                                 <state key="normal" title="UIMongolAlert"/>
                                 <connections>
                                     <action selector="alertControllerButton:" destination="Jqd-DF-h7S" eventType="touchUpInside" id="P9W-SO-bOj"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TX8-YK-cOp">
+                                <rect key="frame" x="244" y="284" width="112" height="30"/>
+                                <state key="normal" title="UIMongolButton"/>
+                                <connections>
+                                    <action selector="buttonButton:" destination="Jqd-DF-h7S" eventType="touchUpInside" id="jpY-o3-q5e"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="LZD-5u-qCO" firstAttribute="top" secondItem="7pK-1B-Rrp" secondAttribute="bottom" constant="39" id="23C-jr-svk"/>
-                            <constraint firstItem="Zvu-Uu-ZCj" firstAttribute="top" secondItem="heF-xn-Y5t" secondAttribute="bottom" constant="39" id="Bdb-RE-X3I"/>
+                            <constraint firstItem="LZD-5u-qCO" firstAttribute="top" secondItem="7pK-1B-Rrp" secondAttribute="bottom" constant="20" id="23C-jr-svk"/>
+                            <constraint firstItem="Zvu-Uu-ZCj" firstAttribute="top" secondItem="heF-xn-Y5t" secondAttribute="bottom" constant="20" id="Bdb-RE-X3I"/>
+                            <constraint firstItem="TX8-YK-cOp" firstAttribute="top" secondItem="LZD-5u-qCO" secondAttribute="bottom" constant="20" id="F3J-Bi-3Dc"/>
                             <constraint firstItem="7pK-1B-Rrp" firstAttribute="centerX" secondItem="b2s-0K-MaC" secondAttribute="centerX" id="RgK-PT-SDE"/>
                             <constraint firstItem="Zvu-Uu-ZCj" firstAttribute="centerX" secondItem="b2s-0K-MaC" secondAttribute="centerX" id="WOM-HT-6gP"/>
+                            <constraint firstItem="TX8-YK-cOp" firstAttribute="centerX" secondItem="b2s-0K-MaC" secondAttribute="centerX" id="aTm-OB-UGr"/>
                             <constraint firstItem="LZD-5u-qCO" firstAttribute="centerX" secondItem="b2s-0K-MaC" secondAttribute="centerX" id="d4l-wd-h7P"/>
                             <constraint firstItem="heF-xn-Y5t" firstAttribute="centerX" secondItem="b2s-0K-MaC" secondAttribute="centerX" id="dec-9k-fBz"/>
-                            <constraint firstItem="heF-xn-Y5t" firstAttribute="top" secondItem="qGP-PU-JzS" secondAttribute="bottom" constant="40" id="gm6-VO-zn5"/>
-                            <constraint firstItem="7pK-1B-Rrp" firstAttribute="top" secondItem="Zvu-Uu-ZCj" secondAttribute="bottom" constant="39" id="iIG-Vo-4lr"/>
+                            <constraint firstItem="heF-xn-Y5t" firstAttribute="top" secondItem="qGP-PU-JzS" secondAttribute="bottom" constant="20" id="gm6-VO-zn5"/>
+                            <constraint firstItem="7pK-1B-Rrp" firstAttribute="top" secondItem="Zvu-Uu-ZCj" secondAttribute="bottom" constant="20" id="iIG-Vo-4lr"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="B72-8w-ZuM"/>
@@ -65,11 +74,12 @@
                         <segue destination="l3P-jS-1yq" kind="show" identifier="labelDemo" id="IXd-Hi-w1p"/>
                         <segue destination="Szp-c5-erE" kind="show" identifier="tableViewDemo" id="93w-FF-VuR"/>
                         <segue destination="f3M-9i-1NO" kind="show" identifier="alertDemo" id="rsa-6r-7E7"/>
+                        <segue destination="SSU-TB-DPk" kind="show" identifier="buttonDemo" id="Eg6-0T-xZb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TgB-wD-PL7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1219" y="-796"/>
+            <point key="canvasLocation" x="1232" y="-796"/>
         </scene>
         <!--Text View DemoVC-->
         <scene sceneID="0ew-Ll-411">
@@ -193,6 +203,51 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DXW-MK-YYF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="714" y="14"/>
+        </scene>
+        <!--Button DemoVC-->
+        <scene sceneID="7Re-M9-BIZ">
+            <objects>
+                <viewController id="SSU-TB-DPk" customClass="ButtonDemoVC" customModule="Mongol_App_Componants" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tZH-XP-UGC"/>
+                        <viewControllerLayoutGuide type="bottom" id="yF8-He-Oet"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9ax-wk-M9C">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mh6-Yr-U60">
+                                <rect key="frame" x="198" y="105" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="myActionObject:" destination="SSU-TB-DPk" eventType="touchUpInside" id="Myq-Fb-BpS"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Fa-mP-a8V" customClass="UIMongolButton" customModule="Mongol_App_Componants" customModuleProvider="target">
+                                <rect key="frame" x="20" y="72" width="80" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="l0d-J1-9Ai"/>
+                                    <constraint firstAttribute="width" constant="80" id="vSf-Ab-A6p"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="ᠨᠢᠭᠡ UIMongolButton"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="mongolButton:" destination="SSU-TB-DPk" eventType="touchUpInside" id="bHt-HF-qnK"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5Fa-mP-a8V" firstAttribute="leading" secondItem="9ax-wk-M9C" secondAttribute="leadingMargin" id="2Fj-wH-WQ4"/>
+                            <constraint firstItem="5Fa-mP-a8V" firstAttribute="top" secondItem="tZH-XP-UGC" secondAttribute="bottom" constant="8" id="Aaa-tC-zFy"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g1y-Gg-kRf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2029" y="14"/>
         </scene>
         <!--Alert DemoVC-->
         <scene sceneID="TTU-CU-M1p">

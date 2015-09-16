@@ -1,56 +1,66 @@
-
 import UIKit
 
-@IBDesignable class UIMongolTableView: UIView {
+@IBDesignable class UIMongolButton: UIControl {
     
-    // ********* Unique to TableView *********
-    private var view = UITableView()
-    private var userInteractionEnabledForSubviews = true
+    // ********* Unique to Button *********
+    private let view = UIButton()
+    private var userInteractionEnabledForSubviews = false
+    let mongolFontName = "ChimeeWhiteMirrored"
+    let defaultFontSize: CGFloat = 17
     
-    // read only refernce to the underlying tableview
-    var tableView: UITableView {
+    func setTitle(title: String, forState: UIControlState) {
+        self.view.setTitle(title, forState: forState)
+    }
+    
+    func setTitleColor(color: UIColor, forState: UIControlState) {
+        self.view.setTitleColor(color, forState: forState)
+    }
+    
+    @IBInspectable var title: String {
         get {
-            return view
+            return view.titleLabel?.text ?? ""
+        }
+        set {
+            self.setTitle(newValue, forState: UIControlState.Normal)
+            //view.titleLabel!.text = newValue
         }
     }
+    
+    override func beginTrackingWithTouch(touch: UITouch, withEvent event: UIEvent?) -> Bool {
+        super.beginTrackingWithTouch(touch, withEvent: event)
+        
+        print("touch began")
+        
+        return true // return true if needs to respond when touch is dragged
+    }
+    override func continueTrackingWithTouch(touch: UITouch, withEvent event: UIEvent?) -> Bool {
+        super.continueTrackingWithTouch(touch, withEvent: event)
+        let lastPoint = touch.locationInView(self)
+        
+        // do something with lastPoint
+        print("touching point: \(lastPoint)")
+        
+        self.sendActionsForControlEvents(UIControlEvents.ValueChanged)
+        return true // if want to track at touch location
+    }
+    override func endTrackingWithTouch(touch: UITouch?, withEvent event: UIEvent?) {
+        super.endTrackingWithTouch(touch, withEvent: event)
+        
+        print("touch ended")
+    }
+    
     
     func setup() {
-        // do any setup necessary
         
-        view.backgroundColor = self.backgroundColor
-        view.layoutMargins = UIEdgeInsetsZero
-        view.separatorInset = UIEdgeInsetsZero
-    }
-    
-    // FIXME: @IBOutlet still can't be set in IB
-    @IBOutlet weak var delegate: UITableViewDelegate? {
-        get {
-            return view.delegate
+        self.view.setTitleColor(UIColor.blueColor(), forState: .Normal)
+        self.view.userInteractionEnabled = userInteractionEnabledForSubviews
+        // set font if user didn't specify size in IB
+        if self.view.titleLabel?.font.fontName != mongolFontName {
+            view.titleLabel!.font = UIFont(name: mongolFontName, size: defaultFontSize)
+            
         }
-        set {
-            view.delegate = newValue
-        }
+        
     }
-    
-    // FIXME: @IBOutlet still can't be set in IB
-    @IBOutlet weak var dataSource: UITableViewDataSource? {
-        get {
-            return view.dataSource
-        }
-        set {
-            view.dataSource = newValue
-        }
-    }
-    
-    func registerClass(cellClass: AnyClass?, forCellReuseIdentifier identifier: String) {
-        view.registerClass(cellClass, forCellReuseIdentifier: identifier)
-    }
-    
-    func dequeueReusableCellWithIdentifier(identifier: String) -> UITableViewCell? {
-        return view.dequeueReusableCellWithIdentifier(identifier)
-    }
-    
-    
     
     
     
@@ -124,4 +134,6 @@ import UIKit
         
         return transform
     }
+    
 }
+

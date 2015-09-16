@@ -2,8 +2,11 @@ import UIKit
 
 @IBDesignable class UIMongolTextView: UIView {
 
+    // FIXME: long load time
+    
     // ********* Unique to TextView *********
     private var view = UITextView()
+    private var userInteractionEnabledForSubviews = true
     private let mongolFontName = "ChimeeWhiteMirrored"
     private let defaultFontSize: CGFloat = 17
     
@@ -168,10 +171,13 @@ import UIKit
         // setup rotationView container
         let rotationView = UIView()
         rotationView.frame = CGRect(origin: CGPointZero, size: CGSize(width: self.bounds.height, height: self.bounds.width))
+        rotationView.userInteractionEnabled = userInteractionEnabledForSubviews
         self.addSubview(rotationView)
         
         // transform rotationView (so that it covers the same frame as self)
         rotationView.transform = translateRotateFlip()
+        
+        
         
         // add view
         view.frame = rotationView.bounds

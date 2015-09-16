@@ -21,6 +21,8 @@
 		507334A91B780F60005179B1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507334A81B780F60005179B1 /* MainViewController.swift */; };
 		5084F9421B7D945100DAC421 /* ScalarStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5084F9411B7D945100DAC421 /* ScalarStringTests.swift */; };
 		50857D691B55DD0200B33AAD /* ScalarString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50857D681B55DD0200B33AAD /* ScalarString.swift */; };
+		50B67C821BA3B68100B3EC63 /* UIMongolButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B67C811BA3B68100B3EC63 /* UIMongolButton.swift */; };
+		50B67C841BA3B70200B3EC63 /* ButtonDemoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B67C831BA3B70200B3EC63 /* ButtonDemoVC.swift */; };
 		50CB52BB1B5891EF00AFB77A /* MongolUnicodeRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CB52BA1B5891EF00AFB77A /* MongolUnicodeRenderer.swift */; };
 		50CDEE9B1B67FE0200C7C405 /* UIMongolTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CDEE9A1B67FE0200C7C405 /* UIMongolTableView.swift */; };
 		50CDEE9D1B67FE8400C7C405 /* TableViewDemoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CDEE9C1B67FE8400C7C405 /* TableViewDemoVC.swift */; };
@@ -56,6 +58,8 @@
 		507334A81B780F60005179B1 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		5084F9411B7D945100DAC421 /* ScalarStringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalarStringTests.swift; sourceTree = "<group>"; };
 		50857D681B55DD0200B33AAD /* ScalarString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalarString.swift; sourceTree = "<group>"; };
+		50B67C811BA3B68100B3EC63 /* UIMongolButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIMongolButton.swift; sourceTree = "<group>"; };
+		50B67C831BA3B70200B3EC63 /* ButtonDemoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonDemoVC.swift; sourceTree = "<group>"; };
 		50CB52BA1B5891EF00AFB77A /* MongolUnicodeRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MongolUnicodeRenderer.swift; sourceTree = "<group>"; };
 		50CDEE9A1B67FE0200C7C405 /* UIMongolTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIMongolTableView.swift; sourceTree = "<group>"; };
 		50CDEE9C1B67FE8400C7C405 /* TableViewDemoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDemoVC.swift; sourceTree = "<group>"; };
@@ -163,6 +167,7 @@
 				506B2DCE1B59C98500B93D61 /* LabelDemoVC.swift */,
 				50CDEE9C1B67FE8400C7C405 /* TableViewDemoVC.swift */,
 				50E5725F1B69D07F0041E0AE /* TextViewDemoVC.swift */,
+				50B67C831BA3B70200B3EC63 /* ButtonDemoVC.swift */,
 				505BF7FB1B98381B005FBD9D /* AlertDemoVC.swift */,
 			);
 			name = Controllers;
@@ -174,6 +179,7 @@
 				506B2DCC1B59C57900B93D61 /* UIMongolLabel.swift */,
 				50CDEE9A1B67FE0200C7C405 /* UIMongolTableView.swift */,
 				505CADCA1B34FE7F00A99031 /* UIMongolTextView.swift */,
+				50B67C811BA3B68100B3EC63 /* UIMongolButton.swift */,
 				505BF7F71B97F56A005FBD9D /* UIMongolAlert.swift */,
 			);
 			name = Views;
@@ -291,7 +297,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				50CB52BB1B5891EF00AFB77A /* MongolUnicodeRenderer.swift in Sources */,
+				50B67C841BA3B70200B3EC63 /* ButtonDemoVC.swift in Sources */,
 				507334A91B780F60005179B1 /* MainViewController.swift in Sources */,
+				50B67C821BA3B68100B3EC63 /* UIMongolButton.swift in Sources */,
 				50CDEE9B1B67FE0200C7C405 /* UIMongolTableView.swift in Sources */,
 				505BF7FC1B98381B005FBD9D /* AlertDemoVC.swift in Sources */,
 				50CDEE9D1B67FE8400C7C405 /* TableViewDemoVC.swift in Sources */,
