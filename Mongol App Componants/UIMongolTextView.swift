@@ -65,6 +65,15 @@ import UIKit
         }
     }
     
+    @IBInspectable var selectable: Bool {
+        get {
+            return view.selectable
+        }
+        set {
+            view.selectable = newValue
+        }
+    }
+    
     var scrollEnabled: Bool {
         get {
             return view.scrollEnabled
