@@ -42,6 +42,10 @@ import UIKit
         }
     }
     
+    func scrollToRowAtIndexPath(indexPath: NSIndexPath, atScrollPosition: UITableViewScrollPosition, animated: Bool) {
+        view.scrollToRowAtIndexPath(indexPath, atScrollPosition: atScrollPosition, animated: animated)
+    }
+    
     func registerClass(cellClass: AnyClass?, forCellReuseIdentifier identifier: String) {
         view.registerClass(cellClass, forCellReuseIdentifier: identifier)
     }
