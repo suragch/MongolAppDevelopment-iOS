@@ -12,7 +12,7 @@ class TableViewDemoVC: UIViewController, UITableViewDelegate, UITableViewDataSou
 
     @IBOutlet weak var mongolTableView: UIMongolTableView!
     
-    let renderer = MongolUnicodeRenderer()
+    let renderer = MongolUnicodeRenderer.sharedInstance
     let mongolFont = "ChimeeWhiteMirrored"
     let fontSize: CGFloat = 24
     

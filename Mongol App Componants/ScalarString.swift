@@ -126,32 +126,22 @@ struct ScalarString: SequenceType, Hashable, CustomStringConvertible {
     
     // isEmpty
     var isEmpty: Bool {
-        get {
-            return self.scalarArray.count == 0
-        }
+        return self.scalarArray.count == 0
     }
     
     // hashValue (to implement Hashable protocol)
     var hashValue: Int {
-        get {
-            
-            // DJB Hash Function
-            var hash = 5381
-            
-            for(var i = 0; i < self.scalarArray.count; i++)
-            {
-                hash = ((hash << 5) &+ hash) &+ Int(self.scalarArray[i])
-            }
-            
-            return hash
+        
+        // DJB Hash Function
+        return self.scalarArray.reduce(5381) {
+            ($0 << 5) &+ $0 &+ Int($1)
         }
+        
     }
     
     // length
     var length: Int {
-        get {
-            return self.scalarArray.count
-        }
+        return self.scalarArray.count
     }
     
     // remove character
@@ -281,18 +271,7 @@ struct ScalarString: SequenceType, Hashable, CustomStringConvertible {
 }
 
 func ==(left: ScalarString, right: ScalarString) -> Bool {
-    
-    if left.length != right.length {
-        return false
-    }
-    
-    for var i = 0; i < left.length; ++i {
-        if left.charAt(i) != right.charAt(i) {
-            return false
-        }
-    }
-    
-    return true
+    return left.scalarArray == right.scalarArray
 }
 
 func +(left: ScalarString, right: ScalarString) -> ScalarString {

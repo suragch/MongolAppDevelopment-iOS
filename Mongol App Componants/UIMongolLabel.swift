@@ -4,6 +4,8 @@ import UIKit
     
     // TODO: make view resize to label length
     
+    // MARK:- Unique to Label
+    
     // ********* Unique to Label *********
     private let view = UILabel()
     private var userInteractionEnabledForSubviews = true
@@ -71,7 +73,7 @@ import UIKit
     }
     
     
-    
+    // MARK:- General code for Mongol views
     
     // *******************************************
     // ****** General code for Mongol views ******

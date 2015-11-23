@@ -26,18 +26,13 @@ class ButtonDemoVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        let myButton = UIButton()
-//        myButton.setTitle("This is a title", forState: UIControlState.Normal)
-//        myButton.setTitleColor(UIColor.blueColor(), forState: .Normal)
-//        myButton.frame = CGRect(x: 15, y: 15, width: 300, height: 500)
-//        myButton.addTarget(self, action: "pressedAction:", forControlEvents: UIControlEvents.TouchUpInside)
-//        self.view.addSubview(myButton)
+
         
     }
     
-    func pressedAction(sender: UIButton!) {
-        print("my button was clicked")
-    }
+//    func pressedAction(sender: UIButton!) {
+//        print("my button was clicked")
+//    }
 
     
 }

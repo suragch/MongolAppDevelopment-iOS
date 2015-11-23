@@ -7,17 +7,9 @@ class TextViewDemoVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //myUITextView.font = UIFont(name: "ChimeeWhiteMirrored", size: myUITextView.font.pointSize)
-        //myUITextView.setTheFont("ChimeeWhiteMirrored")
+        //print(textView.text)
         
-        print(textView.text)
-        
-        
-        let renderer = MongolUnicodeRenderer()
-        
-        //var myMongolString = renderer.unicodeToGlyphs("Mongol ᠵᠠᠬᠢᠶ᠎ᠠ ᠶᠢ ᠳᠣᠪᠴᠢᠳᠠᠪᠠᠯ")
-        //print(myMongolString)
-        
+        let renderer = MongolUnicodeRenderer.sharedInstance
         textView.text = renderer.unicodeToGlyphs(textView.text)
     }
     

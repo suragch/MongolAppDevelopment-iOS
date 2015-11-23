@@ -3,7 +3,7 @@
 *
 * Version 1.1.2
 *
-* Current version needs to be used with Almas font glyphs
+* Current version needs to be used with Almas font 1.0 glyphs
 * copied to PUA starting at \uE360. To use different glyph
 * encodings, adjust the Glyph.* static final constants below.
 * These PUA encodings are only to be used internally for glyph

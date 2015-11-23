@@ -3,6 +3,8 @@ import UIKit
 
 @IBDesignable class UIMongolTableView: UIView {
     
+    // MARK:- Unique to TableView
+    
     // ********* Unique to TableView *********
     private var view = UITableView()
     private var userInteractionEnabledForSubviews = true
@@ -57,7 +59,7 @@ import UIKit
     
     
     
-    
+    // MARK:- General code for Mongol views
     
     // *******************************************
     // ****** General code for Mongol views ******

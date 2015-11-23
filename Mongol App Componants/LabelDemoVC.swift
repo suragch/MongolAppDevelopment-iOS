@@ -17,7 +17,7 @@ class LabelDemoVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let renderer = MongolUnicodeRenderer()
+        let renderer = MongolUnicodeRenderer.sharedInstance
         
         label2.text = renderer.unicodeToGlyphs(label2.text)
         //label2.fontSize = 12

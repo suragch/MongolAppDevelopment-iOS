@@ -2,6 +2,8 @@ import UIKit
 
 @IBDesignable class UIMongolButton: UIControl {
     
+    // MARK:- Unique to Button
+    
     // ********* Unique to Button *********
     private let view = UIButton()
     private var userInteractionEnabledForSubviews = false
@@ -63,7 +65,7 @@ import UIKit
     }
     
     
-    
+    // MARK:- General code for Mongol views
     
     // *******************************************
     // ****** General code for Mongol views ******

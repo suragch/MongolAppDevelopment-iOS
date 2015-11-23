@@ -1,11 +1,3 @@
-//
-//  MainViewController.swift
-//  Mongol App Componants
-//
-//  Created by MongolSuragch on 8/10/15.
-//  Copyright © 2015 MongolSuragch. All rights reserved.
-//
-
 import UIKit
 
 class MainViewController: UIViewController {
@@ -26,19 +18,4 @@ class MainViewController: UIViewController {
         self.performSegueWithIdentifier("tableViewDemo", sender: nil)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    // Test 3
-    
-
 }

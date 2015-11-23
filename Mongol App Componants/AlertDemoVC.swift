@@ -15,7 +15,7 @@ class AlertDemoVC: UIViewController, UIGestureRecognizerDelegate {
     let alertView = UIView()
     let alertMessageBorder = UIView()
     let alertMessageTextView = UIMongolTextView()
-    let renderer = MongolUnicodeRenderer()
+    let renderer = MongolUnicodeRenderer.sharedInstance
     
     @IBAction func showAlert(sender: AnyObject) {
         

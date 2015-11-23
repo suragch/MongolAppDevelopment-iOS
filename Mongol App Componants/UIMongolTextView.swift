@@ -4,6 +4,8 @@ import UIKit
 
     // FIXME: long load time
     
+    // MARK:- Unique to TextView
+    
     // ********* Unique to TextView *********
     private var view = UITextView()
     private var userInteractionEnabledForSubviews = true
@@ -136,7 +138,7 @@ import UIKit
     }
     
     
-    
+    // MARK:- General code for Mongol views
     
     // *******************************************
     // ****** General code for Mongol views ******
