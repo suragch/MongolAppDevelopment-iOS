@@ -63,6 +63,42 @@ import UIKit
         }
     }
     
+    var textAlignment: NSTextAlignment {
+        get {
+            return view.textAlignment
+        }
+        set {
+            view.textAlignment = newValue
+        }
+    }
+    
+    var font: UIFont {
+        get {
+            return view.font
+        }
+        set {
+            view.font = newValue
+        }
+    }
+    
+    var adjustsFontSizeToFitWidth: Bool {
+        get {
+            return view.adjustsFontSizeToFitWidth
+        }
+        set {
+            view.adjustsFontSizeToFitWidth = newValue
+        }
+    }
+    
+    var minimumScaleFactor: CGFloat {
+        get {
+            return view.minimumScaleFactor
+        }
+        set {
+            view.minimumScaleFactor = newValue
+        }
+    }
+    
     func setup() {
         
         // set font if user didn't specify size in IB
