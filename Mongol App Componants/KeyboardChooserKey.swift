@@ -18,15 +18,10 @@ class KeyboardChooserKey: KeyboardKey {
     // popup keyboard menu
     var menuItemRectSize = CGSizeZero
     let menuItemPadding: CGFloat = 15
-    //var numberOfItems = 3
     var menuItems: [String] = [ "ABC", "Cyrillic", "Computer" ]
-    //var itemWidth: CGFloat = 40
     let mongolFontName = "ChimeeWhiteMirrored"
-    var useMirroredFont = true
     var menuFontSize: CGFloat = 17
     private var touchDownPoint = CGPointZero
-    private var touchDownTime = NSDate()
-    private let longPressTimeThreshold = 0.5 // seconds
     private var longTouchMovementWidthThreshold: CGFloat = 0 // updated according to menu item width
     private var oldSelectedItem = 0
     private let defaultMenuItemBackgroundColor = UIColor.clearColor().CGColor
@@ -77,7 +72,6 @@ class KeyboardChooserKey: KeyboardKey {
         
         for _ in menuItems {
             let textLayer = KeyboardKeyTextLayer()
-            //textLayer.backgroundColor = UIColor.redColor().CGColor
             textLayer.contentsScale = UIScreen.mainScreen().scale
             menuLayerBackbround.addSublayer(textLayer)
             menuItemLayers.append(textLayer)
@@ -104,35 +98,29 @@ class KeyboardChooserKey: KeyboardKey {
     
     func updateMenuLayers() {
         
+        // background layer
         let attributedMenuItems = menuItemAttributedStrings()
         menuItemRectSize = maxMenuItemSize(attributedMenuItems)
-        
         longTouchMovementWidthThreshold = menuItemRectSize.width + menuItemPadding
-        
         menuLayerBackbround.frame = bounds
         menuLayerBackbround.path = popupMenuPath().CGPath
         
-        
-        
-        
+        // menu item layers
         var x: CGFloat = padding + menuItemPadding
         let y: CGFloat = -padding - menuItemPadding - menuItemRectSize.height
-        
         var counter = 0
         for textLayer in menuItemLayers {
-            
             textLayer.frame = CGRect(x: x, y: y, width: menuItemRectSize.width, height: menuItemRectSize.height)
             x = x + menuItemRectSize.width + menuItemPadding
             textLayer.string = attributedMenuItems[counter]
             ++counter
         }
-        
 
     }
     
-
-    
     func menuItemAttributedStrings() -> [NSAttributedString] {
+        
+        // convert the string array to an attributed string array
         
         var attrStringArray = [NSAttributedString]()
         
@@ -184,18 +172,7 @@ class KeyboardChooserKey: KeyboardKey {
         return CGSize(width: width, height: ceil(ascent+descent))
     }
     
-//    override func addLongPressGestureRecognizer() {
-//        
-//        // don't let the superclass set the gesture recognizer
-//    }
-    
     override func longPressBegun() {
-        
-        //addMenuBackground()
-        //addMenuItems()
-        
-        // TODO: is this needed?
-        //updateMenuLayers()
         
         // initialize menu item background colors
         for itemLayer in menuItemLayers {
@@ -206,16 +183,14 @@ class KeyboardChooserKey: KeyboardKey {
         
         menuLayerBackbround.hidden = false
         
-        
     }
     
     override func longPressStateChanged(guesture: UILongPressGestureRecognizer) {
         let touchPoint = guesture.locationInView(self)
         let dx = touchPoint.x - touchDownPoint.x
-        //let dy = touchPoint.y - touchDownPoint.y
-        let thresh = longTouchMovementWidthThreshold
         
-        let selectedItem = Int(floor((dx + thresh / 2) / thresh))
+        // set the color for the selected item
+        let selectedItem = Int(floor((dx + longTouchMovementWidthThreshold / 2) / longTouchMovementWidthThreshold))
         if selectedItem != oldSelectedItem  {
             
             if oldSelectedItem >= 0 && oldSelectedItem < menuItemLayers.count {
@@ -224,7 +199,6 @@ class KeyboardChooserKey: KeyboardKey {
             
             if selectedItem >= 0 && selectedItem < menuItemLayers.count {
                 
-                
                 menuItemLayers[selectedItem].backgroundColor = selectedMenuItemBackgroundColor
                 
             }
@@ -232,26 +206,9 @@ class KeyboardChooserKey: KeyboardKey {
             oldSelectedItem = selectedItem
         }
         
-        
-//        for var i = 0; i < menuItemLayers.count; ++i {
-//            if dx < CGFloat(i + 1) * longTouchMovementWidthThreshold {
-//                menuItemLayers[i].backgroundColor = UIColor.yellowColor().CGColor
-//                break
-//            }
-//        }
-//
-//        for itemLayer in menuItemLayers {
-//            
-//        }
-//        
-//        if dx > longTouchMovementWidthThreshold {
-//            menuItemLayers[1].backgroundColor = UIColor.yellowColor().CGColor
-//        }
     }
     
     override func longPressEnded() {
-        // this method is for subclasses to override
-        //menuLayerBackbround.removeFromSuperlayer()
         
         menuLayerBackbround.hidden = true
         
@@ -264,31 +221,10 @@ class KeyboardChooserKey: KeyboardKey {
     override func beginTrackingWithTouch(touch: UITouch, withEvent event: UIEvent?) -> Bool {
         super.beginTrackingWithTouch(touch, withEvent: event)
         
-        touchDownTime = NSDate() // current time
         touchDownPoint = touch.locationInView(self)
         
         return true
     }
-    
-//    override func continueTrackingWithTouch(touch: UITouch, withEvent event: UIEvent?) -> Bool {
-//        super.continueTrackingWithTouch(touch, withEvent: event)
-//        
-//        
-//        let touchPoint = touch.locationInView(self)
-//        let dx = touchPoint.x - touchDownPoint.x
-//        //let dy = touchPoint.y - touchDownPoint.y
-//        
-//        
-//        if dx > 100 {
-//            menuItemLayers[1].backgroundColor = UIColor.yellowColor().CGColor
-//        }
-//        return true
-//    }
-//    
-//    override func cancelTrackingWithEvent(event: UIEvent?) {
-//        _ = "test"
-//    }
-    
     
     func popupMenuPath() -> UIBezierPath {
         

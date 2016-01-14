@@ -30,7 +30,6 @@
 		50CB52BB1B5891EF00AFB77A /* MongolUnicodeRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CB52BA1B5891EF00AFB77A /* MongolUnicodeRenderer.swift */; };
 		50CDEE9B1B67FE0200C7C405 /* UIMongolTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CDEE9A1B67FE0200C7C405 /* UIMongolTableView.swift */; };
 		50CDEE9D1B67FE8400C7C405 /* TableViewDemoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CDEE9C1B67FE8400C7C405 /* TableViewDemoVC.swift */; };
-		50E261E11C3F4AE10082BB91 /* KeyboardSwitcherKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E261E01C3F4AE10082BB91 /* KeyboardSwitcherKey.swift */; };
 		50E3AB0B1C0C439E004C738F /* KeyboardKeyDemoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E3AB0A1C0C439E004C738F /* KeyboardKeyDemoVC.swift */; };
 		50E3AB0D1C0C4AEF004C738F /* KeyboardTextKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E3AB0C1C0C4AEF004C738F /* KeyboardTextKey.swift */; };
 		50E572601B69D07F0041E0AE /* TextViewDemoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E5725F1B69D07F0041E0AE /* TextViewDemoVC.swift */; };
@@ -79,7 +78,6 @@
 		50CB52BA1B5891EF00AFB77A /* MongolUnicodeRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MongolUnicodeRenderer.swift; sourceTree = "<group>"; };
 		50CDEE9A1B67FE0200C7C405 /* UIMongolTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIMongolTableView.swift; sourceTree = "<group>"; };
 		50CDEE9C1B67FE8400C7C405 /* TableViewDemoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDemoVC.swift; sourceTree = "<group>"; };
-		50E261E01C3F4AE10082BB91 /* KeyboardSwitcherKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardSwitcherKey.swift; sourceTree = "<group>"; };
 		50E3AB0A1C0C439E004C738F /* KeyboardKeyDemoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardKeyDemoVC.swift; sourceTree = "<group>"; };
 		50E3AB0C1C0C4AEF004C738F /* KeyboardTextKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardTextKey.swift; sourceTree = "<group>"; };
 		50E5725F1B69D07F0041E0AE /* TextViewDemoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewDemoVC.swift; sourceTree = "<group>"; };
@@ -141,7 +139,6 @@
 				50E3AB0C1C0C4AEF004C738F /* KeyboardTextKey.swift */,
 				5016890B1C3A6C1300BC7FA0 /* KeyboardImageKey.swift */,
 				50F585901C3C944B00293118 /* KeyboardFvsKey.swift */,
-				50E261E01C3F4AE10082BB91 /* KeyboardSwitcherKey.swift */,
 				50058A5D1C44DD8F00FCD1A4 /* KeyboardChooserKey.swift */,
 			);
 			name = KeyTypes;
@@ -388,7 +385,6 @@
 				50058A5E1C44DD8F00FCD1A4 /* KeyboardChooserKey.swift in Sources */,
 				50E572601B69D07F0041E0AE /* TextViewDemoVC.swift in Sources */,
 				501689131C3A6DC600BC7FA0 /* KeyboardKeyDelegate.swift in Sources */,
-				50E261E11C3F4AE10082BB91 /* KeyboardSwitcherKey.swift in Sources */,
 				5016890C1C3A6C1300BC7FA0 /* KeyboardImageKey.swift in Sources */,
 				505CADCB1B34FE7F00A99031 /* UIMongolTextView.swift in Sources */,
 				505BF7F81B97F56A005FBD9D /* UIMongolAlert.swift in Sources */,
