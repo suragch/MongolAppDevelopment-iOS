@@ -1,7 +1,7 @@
 /*
 * Chimee Mongol Unicode Rendering Engine for iOS
 *
-* Version 1.1.2
+* Version 1.2.0
 *
 * Current version needs to be used with Almas font 1.0 glyphs
 * copied to PUA starting at \uE360. To use different glyph
@@ -1352,7 +1352,9 @@ class MongolUnicodeRenderer {
         
         // Final Vowel+YI rule (drop the Y),
         // (preFormatter catches final Consonant+YI),
-        ScalarString([Uni.YA, Uni.I]) : ScalarString(Glyph.FINA_I),
+        // ScalarString([Uni.YA, Uni.I]) : ScalarString(Glyph.FINA_I),
+        // (disabling this rule because it messes up words like namayi
+        // and chimayi. Is there a reason for it?)
         
         // MVS
         // TODO handle MVS in preFormatter()?
@@ -1514,7 +1516,14 @@ class MongolUnicodeRenderer {
         // UU
         ScalarString([Uni.U, Uni.U]) : ScalarString([Glyph.WORD_UU]),
         // UEUE
-        ScalarString([Uni.UE, Uni.UE]) : ScalarString([Glyph.WORD_UU])
+        ScalarString([Uni.UE, Uni.UE]) : ScalarString([Glyph.WORD_UU]),
+        
+        // Modal partical
+        // DA
+        ScalarString([Uni.DA, Uni.A]) : ScalarString([Glyph.INIT_DA_FVS1, Glyph.FINA_A]),
+        // DE
+        ScalarString([Uni.DA, Uni.E]) : ScalarString([Glyph.INIT_DA_FVS1, Glyph.FINA_E])
+        
     ]
     
     // MARK: unicodeToGlyphs
@@ -1962,11 +1971,12 @@ class MongolUnicodeRenderer {
             }
         }
         
-        // *** AI, EI, OI, UI medial I diphthong rule ***
+        // *** AI, EI, OI, UI, OEI, UEI medial I diphthong rule ***
+        // (this rule should come after OE/UE long tooth in first syllable rule)
         for (var i = word.length - 2; i > 0; i--) {
             if (word.charAt(i) == Uni.I) {
                 // previous char is a masculine vowel or E and next char is not FVS
-                if ((isMasculineVowel(word.charAt(i - 1)) || word.charAt(i - 1) == Uni.E)
+                if (isVowel(word.charAt(i - 1)) && word.charAt(i - 1) != Uni.I
                     && !isFVS(word.charAt(i + 1))) {
                         // insert FVS3 (double tooth medial I)
                         word.insert(Uni.FVS3, atIndex: i + 1)

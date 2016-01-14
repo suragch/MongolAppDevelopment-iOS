@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="4UM-Jk-6wK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="4UM-Jk-6wK">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -13,7 +13,6 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="zqD-Xu-WBQ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection id="uc7-iY-Hlh">
@@ -28,15 +27,12 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="UIMongolLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="987-v1-YBU">
                                                     <rect key="frame" x="15" y="0.0" width="570" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <animations/>
                                         </tableViewCellContentView>
-                                        <animations/>
                                         <connections>
                                             <segue destination="l3P-jS-1yq" kind="show" id="WhU-Ks-uwv"/>
                                         </connections>
@@ -51,15 +47,12 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="UIMongolTextView" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="COF-X6-oA8">
                                                     <rect key="frame" x="15" y="0.0" width="570" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <animations/>
                                         </tableViewCellContentView>
-                                        <animations/>
                                         <connections>
                                             <segue destination="buY-tN-kMS" kind="show" id="rO9-hz-Gcf"/>
                                         </connections>
@@ -74,15 +67,12 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="UIMongolTableView" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jIs-Ca-fhf">
                                                     <rect key="frame" x="15" y="0.0" width="570" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <animations/>
                                         </tableViewCellContentView>
-                                        <animations/>
                                         <connections>
                                             <segue destination="Szp-c5-erE" kind="show" id="9nf-pl-U24"/>
                                         </connections>
@@ -97,15 +87,12 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="UIMongolAlert" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xdB-8K-nA0">
                                                     <rect key="frame" x="15" y="0.0" width="570" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <animations/>
                                         </tableViewCellContentView>
-                                        <animations/>
                                         <connections>
                                             <segue destination="f3M-9i-1NO" kind="show" id="Bo0-bR-HBu"/>
                                         </connections>
@@ -120,15 +107,12 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="UIMongolButton" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tUh-Xm-u2z">
                                                     <rect key="frame" x="15" y="0.0" width="570" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <animations/>
                                         </tableViewCellContentView>
-                                        <animations/>
                                         <connections>
                                             <segue destination="SSU-TB-DPk" kind="show" id="veo-x1-i1F"/>
                                         </connections>
@@ -143,15 +127,12 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Keyboard Key" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AX7-En-oUI">
                                                     <rect key="frame" x="15" y="0.0" width="570" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <animations/>
                                         </tableViewCellContentView>
-                                        <animations/>
                                         <connections>
                                             <segue destination="VH5-pB-nVi" kind="show" id="Kmj-7m-jMM"/>
                                         </connections>
@@ -166,15 +147,12 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Keyboard" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zpJ-d3-IEz">
                                                     <rect key="frame" x="15" y="0.0" width="570" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <animations/>
                                         </tableViewCellContentView>
-                                        <animations/>
                                         <connections>
                                             <segue destination="Nae-AJ-tbV" kind="show" id="jWo-v1-nDc"/>
                                         </connections>
@@ -207,7 +185,6 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WoO-bg-lUi" customClass="UIMongolTextView" customModule="Mongol_App_Componants" customModuleProvider="target">
                                 <rect key="frame" x="20" y="72" width="560" height="171"/>
-                                <animations/>
                                 <color key="backgroundColor" red="0.21296523159295744" green="0.70965070212929771" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="171" id="gWr-vW-Bqw"/>
@@ -224,7 +201,6 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="WoO-bg-lUi" firstAttribute="trailing" secondItem="llK-hQ-FUa" secondAttribute="trailingMargin" id="9ah-sd-wEb"/>
@@ -254,7 +230,6 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Stk-L1-s4j" customClass="UIMongolLabel" customModule="Mongol_App_Componants" customModuleProvider="target">
                                 <rect key="frame" x="278" y="64" width="44" height="528"/>
-                                <animations/>
                                 <color key="backgroundColor" red="0.2129652316" green="0.70965070210000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="44" id="mqX-iV-rrq"/>
@@ -271,7 +246,6 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Stk-L1-s4j" firstAttribute="top" secondItem="UV4-Se-1Ea" secondAttribute="bottom" id="LR9-3W-inU"/>
@@ -301,11 +275,9 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q1Y-Ol-YPJ" customClass="UIMongolTableView" customModule="Mongol_App_Componants" customModuleProvider="target">
                                 <rect key="frame" x="20" y="72" width="519" height="484"/>
-                                <animations/>
                                 <color key="backgroundColor" red="0.40699057326729277" green="0.035798492040724335" blue="0.76325757575757569" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="q1Y-Ol-YPJ" secondAttribute="trailing" constant="41" id="7Ab-Sq-SJF"/>
@@ -334,15 +306,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mVJ-LW-Vg8">
-                                <rect key="frame" x="89" y="145" width="97" height="30"/>
-                                <animations/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="UITextField" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mVJ-LW-Vg8">
+                                <rect key="frame" x="20" y="144" width="560" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.99923178527955325" blue="0.92394675230168544" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mVJ-LW-Vg8" firstAttribute="trailing" secondItem="iNt-PO-N7a" secondAttribute="trailingMargin" id="FYb-OL-qlh"/>
+                            <constraint firstItem="mVJ-LW-Vg8" firstAttribute="leading" secondItem="iNt-PO-N7a" secondAttribute="leadingMargin" id="mFU-Fq-5eM"/>
+                            <constraint firstItem="mVJ-LW-Vg8" firstAttribute="top" secondItem="5mD-RQ-uD5" secondAttribute="bottom" constant="80" id="pj5-tS-KD6"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="textField" destination="mVJ-LW-Vg8" id="TNu-Z7-BpI"/>
@@ -366,31 +342,49 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="from code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eVX-mj-7bZ">
                                 <rect key="frame" x="20" y="72" width="79" height="25"/>
-                                <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="from IB" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pgi-Hu-4Pg">
                                 <rect key="frame" x="20" y="283" width="56" height="21"/>
-                                <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dlo-3y-4qU" customClass="KeyboardKey" customModule="Mongol_App_Componants" customModuleProvider="target">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dlo-3y-4qU" customClass="KeyboardTextKey" customModule="Mongol_App_Componants" customModuleProvider="target">
                                 <rect key="frame" x="26" y="312" width="95" height="128"/>
-                                <animations/>
                                 <color key="backgroundColor" red="0.68959913269999995" green="1" blue="0.60769423209999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="storyboardKeyTapped:" destination="VH5-pB-nVi" eventType="touchUpInside" id="Xx9-Tl-yyx"/>
                                 </connections>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qdp-k3-ew5" customClass="KeyboardImageKey" customModule="Mongol_App_Componants" customModuleProvider="target">
+                                <rect key="frame" x="158" y="312" width="74" height="109"/>
+                                <color key="backgroundColor" red="1" green="0.69783085143300583" blue="0.65734739179269752" alpha="1" colorSpace="calibratedRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="star"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xb0-bh-Nxq" customClass="KeyboardImageKey" customModule="Mongol_App_Componants" customModuleProvider="target">
+                                <rect key="frame" x="257" y="312" width="31" height="72"/>
+                                <color key="backgroundColor" red="0.62208132552532058" green="0.7305465762946779" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="star"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xbf-YE-hEK">
+                                <rect key="frame" x="32" y="448" width="83" height="30"/>
+                                <state key="normal" title="Change text"/>
+                                <connections>
+                                    <action selector="buttonTapped:" destination="VH5-pB-nVi" eventType="touchUpInside" id="PeR-ml-6WJ"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="button" destination="Xbf-YE-hEK" id="uQx-Hx-BC8"/>
                         <outlet property="storyboardKey" destination="dlo-3y-4qU" id="fLQ-kG-tmq"/>
                     </connections>
                 </viewController>
@@ -412,7 +406,6 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mh6-Yr-U60">
                                 <rect key="frame" x="198" y="105" width="46" height="30"/>
-                                <animations/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="myActionObject:" destination="SSU-TB-DPk" eventType="touchUpInside" id="Myq-Fb-BpS"/>
@@ -420,7 +413,6 @@
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Fa-mP-a8V" customClass="UIMongolButton" customModule="Mongol_App_Componants" customModuleProvider="target">
                                 <rect key="frame" x="20" y="72" width="80" height="200"/>
-                                <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="l0d-J1-9Ai"/>
@@ -434,7 +426,6 @@
                                 </connections>
                             </view>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="5Fa-mP-a8V" firstAttribute="leading" secondItem="9ax-wk-M9C" secondAttribute="leadingMargin" id="2Fj-wH-WQ4"/>
@@ -460,14 +451,12 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hcb-s5-gD8">
                                 <rect key="frame" x="251" y="285" width="99" height="30"/>
-                                <animations/>
                                 <state key="normal" title="UIMongolAlert"/>
                                 <connections>
                                     <action selector="showAlert:" destination="f3M-9i-1NO" eventType="touchUpInside" id="Ma1-KI-6L1"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="hcb-s5-gD8" firstAttribute="centerX" secondItem="A7v-EG-NMf" secondAttribute="centerX" id="bHD-A5-nF4"/>
@@ -487,7 +476,6 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8AL-cO-lrm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -499,4 +487,7 @@
             <point key="canvasLocation" x="200" y="-954"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="star" width="40" height="40"/>
+    </resources>
 </document>

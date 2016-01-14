@@ -1,35 +1,56 @@
 import UIKit
 
 // View Controllers must adapt this protocol
-protocol KeyboardDelegate {
+protocol KeyboardDelegate: class {
     func keyWasTapped(character: String)
+    func keyBackspace()
 }
 
 class AeiouKeyboard: UIView, KeyboardKeyDelegate {
     
-    var delegate: KeyboardDelegate?
+    weak var delegate: KeyboardDelegate? // probably the view controller
     
-    // MARK:- Outlets
+    private let renderer = MongolUnicodeRenderer.sharedInstance
     
-    @IBOutlet weak var keyA: KeyboardKey!
-    @IBOutlet weak var keyE: KeyboardKey!
-    @IBOutlet weak var keyI: KeyboardKey!
-    @IBOutlet weak var keyO: KeyboardKey!
-    @IBOutlet weak var keyU: KeyboardKey!
-    @IBOutlet weak var keyNA: KeyboardKey!
-    @IBOutlet weak var keyBA: KeyboardKey!
-    @IBOutlet weak var keyQA: KeyboardKey!
-    @IBOutlet weak var keyGA: KeyboardKey!
-    @IBOutlet weak var keyMA: KeyboardKey!
-    @IBOutlet weak var keyLA: KeyboardKey!
-    @IBOutlet weak var keySA: KeyboardKey!
-    @IBOutlet weak var keyDA: KeyboardKey!
-    @IBOutlet weak var keyCHA: KeyboardKey!
-    @IBOutlet weak var keyJA: KeyboardKey!
-    @IBOutlet weak var keyYA: KeyboardKey!
-    @IBOutlet weak var keyRA: KeyboardKey!
-    @IBOutlet weak var keyWA: KeyboardKey!
-    @IBOutlet weak var keyZA: KeyboardKey!
+    // Keyboard Keys
+    
+    // Row 1
+    private let keyA = KeyboardTextKey()
+    private let keyE = KeyboardTextKey()
+    private let keyI = KeyboardTextKey()
+    private let keyO = KeyboardTextKey()
+    private let keyU = KeyboardTextKey()
+    
+    // Row 2
+    private let keyNA = KeyboardTextKey()
+    private let keyBA = KeyboardTextKey()
+    private let keyQA = KeyboardTextKey()
+    private let keyGA = KeyboardTextKey()
+    private let keyMA = KeyboardTextKey()
+    private let keyLA = KeyboardTextKey()
+    
+    // Row 3
+    private let keySA = KeyboardTextKey()
+    private let keyDA = KeyboardTextKey()
+    private let keyCHA = KeyboardTextKey()
+    private let keyJA = KeyboardTextKey()
+    private let keyYA = KeyboardTextKey()
+    private let keyRA = KeyboardTextKey()
+    
+    // Row 4
+    private let keyFVS = KeyboardFvsKey()
+    private let keyMVS = KeyboardTextKey()
+    private let keyWA = KeyboardTextKey()
+    private let keyZA = KeyboardTextKey()
+    private let keySuffix = KeyboardTextKey()
+    private let keyBackspace = KeyboardImageKey()
+    
+    // Row 5
+    private let keyKeyboard = KeyboardChooserKey()
+    private let keyComma = KeyboardTextKey()
+    private let keySpace = KeyboardImageKey()
+    private let keyQuestion = KeyboardTextKey()
+    private let keyReturn = KeyboardImageKey()
     
     
     
@@ -37,63 +58,267 @@ class AeiouKeyboard: UIView, KeyboardKeyDelegate {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        initializeSubviews()
-        //setup()
+        
+        setup()
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        initializeSubviews()
-        //setup()
-    }
-    
-    func initializeSubviews() {
-        let xibFileName = "AeiouKeyboard"
-        let view = NSBundle.mainBundle().loadNibNamed(xibFileName, owner: self, options: nil)[0] as! UIView
-        self.addSubview(view)
-        view.frame = self.bounds
+        
+        setup()
     }
     
     func setup() {
         
+        
+        addSubviews()
+        initializeKeyStrings()
+        assignDelegates()
+        
+        //print(renderer.unicodeToGlyphs("ᠠᠨ\u{180E}ᠠ ᠠᠮ\u{180E}ᠠ ᠠᠭ\u{180E}ᠠ"))
+        //print(renderer.unicodeToGlyphs("\u{202F}ᠶᠢ\u{202F}ᠳᠦ\u{202F}ᠦᠨ"))
+    }
+    
+    func initializeKeyStrings() {
+        
+        // Row 1
+        keyA.primaryString = "ᠠ"
+        keyA.secondaryString = "᠊"
+        keyA.secondaryStringDisplayOverride = ""
+        keyE.primaryString = "ᠡ"
+        keyE.secondaryString = "ᠧ"
+        keyI.primaryString = "ᠢ"
+        keyO.primaryString = "ᠤ"
+        keyO.primaryStringDisplayOverride = ""
+        keyO.secondaryString = "ᠣ"
+        keyU.primaryString = "ᠦ"
+        keyU.primaryStringDisplayOverride = ""
+        keyU.secondaryString = "ᠥ"
+        
+        // Row 2
+        keyNA.primaryString = "ᠨ"
+        keyNA.secondaryString = "ᠩ"
+        keyBA.primaryString = "ᠪ"
+        keyBA.secondaryString = "ᠫ"
+        keyQA.primaryString = "ᠬ"
+        keyQA.secondaryString = "ᠾ"
+        keyGA.primaryString = "ᠭ"
+        keyGA.secondaryString = "ᠺ"
+        keyMA.primaryString = "ᠮ"
+        keyLA.primaryString = "ᠯ"
+        keyLA.secondaryString = "ᡀ"
+        
+        // Row 3
+        keySA.primaryString = "ᠰ"
+        keySA.secondaryString = "ᠱ"
+        keyDA.primaryString = "ᠳ"
+        keyDA.secondaryString = "ᠲ"
+        keyCHA.primaryString = "ᠴ"
+        keyCHA.secondaryString = "ᡂ"
+        keyJA.primaryString = "ᠵ"
+        keyJA.secondaryString = "ᡁ"
+        keyYA.primaryString = "ᠶ"
+        keyRA.primaryString = "ᠷ"
+        keyRA.secondaryString = "ᠿ"
+        
+        // Row 4
+        keyFVS.setStrings("ᠠ", fvs2Top: "ᠡ", fvs3Top: "ᠢ", fvs1Bottom: "ᠤ", fvs2Bottom: "ᠦ", fvs3Bottom: "ᠨ")
+        keyMVS.primaryString = "\u{180E}" // MVS
+        keyMVS.primaryStringDisplayOverride = "  " // na ma ga
+        keyMVS.primaryStringFontSize = 14.0
+        keyMVS.secondaryString = "\u{200D}" // ZWJ
+        keyMVS.secondaryStringDisplayOverride = "-" // TODO:
+        keyWA.primaryString = "ᠸ"
+        keyWA.secondaryString = "ᠹ"
+        keyZA.primaryString = "ᠽ"
+        keyZA.secondaryString = "ᠼ"
+        keySuffix.primaryString = "\u{202F}" // NNBS
+        keySuffix.primaryStringDisplayOverride = "  " // yi du un
+        keySuffix.primaryStringFontSize = 14.0
+        keyBackspace.image = UIImage(named: "backspace_dark")
+
+        // Row 5
+        keyKeyboard.image = UIImage(named: "keyboard_dark")
+        keyComma.primaryString = "\u{1802}" // mongol comma
+        keyComma.secondaryString = "\u{1803}" // mongol period
+        keySpace.primaryString = " "
+        keySpace.image = UIImage(named: "space_dark")
+        keyQuestion.primaryString = "?"
+        keyQuestion.secondaryString = "!"
+        keyReturn.image = UIImage(named: "return_dark")
+    }
+    
+    func addSubviews() {
+        // Row 1
+        self.addSubview(keyA)
+        self.addSubview(keyE)
+        self.addSubview(keyI)
+        self.addSubview(keyO)
+        self.addSubview(keyU)
+        
+        // Row 2
+        self.addSubview(keyNA)
+        self.addSubview(keyBA)
+        self.addSubview(keyQA)
+        self.addSubview(keyGA)
+        self.addSubview(keyMA)
+        self.addSubview(keyLA)
+        
+        // Row 3
+        self.addSubview(keySA)
+        self.addSubview(keyDA)
+        self.addSubview(keyCHA)
+        self.addSubview(keyJA)
+        self.addSubview(keyYA)
+        self.addSubview(keyRA)
+        
+        // Row 4
+        self.addSubview(keyFVS)
+        self.addSubview(keyMVS)
+        self.addSubview(keyWA)
+        self.addSubview(keyZA)
+        self.addSubview(keySuffix)
+        self.addSubview(keyBackspace)
+        
+        // Row 5
+        self.addSubview(keyKeyboard)
+        self.addSubview(keyComma)
+        self.addSubview(keySpace)
+        self.addSubview(keyQuestion)
+        self.addSubview(keyReturn)
+        
+        // Keyboard Switcher key should be on top so that popup shows
+        //self.bringSubviewToFront(keyKeyboard)
+        //keyKeyboard..zPosition = 1
+        
+        //self.subviews.i
+    }
+    
+    func assignDelegates() {
+        
+        // Row 1
         keyA.delegate = self
         keyE.delegate = self
         keyI.delegate = self
         keyO.delegate = self
         keyU.delegate = self
+        
+        // Row 2
         keyNA.delegate = self
         keyBA.delegate = self
         keyQA.delegate = self
         keyGA.delegate = self
         keyMA.delegate = self
         keyLA.delegate = self
+        
+        // Row 3
         keySA.delegate = self
         keyDA.delegate = self
         keyCHA.delegate = self
         keyJA.delegate = self
         keyYA.delegate = self
         keyRA.delegate = self
+        
+        // Row 4
+        keyFVS.addTarget(self, action: "keyFvsTapped", forControlEvents: UIControlEvents.TouchUpInside)
+        keyMVS.delegate = self
         keyWA.delegate = self
         keyZA.delegate = self
+        keySuffix.delegate = self
+        keyBackspace.addTarget(self, action: "keyBackspaceTapped", forControlEvents: UIControlEvents.TouchUpInside)
+        
+        // Row 5
+        keyKeyboard.addTarget(self, action: "keyKeyboardTapped", forControlEvents: UIControlEvents.TouchUpInside)
+        keyComma.delegate = self
+        keySpace.delegate = self
+        keyQuestion.delegate = self
+        keyReturn.addTarget(self, action: "keyReturnTapped", forControlEvents: UIControlEvents.TouchUpInside)
+
     }
     
-    // MARK:- Button actions from .xib file
+    override func layoutSubviews() {
+        // TODO: - should add autolayout constraints instead
+        
+        // |   |  A |  E | I | O  | U  |    Row 1
+        // | b | N | B | Q | G | M | L |    Row 2
+        // | a | S | D | Ch| J | Y | R |    Row 3
+        // | r |fvs|mvs| W | Z |nbs|del|    Row 4
+        // |   |123| . | space | ? |ret|    Row 5
+        
+        let suggestionBarWidth: CGFloat = 30
+        let numberOfRows: CGFloat = 5
+        let keyUnitsInRow1: CGFloat = 5
+        let keyUnitsInRow2to5: CGFloat = 6
+        let rowHeight = self.bounds.height / numberOfRows
+        let row1KeyUnitWidth = (self.bounds.width - suggestionBarWidth) / keyUnitsInRow1
+        let row2to5KeyUnitWidth = (self.bounds.width - suggestionBarWidth) / keyUnitsInRow2to5
+        
+        // Row 1
+        
+        keyA.frame = CGRect(x: suggestionBarWidth + row1KeyUnitWidth*0, y: 0, width: row1KeyUnitWidth, height: rowHeight)
+        keyE.frame = CGRect(x: suggestionBarWidth + row1KeyUnitWidth*1, y: 0, width: row1KeyUnitWidth, height: rowHeight)
+        keyI.frame = CGRect(x: suggestionBarWidth + row1KeyUnitWidth*2, y: 0, width: row1KeyUnitWidth, height: rowHeight)
+        keyO.frame = CGRect(x: suggestionBarWidth + row1KeyUnitWidth*3, y: 0, width: row1KeyUnitWidth, height: rowHeight)
+        keyU.frame = CGRect(x: suggestionBarWidth + row1KeyUnitWidth*4, y: 0, width: row1KeyUnitWidth, height: rowHeight)
+        
+        // Row 2
+        keyNA.frame = CGRect(x: suggestionBarWidth + row2to5KeyUnitWidth*0, y: rowHeight, width: row2to5KeyUnitWidth, height: rowHeight)
+        keyBA.frame = CGRect(x: suggestionBarWidth + row2to5KeyUnitWidth*1, y: rowHeight, width: row2to5KeyUnitWidth, height: rowHeight)
+        keyQA.frame = CGRect(x: suggestionBarWidth + row2to5KeyUnitWidth*2, y: rowHeight, width: row2to5KeyUnitWidth, height: rowHeight)
+        keyGA.frame = CGRect(x: suggestionBarWidth + row2to5KeyUnitWidth*3, y: rowHeight, width: row2to5KeyUnitWidth, height: rowHeight)
+        keyMA.frame = CGRect(x: suggestionBarWidth + row2to5KeyUnitWidth*4, y: rowHeight, width: row2to5KeyUnitWidth, height: rowHeight)
+        keyLA.frame = CGRect(x: suggestionBarWidth + row2to5KeyUnitWidth*5, y: rowHeight, width: row2to5KeyUnitWidth, height: rowHeight)
+        
+        // Row 3
+        keySA.frame = CGRect(x: suggestionBarWidth + row2to5KeyUnitWidth*0, y: rowHeight*2, width: row2to5KeyUnitWidth, height: rowHeight)
+        keyDA.frame = CGRect(x: suggestionBarWidth + row2to5KeyUnitWidth*1, y: rowHeight*2, width: row2to5KeyUnitWidth, height: rowHeight)
+        keyCHA.frame = CGRect(x: suggestionBarWidth + row2to5KeyUnitWidth*2, y: rowHeight*2, width: row2to5KeyUnitWidth, height: rowHeight)
+        keyJA.frame = CGRect(x: suggestionBarWidth + row2to5KeyUnitWidth*3, y: rowHeight*2, width: row2to5KeyUnitWidth, height: rowHeight)
+        keyYA.frame = CGRect(x: suggestionBarWidth + row2to5KeyUnitWidth*4, y: rowHeight*2, width: row2to5KeyUnitWidth, height: rowHeight)
+        keyRA.frame = CGRect(x: suggestionBarWidth + row2to5KeyUnitWidth*5, y: rowHeight*2, width: row2to5KeyUnitWidth, height: rowHeight)
+        
+        // Row 4
+        keyFVS.frame = CGRect(x: suggestionBarWidth + row2to5KeyUnitWidth*0, y: rowHeight*3, width: row2to5KeyUnitWidth, height: rowHeight)
+        keyMVS.frame = CGRect(x: suggestionBarWidth + row2to5KeyUnitWidth*1, y: rowHeight*3, width: row2to5KeyUnitWidth, height: rowHeight)
+        keyWA.frame = CGRect(x: suggestionBarWidth + row2to5KeyUnitWidth*2, y: rowHeight*3, width: row2to5KeyUnitWidth, height: rowHeight)
+        keyZA.frame = CGRect(x: suggestionBarWidth + row2to5KeyUnitWidth*3, y: rowHeight*3, width: row2to5KeyUnitWidth, height: rowHeight)
+        keySuffix.frame = CGRect(x: suggestionBarWidth + row2to5KeyUnitWidth*4, y: rowHeight*3, width: row2to5KeyUnitWidth, height: rowHeight)
+        keyBackspace.frame = CGRect(x: suggestionBarWidth + row2to5KeyUnitWidth*5, y: rowHeight*3, width: row2to5KeyUnitWidth, height: rowHeight)
+        
+        // Row 5
+        keyKeyboard.frame = CGRect(x: suggestionBarWidth + row2to5KeyUnitWidth*0, y: rowHeight*4, width: row2to5KeyUnitWidth, height: rowHeight)
+        keyComma.frame = CGRect(x: suggestionBarWidth + row2to5KeyUnitWidth*1, y: rowHeight*4, width: row2to5KeyUnitWidth, height: rowHeight)
+        keySpace.frame = CGRect(x: suggestionBarWidth + row2to5KeyUnitWidth*2, y: rowHeight*4, width: row2to5KeyUnitWidth*2, height: rowHeight)
+        keyQuestion.frame = CGRect(x: suggestionBarWidth + row2to5KeyUnitWidth*4, y: rowHeight*4, width: row2to5KeyUnitWidth, height: rowHeight)
+        keyReturn.frame = CGRect(x: suggestionBarWidth + row2to5KeyUnitWidth*5, y: rowHeight*4, width: row2to5KeyUnitWidth, height: rowHeight)
+        
+    }
     
-//    @IBAction func keyTapped(sender: KeyboardKey) {
-//        
-//        self.delegate?.keyWasTapped(sender.primaryLetter)
-//    }
-//    
-//    @IBAction func keyLongPressed(sender: KeyboardKey) {
-//        
-//        self.delegate?.keyWasTapped(sender.secondaryLetter)
-//    }
     
     // MARK: - KeyboardKeyDelegate protocol
     
     func keyTextEntered(keyText: String) {
         print("key text: \(keyText)")
+        // pass the input up to the Keyboard delegate
         self.delegate?.keyWasTapped(keyText)
+    }
+    
+    func keyBackspaceTapped() {
+        self.delegate?.keyBackspace()
+        print("key text: backspace")
+    }
+    
+    func keyReturnTapped() {
+        self.delegate?.keyWasTapped("\n")
+        print("key text: return")
+    }
+    
+    func keyFvsTapped() {
+        print("key text: fvs")
+    }
+    
+    func keyKeyboardTapped() {
+        print("key text: keyboard")
     }
     
 }

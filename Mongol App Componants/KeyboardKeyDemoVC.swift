@@ -3,10 +3,17 @@ import UIKit
 
 class KeyboardKeyDemoVC: UIViewController, KeyboardKeyDelegate {
 
-    let codeKey = KeyboardKey(frame: CGRectZero)
+    let codeKey = KeyboardTextKey(frame: CGRectZero)
     let renderer = MongolUnicodeRenderer.sharedInstance
     
-    @IBOutlet weak var storyboardKey: KeyboardKey!
+    @IBOutlet weak var button: UIButton!
+    
+    @IBAction func buttonTapped(sender: UIButton) {
+        storyboardKey.primaryStringFontSize = 25
+        storyboardKey.primaryString = "ᠮᠣᠩᠭᠤᠯ"
+        storyboardKey.primaryStringDisplayOverride = renderer.unicodeToGlyphs("ᠮᠣᠩᠭᠤᠯ")
+    }
+    @IBOutlet weak var storyboardKey: KeyboardTextKey!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,30 +24,37 @@ class KeyboardKeyDemoVC: UIViewController, KeyboardKeyDelegate {
         
         // storyboard key setup
         storyboardKey.delegate = self
-        storyboardKey.primaryLetter = String(UnicodeScalar(MongolUnicodeRenderer.Uni.NA))
-        storyboardKey.secondaryLetter = String(UnicodeScalar(MongolUnicodeRenderer.Uni.UE))
+        storyboardKey.primaryString = String(UnicodeScalar(MongolUnicodeRenderer.Uni.NA))
+        storyboardKey.secondaryString = String(UnicodeScalar(MongolUnicodeRenderer.Uni.UE))
         let ueOverride = String(UnicodeScalar(MongolUnicodeRenderer.Uni.UE)) +
             String(UnicodeScalar(MongolUnicodeRenderer.Uni.ZWJ))
-        storyboardKey.secondaryLetterDisplayOverride = renderer.unicodeToGlyphs(ueOverride)
-        storyboardKey.primaryLetterFontSize = 60
-        storyboardKey.secondaryLetterFontSize = 20
+        storyboardKey.secondaryStringDisplayOverride = renderer.unicodeToGlyphs(ueOverride)
+        storyboardKey.primaryStringFontSize = 60
+        storyboardKey.secondaryStringFontSize = 20
         storyboardKey.cornerRadius = 100
         
-    }
-    
-    override func viewDidLayoutSubviews() {
+        
+        
         
         // code key setup
         let margin: CGFloat = 30.0
-        codeKey.frame = CGRect(x: margin, y: margin + topLayoutGuide.length,
+        codeKey.frame = CGRect(x: margin, y: margin + 80,
             width: 100, height: 150.0)
-        codeKey.primaryLetter = String(UnicodeScalar(MongolUnicodeRenderer.Uni.GA))
-        codeKey.secondaryLetter = String(UnicodeScalar(MongolUnicodeRenderer.Uni.KA))
-        codeKey.primaryLetterFontSize = 60
-        codeKey.secondaryLetterFontSize = 20
+        codeKey.primaryString = String(UnicodeScalar(MongolUnicodeRenderer.Uni.GA))
+        codeKey.secondaryString = String(UnicodeScalar(MongolUnicodeRenderer.Uni.KA))
+        codeKey.primaryStringFontSize = 60
+        codeKey.secondaryStringFontSize = 20
         codeKey.cornerRadius = 20
         codeKey.addTarget(self, action: "codeKeyTapped:", forControlEvents: UIControlEvents.TouchUpInside)
         
+        
+        
+        
+        // button 
+        //let backgroundLayer = KeyboardKeyBackgroundLayer()
+        //backgroundLayer.frame = button.bounds
+        //button.backgroundColor = UIColor.clearColor()
+       // button.layer.addSublayer(backgroundLayer)
     }
     
     // MARK: - Optional methods
@@ -57,6 +71,10 @@ class KeyboardKeyDemoVC: UIViewController, KeyboardKeyDelegate {
     
     func keyTextEntered(keyText: String) {
         print("key text: \(keyText)")
+    }
+    
+    func keyBackspaceTapped() {
+        print("backspace tapped")
     }
     
 }
