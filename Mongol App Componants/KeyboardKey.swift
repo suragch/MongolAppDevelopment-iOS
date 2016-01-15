@@ -18,6 +18,8 @@ class KeyboardKey: UIControl {
     weak var delegate: KeyboardKeyDelegate? // probably a keyboard class
     
     private let backgroundLayer = KeyboardKeyBackgroundLayer()
+    private var oldFrame = CGRectZero
+    
     
     var padding: CGFloat {
         get {
@@ -52,7 +54,10 @@ class KeyboardKey: UIControl {
     
     override var frame: CGRect {
         didSet {
-            updateBackgroundFrame()
+            // only update frames if non-zero and changed
+            if frame != CGRectZero && frame != oldFrame {
+                updateBackgroundFrame()
+            }
         }
     }
     
@@ -89,7 +94,7 @@ class KeyboardKey: UIControl {
         if guesture.state == UIGestureRecognizerState.Began {
             
             backgroundLayer.highlighted = false
-            longPressBegun()
+            longPressBegun(guesture)
             
         } else if guesture.state == UIGestureRecognizerState.Changed {
             
@@ -99,7 +104,7 @@ class KeyboardKey: UIControl {
         }
     }
     
-    func longPressBegun() {
+    func longPressBegun(guesture: UILongPressGestureRecognizer) {
         // this method is for subclasses to override
     }
     
@@ -144,8 +149,8 @@ class KeyboardKeyBackgroundLayer: CALayer {
             let keyPath = UIBezierPath(roundedRect: keyFrame, cornerRadius: key.cornerRadius)
             
             // Shadow
-            let shadowColor = UIColor.grayColor()
-            CGContextSetShadowWithColor(ctx, CGSize(width: 0.0, height: 1.0), 1.0, shadowColor.CGColor)
+            //let shadowColor = UIColor.grayColor()
+            //CGContextSetShadowWithColor(ctx, CGSize(width: 0.0, height: 1.0), 1.0, shadowColor.CGColor)
             
             // Fill
             CGContextSetFillColorWithColor(ctx, key.fillTintColor.CGColor)
@@ -153,7 +158,7 @@ class KeyboardKeyBackgroundLayer: CALayer {
             CGContextFillPath(ctx)
             
             // Outline
-            CGContextSetStrokeColorWithColor(ctx, shadowColor.CGColor)
+            CGContextSetStrokeColorWithColor(ctx, UIColor.grayColor().CGColor)
             CGContextSetLineWidth(ctx, 0.5)
             CGContextAddPath(ctx, keyPath.CGPath)
             CGContextStrokePath(ctx)

@@ -10,6 +10,8 @@ import UIKit
 
 class KeyboardChooserKey: KeyboardKey {
     
+    // MARK: - Properties
+    
     private let imageLayer = CALayer()
     private let menuLayerBackbround = CAShapeLayer()
     private var menuItemLayers = [KeyboardKeyTextLayer]()
@@ -26,6 +28,7 @@ class KeyboardChooserKey: KeyboardKey {
     private var oldSelectedItem = 0
     private let defaultMenuItemBackgroundColor = UIColor.clearColor().CGColor
     private let selectedMenuItemBackgroundColor = UIColor.greenColor().CGColor
+    private var oldFrame = CGRectZero
     
     @IBInspectable var image: UIImage?
         {
@@ -35,6 +38,8 @@ class KeyboardChooserKey: KeyboardKey {
         }
     }
     
+    
+    // MARK: - Initialization
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -48,10 +53,13 @@ class KeyboardChooserKey: KeyboardKey {
     
     override var frame: CGRect {
         didSet {
-            // TODO: only do this once per frame size
-            updateImageLayerFrame()
-            updateMenuLayers()
             
+            // only update frames if non-zero and changed
+            if frame != CGRectZero && frame != oldFrame {
+                updateImageLayerFrame()
+                updateMenuLayers()
+                oldFrame = frame
+            }
         }
     }
     
@@ -64,9 +72,9 @@ class KeyboardChooserKey: KeyboardKey {
         // menu background
         menuLayerBackbround.contentsScale = UIScreen.mainScreen().scale
         menuLayerBackbround.path = popupMenuPath().CGPath
-        menuLayerBackbround.strokeColor = UIColor.blueColor().CGColor
+        menuLayerBackbround.strokeColor = UIColor.grayColor().CGColor
         menuLayerBackbround.fillColor = UIColor.whiteColor().CGColor
-        menuLayerBackbround.lineWidth = 1.0
+        menuLayerBackbround.lineWidth = 0.5
         menuLayerBackbround.hidden = true
         layer.addSublayer(menuLayerBackbround)
         
@@ -79,6 +87,8 @@ class KeyboardChooserKey: KeyboardKey {
         
         
     }
+    
+    // MARK: - Update frames
     
     func updateImageLayerFrame() {
         
@@ -103,7 +113,14 @@ class KeyboardChooserKey: KeyboardKey {
         menuItemRectSize = maxMenuItemSize(attributedMenuItems)
         longTouchMovementWidthThreshold = menuItemRectSize.width + menuItemPadding
         menuLayerBackbround.frame = bounds
+        //menuLayerBackbround.shadowColor = UIColor.redColor().CGColor
+        //menuLayerBackbround.shadowOffset = CGSize(width: 2.0, height: 3.0)
+        //menuLayerBackbround.shadowPath = popupMenuPath().CGPath
+        //menuLayerBackbround.shadowOpacity = 0.5
+        //menuLayerBackbround.lineWidth = 0.5
+        //menuLayerBackbround.
         menuLayerBackbround.path = popupMenuPath().CGPath
+        
         
         // menu item layers
         var x: CGFloat = padding + menuItemPadding
@@ -172,7 +189,9 @@ class KeyboardChooserKey: KeyboardKey {
         return CGSize(width: width, height: ceil(ascent+descent))
     }
     
-    override func longPressBegun() {
+    // MARK: - Gesture recognizer
+    
+    override func longPressBegun(guesture: UILongPressGestureRecognizer) {
         
         // initialize menu item background colors
         for itemLayer in menuItemLayers {
@@ -180,6 +199,8 @@ class KeyboardChooserKey: KeyboardKey {
         }
         oldSelectedItem = 0
         menuItemLayers[0].backgroundColor = selectedMenuItemBackgroundColor
+        
+        touchDownPoint = guesture.locationInView(self)
         
         menuLayerBackbround.hidden = false
         
@@ -218,13 +239,8 @@ class KeyboardChooserKey: KeyboardKey {
         
     }
     
-    override func beginTrackingWithTouch(touch: UITouch, withEvent event: UIEvent?) -> Bool {
-        super.beginTrackingWithTouch(touch, withEvent: event)
-        
-        touchDownPoint = touch.locationInView(self)
-        
-        return true
-    }
+
+    // MARK: - Path
     
     func popupMenuPath() -> UIBezierPath {
         

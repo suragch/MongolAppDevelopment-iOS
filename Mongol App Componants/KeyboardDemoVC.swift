@@ -12,7 +12,8 @@ class KeyboardDemoVC: UIViewController, KeyboardDelegate {
         //aeiouKeyboard.delegate = self
         
         // initialize custom keyboard
-        let keyboardView = AeiouKeyboard(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 300))
+        let keyboardView = QwertyKeyboard(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 300))
+        //let keyboardView = AeiouKeyboard(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 300))
         keyboardView.delegate = self // the view controller will be notified by the keyboard whenever a key is tapped
         
         // replace system keyboard with custom keyboard

@@ -16,6 +16,7 @@ class KeyboardFvsKey: KeyboardKey {
     private let fvs1BottomLayer = KeyboardKeyTextLayer()
     private let fvs2BottomLayer = KeyboardKeyTextLayer()
     private let fvs3BottomLayer = KeyboardKeyTextLayer()
+    private var oldFrame = CGRectZero
     
     let mongolFontName = "ChimeeWhiteMirrored"
     var useMirroredFont = true
@@ -54,7 +55,11 @@ class KeyboardFvsKey: KeyboardKey {
     
     override var frame: CGRect {
         didSet {
-            updateTextFrames()
+            // only update frames if non-zero and changed
+            if frame != CGRectZero && frame != oldFrame {
+                updateTextFrames()
+                oldFrame = frame
+            }
         }
     }
     

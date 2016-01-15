@@ -10,7 +10,8 @@ class AeiouKeyboard: UIView, KeyboardKeyDelegate {
     
     weak var delegate: KeyboardDelegate? // probably the view controller
     
-    private let renderer = MongolUnicodeRenderer.sharedInstance
+    //private let renderer = MongolUnicodeRenderer.sharedInstance
+    private var punctuationOn = false
     
     // Keyboard Keys
     
@@ -72,80 +73,12 @@ class AeiouKeyboard: UIView, KeyboardKeyDelegate {
         
         
         addSubviews()
-        initializeKeyStrings()
+        initializeNonChangingKeys()
+        setMongolKeyStrings()
         assignDelegates()
         
         //print(renderer.unicodeToGlyphs("ᠠᠨ\u{180E}ᠠ ᠠᠮ\u{180E}ᠠ ᠠᠭ\u{180E}ᠠ"))
         //print(renderer.unicodeToGlyphs("\u{202F}ᠶᠢ\u{202F}ᠳᠦ\u{202F}ᠦᠨ"))
-    }
-    
-    func initializeKeyStrings() {
-        
-        // Row 1
-        keyA.primaryString = "ᠠ"
-        keyA.secondaryString = "᠊"
-        keyA.secondaryStringDisplayOverride = ""
-        keyE.primaryString = "ᠡ"
-        keyE.secondaryString = "ᠧ"
-        keyI.primaryString = "ᠢ"
-        keyO.primaryString = "ᠤ"
-        keyO.primaryStringDisplayOverride = ""
-        keyO.secondaryString = "ᠣ"
-        keyU.primaryString = "ᠦ"
-        keyU.primaryStringDisplayOverride = ""
-        keyU.secondaryString = "ᠥ"
-        
-        // Row 2
-        keyNA.primaryString = "ᠨ"
-        keyNA.secondaryString = "ᠩ"
-        keyBA.primaryString = "ᠪ"
-        keyBA.secondaryString = "ᠫ"
-        keyQA.primaryString = "ᠬ"
-        keyQA.secondaryString = "ᠾ"
-        keyGA.primaryString = "ᠭ"
-        keyGA.secondaryString = "ᠺ"
-        keyMA.primaryString = "ᠮ"
-        keyLA.primaryString = "ᠯ"
-        keyLA.secondaryString = "ᡀ"
-        
-        // Row 3
-        keySA.primaryString = "ᠰ"
-        keySA.secondaryString = "ᠱ"
-        keyDA.primaryString = "ᠳ"
-        keyDA.secondaryString = "ᠲ"
-        keyCHA.primaryString = "ᠴ"
-        keyCHA.secondaryString = "ᡂ"
-        keyJA.primaryString = "ᠵ"
-        keyJA.secondaryString = "ᡁ"
-        keyYA.primaryString = "ᠶ"
-        keyRA.primaryString = "ᠷ"
-        keyRA.secondaryString = "ᠿ"
-        
-        // Row 4
-        keyFVS.setStrings("ᠠ", fvs2Top: "ᠡ", fvs3Top: "ᠢ", fvs1Bottom: "ᠤ", fvs2Bottom: "ᠦ", fvs3Bottom: "ᠨ")
-        keyMVS.primaryString = "\u{180E}" // MVS
-        keyMVS.primaryStringDisplayOverride = "  " // na ma ga
-        keyMVS.primaryStringFontSize = 14.0
-        keyMVS.secondaryString = "\u{200D}" // ZWJ
-        keyMVS.secondaryStringDisplayOverride = "-" // TODO:
-        keyWA.primaryString = "ᠸ"
-        keyWA.secondaryString = "ᠹ"
-        keyZA.primaryString = "ᠽ"
-        keyZA.secondaryString = "ᠼ"
-        keySuffix.primaryString = "\u{202F}" // NNBS
-        keySuffix.primaryStringDisplayOverride = "  " // yi du un
-        keySuffix.primaryStringFontSize = 14.0
-        keyBackspace.image = UIImage(named: "backspace_dark")
-
-        // Row 5
-        keyKeyboard.image = UIImage(named: "keyboard_dark")
-        keyComma.primaryString = "\u{1802}" // mongol comma
-        keyComma.secondaryString = "\u{1803}" // mongol period
-        keySpace.primaryString = " "
-        keySpace.image = UIImage(named: "space_dark")
-        keyQuestion.primaryString = "?"
-        keyQuestion.secondaryString = "!"
-        keyReturn.image = UIImage(named: "return_dark")
     }
     
     func addSubviews() {
@@ -187,12 +120,139 @@ class AeiouKeyboard: UIView, KeyboardKeyDelegate {
         self.addSubview(keyQuestion)
         self.addSubview(keyReturn)
         
-        // Keyboard Switcher key should be on top so that popup shows
-        //self.bringSubviewToFront(keyKeyboard)
-        //keyKeyboard..zPosition = 1
         
-        //self.subviews.i
     }
+    
+    func initializeNonChangingKeys() {
+        
+        
+        // Row 4
+        keyFVS.setStrings("ᠠ", fvs2Top: "ᠡ", fvs3Top: "ᠢ", fvs1Bottom: "ᠤ", fvs2Bottom: "ᠦ", fvs3Bottom: "ᠨ")
+        keyMVS.primaryString = "\u{180E}" // MVS
+        keyMVS.primaryStringDisplayOverride = "  " // na ma ga
+        keyMVS.primaryStringFontSize = 14.0
+        keyMVS.secondaryString = "\u{200D}" // ZWJ
+        keyMVS.secondaryStringDisplayOverride = "-" // TODO:
+        
+        keySuffix.primaryString = "\u{202F}" // NNBS
+        keySuffix.primaryStringDisplayOverride = "  " // yi du un
+        keySuffix.primaryStringFontSize = 14.0
+        keyBackspace.image = UIImage(named: "backspace_dark")
+        
+        // Row 5
+        keyKeyboard.image = UIImage(named: "keyboard_dark")
+        keyComma.primaryString = "\u{1802}" // mongol comma
+        keyComma.secondaryString = "\u{1803}" // mongol period
+        keySpace.primaryString = " "
+        keySpace.image = UIImage(named: "space_dark")
+        keyQuestion.primaryString = "?"
+        keyQuestion.secondaryString = "!"
+        keyReturn.image = UIImage(named: "return_dark")
+    }
+    
+    func setMongolKeyStrings() {
+        
+        // Row 1
+        keyA.primaryString = "ᠠ"
+        keyA.secondaryString = "᠊"
+        keyA.secondaryStringDisplayOverride = ""
+        keyE.primaryString = "ᠡ"
+        keyE.secondaryString = "ᠧ"
+        keyI.primaryString = "ᠢ"
+        keyI.secondaryString = ""
+        keyO.primaryString = "ᠤ"
+        keyO.primaryStringDisplayOverride = ""
+        keyO.secondaryString = "ᠣ"
+        keyU.primaryString = "ᠦ"
+        keyU.primaryStringDisplayOverride = ""
+        keyU.secondaryString = "ᠥ"
+        
+        // Row 2
+        keyNA.primaryString = "ᠨ"
+        keyNA.secondaryString = "ᠩ"
+        keyBA.primaryString = "ᠪ"
+        keyBA.secondaryString = "ᠫ"
+        keyQA.primaryString = "ᠬ"
+        keyQA.secondaryString = "ᠾ"
+        keyGA.primaryString = "ᠭ"
+        keyGA.secondaryString = "ᠺ"
+        keyMA.primaryString = "ᠮ"
+        keyMA.secondaryString = ""
+        keyLA.primaryString = "ᠯ"
+        keyLA.secondaryString = "ᡀ"
+        
+        // Row 3
+        keySA.primaryString = "ᠰ"
+        keySA.secondaryString = "ᠱ"
+        keyDA.primaryString = "ᠳ"
+        keyDA.secondaryString = "ᠲ"
+        keyCHA.primaryString = "ᠴ"
+        keyCHA.secondaryString = "ᡂ"
+        keyJA.primaryString = "ᠵ"
+        keyJA.secondaryString = "ᡁ"
+        keyYA.primaryString = "ᠶ"
+        keyYA.secondaryString = ""
+        keyRA.primaryString = "ᠷ"
+        keyRA.secondaryString = "ᠿ"
+        
+        // Row 4
+        keyWA.primaryString = "ᠸ"
+        keyWA.secondaryString = "ᠹ"
+        keyZA.primaryString = "ᠽ"
+        keyZA.secondaryString = "ᠼ"
+        
+    }
+    
+    func setPunctuationKeyStrings() {
+        
+        // Row 1
+        keyA.primaryString = "("
+        keyA.secondaryString = "["
+        keyE.primaryString = ")"
+        keyE.secondaryString = "]"
+        keyI.primaryString = "«"
+        keyI.secondaryString = "<"
+        keyO.primaryString = "»"
+        keyO.secondaryString = ">"
+        keyU.primaryString = "·"
+        keyU.secondaryString = "᠁"
+        
+        // Row 2
+        keyNA.primaryString = "1"
+        keyNA.secondaryString = "᠑"
+        keyBA.primaryString = "2"
+        keyBA.secondaryString = "᠒"
+        keyQA.primaryString = "3"
+        keyQA.secondaryString = "᠓"
+        keyGA.primaryString = "4"
+        keyGA.secondaryString = "᠔"
+        keyMA.primaryString = "5"
+        keyMA.secondaryString = "᠕"
+        keyLA.primaryString = "︱"
+        keyLA.secondaryString = "᠀"
+        
+        // Row 3
+        keySA.primaryString = "6"
+        keySA.secondaryString = "᠖"
+        keyDA.primaryString = "7"
+        keyDA.secondaryString = "᠗"
+        keyCHA.primaryString = "8"
+        keyCHA.secondaryString = "᠘"
+        keyJA.primaryString = "9"
+        keyJA.secondaryString = "᠙"
+        keyYA.primaryString = "0"
+        keyYA.secondaryString = "᠐"
+        keyRA.primaryString = "."
+        keyRA.secondaryString = "᠅"
+        
+        // Row 4
+        keyWA.primaryString = "⁈"
+        keyWA.secondaryString = "᠄"
+        keyZA.primaryString = "‼"
+        keyZA.secondaryString = ";"
+    }
+    
+    
     
     func assignDelegates() {
         
@@ -319,6 +379,16 @@ class AeiouKeyboard: UIView, KeyboardKeyDelegate {
     
     func keyKeyboardTapped() {
         print("key text: keyboard")
+        
+        // switch punctuation
+        punctuationOn = !punctuationOn
+        
+        if punctuationOn {
+            setPunctuationKeyStrings()
+        } else {
+            setMongolKeyStrings()
+        }
+            
     }
     
 }

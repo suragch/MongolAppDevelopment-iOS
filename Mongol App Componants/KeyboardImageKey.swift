@@ -7,6 +7,7 @@ import UIKit
 class KeyboardImageKey: KeyboardKey {
     
     private let imageLayer = CALayer()
+    private var oldFrame = CGRectZero
     
     var primaryString: String = ""
     var secondaryString: String = ""
@@ -35,7 +36,12 @@ class KeyboardImageKey: KeyboardKey {
     
     override var frame: CGRect {
         didSet {
-            updateImageLayerFrame()
+            
+            // only update frames if non-zero and changed
+            if frame != CGRectZero && frame != oldFrame {
+                updateImageLayerFrame()
+                oldFrame = frame
+            }    
         }
     }
     
@@ -64,7 +70,7 @@ class KeyboardImageKey: KeyboardKey {
     }
     
     // long press
-    override func longPressBegun() {
+    override func longPressBegun(guesture: UILongPressGestureRecognizer) {
         if self.secondaryString != "" {
             delegate?.keyTextEntered(self.secondaryString)
         } else {

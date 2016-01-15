@@ -12,6 +12,7 @@ class KeyboardTextKey: KeyboardKey {
     let secondaryLayerMargin: CGFloat = 10.0
     let mongolFontName = "ChimeeWhiteMirrored"
     var useMirroredFont = true
+    private var oldFrame = CGRectZero
     
     // MARK: Primary input value
     
@@ -70,8 +71,15 @@ class KeyboardTextKey: KeyboardKey {
     
     override var frame: CGRect {
         didSet {
-            updatePrimaryLayerFrame()
-            updateSecondaryLayerFrame()
+            
+            // only update frames if non-zero and changed
+            if frame != CGRectZero && frame != oldFrame {
+                updatePrimaryLayerFrame()
+                updateSecondaryLayerFrame()
+                oldFrame = frame
+            }
+            
+            
         }
     }
     
@@ -117,7 +125,7 @@ class KeyboardTextKey: KeyboardKey {
     }
     
     
-    override func longPressBegun() {
+    override func longPressBegun(guesture: UILongPressGestureRecognizer) {
         if self.secondaryString != "" {
             delegate?.keyTextEntered(self.secondaryString)
         } else {

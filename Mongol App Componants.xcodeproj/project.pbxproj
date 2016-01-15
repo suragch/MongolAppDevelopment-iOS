@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		50058A5E1C44DD8F00FCD1A4 /* KeyboardChooserKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50058A5D1C44DD8F00FCD1A4 /* KeyboardChooserKey.swift */; };
+		500883501C48D2750052ABF0 /* QwertyKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5008834F1C48D2750052ABF0 /* QwertyKeyboard.swift */; };
 		5016890C1C3A6C1300BC7FA0 /* KeyboardImageKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5016890B1C3A6C1300BC7FA0 /* KeyboardImageKey.swift */; };
 		5016890E1C3A6D1C00BC7FA0 /* KeyboardKeyBackgroundLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5016890D1C3A6D1C00BC7FA0 /* KeyboardKeyBackgroundLayer.swift */; };
 		501689131C3A6DC600BC7FA0 /* KeyboardKeyDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501689121C3A6DC600BC7FA0 /* KeyboardKeyDelegate.swift */; };
@@ -52,6 +53,7 @@
 
 /* Begin PBXFileReference section */
 		50058A5D1C44DD8F00FCD1A4 /* KeyboardChooserKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardChooserKey.swift; sourceTree = "<group>"; };
+		5008834F1C48D2750052ABF0 /* QwertyKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QwertyKeyboard.swift; sourceTree = "<group>"; };
 		5016890B1C3A6C1300BC7FA0 /* KeyboardImageKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardImageKey.swift; sourceTree = "<group>"; };
 		5016890D1C3A6D1C00BC7FA0 /* KeyboardKeyBackgroundLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardKeyBackgroundLayer.swift; sourceTree = "<group>"; };
 		501689121C3A6DC600BC7FA0 /* KeyboardKeyDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardKeyDelegate.swift; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 			children = (
 				5016890F1C3A6D6A00BC7FA0 /* Key */,
 				50ECFC1E1C11632400322452 /* AeiouKeyboard.swift */,
+				5008834F1C48D2750052ABF0 /* QwertyKeyboard.swift */,
 			);
 			name = Keyboard;
 			sourceTree = "<group>";
@@ -382,6 +385,7 @@
 				506B2DCF1B59C98500B93D61 /* LabelDemoVC.swift in Sources */,
 				50857D691B55DD0200B33AAD /* ScalarString.swift in Sources */,
 				50E3AB0B1C0C439E004C738F /* KeyboardKeyDemoVC.swift in Sources */,
+				500883501C48D2750052ABF0 /* QwertyKeyboard.swift in Sources */,
 				50058A5E1C44DD8F00FCD1A4 /* KeyboardChooserKey.swift in Sources */,
 				50E572601B69D07F0041E0AE /* TextViewDemoVC.swift in Sources */,
 				501689131C3A6DC600BC7FA0 /* KeyboardKeyDelegate.swift in Sources */,
