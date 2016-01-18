@@ -4,6 +4,7 @@ import UIKit
 protocol KeyboardDelegate: class {
     func keyWasTapped(character: String)
     func keyBackspace()
+    func keyNewKeyboardChosen(keyboardName: String)
 }
 
 class AeiouKeyboard: UIView, KeyboardKeyDelegate {
@@ -69,7 +70,7 @@ class AeiouKeyboard: UIView, KeyboardKeyDelegate {
         setup()
     }
     
-    func setup() {
+    private func setup() {
         
         
         addSubviews()
@@ -81,7 +82,7 @@ class AeiouKeyboard: UIView, KeyboardKeyDelegate {
         //print(renderer.unicodeToGlyphs("\u{202F}ᠶᠢ\u{202F}ᠳᠦ\u{202F}ᠦᠨ"))
     }
     
-    func addSubviews() {
+    private func addSubviews() {
         // Row 1
         self.addSubview(keyA)
         self.addSubview(keyE)
@@ -123,7 +124,7 @@ class AeiouKeyboard: UIView, KeyboardKeyDelegate {
         
     }
     
-    func initializeNonChangingKeys() {
+    private func initializeNonChangingKeys() {
         
         
         // Row 4
@@ -150,7 +151,7 @@ class AeiouKeyboard: UIView, KeyboardKeyDelegate {
         keyReturn.image = UIImage(named: "return_dark")
     }
     
-    func setMongolKeyStrings() {
+    private func setMongolKeyStrings() {
         
         // Row 1
         keyA.primaryString = "ᠠ"
@@ -203,7 +204,7 @@ class AeiouKeyboard: UIView, KeyboardKeyDelegate {
         
     }
     
-    func setPunctuationKeyStrings() {
+    private func setPunctuationKeyStrings() {
         
         // Row 1
         keyA.primaryString = "("
@@ -254,7 +255,7 @@ class AeiouKeyboard: UIView, KeyboardKeyDelegate {
     
     
     
-    func assignDelegates() {
+    private func assignDelegates() {
         
         // Row 1
         keyA.delegate = self
@@ -288,7 +289,8 @@ class AeiouKeyboard: UIView, KeyboardKeyDelegate {
         keyBackspace.addTarget(self, action: "keyBackspaceTapped", forControlEvents: UIControlEvents.TouchUpInside)
         
         // Row 5
-        keyKeyboard.addTarget(self, action: "keyKeyboardTapped", forControlEvents: UIControlEvents.TouchUpInside)
+        //keyKeyboard.addTarget(self, action: "keyKeyboardTapped", forControlEvents: UIControlEvents.TouchUpInside)
+        keyKeyboard.delegate = self
         keyComma.delegate = self
         keySpace.delegate = self
         keyQuestion.delegate = self
@@ -354,6 +356,11 @@ class AeiouKeyboard: UIView, KeyboardKeyDelegate {
         
     }
     
+    // MARK: - Other
+    
+    func otherAvailableKeyboards(displayNames: [String]) {
+        keyKeyboard.menuItems = displayNames
+    }
     
     // MARK: - KeyboardKeyDelegate protocol
     
@@ -389,6 +396,11 @@ class AeiouKeyboard: UIView, KeyboardKeyDelegate {
             setMongolKeyStrings()
         }
             
+    }
+    
+    // tell the view controller to switch keyboards
+    func keyNewKeyboardChosen(keyboardName: String) {
+        delegate?.keyNewKeyboardChosen(keyboardName)
     }
     
 }

@@ -9,6 +9,9 @@ import UIKit
 protocol KeyboardKeyDelegate: class {
     func keyTextEntered(keyText: String)
     func keyBackspaceTapped()
+    func keyKeyboardTapped()
+    func keyNewKeyboardChosen(keyboardName: String)
+    func otherAvailableKeyboards(displayNames: [String])
 }
 
 

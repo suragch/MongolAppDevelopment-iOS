@@ -296,7 +296,8 @@ class QwertyKeyboard: UIView, KeyboardKeyDelegate {
         keyBackspace.addTarget(self, action: "keyBackspaceTapped", forControlEvents: UIControlEvents.TouchUpInside)
         
         // Row 4
-        keyKeyboard.addTarget(self, action: "keyKeyboardTapped", forControlEvents: UIControlEvents.TouchUpInside)
+        //keyKeyboard.addTarget(self, action: "keyKeyboardTapped", forControlEvents: UIControlEvents.TouchUpInside)
+        keyKeyboard.delegate = self
         keyMVS.delegate = self
         keyComma.delegate = self
         keySpace.delegate = self
@@ -379,6 +380,11 @@ class QwertyKeyboard: UIView, KeyboardKeyDelegate {
         
     }
     
+    // MARK: - Other
+    
+    func otherAvailableKeyboards(displayNames: [String]) {
+        keyKeyboard.menuItems = displayNames
+    }
     
     // MARK: - KeyboardKeyDelegate protocol
     
@@ -414,6 +420,11 @@ class QwertyKeyboard: UIView, KeyboardKeyDelegate {
             setMongolKeyStrings()
         }
         
+    }
+    
+    // tell the view controller to switch keyboards
+    func keyNewKeyboardChosen(keyboardName: String) {
+        delegate?.keyNewKeyboardChosen(keyboardName)
     }
     
 }

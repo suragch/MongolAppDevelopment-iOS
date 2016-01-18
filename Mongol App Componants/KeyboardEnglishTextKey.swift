@@ -1,31 +1,22 @@
-// This keyboard key has two text string locations for vertical Mongolian script, one centered and one in the bottom right.
+// This keyboard key has two text string locations for horizontal English/Cyrillic script, one centered and one in the bottom right.
 
 
 import UIKit
 
 @IBDesignable
-class KeyboardTextKey: KeyboardKey {
+class KeyboardEnglishTextKey: KeyboardKey {
     
-    //private let imageLayer = CALayer()
-    private let primaryLayer = KeyboardKeyTextLayer()
-    private let secondaryLayer = KeyboardKeyTextLayer()
+
+    private let primaryLayer = CATextLayer()
+    private let secondaryLayer = CATextLayer()
     let secondaryLayerMargin: CGFloat = 5.0
-    let mongolFontName = "ChimeeWhiteMirrored"
-    var useMirroredFont = true
     private var oldFrame = CGRectZero
     
     // MARK: Primary input value
     
-    @IBInspectable var primaryString: String = "A" {
+    @IBInspectable var primaryString: String = "" {
         didSet {
-            primaryLayer.displayString = primaryString
-            updatePrimaryLayerFrame()
-        }
-    }
-    // use if display form should be different than primaryLetter
-    var primaryStringDisplayOverride = "" {
-        didSet {
-            primaryLayer.displayString = primaryStringDisplayOverride
+            //primaryLayer.displayString = primaryString
             updatePrimaryLayerFrame()
         }
     }
@@ -39,14 +30,7 @@ class KeyboardTextKey: KeyboardKey {
     
     @IBInspectable var secondaryString: String = "" {
         didSet {
-            secondaryLayer.displayString = secondaryString
-            updateSecondaryLayerFrame()
-        }
-    }
-    // use if display form should be different than secondaryLetter
-    var secondaryStringDisplayOverride = "" {
-        didSet {
-            secondaryLayer.displayString = secondaryStringDisplayOverride
+            //secondaryLayer.displayString = secondaryString
             updateSecondaryLayerFrame()
         }
     }
@@ -87,12 +71,12 @@ class KeyboardTextKey: KeyboardKey {
         
         
         // Primary text layer
-        primaryLayer.useMirroredFont = useMirroredFont
+        //primaryLayer.useMirroredFont = useMirroredFont
         primaryLayer.contentsScale = UIScreen.mainScreen().scale
         layer.addSublayer(primaryLayer)
         
         // Secondary text layer
-        secondaryLayer.useMirroredFont = useMirroredFont
+        //secondaryLayer.useMirroredFont = useMirroredFont
         secondaryLayer.contentsScale = UIScreen.mainScreen().scale
         layer.addSublayer(secondaryLayer)
         
@@ -101,26 +85,29 @@ class KeyboardTextKey: KeyboardKey {
     
     func updatePrimaryLayerFrame() {
         
-        let myAttribute = [ NSFontAttributeName: UIFont(name: mongolFontName, size: primaryStringFontSize )! ]
-        let attrString = NSMutableAttributedString(string: primaryLayer.displayString, attributes: myAttribute )
+        let myAttribute = [ NSFontAttributeName: UIFont.systemFontOfSize(primaryStringFontSize) ]
+        //let myString = primaryLayer.string as? String ?? ""
+        let attrString = NSMutableAttributedString(string: primaryString, attributes: myAttribute )
         let size = dimensionsForAttributedString(attrString)
         
         // This is the frame for the soon-to-be rotated layer
-        let x = (layer.bounds.width - size.height) / 2
-        let y = (layer.bounds.height - size.width) / 2
-        primaryLayer.frame = CGRect(x: x, y: y, width: size.height, height: size.width)
+        let x = (layer.bounds.width - size.width) / 2
+        let y = (layer.bounds.height - size.height) / 2
+        primaryLayer.frame = CGRect(x: x, y: y, width: size.width, height: size.height)
         primaryLayer.string = attrString
     }
     
     func updateSecondaryLayerFrame() {
-        let myAttribute = [ NSFontAttributeName: UIFont(name: mongolFontName, size: secondaryStringFontSize )! ]
-        let attrString = NSMutableAttributedString(string: secondaryLayer.displayString, attributes: myAttribute )
+        let myAttribute = [ NSFontAttributeName: UIFont.systemFontOfSize(secondaryStringFontSize) ]
+        
+        //let myString = secondaryString  // secondaryLayer.string as? String ?? ""
+        let attrString = NSMutableAttributedString(string: secondaryString, attributes: myAttribute )
         let size = dimensionsForAttributedString(attrString)
         
         // This is the frame for the soon-to-be rotated layer
-        let x = layer.bounds.width - size.height - secondaryLayerMargin
-        let y = layer.bounds.height - size.width - secondaryLayerMargin
-        secondaryLayer.frame = CGRect(x: x, y: y, width: size.height, height: size.width)
+        let x = layer.bounds.width - size.width - secondaryLayerMargin
+        let y = layer.bounds.height - size.height - secondaryLayerMargin
+        secondaryLayer.frame = CGRect(x: x, y: y, width: size.width, height: size.height)
         secondaryLayer.string = attrString
     }
     
@@ -159,31 +146,4 @@ class KeyboardTextKey: KeyboardKey {
         return CGSize(width: width, height: ceil(ascent+descent))
     }
 }
-
-// MARK: - Key Text Layer Class
-
-class KeyboardKeyTextLayer: CATextLayer {
-    
-    // set this to false if not using a mirrored font
-    var useMirroredFont = true
-    var displayString = ""
-    
-    override func drawInContext(ctx: CGContext) {
-        // A frame is passed in, in which the frame size is already rotated at the center but the content is not.
-        
-        CGContextSaveGState(ctx)
-        
-        if useMirroredFont {
-            CGContextRotateCTM(ctx, CGFloat(M_PI_2))
-            CGContextScaleCTM(ctx, 1.0, -1.0)
-        } else {
-            CGContextRotateCTM(ctx, CGFloat(M_PI_2))
-            CGContextTranslateCTM(ctx, 0, -self.bounds.width)
-        }
-        
-        super.drawInContext(ctx)
-        CGContextRestoreGState(ctx)
-    }
-}
-
 
