@@ -77,6 +77,10 @@ class KeyboardKeyDemoVC: UIViewController, KeyboardKeyDelegate {
         print("backspace tapped")
     }
     
+    func keyFvsTapped(fvs: String) {
+        print("key text: fvs")
+    }
+    
     func keyKeyboardTapped() {
         // for keyboard chooser key
     }

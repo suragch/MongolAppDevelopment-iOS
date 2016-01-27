@@ -8,6 +8,7 @@ import UIKit
 // protocol for communication with keyboard
 protocol KeyboardKeyDelegate: class {
     func keyTextEntered(keyText: String)
+    func keyFvsTapped(fvs: String)
     func keyBackspaceTapped()
     func keyKeyboardTapped()
     func keyNewKeyboardChosen(keyboardName: String)
@@ -23,20 +24,24 @@ class KeyboardKey: UIControl {
     private let backgroundLayer = KeyboardKeyBackgroundLayer()
     private var oldFrame = CGRectZero
     
-    
     var padding: CGFloat {
         get {
             return backgroundLayer.padding
         }
     }
-    
-    
-    // MARK: Other properties
-    var fillTintColor = UIColor.whiteColor() {
+
+    var fillColor = UIColor.greenColor() {
         didSet {
             backgroundLayer.setNeedsDisplay()
         }
     }
+    
+    var borderColor = UIColor.blackColor() {
+        didSet {
+            backgroundLayer.setNeedsDisplay()
+        }
+    }
+    
     @IBInspectable var cornerRadius: CGFloat = 8 {
         didSet {
             backgroundLayer.setNeedsDisplay()
@@ -104,6 +109,8 @@ class KeyboardKey: UIControl {
             longPressStateChanged(guesture)
         } else if guesture.state == UIGestureRecognizerState.Ended {
             longPressEnded()
+        } else if guesture.state == UIGestureRecognizerState.Cancelled {
+            longPressCancelled()
         }
     }
     
@@ -116,6 +123,10 @@ class KeyboardKey: UIControl {
     }
     
     func longPressEnded() {
+        // this method is for subclasses to override
+    }
+    
+    func longPressCancelled() {
         // this method is for subclasses to override
     }
     
@@ -150,18 +161,15 @@ class KeyboardKeyBackgroundLayer: CALayer {
             
             let keyFrame = bounds.insetBy(dx: padding, dy: padding)
             let keyPath = UIBezierPath(roundedRect: keyFrame, cornerRadius: key.cornerRadius)
-            
-            // Shadow
-            //let shadowColor = UIColor.grayColor()
-            //CGContextSetShadowWithColor(ctx, CGSize(width: 0.0, height: 1.0), 1.0, shadowColor.CGColor)
+            //let borderColor = key.borderColor.CGColor
             
             // Fill
-            CGContextSetFillColorWithColor(ctx, key.fillTintColor.CGColor)
+            CGContextSetFillColorWithColor(ctx, key.fillColor.CGColor)
             CGContextAddPath(ctx, keyPath.CGPath)
             CGContextFillPath(ctx)
             
             // Outline
-            CGContextSetStrokeColorWithColor(ctx, UIColor.grayColor().CGColor)
+            CGContextSetStrokeColorWithColor(ctx, key.borderColor.CGColor)
             CGContextSetLineWidth(ctx, 0.5)
             CGContextAddPath(ctx, keyPath.CGPath)
             CGContextStrokePath(ctx)

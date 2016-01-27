@@ -5,14 +5,19 @@ protocol KeyboardDelegate: class {
     func keyWasTapped(character: String)
     func keyBackspace()
     func keyNewKeyboardChosen(keyboardName: String)
+    func charBeforeCursor() -> String?
 }
 
 class AeiouKeyboard: UIView, KeyboardKeyDelegate {
     
     weak var delegate: KeyboardDelegate? // probably the view controller
     
-    //private let renderer = MongolUnicodeRenderer.sharedInstance
+    private let renderer = MongolUnicodeRenderer.sharedInstance
     private var punctuationOn = false
+    private let nirugu = "\u{180a}"
+    private let fvs1 = "\u{180b}"
+    private let fvs2 = "\u{180c}"
+    private let fvs3 = "\u{180d}"
     
     // Keyboard Keys
     
@@ -128,7 +133,7 @@ class AeiouKeyboard: UIView, KeyboardKeyDelegate {
         
         
         // Row 4
-        keyFVS.setStrings("ᠠ", fvs2Top: "ᠡ", fvs3Top: "ᠢ", fvs1Bottom: "ᠤ", fvs2Bottom: "ᠦ", fvs3Bottom: "ᠨ")
+        keyFVS.setStrings("", fvs2Top: "", fvs3Top: "", fvs1Bottom: "", fvs2Bottom: "", fvs3Bottom: "")
         keyMVS.primaryString = "\u{180E}" // MVS
         keyMVS.primaryStringDisplayOverride = "  " // na ma ga
         keyMVS.primaryStringFontSize = 14.0
@@ -139,6 +144,8 @@ class AeiouKeyboard: UIView, KeyboardKeyDelegate {
         keySuffix.primaryStringDisplayOverride = "  " // yi du un
         keySuffix.primaryStringFontSize = 14.0
         keyBackspace.image = UIImage(named: "backspace_dark")
+        keyBackspace.keyType = KeyboardImageKey.KeyType.Backspace
+        keyBackspace.repeatOnLongPress = true
         
         // Row 5
         keyKeyboard.image = UIImage(named: "keyboard_dark")
@@ -146,6 +153,7 @@ class AeiouKeyboard: UIView, KeyboardKeyDelegate {
         keyComma.secondaryString = "\u{1803}" // mongol period
         keySpace.primaryString = " "
         keySpace.image = UIImage(named: "space_dark")
+        keySpace.repeatOnLongPress = true
         keyQuestion.primaryString = "?"
         keyQuestion.secondaryString = "!"
         keyReturn.image = UIImage(named: "return_dark")
@@ -281,12 +289,13 @@ class AeiouKeyboard: UIView, KeyboardKeyDelegate {
         keyRA.delegate = self
         
         // Row 4
-        keyFVS.addTarget(self, action: "keyFvsTapped", forControlEvents: UIControlEvents.TouchUpInside)
+        keyFVS.delegate = self
         keyMVS.delegate = self
         keyWA.delegate = self
         keyZA.delegate = self
         keySuffix.delegate = self
-        keyBackspace.addTarget(self, action: "keyBackspaceTapped", forControlEvents: UIControlEvents.TouchUpInside)
+        keyBackspace.delegate = self
+        //keyBackspace.addTarget(self, action: "keyBackspaceTapped", forControlEvents: UIControlEvents.TouchUpInside)
         
         // Row 5
         //keyKeyboard.addTarget(self, action: "keyKeyboardTapped", forControlEvents: UIControlEvents.TouchUpInside)
@@ -362,26 +371,111 @@ class AeiouKeyboard: UIView, KeyboardKeyDelegate {
         keyKeyboard.menuItems = displayNames
     }
     
+    func updateFvsKey(previousChar: String?, currentChar: String) {
+        
+        // get the last character (previousChar is not necessarily a single char)
+        var lastChar: UInt32 = 0
+        if let previous = previousChar {
+            for c in previous.unicodeScalars {
+                lastChar = c.value
+            }
+        }
+        
+        // lookup the strings and update the key
+        if renderer.isMongolian(lastChar) { // Medial or Final
+            
+            // Medial on top
+            var fvs1Top = ""
+            if let search = renderer.medialGlyphForUnicode(currentChar + fvs1) {
+                fvs1Top = search
+            }
+            var fvs2Top = ""
+            if let search = renderer.medialGlyphForUnicode(currentChar + fvs2) {
+                fvs2Top = search
+            }
+            var fvs3Top = ""
+            if let search = renderer.medialGlyphForUnicode(currentChar + fvs3) {
+                fvs3Top = search
+            }
+            
+            // Final on bottom
+            var fvs1Bottom = ""
+            if let search = renderer.finalGlyphForUnicode(currentChar + fvs1) {
+                fvs1Bottom = search
+            }
+            var fvs2Bottom = ""
+            if let search = renderer.finalGlyphForUnicode(currentChar + fvs2) {
+                fvs2Bottom = search
+            }
+            var fvs3Bottom = ""
+            if let search = renderer.finalGlyphForUnicode(currentChar + fvs3) {
+                fvs3Bottom = search
+            }
+            
+            keyFVS.setStrings(fvs1Top, fvs2Top: fvs2Top, fvs3Top: fvs3Top, fvs1Bottom: fvs1Bottom, fvs2Bottom: fvs2Bottom, fvs3Bottom: fvs3Bottom)
+            
+        } else { // Initial or Isolate
+            
+            // Initial on top
+            var fvs1Top = ""
+            if let search = renderer.initialGlyphForUnicode(currentChar + fvs1) {
+                fvs1Top = search
+            }
+            var fvs2Top = ""
+            if let search = renderer.initialGlyphForUnicode(currentChar + fvs2) {
+                fvs2Top = search
+            }
+            var fvs3Top = ""
+            if let search = renderer.initialGlyphForUnicode(currentChar + fvs3) {
+                fvs3Top = search
+            }
+            
+            // Isolate on bottom
+            var fvs1Bottom = ""
+            if let search = renderer.isolateGlyphForUnicode(currentChar + fvs1) {
+                fvs1Bottom = search
+            }
+            var fvs2Bottom = ""
+            if let search = renderer.isolateGlyphForUnicode(currentChar + fvs2) {
+                fvs2Bottom = search
+            }
+            var fvs3Bottom = ""
+            if let search = renderer.isolateGlyphForUnicode(currentChar + fvs3) {
+                fvs3Bottom = search
+            }
+            
+            keyFVS.setStrings(fvs1Top, fvs2Top: fvs2Top, fvs3Top: fvs3Top, fvs1Bottom: fvs1Bottom, fvs2Bottom: fvs2Bottom, fvs3Bottom: fvs3Bottom)
+        }
+    }
+    
     // MARK: - KeyboardKeyDelegate protocol
     
     func keyTextEntered(keyText: String) {
         print("key text: \(keyText)")
         // pass the input up to the Keyboard delegate
+        let previousChar = self.delegate?.charBeforeCursor()
+        updateFvsKey(previousChar, currentChar: keyText)
+        
         self.delegate?.keyWasTapped(keyText)
     }
     
     func keyBackspaceTapped() {
         self.delegate?.keyBackspace()
         print("key text: backspace")
+        
+        updateFvsKey("", currentChar: "")
     }
     
     func keyReturnTapped() {
         self.delegate?.keyWasTapped("\n")
         print("key text: return")
+        
+        updateFvsKey("", currentChar: "")
     }
     
-    func keyFvsTapped() {
+    func keyFvsTapped(fvs: String) {
         print("key text: fvs")
+        self.delegate?.keyWasTapped(fvs)
     }
     
     func keyKeyboardTapped() {
@@ -395,12 +489,14 @@ class AeiouKeyboard: UIView, KeyboardKeyDelegate {
         } else {
             setMongolKeyStrings()
         }
-            
+        
+        updateFvsKey("", currentChar: "")
     }
     
     // tell the view controller to switch keyboards
     func keyNewKeyboardChosen(keyboardName: String) {
         delegate?.keyNewKeyboardChosen(keyboardName)
+        updateFvsKey("", currentChar: "")
     }
     
 }

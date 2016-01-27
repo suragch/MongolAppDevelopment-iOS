@@ -78,21 +78,11 @@ class KeyboardChooserKey: KeyboardKey {
         // menu background
         menuLayerBackbround.contentsScale = UIScreen.mainScreen().scale
         menuLayerBackbround.path = popupMenuPath().CGPath
-        menuLayerBackbround.strokeColor = UIColor.grayColor().CGColor
-        menuLayerBackbround.fillColor = UIColor.whiteColor().CGColor
+        menuLayerBackbround.strokeColor = self.borderColor.CGColor
+        menuLayerBackbround.fillColor = self.fillColor.CGColor
         menuLayerBackbround.lineWidth = 0.5
         menuLayerBackbround.hidden = true
         layer.addSublayer(menuLayerBackbround)
-        
-//        if let items = menuItems {
-//            for _ in items {
-//                let textLayer = KeyboardKeyTextLayer()
-//                textLayer.contentsScale = UIScreen.mainScreen().scale
-//                menuLayerBackbround.addSublayer(textLayer)
-//                menuItemLayers.append(textLayer)
-//            }
-//        }
-        
         
         
     }
@@ -139,12 +129,6 @@ class KeyboardChooserKey: KeyboardKey {
         menuItemRectSize = maxMenuItemSize(attributedMenuItems)
         longTouchMovementWidthThreshold = menuItemRectSize.width + menuItemPadding
         menuLayerBackbround.frame = bounds
-        //menuLayerBackbround.shadowColor = UIColor.redColor().CGColor
-        //menuLayerBackbround.shadowOffset = CGSize(width: 2.0, height: 3.0)
-        //menuLayerBackbround.shadowPath = popupMenuPath().CGPath
-        //menuLayerBackbround.shadowOpacity = 0.5
-        //menuLayerBackbround.lineWidth = 0.5
-        //menuLayerBackbround.
         menuLayerBackbround.path = popupMenuPath().CGPath
         
         

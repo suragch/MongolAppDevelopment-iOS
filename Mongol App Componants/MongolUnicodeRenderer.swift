@@ -1526,7 +1526,7 @@ class MongolUnicodeRenderer {
         
     ]
     
-    // MARK: unicodeToGlyphs
+    // MARK: Public methods
     
     func unicodeToGlyphs(unicodeString: String) -> String {
         
@@ -1641,6 +1641,23 @@ class MongolUnicodeRenderer {
         return outputString.toString()
     }
     
+    func isolateGlyphForUnicode(unicode: String) -> String? {
+        return MongolUnicodeRenderer.isolateDictionary[ScalarString(unicode)]?.toString()
+    }
+    
+    func initialGlyphForUnicode(unicode: String) -> String? {
+        return MongolUnicodeRenderer.initialDictionary[ScalarString(unicode)]?.toString()
+    }
+    
+    func medialGlyphForUnicode(unicode: String) -> String? {
+        return MongolUnicodeRenderer.medialDictionary[ScalarString(unicode)]?.toString()
+    }
+    
+    func finalGlyphForUnicode(unicode: String) -> String? {
+        return MongolUnicodeRenderer.finalDictionary[ScalarString(unicode)]?.toString()
+    }
+    
+    // MARK: - Private methods
     
     private func convertWord(mongolWord: ScalarString) -> ScalarString {
         
@@ -1770,7 +1787,7 @@ class MongolUnicodeRenderer {
     
     // MARK: Formatting rules
     
-    func preFormatter(mongolWord: ScalarString) -> ScalarString {
+    private func preFormatter(mongolWord: ScalarString) -> ScalarString {
         
         // This method applies context based formatting rules by adding the appropriate FVS character
         // TODO This method is slow because every rule has to loop through the word. However, this was intentional in order to separate the rules for easier debugging
@@ -1989,23 +2006,23 @@ class MongolUnicodeRenderer {
     
     // MARK: Boolean methods
     
-    func isVowel(character: UInt32) -> Bool {
+    private func isVowel(character: UInt32) -> Bool {
         return character >= Uni.A && character <= Uni.EE
     }
     
-    func isMasculineVowel(character: UInt32) -> Bool {
+    private func isMasculineVowel(character: UInt32) -> Bool {
         return (character == Uni.A || character == Uni.O || character == Uni.U)
     }
     
-    func isFeminineVowel(character: UInt32) -> Bool {
+    private func isFeminineVowel(character: UInt32) -> Bool {
         return (character == Uni.E || character == Uni.EE || character == Uni.OE || character == Uni.UE)
     }
     
-    func isConsonant(character: UInt32) -> Bool {
+    private func isConsonant(character: UInt32) -> Bool {
         return (character >= Uni.NA && character <= Uni.CHI)
     }
     
-    func isFVS(character: UInt32) -> Bool {
+    private func isFVS(character: UInt32) -> Bool {
         return (character >= Uni.FVS1 && character <= Uni.FVS3)
     }
     
@@ -2014,22 +2031,22 @@ class MongolUnicodeRenderer {
         return ((character >= Uni.A && character <= Uni.CHI) || (character >= Uni.MONGOLIAN_NIRUGU && character <= Uni.MVS) || character == Uni.ZWJ)
     }
     
-    func isBGDRS(character: UInt32) -> Bool {
+    private func isBGDRS(character: UInt32) -> Bool {
         // This method is not used internally, only for external use.
         return (character == Uni.BA || character == Uni.GA || character == Uni.DA
             || character == Uni.RA || character == Uni.SA)
     }
     
-    func isMongolianAlphabet(character: UInt32) -> Bool {
+    private func isMongolianAlphabet(character: UInt32) -> Bool {
         // This method is not used internally, only for external use.
         return (character >= Uni.A && character <= Uni.CHI)
     }
     
-    func isMongolianGlyphAlphabet(character: UInt32) -> Bool {
+    private func isMongolianGlyphAlphabet(character: UInt32) -> Bool {
         return (character >= Glyph.ISOL_A && character <= Glyph.INIT_KHA_MEDI_UE_FVS1)
     }
     
-    func isMasculineWord(word: ScalarString) -> Bool {
+    private func isMasculineWord(word: ScalarString) -> Bool {
         // This method is not used internally, only for external use.
         if (word.isEmpty) {
             return false
@@ -2043,7 +2060,7 @@ class MongolUnicodeRenderer {
         return false
     }
     
-    func isFeminineWord(word: ScalarString) -> Bool {
+    private func isFeminineWord(word: ScalarString) -> Bool {
         // This method is not used internally, only for external use.
         if (word.isEmpty) {
             return false

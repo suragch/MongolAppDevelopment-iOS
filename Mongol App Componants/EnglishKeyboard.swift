@@ -127,6 +127,8 @@ class EnglishKeyboard: UIView, KeyboardKeyDelegate {
         // Row 3
         keyShift.image = UIImage(named: "shift_dark") // TODO
         keyBackspace.image = UIImage(named: "backspace_dark")
+        keyBackspace.keyType = KeyboardImageKey.KeyType.Backspace
+        keyBackspace.repeatOnLongPress = true
         
         // Row 4
         keyKeyboard.image = UIImage(named: "keyboard_dark")
@@ -134,6 +136,7 @@ class EnglishKeyboard: UIView, KeyboardKeyDelegate {
         keyComma.secondaryString = "\u{1803}" // mongol period
         keySpace.primaryString = " "
         keySpace.image = UIImage(named: "space_dark")
+        keySpace.repeatOnLongPress = true
         keyQuestion.primaryString = "?"
         keyQuestion.secondaryString = "!"
         keyReturn.image = UIImage(named: "return_dark")
@@ -282,7 +285,7 @@ class EnglishKeyboard: UIView, KeyboardKeyDelegate {
         keyB.delegate = self
         keyN.delegate = self
         keyM.delegate = self
-        keyBackspace.addTarget(self, action: "keyBackspaceTapped", forControlEvents: UIControlEvents.TouchUpInside)
+        keyBackspace.delegate = self
         
         // Row 4
         keyKeyboard.delegate = self
@@ -391,6 +394,10 @@ class EnglishKeyboard: UIView, KeyboardKeyDelegate {
     func keyReturnTapped() {
         self.delegate?.keyWasTapped("\n")
         print("key text: return")
+    }
+    
+    func keyFvsTapped(fvs: String) {
+        // only here to conform to protocol
     }
     
     func keyShiftTapped() {

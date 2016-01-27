@@ -143,6 +143,8 @@ class CyrillicKeyboard: UIView, KeyboardKeyDelegate {
         // Row 3
         keyShift.image = UIImage(named: "shift_dark") // TODO
         keyBackspace.image = UIImage(named: "backspace_dark")
+        keyBackspace.keyType = KeyboardImageKey.KeyType.Backspace
+        keyBackspace.repeatOnLongPress = true
         
         // Row 4
         keyKeyboard.image = UIImage(named: "keyboard_dark")
@@ -150,6 +152,7 @@ class CyrillicKeyboard: UIView, KeyboardKeyDelegate {
         keyComma.secondaryString = "\u{1803}" // mongol period
         keySpace.primaryString = " "
         keySpace.image = UIImage(named: "space_dark")
+        keySpace.repeatOnLongPress = true
         keyQuestion.primaryString = "?"
         keyQuestion.secondaryString = "!"
         keyReturn.image = UIImage(named: "return_dark")
@@ -337,7 +340,7 @@ class CyrillicKeyboard: UIView, KeyboardKeyDelegate {
         key37.delegate = self
         key38.delegate = self
         key39.delegate = self
-        keyBackspace.addTarget(self, action: "keyBackspaceTapped", forControlEvents: UIControlEvents.TouchUpInside)
+        keyBackspace.delegate = self
         
         // Row 4
         keyKeyboard.delegate = self
@@ -449,6 +452,10 @@ class CyrillicKeyboard: UIView, KeyboardKeyDelegate {
     func keyReturnTapped() {
         self.delegate?.keyWasTapped("\n")
         print("key text: return")
+    }
+    
+    func keyFvsTapped(fvs: String) {
+        // only here to conform to protocol
     }
     
     func keyShiftTapped() {

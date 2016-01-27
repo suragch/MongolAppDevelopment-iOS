@@ -8,10 +8,19 @@ class KeyboardImageKey: KeyboardKey {
     
     private let imageLayer = CALayer()
     private var oldFrame = CGRectZero
+    private var timer = NSTimer()
     
     var primaryString: String = ""
     var secondaryString: String = ""
+    var repeatOnLongPress = false
+    var repeatInterval = 0.1 // sec
+    var keyType = KeyType.Other
     
+    enum KeyType {
+        case Backspace
+        case Other
+    }
+
     
     @IBInspectable var image: UIImage?
         {
@@ -75,16 +84,52 @@ class KeyboardImageKey: KeyboardKey {
             delegate?.keyTextEntered(self.secondaryString)
         } else {
             // enter primary string if this key has no seconary string
-            delegate?.keyTextEntered(self.primaryString)
+            //delegate?.keyTextEntered(self.primaryString)
+            
+            if keyType == KeyType.Backspace {
+                delegate?.keyBackspaceTapped()
+            } else {
+                delegate?.keyTextEntered(self.primaryString)
+            }
+            
+            if repeatOnLongPress {
+                timer = NSTimer.scheduledTimerWithTimeInterval(repeatInterval, target: self, selector: "repeatAction", userInfo: nil, repeats: true)
+            }
         }
+    }
+    
+    override func longPressEnded() {
+        timer.invalidate()
+    }
+    
+    override func longPressCancelled() {
+        timer.invalidate()
     }
     
     // tap event (do when finger lifted)
     override func endTrackingWithTouch(touch: UITouch?, withEvent event: UIEvent?) {
         super.endTrackingWithTouch(touch, withEvent: event)
         
-        delegate?.keyTextEntered(self.primaryString)
+        timer.invalidate()
         
+        if keyType == KeyType.Backspace {
+            delegate?.keyBackspaceTapped()
+        } else {
+            delegate?.keyTextEntered(self.primaryString)
+        }
+        
+    }
+    
+    
+    
+    // do if repeating on long press
+    func repeatAction() {
+        
+        if keyType == KeyType.Backspace {
+            delegate?.keyBackspaceTapped()
+        } else {
+            delegate?.keyTextEntered(self.primaryString)
+        }
     }
     
 }

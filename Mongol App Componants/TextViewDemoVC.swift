@@ -11,7 +11,8 @@ class TextViewDemoVC: UIViewController {
         
         let renderer = MongolUnicodeRenderer.sharedInstance
         print(renderer.unicodeToGlyphs(textView.text))
-        textView.text = renderer.unicodeToGlyphs(textView.text)
+        //textView.text = renderer.unicodeToGlyphs(textView.text)
+        textView.text = renderer.unicodeToGlyphs("")
     }
     
     

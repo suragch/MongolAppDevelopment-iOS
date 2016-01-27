@@ -42,6 +42,20 @@ class KeyboardDemoVC: UIViewController, KeyboardDelegate {
         textField.deleteBackward()
     }
     
+    func charBeforeCursor() -> String? {
+        // get the cursor position
+        if let cursorRange = textField.selectedTextRange {
+            
+            // get the position one character before the cursor start position
+            if let newPosition = textField.positionFromPosition(cursorRange.start, inDirection: UITextLayoutDirection.Left, offset: 1) {
+                
+                let range = textField.textRangeFromPosition(newPosition, toPosition: cursorRange.start)
+                return textField.textInRange(range!)
+            }
+        }
+        return nil
+    }
+    
     func keyNewKeyboardChosen(keyboardName: String) {
         switch keyboardName {
         case KeyboardName.Aeiou.rawValue:
