@@ -54,9 +54,9 @@ class CyrillicKeyboard: UIView, KeyboardKeyDelegate {
     
     // Row 4
     private let keyKeyboard = KeyboardChooserKey()
-    private let keyComma = KeyboardTextKey()
+    private let keyComma = KeyboardEnglishTextKey()
     private let keySpace = KeyboardImageKey()
-    private let keyQuestion = KeyboardTextKey()
+    private let keyQuestion = KeyboardEnglishTextKey()
     private let key41 = KeyboardEnglishTextKey()
     private let keyReturn = KeyboardImageKey()
     
@@ -148,8 +148,8 @@ class CyrillicKeyboard: UIView, KeyboardKeyDelegate {
         
         // Row 4
         keyKeyboard.image = UIImage(named: "keyboard_dark")
-        keyComma.primaryString = "\u{1802}" // mongol comma
-        keyComma.secondaryString = "\u{1803}" // mongol period
+        keyComma.primaryString = "."
+        keyComma.secondaryString = ","
         keySpace.primaryString = " "
         keySpace.image = UIImage(named: "space_dark")
         keySpace.repeatOnLongPress = true
@@ -265,8 +265,8 @@ class CyrillicKeyboard: UIView, KeyboardKeyDelegate {
         key18.primaryString = "8"
         key19.primaryString = "9"
         key110.primaryString = "0"
-        key111.primaryString = ""
-        key112.primaryString = ""
+        key111.primaryString = "~"
+        key112.primaryString = "$"
         
         // Row 2
         key21.primaryString = "("
@@ -294,7 +294,7 @@ class CyrillicKeyboard: UIView, KeyboardKeyDelegate {
         key39.primaryString = "!"
         
         // Row 4
-        key41.primaryString = "?"
+        key41.primaryString = ","
     }
     
     
@@ -356,9 +356,9 @@ class CyrillicKeyboard: UIView, KeyboardKeyDelegate {
         // TODO: - should add autolayout constraints instead
         
         // |   | ф | ц | у | ж | э | н | г | ш | ү | з | к | ъ |    Row 1
-        // | b | й | ы | б | ө | а | х | р | о | л | д | п | е |    Row 2
-        // | a |shift| я | ч | ё | с | м | и | т | ь | в | del |    Row 3
-        // | r |     key | , |      space     | . | ю |   ret  |    Row 4
+        // |   | й | ы | б | ө | а | х | р | о | л | д | п | е |    Row 2
+        // |   |shift| я | ч | ё | с | м | и | т | ь | в | del |    Row 3
+        // |   |     key | , |      space     | . | ю |   ret  |    Row 4
         
         //let suggestionBarWidth: CGFloat = 30
         let numberOfRows: CGFloat = 4
@@ -477,6 +477,7 @@ class CyrillicKeyboard: UIView, KeyboardKeyDelegate {
         
         // switch punctuation
         punctuationOn = !punctuationOn
+        shiftOn = false
         
         if punctuationOn {
             setPunctuationKeyStrings()

@@ -24,19 +24,20 @@ class KeyboardKey: UIControl {
     private let backgroundLayer = KeyboardKeyBackgroundLayer()
     private var oldFrame = CGRectZero
     
+    // space between the frame edge of the visible border of the key
     var padding: CGFloat {
         get {
             return backgroundLayer.padding
         }
     }
 
-    var fillColor = UIColor.greenColor() {
+    var fillColor = UIColor.whiteColor() {
         didSet {
             backgroundLayer.setNeedsDisplay()
         }
     }
     
-    var borderColor = UIColor.blackColor() {
+    var borderColor = UIColor.grayColor() {
         didSet {
             backgroundLayer.setNeedsDisplay()
         }

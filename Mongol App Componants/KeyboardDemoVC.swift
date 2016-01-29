@@ -24,8 +24,8 @@ class KeyboardDemoVC: UIViewController, KeyboardDelegate {
         super.viewDidLoad()
         
         // get strings for keyboard names above
-        print(renderer.unicodeToGlyphs("ᠴᠠᠭᠠᠨ ᠲᠣᠯᠤᠭᠠᠢ"))
-        print(renderer.unicodeToGlyphs("ᠺᠤᠮᠫᠢᠦ᠋ᠲ᠋ᠧᠷ"))
+        //print(renderer.unicodeToGlyphs("ᠴᠠᠭᠠᠨ ᠲᠣᠯᠤᠭᠠᠢ"))
+        //print(renderer.unicodeToGlyphs("ᠺᠤᠮᠫᠢᠦ᠋ᠲ᠋ᠧᠷ"))
         
         // default keyboard
         keyNewKeyboardChosen(KeyboardName.Aeiou.rawValue)

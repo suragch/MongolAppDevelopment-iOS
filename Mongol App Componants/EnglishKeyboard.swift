@@ -47,9 +47,9 @@ class EnglishKeyboard: UIView, KeyboardKeyDelegate {
     
     // Row 4
     private let keyKeyboard = KeyboardChooserKey()
-    private let keyComma = KeyboardTextKey()
+    private let keyComma = KeyboardEnglishTextKey()
     private let keySpace = KeyboardImageKey()
-    private let keyQuestion = KeyboardTextKey()
+    private let keyQuestion = KeyboardEnglishTextKey()
     private let keyReturn = KeyboardImageKey()
     
     
@@ -132,8 +132,8 @@ class EnglishKeyboard: UIView, KeyboardKeyDelegate {
         
         // Row 4
         keyKeyboard.image = UIImage(named: "keyboard_dark")
-        keyComma.primaryString = "\u{1802}" // mongol comma
-        keyComma.secondaryString = "\u{1803}" // mongol period
+        keyComma.primaryString = "."
+        keyComma.secondaryString = ","
         keySpace.primaryString = " "
         keySpace.image = UIImage(named: "space_dark")
         keySpace.repeatOnLongPress = true
@@ -419,6 +419,7 @@ class EnglishKeyboard: UIView, KeyboardKeyDelegate {
         
         // switch punctuation
         punctuationOn = !punctuationOn
+        shiftOn = false
         
         if punctuationOn {
             setPunctuationKeyStrings()

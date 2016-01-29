@@ -1,7 +1,7 @@
 /*
 * Chimee Mongol Unicode Rendering Engine for iOS
 *
-* Version 1.2.0
+* Version 1.2.1
 *
 * Current version needs to be used with Almas font 1.0 glyphs
 * copied to PUA starting at \uE360. To use different glyph
@@ -84,10 +84,10 @@ class MongolUnicodeRenderer {
         
     }
     
-    private struct Glyph {
+    struct Glyph {
         
-        // static let CURSOR_HOLDER: UInt32 = 0xE359 // arbitrary unused char
-        static let CURSOR_HOLDER: UInt32 = UInt32("|")
+        static let CURSOR_HOLDER: UInt32 = 0xE359 // arbitrary unused char
+        //static let CURSOR_HOLDER: UInt32 = UInt32("|")
         
         // Private Use Area glyph values
         static let NOTDEF: UInt32 = 0xE360
@@ -1528,14 +1528,14 @@ class MongolUnicodeRenderer {
     
     // MARK: Public methods
     
-    func unicodeToGlyphs(unicodeString: String) -> String {
+    func unicodeToGlyphs(inputString: ScalarString) -> ScalarString {
         
-        let inputString: ScalarString = ScalarString(unicodeString)
+        //let inputString: ScalarString = ScalarString(unicodeString)
         var outputString: ScalarString = ScalarString()
         var subString: ScalarString = ScalarString()
         
         if inputString.isEmpty {
-            return ""
+            return inputString
         }
         
         // Loop through characters in string
@@ -1638,7 +1638,14 @@ class MongolUnicodeRenderer {
             }
         }
         
-        return outputString.toString()
+        return outputString
+        
+    }
+    
+    func unicodeToGlyphs(unicodeString: String) -> String {
+        
+        let inputString: ScalarString = ScalarString(unicodeString)
+        return unicodeToGlyphs(inputString).toString()
     }
     
     func isolateGlyphForUnicode(unicode: String) -> String? {
