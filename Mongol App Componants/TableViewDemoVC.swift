@@ -48,7 +48,7 @@ class TableViewDemoVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         print("You selected cell #\(indexPath.row)!")
         
-        let tmp = UIViewController()
-        self.navigationController?.pushViewController(tmp, animated:false )
+        //let tmp = UIViewController()
+        //self.navigationController?.pushViewController(tmp, animated:false )
     }
 }

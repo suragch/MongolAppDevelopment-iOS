@@ -35,6 +35,7 @@
 		50E3AB0B1C0C439E004C738F /* KeyboardKeyDemoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E3AB0A1C0C439E004C738F /* KeyboardKeyDemoVC.swift */; };
 		50E3AB0D1C0C4AEF004C738F /* KeyboardTextKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E3AB0C1C0C4AEF004C738F /* KeyboardTextKey.swift */; };
 		50E572601B69D07F0041E0AE /* TextViewDemoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E5725F1B69D07F0041E0AE /* TextViewDemoVC.swift */; };
+		50E8199F1C633C2400D6BFDC /* MongolTextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E8199E1C633C2400D6BFDC /* MongolTextStorage.swift */; };
 		50ECFC1C1C1161D500322452 /* KeyboardDemoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50ECFC1B1C1161D500322452 /* KeyboardDemoVC.swift */; };
 		50ECFC1F1C11632400322452 /* AeiouKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50ECFC1E1C11632400322452 /* AeiouKeyboard.swift */; };
 		50ED1AEC1C31759000791849 /* MongolUnicodeRendererTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50ED1AEB1C31759000791849 /* MongolUnicodeRendererTests.swift */; };
@@ -85,6 +86,7 @@
 		50E3AB0A1C0C439E004C738F /* KeyboardKeyDemoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardKeyDemoVC.swift; sourceTree = "<group>"; };
 		50E3AB0C1C0C4AEF004C738F /* KeyboardTextKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardTextKey.swift; sourceTree = "<group>"; };
 		50E5725F1B69D07F0041E0AE /* TextViewDemoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewDemoVC.swift; sourceTree = "<group>"; };
+		50E8199E1C633C2400D6BFDC /* MongolTextStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MongolTextStorage.swift; sourceTree = "<group>"; };
 		50ECFC1B1C1161D500322452 /* KeyboardDemoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardDemoVC.swift; sourceTree = "<group>"; };
 		50ECFC1E1C11632400322452 /* AeiouKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AeiouKeyboard.swift; sourceTree = "<group>"; };
 		50ED1AEB1C31759000791849 /* MongolUnicodeRendererTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MongolUnicodeRendererTests.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 			children = (
 				50CB52BA1B5891EF00AFB77A /* MongolUnicodeRenderer.swift */,
 				50857D681B55DD0200B33AAD /* ScalarString.swift */,
+				50E8199E1C633C2400D6BFDC /* MongolTextStorage.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				50B67C841BA3B70200B3EC63 /* ButtonDemoVC.swift in Sources */,
 				507334A91B780F60005179B1 /* MainViewController.swift in Sources */,
 				50B67C821BA3B68100B3EC63 /* UIMongolButton.swift in Sources */,
+				50E8199F1C633C2400D6BFDC /* MongolTextStorage.swift in Sources */,
 				50CDEE9B1B67FE0200C7C405 /* UIMongolTableView.swift in Sources */,
 				505BF7FC1B98381B005FBD9D /* AlertDemoVC.swift in Sources */,
 				50E3AB0D1C0C4AEF004C738F /* KeyboardTextKey.swift in Sources */,

@@ -1,13 +1,23 @@
 import UIKit
 
-@IBDesignable class UIMongolTextView: UIView {
 
+class UITextViewWithoutMenu: UITextView {
+    
+    override func canPerformAction(action: Selector, withSender sender: AnyObject?) -> Bool {
+        
+        return false
+    }
+}
+
+
+@IBDesignable class UIMongolTextView: UIView {
+    
     // FIXME: long load time
     
     // MARK:- Unique to TextView
     
     // ********* Unique to TextView *********
-    private var view = UITextView()
+    private var view = UITextViewWithoutMenu()
     private var userInteractionEnabledForSubviews = true
     private let mongolFontName = "ChimeeWhiteMirrored"
     private let defaultFontSize: CGFloat = 17
@@ -32,7 +42,7 @@ import UIKit
         set {
             view.font = UIFont(name: mongolFontName, size: newValue)
         }
-   }
+    }
     
     @IBInspectable var textColor: UIColor {
         get {
@@ -95,9 +105,19 @@ import UIKit
     }
     
     var layoutManager: NSLayoutManager {
-        get {
-            return view.layoutManager
-        }
+        return view.layoutManager
+    }
+    
+    var textStorage: NSTextStorage {
+        return view.textStorage
+    }
+    
+    var textContainer: NSTextContainer {
+        return view.textContainer
+    }
+    
+    var textContainerInset: UIEdgeInsets {
+        return view.textContainerInset
     }
     
     var contentSize: CGSize {
@@ -109,7 +129,7 @@ import UIKit
         }
     }
     
-    var underlyingTextView: UITextView {
+    var underlyingTextView: UITextViewWithoutMenu {
         get {
             return view
         }
@@ -122,6 +142,62 @@ import UIKit
         // swap the length and width coming in and going out
         let fitSize = view.sizeThatFits(CGSize(width: size.height, height: size.width))
         return CGSize(width: fitSize.height, height: fitSize.width)
+    }
+    
+    func insertMongolText(unicode: String, mongolTextStorage: MongolTextStorage) {
+        
+        // get the current selected range / cursor position
+        // TODO: this could give error if selected range has emoji
+        if let selection = view.selectedTextRange {
+            
+            // get caret or selected range
+            // "view.selectedRange" may be easier but use method below as a first step for future emoji support
+            let startGlyphIndex = view.offsetFromPosition(view.beginningOfDocument, toPosition: selection.start)
+            let length = view.offsetFromPosition(selection.start, toPosition: selection.end)
+            let selectedRange = NSRange(location: startGlyphIndex, length: length)
+            
+            // insert or replace selection with unicode
+            mongolTextStorage.insertUnicodeForGlyphRange(selectedRange, unicodeToInsert: unicode)
+            
+            // render unicode again
+            // FIXME: It is inefficient and unnesessary to render everything
+            view.text = mongolTextStorage.render()
+            
+            // set caret position
+            if let newPosition = view.positionFromPosition(view.beginningOfDocument, inDirection: UITextLayoutDirection.Right, offset: mongolTextStorage.glyphIndexForCursor) {
+                
+                view.selectedTextRange = view.textRangeFromPosition(newPosition, toPosition: newPosition)
+            }
+        }
+        
+    }
+    
+    func deleteBackward(mongolTextStorage: MongolTextStorage) {
+        
+        // get the current selected range / cursor position
+        // TODO: this could give error if selected range has emoji
+        if let selection = view.selectedTextRange {
+            
+            // get caret or selected range
+            // "view.selectedRange" may be easier but use method below as a first step for future emoji support
+            let startGlyphIndex = view.offsetFromPosition(view.beginningOfDocument, toPosition: selection.start)
+            let length = view.offsetFromPosition(selection.start, toPosition: selection.end)
+            let selectedRange = NSRange(location: startGlyphIndex, length: length)
+            
+            // delete unicode backward
+            mongolTextStorage.deleteBackwardsAtGlyphRange(selectedRange)
+            
+            
+            // render unicode again
+            // FIXME: It is inefficient and unnesessary to render everything
+            view.text = mongolTextStorage.render()
+            
+            // set caret position
+            if let newPosition = view.positionFromPosition(view.beginningOfDocument, inDirection: UITextLayoutDirection.Right, offset: mongolTextStorage.glyphIndexForCursor) {
+                
+                view.selectedTextRange = view.textRangeFromPosition(newPosition, toPosition: newPosition)
+            }
+        }
     }
     
     func setup() {
@@ -209,5 +285,5 @@ import UIKit
         
         return transform
     }
-
+    
 }

@@ -116,6 +116,13 @@ struct ScalarString: SequenceType, Hashable, CustomStringConvertible {
     mutating func insert(scalar: UInt32, atIndex index: Int) {
         self.scalarArray.insert(scalar, atIndex: index)
     }
+    mutating func insert(string: ScalarString, atIndex index: Int) {
+        var newIndex = index
+        for scalar in string {
+            self.scalarArray.insert(scalar, atIndex: newIndex)
+            ++newIndex
+        }
+    }
     mutating func insert(string: String, atIndex index: Int) {
         var newIndex = index
         for scalar in string.unicodeScalars {
