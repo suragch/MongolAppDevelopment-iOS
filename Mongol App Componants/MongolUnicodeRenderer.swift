@@ -1,7 +1,7 @@
 /*
 * Chimee Mongol Unicode Rendering Engine for iOS
 *
-* Version 1.2.1
+* Version 1.3.1
 *
 * Current version needs to be used with Almas font 1.0 glyphs
 * copied to PUA starting at \uE360. To use different glyph
@@ -736,6 +736,7 @@ class MongolUnicodeRenderer {
         ScalarString(Uni.TA) : ScalarString(Glyph.ISOL_TA),
         ScalarString([Uni.TA, Uni.FVS1]) : ScalarString(Glyph.ISOL_TA_FVS1),
         ScalarString(Uni.DA) : ScalarString(Glyph.ISOL_DA),
+        ScalarString([Uni.DA, Uni.FVS1]) : ScalarString(Glyph.ISOL_DA), // adding this so that partial word with initial D+FVS1 won't switch form
         ScalarString(Uni.CHA) : ScalarString(Glyph.ISOL_CHA),
         ScalarString(Uni.JA) : ScalarString(Glyph.ISOL_JA),
         ScalarString([Uni.JA, Uni.FVS1]) : ScalarString(Glyph.ISOL_JA_FVS1),
@@ -1647,6 +1648,79 @@ class MongolUnicodeRenderer {
         let inputString: ScalarString = ScalarString(unicodeString)
         return unicodeToGlyphs(inputString).toString()
     }
+    
+    // Used to get the unicode character position index from a touch event that gives a glyph position index
+    func getUnicodeIndex(unicodeString: ScalarString, glyphIndex: Int) -> Int {
+        
+        // TODO This will be slow for long strings
+        // Could I just pass in the glyph string?
+        let glyphString = unicodeToGlyphs(unicodeString)
+        //let unicodeScalarString = ScalarString(unicodeString)
+        
+        // error catching
+        if glyphIndex >= glyphString.length {
+            return unicodeString.length
+        }
+        
+        // Find the matching group between spaces
+        let space = UInt32(" ")
+        let zwj = UInt32(Uni.ZWJ)
+        var glyphSpaceCount = 0
+        var glyphSpaceIndex = 0
+        for var i = 0; i < glyphIndex; ++i {
+            if glyphString.charAt(i) == space {
+                ++glyphSpaceCount
+                glyphSpaceIndex = i
+            }
+        }
+        let glyphGroup = glyphString.substring(glyphSpaceIndex)
+        var unicodeSpaceCount = 0
+        var unicodeSpaceIndex = 0
+        if glyphSpaceCount > 0 {
+            for var i = 0; i < unicodeString.length; ++i {
+                if unicodeString.charAt(i) == space {
+                    ++unicodeSpaceCount
+                    unicodeSpaceIndex = i
+                    if (unicodeSpaceCount == glyphSpaceCount) {
+                        break
+                    }
+                }
+            }
+        }
+        
+        let unicodeGroup = unicodeString.substring(unicodeSpaceIndex)
+        
+        // increment until glyphs match
+        let groupGlyphIndex = glyphIndex - glyphSpaceIndex
+        var groupUnicodeIndex = groupGlyphIndex
+        var isMedial = false
+        if groupGlyphIndex > 0 && groupGlyphIndex < glyphGroup.length {
+            isMedial = isMongolianGlyphAlphabet(glyphGroup.charAt(groupGlyphIndex))
+                && isMongolianGlyphAlphabet(glyphGroup.charAt(groupGlyphIndex - 1))
+        }
+        for var i = groupGlyphIndex; i < unicodeGroup.length; ++i {
+            if !isFVS(unicodeGroup.charAt(i)) {
+                if isMedial {
+                    var unicodeSubstring = unicodeGroup.substring(0, i)
+                    unicodeSubstring.append(zwj)
+                    if glyphGroup.substring(0, groupGlyphIndex) == unicodeToGlyphs(unicodeSubstring) {
+                        groupUnicodeIndex = i
+                        break
+                    }
+                } else {
+                    if glyphGroup.substring(0, groupGlyphIndex) == unicodeToGlyphs(unicodeGroup.substring(0, i)) {
+                        groupUnicodeIndex = i
+                        break
+                    }
+                }
+                
+            }
+        }
+        
+        return unicodeSpaceIndex + groupUnicodeIndex
+    }
+    
+    
     
     func isolateGlyphForUnicode(unicode: String) -> String? {
         return MongolUnicodeRenderer.isolateDictionary[ScalarString(unicode)]?.toString()

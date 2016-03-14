@@ -1,4 +1,7 @@
 // This struct is an array of UInt32 to hold Unicode scalar values
+// Version 3.0
+
+
 struct ScalarString: SequenceType, Hashable, CustomStringConvertible {
     
     private var scalarArray: [UInt32] = []
@@ -143,7 +146,6 @@ struct ScalarString: SequenceType, Hashable, CustomStringConvertible {
         return self.scalarArray.reduce(5381) {
             ($0 << 5) &+ $0 &+ Int($1)
         }
-        
     }
     
     // length

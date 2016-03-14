@@ -11,6 +11,7 @@
 		500883501C48D2750052ABF0 /* QwertyKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5008834F1C48D2750052ABF0 /* QwertyKeyboard.swift */; };
 		5014EBB41C4CB00E0083AE27 /* CyrillicKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5014EBB31C4CB00E0083AE27 /* CyrillicKeyboard.swift */; };
 		5016890C1C3A6C1300BC7FA0 /* KeyboardImageKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5016890B1C3A6C1300BC7FA0 /* KeyboardImageKey.swift */; };
+		502D50B51C964A7B003B1DC3 /* UIMongolSingleLineLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502D50B41C964A7B003B1DC3 /* UIMongolSingleLineLabel.swift */; };
 		505BF7F81B97F56A005FBD9D /* UIMongolAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505BF7F71B97F56A005FBD9D /* UIMongolAlert.swift */; };
 		505BF7FC1B98381B005FBD9D /* AlertDemoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505BF7FB1B98381B005FBD9D /* AlertDemoVC.swift */; };
 		505CADA91B34FBB200A99031 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505CADA81B34FBB200A99031 /* AppDelegate.swift */; };
@@ -58,6 +59,7 @@
 		5008834F1C48D2750052ABF0 /* QwertyKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QwertyKeyboard.swift; sourceTree = "<group>"; };
 		5014EBB31C4CB00E0083AE27 /* CyrillicKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CyrillicKeyboard.swift; sourceTree = "<group>"; };
 		5016890B1C3A6C1300BC7FA0 /* KeyboardImageKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardImageKey.swift; sourceTree = "<group>"; };
+		502D50B41C964A7B003B1DC3 /* UIMongolSingleLineLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIMongolSingleLineLabel.swift; sourceTree = "<group>"; };
 		505BF7F71B97F56A005FBD9D /* UIMongolAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIMongolAlert.swift; sourceTree = "<group>"; };
 		505BF7FB1B98381B005FBD9D /* AlertDemoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertDemoVC.swift; sourceTree = "<group>"; };
 		505CADA31B34FBB200A99031 /* Mongol App Componants.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mongol App Componants.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -221,6 +223,7 @@
 				505CADAC1B34FBB200A99031 /* Main.storyboard */,
 				505CADB11B34FBB200A99031 /* LaunchScreen.xib */,
 				506B2DCC1B59C57900B93D61 /* UIMongolLabel.swift */,
+				502D50B41C964A7B003B1DC3 /* UIMongolSingleLineLabel.swift */,
 				50CDEE9A1B67FE0200C7C405 /* UIMongolTableView.swift */,
 				505CADCA1B34FE7F00A99031 /* UIMongolTextView.swift */,
 				50B67C811BA3B68100B3EC63 /* UIMongolButton.swift */,
@@ -374,6 +377,7 @@
 				50E0D5D11C4A7BD400585B3B /* EnglishKeyboard.swift in Sources */,
 				5016890C1C3A6C1300BC7FA0 /* KeyboardImageKey.swift in Sources */,
 				505CADCB1B34FE7F00A99031 /* UIMongolTextView.swift in Sources */,
+				502D50B51C964A7B003B1DC3 /* UIMongolSingleLineLabel.swift in Sources */,
 				5014EBB41C4CB00E0083AE27 /* CyrillicKeyboard.swift in Sources */,
 				505BF7F81B97F56A005FBD9D /* UIMongolAlert.swift in Sources */,
 				506B2DCD1B59C57900B93D61 /* UIMongolLabel.swift in Sources */,

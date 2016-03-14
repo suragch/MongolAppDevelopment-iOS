@@ -12,6 +12,7 @@ class LabelDemoVC: UIViewController {
 
     //@IBOutlet weak var label: UIMongolLabel!
     
+    @IBOutlet weak var label1: UIMongolSingleLineLabel!
     @IBOutlet weak var label2: UIMongolLabel!
     
     override func viewDidLoad() {
@@ -19,6 +20,7 @@ class LabelDemoVC: UIViewController {
 
         let renderer = MongolUnicodeRenderer.sharedInstance
         
+        label1.text = renderer.unicodeToGlyphs(label1.text)
         label2.text = renderer.unicodeToGlyphs(label2.text)
         //label2.fontSize = 12
         

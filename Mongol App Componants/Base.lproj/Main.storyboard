@@ -245,15 +245,32 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ai-WE-hg9" customClass="UIMongolSingleLineLabel" customModule="Mongol_App_Componants" customModuleProvider="target">
+                                <rect key="frame" x="36" y="101" width="59" height="321"/>
+                                <color key="backgroundColor" red="1" green="0.59132859171165664" blue="0.40795842031045781" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="59" id="edK-HP-lJS"/>
+                                    <constraint firstAttribute="height" constant="321" id="kmW-Rj-RYo"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="UIMongolSingleLineLabel ᠮᠣᠩᠭᠣᠯ"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                        <real key="value" value="18"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="5ai-WE-hg9" firstAttribute="top" secondItem="UV4-Se-1Ea" secondAttribute="bottom" constant="37" id="JbI-xf-MlM"/>
                             <constraint firstItem="Stk-L1-s4j" firstAttribute="top" secondItem="UV4-Se-1Ea" secondAttribute="bottom" id="LR9-3W-inU"/>
                             <constraint firstItem="s19-SF-YgO" firstAttribute="top" secondItem="Stk-L1-s4j" secondAttribute="bottom" constant="8" id="Qsu-MY-G7q"/>
                             <constraint firstItem="Stk-L1-s4j" firstAttribute="centerX" secondItem="9gX-ZP-jI2" secondAttribute="centerX" id="WYb-uT-Gbj"/>
+                            <constraint firstItem="5ai-WE-hg9" firstAttribute="leading" secondItem="9gX-ZP-jI2" secondAttribute="leadingMargin" constant="16" id="pLL-Ea-OEm"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="label1" destination="5ai-WE-hg9" id="XPN-GU-yej"/>
                         <outlet property="label2" destination="Stk-L1-s4j" id="41e-BL-TOz"/>
                     </connections>
                 </viewController>
