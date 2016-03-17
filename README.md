@@ -1,6 +1,8 @@
 # iOS-Mongol-App-Components
 
-This is a demo app to show how various Mongolian language UI componants cab be used to build Mongolian apps for iOS. It is not finished. Other developers are welcome to contribute their ideas.
+This is a demo app to show how various Mongolian language UI componants cab be used to build Mongolian apps for iOS. 
+
+[File organization!](organization.png)
 
 UI
 
