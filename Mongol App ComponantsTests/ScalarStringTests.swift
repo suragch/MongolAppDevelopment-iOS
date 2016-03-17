@@ -1,10 +1,3 @@
-//
-//  ScalarStringTests.swift
-//  Mongol App Componants
-//
-//  Created by MongolSuragch on 8/14/15.
-//  Copyright © 2015 MongolSuragch. All rights reserved.
-//
 
 import XCTest
 @testable import Mongol_App_Componants

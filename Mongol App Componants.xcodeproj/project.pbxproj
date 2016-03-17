@@ -148,9 +148,9 @@
 		505CADA51B34FBB200A99031 /* Mongol App Componants */ = {
 			isa = PBXGroup;
 			children = (
-				50E572571B692E110041E0AE /* Controllers */,
-				50E572581B692E4A0041E0AE /* Views */,
 				50E572611B69D16F0041E0AE /* Models */,
+				50E572581B692E4A0041E0AE /* Views */,
+				50E572571B692E110041E0AE /* Controllers */,
 				506795341B35771000FA0C9B /* Resources */,
 				505CADA61B34FBB200A99031 /* Supporting Files */,
 			);
