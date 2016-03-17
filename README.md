@@ -2,8 +2,6 @@
 
 This is a demo app to show how various Mongolian language UI componants cab be used to build Mongolian apps for iOS. 
 
-[File organization!](organization.png)
-
 UI
 
 - UIMongolTableView.swift
