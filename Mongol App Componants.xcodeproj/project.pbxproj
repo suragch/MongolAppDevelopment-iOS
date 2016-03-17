@@ -42,6 +42,7 @@
 		50ED1AEC1C31759000791849 /* MongolUnicodeRendererTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50ED1AEB1C31759000791849 /* MongolUnicodeRendererTests.swift */; };
 		50F585911C3C944B00293118 /* KeyboardFvsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F585901C3C944B00293118 /* KeyboardFvsKey.swift */; };
 		50F585931C3C9BD500293118 /* KeyboardKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F585921C3C9BD500293118 /* KeyboardKey.swift */; };
+		50FA017E1C9AA69D00899BAF /* organization.png in Resources */ = {isa = PBXBuildFile; fileRef = 50FA017D1C9AA69D00899BAF /* organization.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 		50ED1AEB1C31759000791849 /* MongolUnicodeRendererTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MongolUnicodeRendererTests.swift; sourceTree = "<group>"; };
 		50F585901C3C944B00293118 /* KeyboardFvsKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardFvsKey.swift; sourceTree = "<group>"; };
 		50F585921C3C9BD500293118 /* KeyboardKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardKey.swift; sourceTree = "<group>"; };
+		50FA017D1C9AA69D00899BAF /* organization.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = organization.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				505CADAF1B34FBB200A99031 /* Images.xcassets */,
+				50FA017F1C9AA6AB00899BAF /* Docs */,
 				505CADA81B34FBB200A99031 /* AppDelegate.swift */,
 				505CADA71B34FBB200A99031 /* Info.plist */,
 			);
@@ -255,6 +258,14 @@
 			name = Keyboard;
 			sourceTree = "<group>";
 		};
+		50FA017F1C9AA6AB00899BAF /* Docs */ = {
+			isa = PBXGroup;
+			children = (
+				50FA017D1C9AA69D00899BAF /* organization.png */,
+			);
+			name = Docs;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -338,6 +349,7 @@
 			files = (
 				505CADAE1B34FBB200A99031 /* Main.storyboard in Resources */,
 				505CADB31B34FBB200A99031 /* LaunchScreen.xib in Resources */,
+				50FA017E1C9AA69D00899BAF /* organization.png in Resources */,
 				505CADB01B34FBB200A99031 /* Images.xcassets in Resources */,
 				5062F3301B37CA2600EC4E67 /* ChimeeWhiteMirrored.ttf in Resources */,
 			);
