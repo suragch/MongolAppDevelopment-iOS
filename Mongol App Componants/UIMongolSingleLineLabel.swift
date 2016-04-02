@@ -6,7 +6,7 @@ class UIMongolSingleLineLabel: UIView {
     private let textLayer = LabelTextLayer()
     let mongolFontName = "ChimeeWhiteMirrored"
     var useMirroredFont = true
-    private var oldFrame = CGRectZero
+    //private var oldFrame = CGRectZero
     
     // MARK: Primary input value
     
@@ -23,6 +23,11 @@ class UIMongolSingleLineLabel: UIView {
         }
     }
     
+    @IBInspectable var centerText: Bool = true {
+        didSet {
+            updateTextLayerFrame()
+        }
+    }
     
     
     // MARK: - Initialization
@@ -37,17 +42,6 @@ class UIMongolSingleLineLabel: UIView {
         setup()
     }
     
-    override var frame: CGRect {
-        didSet {
-            
-            // only update frames if non-zero and changed
-            if frame != CGRectZero && frame != oldFrame {
-                updateTextLayerFrame()
-                oldFrame = frame
-            }
-        }
-    }
-    
     func setup() {
         
         
@@ -58,6 +52,10 @@ class UIMongolSingleLineLabel: UIView {
         
     }
     
+    override func intrinsicContentSize() -> CGSize {
+        return textLayer.frame.size
+    }
+    
     func updateTextLayerFrame() {
         
         let myAttribute = [ NSFontAttributeName: UIFont(name: mongolFontName, size: fontSize )! ]
@@ -65,10 +63,17 @@ class UIMongolSingleLineLabel: UIView {
         let size = dimensionsForAttributedString(attrString)
         
         // This is the frame for the soon-to-be rotated layer
-        let x = (layer.bounds.width - size.height) / 2
-        let y = (layer.bounds.height - size.width) / 2
+        var x: CGFloat = 0
+        var y: CGFloat = 0
+        if layer.bounds.width > size.height {
+            x = (layer.bounds.width - size.height) / 2
+        }
+        if centerText {
+            y = (layer.bounds.height - size.width) / 2
+        }
         textLayer.frame = CGRect(x: x, y: y, width: size.height, height: size.width)
         textLayer.string = attrString
+        invalidateIntrinsicContentSize()
     }
     
     

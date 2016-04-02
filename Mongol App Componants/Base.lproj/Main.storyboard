@@ -246,17 +246,18 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ai-WE-hg9" customClass="UIMongolSingleLineLabel" customModule="Mongol_App_Componants" customModuleProvider="target">
-                                <rect key="frame" x="36" y="101" width="59" height="321"/>
+                                <rect key="frame" x="36" y="101" width="64" height="278"/>
                                 <color key="backgroundColor" red="1" green="0.59132859171165664" blue="0.40795842031045781" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="59" id="edK-HP-lJS"/>
-                                    <constraint firstAttribute="height" constant="321" id="kmW-Rj-RYo"/>
+                                    <constraint firstAttribute="width" constant="64" id="PLI-TP-rYn"/>
+                                    <constraint firstAttribute="height" constant="278" id="ZIh-uc-tm9"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="text" value="UIMongolSingleLineLabel ᠮᠣᠩᠭᠣᠯ"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
                                         <real key="value" value="18"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="centerText" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
