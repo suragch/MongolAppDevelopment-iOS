@@ -31,16 +31,7 @@ struct ScalarString: SequenceType, Hashable, CustomStringConvertible {
     // Generator in order to conform to SequenceType protocol
     // (to allow users to iterate as in `for myScalarValue in myScalarString` { ... })
     func generate() -> AnyGenerator<UInt32> {
-        
-        var nextIndex = -1
-        
-        return AnyGenerator {
-            nextIndex += 1
-            if (nextIndex > self.scalarArray.count-1) {
-                return nil
-            }
-            return self.scalarArray[nextIndex]
-        }
+        return AnyGenerator(scalarArray.generate())
     }
     
     // append
