@@ -310,58 +310,58 @@ class AeiouKeyboard: UIView, KeyboardKeyDelegate {
     override func layoutSubviews() {
         // TODO: - should add autolayout constraints instead
         
-        // |   |  A |  E | I | O  | U  |    Row 1
-        // | b | N | B | Q | G | M | L |    Row 2
-        // | a | S | D | Ch| J | Y | R |    Row 3
-        // | r |fvs|mvs| W | Z |nbs|del|    Row 4
-        // |   |123| . | space | ? |ret|    Row 5
+        // |  A |  E | I | O  | U  |    Row 1
+        // | N | B | Q | G | M | L |    Row 2
+        // | S | D | Ch| J | Y | R |    Row 3
+        // |fvs|mvs| W | Z |nbs|del|    Row 4
+        // |123| . | space | ? |ret|    Row 5
         
-        let suggestionBarWidth: CGFloat = 30
+        //let suggestionBarWidth: CGFloat = 30
         let numberOfRows: CGFloat = 5
         let keyUnitsInRow1: CGFloat = 5
         let keyUnitsInRow2to5: CGFloat = 6
         let rowHeight = self.bounds.height / numberOfRows
-        let row1KeyUnitWidth = (self.bounds.width - suggestionBarWidth) / keyUnitsInRow1
-        let row2to5KeyUnitWidth = (self.bounds.width - suggestionBarWidth) / keyUnitsInRow2to5
+        let row1KeyUnitWidth = self.bounds.width / keyUnitsInRow1
+        let row2to5KeyUnitWidth = self.bounds.width / keyUnitsInRow2to5
         
         // Row 1
         
-        keyA.frame = CGRect(x: suggestionBarWidth + row1KeyUnitWidth*0, y: 0, width: row1KeyUnitWidth, height: rowHeight)
-        keyE.frame = CGRect(x: suggestionBarWidth + row1KeyUnitWidth*1, y: 0, width: row1KeyUnitWidth, height: rowHeight)
-        keyI.frame = CGRect(x: suggestionBarWidth + row1KeyUnitWidth*2, y: 0, width: row1KeyUnitWidth, height: rowHeight)
-        keyO.frame = CGRect(x: suggestionBarWidth + row1KeyUnitWidth*3, y: 0, width: row1KeyUnitWidth, height: rowHeight)
-        keyU.frame = CGRect(x: suggestionBarWidth + row1KeyUnitWidth*4, y: 0, width: row1KeyUnitWidth, height: rowHeight)
+        keyA.frame = CGRect(x: row1KeyUnitWidth*0, y: 0, width: row1KeyUnitWidth, height: rowHeight)
+        keyE.frame = CGRect(x: row1KeyUnitWidth*1, y: 0, width: row1KeyUnitWidth, height: rowHeight)
+        keyI.frame = CGRect(x: row1KeyUnitWidth*2, y: 0, width: row1KeyUnitWidth, height: rowHeight)
+        keyO.frame = CGRect(x: row1KeyUnitWidth*3, y: 0, width: row1KeyUnitWidth, height: rowHeight)
+        keyU.frame = CGRect(x: row1KeyUnitWidth*4, y: 0, width: row1KeyUnitWidth, height: rowHeight)
         
         // Row 2
-        keyNA.frame = CGRect(x: suggestionBarWidth + row2to5KeyUnitWidth*0, y: rowHeight, width: row2to5KeyUnitWidth, height: rowHeight)
-        keyBA.frame = CGRect(x: suggestionBarWidth + row2to5KeyUnitWidth*1, y: rowHeight, width: row2to5KeyUnitWidth, height: rowHeight)
-        keyQA.frame = CGRect(x: suggestionBarWidth + row2to5KeyUnitWidth*2, y: rowHeight, width: row2to5KeyUnitWidth, height: rowHeight)
-        keyGA.frame = CGRect(x: suggestionBarWidth + row2to5KeyUnitWidth*3, y: rowHeight, width: row2to5KeyUnitWidth, height: rowHeight)
-        keyMA.frame = CGRect(x: suggestionBarWidth + row2to5KeyUnitWidth*4, y: rowHeight, width: row2to5KeyUnitWidth, height: rowHeight)
-        keyLA.frame = CGRect(x: suggestionBarWidth + row2to5KeyUnitWidth*5, y: rowHeight, width: row2to5KeyUnitWidth, height: rowHeight)
+        keyNA.frame = CGRect(x: row2to5KeyUnitWidth*0, y: rowHeight, width: row2to5KeyUnitWidth, height: rowHeight)
+        keyBA.frame = CGRect(x: row2to5KeyUnitWidth*1, y: rowHeight, width: row2to5KeyUnitWidth, height: rowHeight)
+        keyQA.frame = CGRect(x: row2to5KeyUnitWidth*2, y: rowHeight, width: row2to5KeyUnitWidth, height: rowHeight)
+        keyGA.frame = CGRect(x: row2to5KeyUnitWidth*3, y: rowHeight, width: row2to5KeyUnitWidth, height: rowHeight)
+        keyMA.frame = CGRect(x: row2to5KeyUnitWidth*4, y: rowHeight, width: row2to5KeyUnitWidth, height: rowHeight)
+        keyLA.frame = CGRect(x: row2to5KeyUnitWidth*5, y: rowHeight, width: row2to5KeyUnitWidth, height: rowHeight)
         
         // Row 3
-        keySA.frame = CGRect(x: suggestionBarWidth + row2to5KeyUnitWidth*0, y: rowHeight*2, width: row2to5KeyUnitWidth, height: rowHeight)
-        keyDA.frame = CGRect(x: suggestionBarWidth + row2to5KeyUnitWidth*1, y: rowHeight*2, width: row2to5KeyUnitWidth, height: rowHeight)
-        keyCHA.frame = CGRect(x: suggestionBarWidth + row2to5KeyUnitWidth*2, y: rowHeight*2, width: row2to5KeyUnitWidth, height: rowHeight)
-        keyJA.frame = CGRect(x: suggestionBarWidth + row2to5KeyUnitWidth*3, y: rowHeight*2, width: row2to5KeyUnitWidth, height: rowHeight)
-        keyYA.frame = CGRect(x: suggestionBarWidth + row2to5KeyUnitWidth*4, y: rowHeight*2, width: row2to5KeyUnitWidth, height: rowHeight)
-        keyRA.frame = CGRect(x: suggestionBarWidth + row2to5KeyUnitWidth*5, y: rowHeight*2, width: row2to5KeyUnitWidth, height: rowHeight)
+        keySA.frame = CGRect(x: row2to5KeyUnitWidth*0, y: rowHeight*2, width: row2to5KeyUnitWidth, height: rowHeight)
+        keyDA.frame = CGRect(x: row2to5KeyUnitWidth*1, y: rowHeight*2, width: row2to5KeyUnitWidth, height: rowHeight)
+        keyCHA.frame = CGRect(x: row2to5KeyUnitWidth*2, y: rowHeight*2, width: row2to5KeyUnitWidth, height: rowHeight)
+        keyJA.frame = CGRect(x: row2to5KeyUnitWidth*3, y: rowHeight*2, width: row2to5KeyUnitWidth, height: rowHeight)
+        keyYA.frame = CGRect(x: row2to5KeyUnitWidth*4, y: rowHeight*2, width: row2to5KeyUnitWidth, height: rowHeight)
+        keyRA.frame = CGRect(x: row2to5KeyUnitWidth*5, y: rowHeight*2, width: row2to5KeyUnitWidth, height: rowHeight)
         
         // Row 4
-        keyFVS.frame = CGRect(x: suggestionBarWidth + row2to5KeyUnitWidth*0, y: rowHeight*3, width: row2to5KeyUnitWidth, height: rowHeight)
-        keyMVS.frame = CGRect(x: suggestionBarWidth + row2to5KeyUnitWidth*1, y: rowHeight*3, width: row2to5KeyUnitWidth, height: rowHeight)
-        keyWA.frame = CGRect(x: suggestionBarWidth + row2to5KeyUnitWidth*2, y: rowHeight*3, width: row2to5KeyUnitWidth, height: rowHeight)
-        keyZA.frame = CGRect(x: suggestionBarWidth + row2to5KeyUnitWidth*3, y: rowHeight*3, width: row2to5KeyUnitWidth, height: rowHeight)
-        keySuffix.frame = CGRect(x: suggestionBarWidth + row2to5KeyUnitWidth*4, y: rowHeight*3, width: row2to5KeyUnitWidth, height: rowHeight)
-        keyBackspace.frame = CGRect(x: suggestionBarWidth + row2to5KeyUnitWidth*5, y: rowHeight*3, width: row2to5KeyUnitWidth, height: rowHeight)
+        keyFVS.frame = CGRect(x: row2to5KeyUnitWidth*0, y: rowHeight*3, width: row2to5KeyUnitWidth, height: rowHeight)
+        keyMVS.frame = CGRect(x: row2to5KeyUnitWidth*1, y: rowHeight*3, width: row2to5KeyUnitWidth, height: rowHeight)
+        keyWA.frame = CGRect(x: row2to5KeyUnitWidth*2, y: rowHeight*3, width: row2to5KeyUnitWidth, height: rowHeight)
+        keyZA.frame = CGRect(x: row2to5KeyUnitWidth*3, y: rowHeight*3, width: row2to5KeyUnitWidth, height: rowHeight)
+        keySuffix.frame = CGRect(x: row2to5KeyUnitWidth*4, y: rowHeight*3, width: row2to5KeyUnitWidth, height: rowHeight)
+        keyBackspace.frame = CGRect(x: row2to5KeyUnitWidth*5, y: rowHeight*3, width: row2to5KeyUnitWidth, height: rowHeight)
         
         // Row 5
-        keyKeyboard.frame = CGRect(x: suggestionBarWidth + row2to5KeyUnitWidth*0, y: rowHeight*4, width: row2to5KeyUnitWidth, height: rowHeight)
-        keyComma.frame = CGRect(x: suggestionBarWidth + row2to5KeyUnitWidth*1, y: rowHeight*4, width: row2to5KeyUnitWidth, height: rowHeight)
-        keySpace.frame = CGRect(x: suggestionBarWidth + row2to5KeyUnitWidth*2, y: rowHeight*4, width: row2to5KeyUnitWidth*2, height: rowHeight)
-        keyQuestion.frame = CGRect(x: suggestionBarWidth + row2to5KeyUnitWidth*4, y: rowHeight*4, width: row2to5KeyUnitWidth, height: rowHeight)
-        keyReturn.frame = CGRect(x: suggestionBarWidth + row2to5KeyUnitWidth*5, y: rowHeight*4, width: row2to5KeyUnitWidth, height: rowHeight)
+        keyKeyboard.frame = CGRect(x: row2to5KeyUnitWidth*0, y: rowHeight*4, width: row2to5KeyUnitWidth, height: rowHeight)
+        keyComma.frame = CGRect(x: row2to5KeyUnitWidth*1, y: rowHeight*4, width: row2to5KeyUnitWidth, height: rowHeight)
+        keySpace.frame = CGRect(x: row2to5KeyUnitWidth*2, y: rowHeight*4, width: row2to5KeyUnitWidth*2, height: rowHeight)
+        keyQuestion.frame = CGRect(x: row2to5KeyUnitWidth*4, y: rowHeight*4, width: row2to5KeyUnitWidth, height: rowHeight)
+        keyReturn.frame = CGRect(x: row2to5KeyUnitWidth*5, y: rowHeight*4, width: row2to5KeyUnitWidth, height: rowHeight)
         
     }
     
