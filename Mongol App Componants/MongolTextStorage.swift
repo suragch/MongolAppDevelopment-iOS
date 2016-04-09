@@ -42,7 +42,7 @@ class MongolTextStorage {
             
             if unicodeIndexForCursor > 0 {
                 unicodeText.removeCharAt(unicodeIndexForCursor - 1)
-                --unicodeIndexForCursor
+                unicodeIndexForCursor -= 1
             }
             
         } else { // range of text is selected

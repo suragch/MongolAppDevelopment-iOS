@@ -1,7 +1,7 @@
 /*
 * Chimee Mongol Unicode Rendering Engine for iOS
 *
-* Version 1.3.1
+* Version 1.4.0
 *
 * Current version needs to be used with Almas font 1.0 glyphs
 * copied to PUA starting at \uE360. To use different glyph
@@ -1563,7 +1563,7 @@ class MongolUnicodeRenderer {
                     // break up word from suffixes
                     let parts = subString.split(atChar: Uni.NNBS)
                     
-                    for (var j = 0; j < parts.count; j++) {
+                    for j in 0 ..< parts.count {
                         
                         if (j == 0) { // this is the main word
                             
@@ -1608,7 +1608,7 @@ class MongolUnicodeRenderer {
                 // break up word from suffixes
                 let parts = subString.split(atChar: Uni.NNBS)
                 
-                for (var j = 0; j < parts.count; j++) {
+                for j in 0 ..< parts.count {
                     
                     if (j == 0) { // this is the main word
                         
@@ -1667,9 +1667,9 @@ class MongolUnicodeRenderer {
         let zwj = UInt32(Uni.ZWJ)
         var glyphSpaceCount = 0
         var glyphSpaceIndex = 0
-        for var i = 0; i < glyphIndex; ++i {
+        for i in 0..<glyphIndex {
             if glyphString.charAt(i) == space {
-                ++glyphSpaceCount
+                glyphSpaceCount += 1
                 glyphSpaceIndex = i
             }
         }
@@ -1677,9 +1677,9 @@ class MongolUnicodeRenderer {
         var unicodeSpaceCount = 0
         var unicodeSpaceIndex = 0
         if glyphSpaceCount > 0 {
-            for var i = 0; i < unicodeString.length; ++i {
+            for i in 0..<unicodeString.length {
                 if unicodeString.charAt(i) == space {
-                    ++unicodeSpaceCount
+                    unicodeSpaceCount += 1
                     unicodeSpaceIndex = i
                     if (unicodeSpaceCount == glyphSpaceCount) {
                         break
@@ -1698,7 +1698,7 @@ class MongolUnicodeRenderer {
             isMedial = isMongolianGlyphAlphabet(glyphGroup.charAt(groupGlyphIndex))
                 && isMongolianGlyphAlphabet(glyphGroup.charAt(groupGlyphIndex - 1))
         }
-        for var i = groupGlyphIndex; i < unicodeGroup.length; ++i {
+        for i in groupGlyphIndex..<unicodeGroup.length {
             if !isFVS(unicodeGroup.charAt(i)) {
                 if isMedial {
                     var unicodeSubstring = unicodeGroup.substring(0, i)
@@ -1798,7 +1798,7 @@ class MongolUnicodeRenderer {
         } else {
             start = formattedMongolWord.length - 1
         }
-        for (var i = start; i > 0; i--) {
+        for i in start.stride(to: 0, by: -1) {
             subString = formattedMongolWord.substring(0, i)
             if let value = MongolUnicodeRenderer.initialDictionary[subString] {
                 match = value
@@ -1819,7 +1819,7 @@ class MongolUnicodeRenderer {
         } else {
             start = initialEndIndex
         }
-        for (var i = start; i < formattedMongolWord.length; i++) {
+        for i in start..<formattedMongolWord.length {
             subString = formattedMongolWord.substring(i) // TODO do this in Android too
             if let value = MongolUnicodeRenderer.finalDictionary[subString] {
                 finalGlyph = value
@@ -1840,7 +1840,7 @@ class MongolUnicodeRenderer {
             } else {
                 start = medialEndIndex
             }
-            for (var i = start; i > medialStartIndex; i--) {
+            for i in start.stride(to: medialStartIndex, by: -1) {
                 subString = formattedMongolWord.substring(medialStartIndex, i)
                 if let value = MongolUnicodeRenderer.medialDictionary[subString] {
                     match = value
@@ -1880,7 +1880,7 @@ class MongolUnicodeRenderer {
         // MVS rule (only formats A/E after the MVS)
         // Consonant before is formatted by lookup table
         // If A/E is not final then ignore MVS (mingg-a -> minggan)
-        for (var i = word.length - 2; i >= 0; i--) {
+        for i in (word.length - 2).stride(through: 0, by: -1) {
             if (word.charAt(i) == Uni.MVS) {
                 // following char is a vowel
                 if (i == word.length - 2
@@ -1897,7 +1897,7 @@ class MongolUnicodeRenderer {
         }
         
         // Only allow the NG/B/P/F/K/KH and G/Q ligature if A/O/U or MVS follows
-        for (var i = word.length - 3; i >= 0; i--) {
+        for i in (word.length - 3).stride(through: 0, by: -1) {
             // this char is NG/B/P/F/K/KH
             if (word.charAt(i) == Uni.ANG || word.charAt(i) == Uni.BA || word.charAt(i) == Uni.PA || word.charAt(i) == Uni.FA || word.charAt(i) == Uni.KA || word.charAt(i) == Uni.KHA) {
                 // following char is Q/G
@@ -1936,7 +1936,7 @@ class MongolUnicodeRenderer {
         }
         
         // *** medial N rule ***
-        for (var i = word.length - 2; i > 0; i--) {
+        for i in (word.length - 2).stride(to: 0, by: -1) {
             if (word.charAt(i) == Uni.NA) {
                 // following char is a vowel
                 if (isVowel(word.charAt(i + 1))) {
@@ -1947,7 +1947,7 @@ class MongolUnicodeRenderer {
         }
         
         // *** medial D rule ***
-        for (var i = word.length - 2; i > 0; i--) {
+        for i in (word.length - 2).stride(to: 0, by: -1) {
             if (word.charAt(i) == Uni.DA) {
                 // following char is a vowel
                 if (isVowel(word.charAt(i + 1))) {
@@ -1967,7 +1967,7 @@ class MongolUnicodeRenderer {
                 word.insert(Uni.FVS2, atIndex: 1)
             }
         }
-        for (var i = word.length - 1; i > 0; i--) {
+        for i in (word.length - 1).stride(to: 0, by: -1) {
             if (word.charAt(i) == Uni.GA) {
                 
                 // final GA
@@ -1975,7 +1975,7 @@ class MongolUnicodeRenderer {
                 if (i == word.length - 1) {
                     
                     // **** feminine final GA rule ****
-                    for (var j = i - 1; j >= 0; j--) {
+                    for j in (i-1).stride(through: 0, by: -1) {
                         // vowel I also defaults to feminine
                         if (isMasculineVowel(word.charAt(j))) {
                             isMasculineWord = true
@@ -2006,7 +2006,7 @@ class MongolUnicodeRenderer {
                             isFeminineWord = true
                         }else{
                             // check before GA for gender of vowel
-                            for (var j = i - 1; j >= 0; j--) {
+                            for j in (i-1).stride(through: 0, by: -1) {
                                 if (isFeminineVowel(word.charAt(j))) {
                                     isFeminineWord = true
                                     break
@@ -2026,7 +2026,7 @@ class MongolUnicodeRenderer {
                             // couldn't be determined by looking before
                             // so check after GA for no masculine vowel
                             isMasculineWord = false
-                            for (var j = i + 1; j < word.length; j++) {
+                            for j in (i + 1)..<word.length {
                                 // vowel I also defaults to feminine
                                 if (isMasculineVowel(word.charAt(j))) {
                                     isMasculineWord = true
@@ -2046,7 +2046,7 @@ class MongolUnicodeRenderer {
         
         // *** medial Y rule ***
         // upturn the Y before any vowel except I (when YI follows vowel)
-        for (var i = word.length - 2; i > 0; i--) {
+        for i in (word.length - 2).stride(to: 0, by: -1) {
             if (word.charAt(i) == Uni.YA) {
                 let nextChar = word.charAt(i + 1)
                 let prevChar = word.charAt(i - 1)
@@ -2060,7 +2060,7 @@ class MongolUnicodeRenderer {
         
         // *** medial W rule ***
         // Use the hooked W before any vowel
-        for (var i = word.length - 2; i > 0; i--) {
+        for i in (word.length - 2).stride(to: 0, by: -1) {
             if (word.charAt(i) == Uni.WA) {
                 if (isVowel(word.charAt(i + 1))) {
                     // insert FVS1 (hooked W)
@@ -2071,7 +2071,7 @@ class MongolUnicodeRenderer {
         
         // *** AI, EI, OI, UI, OEI, UEI medial I diphthong rule ***
         // (this rule should come after OE/UE long tooth in first syllable rule)
-        for (var i = word.length - 2; i > 0; i--) {
+        for i in (word.length - 2).stride(to: 0, by: -1) {
             if (word.charAt(i) == Uni.I) {
                 // previous char is a masculine vowel or E and next char is not FVS
                 if (isVowel(word.charAt(i - 1)) && word.charAt(i - 1) != Uni.I
@@ -2133,7 +2133,7 @@ class MongolUnicodeRenderer {
             return false
         }
         
-        for (var i = word.length - 1; i >= 0; i--) {
+        for i in (word.length - 1).stride(through: 0, by: -1) {
             if (word.charAt(i) == Uni.A || word.charAt(i) == Uni.O || word.charAt(i) == Uni.U) {
                 return true
             }
@@ -2147,7 +2147,7 @@ class MongolUnicodeRenderer {
             return false
         }
         
-        for (var i = word.length - 1; i >= 0; i--) {
+        for i in (word.length - 1).stride(through: 0, by: -1) {
             if (word.charAt(i) == Uni.E || word.charAt(i) == Uni.OE || word.charAt(i) == Uni.UE
                 || word.charAt(i) == Uni.EE) {
                     return true

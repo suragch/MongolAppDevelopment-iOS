@@ -1,4 +1,4 @@
-// This is a generic Keyboard Key class for specific key classes to subclass. Its main purposes are to 
+// This is a generic Keyboard Key class for specific key classes to subclass. Its main purposes are to
 // (1) provide a common background appearance for all keys
 // (2) set the standard for how to communicate with the parent keyboard class
 
@@ -85,7 +85,7 @@ class KeyboardKey: UIControl {
     // subclasses can override this method if they don't want the gesture recognizer
     func addLongPressGestureRecognizer() {
         
-            let longPress = UILongPressGestureRecognizer(target: self, action: "longPress:")
+            let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longPress(_:)))
             self.addGestureRecognizer(longPress)
         
     }

@@ -1,5 +1,5 @@
 // This struct is an array of UInt32 to hold Unicode scalar values
-// Version 3.0
+// Version 3.1
 
 
 struct ScalarString: SequenceType, Hashable, CustomStringConvertible {
@@ -32,13 +32,14 @@ struct ScalarString: SequenceType, Hashable, CustomStringConvertible {
     // (to allow users to iterate as in `for myScalarValue in myScalarString` { ... })
     func generate() -> AnyGenerator<UInt32> {
         
-        var nextIndex = 0
+        var nextIndex = -1
         
-        return anyGenerator {
+        return AnyGenerator {
+            nextIndex += 1
             if (nextIndex > self.scalarArray.count-1) {
                 return nil
             }
-            return self.scalarArray[nextIndex++]
+            return self.scalarArray[nextIndex]
         }
     }
     
@@ -99,9 +100,9 @@ struct ScalarString: SequenceType, Hashable, CustomStringConvertible {
     // returns first index of scalar string match
     func indexOf(string: ScalarString) -> Int? {
         
-        for var i = 0; i <= scalarArray.count - string.length; ++i {
+        for i in 0...(scalarArray.count - string.length) {
             
-            for var j = 0; j < string.length; ++j {
+            for j in 0..<string.length {
                 
                 if string.charAt(j) != scalarArray[i + j] {
                     break // substring mismatch
@@ -123,14 +124,14 @@ struct ScalarString: SequenceType, Hashable, CustomStringConvertible {
         var newIndex = index
         for scalar in string {
             self.scalarArray.insert(scalar, atIndex: newIndex)
-            ++newIndex
+            newIndex += 1
         }
     }
     mutating func insert(string: String, atIndex index: Int) {
         var newIndex = index
         for scalar in string.unicodeScalars {
             self.scalarArray.insert(scalar.value, atIndex: newIndex)
-            ++newIndex
+            newIndex += 1
         }
     }
     
@@ -177,7 +178,7 @@ struct ScalarString: SequenceType, Hashable, CustomStringConvertible {
         
         var returnString = ScalarString()
         
-        for var i = 0; i < scalarArray.count; ++i {
+        for i in 0..<scalarArray.count {
             if i < range.startIndex || i >= range.endIndex {
                 returnString.append(scalarArray[i])
             }
@@ -248,7 +249,7 @@ struct ScalarString: SequenceType, Hashable, CustomStringConvertible {
     func substring(startIndex: Int) -> ScalarString {
         // from startIndex to end of string
         var subArray: ScalarString = ScalarString()
-        for var i = startIndex; i < self.length; i++ {
+        for i in startIndex..<self.length {
             subArray.append(self.scalarArray[i])
         }
         return subArray
@@ -256,7 +257,7 @@ struct ScalarString: SequenceType, Hashable, CustomStringConvertible {
     func substring(startIndex: Int, _ endIndex: Int) -> ScalarString {
         // (startIndex is inclusive, endIndex is exclusive)
         var subArray: ScalarString = ScalarString()
-        for var i = startIndex; i < endIndex; i++ {
+        for i in startIndex..<endIndex {
             subArray.append(self.scalarArray[i])
         }
         return subArray

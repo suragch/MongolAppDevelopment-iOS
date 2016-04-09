@@ -330,7 +330,7 @@ class CyrillicKeyboard: UIView, KeyboardKeyDelegate {
         key212.delegate = self
         
         // Row 3
-        keyShift.addTarget(self, action: "keyShiftTapped", forControlEvents: UIControlEvents.TouchUpInside)
+        keyShift.addTarget(self, action: #selector(keyShiftTapped), forControlEvents: UIControlEvents.TouchUpInside)
         key31.delegate = self
         key32.delegate = self
         key33.delegate = self
@@ -348,7 +348,7 @@ class CyrillicKeyboard: UIView, KeyboardKeyDelegate {
         keySpace.delegate = self
         keyQuestion.delegate = self
         key41.delegate = self
-        keyReturn.addTarget(self, action: "keyReturnTapped", forControlEvents: UIControlEvents.TouchUpInside)
+        keyReturn.addTarget(self, action: #selector(keyReturnTapped), forControlEvents: UIControlEvents.TouchUpInside)
         
     }
     

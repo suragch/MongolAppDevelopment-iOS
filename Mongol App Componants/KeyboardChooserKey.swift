@@ -140,7 +140,7 @@ class KeyboardChooserKey: KeyboardKey {
             textLayer.frame = CGRect(x: x, y: y, width: menuItemRectSize.width, height: menuItemRectSize.height)
             x = x + menuItemRectSize.width + menuItemPadding
             textLayer.string = attributedMenuItems[counter]
-            ++counter
+            counter += 1
         }
 
     }

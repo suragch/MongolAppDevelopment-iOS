@@ -277,7 +277,7 @@ class EnglishKeyboard: UIView, KeyboardKeyDelegate {
         keyL.delegate = self
         
         // Row 3
-        keyShift.addTarget(self, action: "keyShiftTapped", forControlEvents: UIControlEvents.TouchUpInside)
+        keyShift.addTarget(self, action: #selector(keyShiftTapped), forControlEvents: UIControlEvents.TouchUpInside)
         keyZ.delegate = self
         keyX.delegate = self
         keyC.delegate = self
@@ -292,7 +292,7 @@ class EnglishKeyboard: UIView, KeyboardKeyDelegate {
         keyComma.delegate = self
         keySpace.delegate = self
         keyQuestion.delegate = self
-        keyReturn.addTarget(self, action: "keyReturnTapped", forControlEvents: UIControlEvents.TouchUpInside)
+        keyReturn.addTarget(self, action: #selector(keyReturnTapped), forControlEvents: UIControlEvents.TouchUpInside)
         
     }
     

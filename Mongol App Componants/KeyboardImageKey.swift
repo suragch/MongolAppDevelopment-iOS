@@ -93,7 +93,7 @@ class KeyboardImageKey: KeyboardKey {
             }
             
             if repeatOnLongPress {
-                timer = NSTimer.scheduledTimerWithTimeInterval(repeatInterval, target: self, selector: "repeatAction", userInfo: nil, repeats: true)
+                timer = NSTimer.scheduledTimerWithTimeInterval(repeatInterval, target: self, selector: #selector(repeatAction), userInfo: nil, repeats: true)
             }
         }
     }

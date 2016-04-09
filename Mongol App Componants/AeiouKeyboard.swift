@@ -303,7 +303,7 @@ class AeiouKeyboard: UIView, KeyboardKeyDelegate {
         keyComma.delegate = self
         keySpace.delegate = self
         keyQuestion.delegate = self
-        keyReturn.addTarget(self, action: "keyReturnTapped", forControlEvents: UIControlEvents.TouchUpInside)
+        keyReturn.addTarget(self, action: #selector(keyReturnTapped), forControlEvents: UIControlEvents.TouchUpInside)
 
     }
     

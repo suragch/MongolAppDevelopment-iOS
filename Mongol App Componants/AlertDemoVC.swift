@@ -75,7 +75,7 @@ class AlertDemoVC: UIViewController, UIGestureRecognizerDelegate {
             alertMessageBorder.layer.cornerRadius = cornerRadius
             
             // Gesture recognizer to dismiss view
-            let tapGesture = UITapGestureRecognizer(target: self, action: "dismissMongolAlert")
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissMongolAlert))
             tapGesture.delegate = self
             alertView.addGestureRecognizer(tapGesture)
             

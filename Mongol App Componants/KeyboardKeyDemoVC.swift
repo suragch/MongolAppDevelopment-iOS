@@ -45,7 +45,7 @@ class KeyboardKeyDemoVC: UIViewController, KeyboardKeyDelegate {
         codeKey.primaryStringFontSize = 60
         codeKey.secondaryStringFontSize = 20
         codeKey.cornerRadius = 20
-        codeKey.addTarget(self, action: "codeKeyTapped:", forControlEvents: UIControlEvents.TouchUpInside)
+        codeKey.addTarget(self, action: #selector(codeKeyTapped(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         
         
         

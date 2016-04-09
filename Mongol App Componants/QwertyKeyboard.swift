@@ -310,7 +310,7 @@ class QwertyKeyboard: UIView, KeyboardKeyDelegate {
         keySpace.delegate = self
         keyQuestion.delegate = self
         keySuffix.delegate = self
-        keyReturn.addTarget(self, action: "keyReturnTapped", forControlEvents: UIControlEvents.TouchUpInside)
+        keyReturn.addTarget(self, action: #selector(keyReturnTapped), forControlEvents: UIControlEvents.TouchUpInside)
         
     }
     
