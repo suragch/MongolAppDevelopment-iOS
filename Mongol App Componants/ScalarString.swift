@@ -1,5 +1,5 @@
 // This struct is an array of UInt32 to hold Unicode scalar values
-// Version 3.1
+// Version 3.1.1
 
 
 struct ScalarString: SequenceType, Hashable, CustomStringConvertible {
