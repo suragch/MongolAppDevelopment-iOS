@@ -90,6 +90,20 @@ class ScalarStringTests: XCTestCase {
         
     }
     
+    func testIndexOf_equalStrings_zero() {
+        
+        // Arrange
+        let longstring = ScalarString("abc")
+        let short = ScalarString("abc")
+        
+        // Act
+        let index = longstring.indexOf(short)
+        
+        // Assert
+        XCTAssertEqual(index, 0)
+        
+    }
+    
     // MARK: - insert
     
     func testInsertString_normalConditions_stringWithInsertAtIndex() {
@@ -153,4 +167,107 @@ class ScalarStringTests: XCTestCase {
         XCTAssertEqual(newString, expected)
         
     }
+    
+    // MARK: - split
+    
+    func testSplit_emptyString_emptyArray() {
+        
+        // Arrange
+        let string = ScalarString("")
+        let space = ScalarString(" ").charAt(0)
+        
+        // Act
+        let newString = string.split(atChar: space)
+        let expected: [ScalarString] = []
+        
+        // Assert
+        XCTAssertEqual(newString, expected)
+        
+    }
+    
+    func testSplit_normalString_arrayOfParts() {
+        
+        // Arrange
+        let string = ScalarString("a test.")
+        let space = ScalarString(" ").charAt(0)
+        
+        // Act
+        let newString = string.split(atChar: space)
+        let expected = [ScalarString("a"), ScalarString("test.")]
+        
+        // Assert
+        XCTAssertEqual(newString, expected)
+        
+    }
+    
+    func testSplit_noMatch_arrayOfOne() {
+        
+        // Arrange
+        let string = ScalarString("aTest.")
+        let space = ScalarString(" ").charAt(0)
+        
+        // Act
+        let newString = string.split(atChar: space)
+        let expected = [ScalarString("aTest.")]
+        
+        // Assert
+        XCTAssertEqual(newString, expected)
+        
+    }
+    
+    // MARK: - trim
+    
+    func testTrim_allWhiteSpace_emptyString() {
+        
+        // Arrange
+        let myString = ScalarString(" \n \t ")
+        
+        // Act
+        let newString = myString.trim()
+        
+        // Assert
+        XCTAssertEqual(newString, ScalarString())
+        
+    }
+    
+    func testTrim_emptyString_emptyString() {
+        
+        // Arrange
+        let myString = ScalarString("")
+        
+        // Act
+        let newString = myString.trim()
+        
+        // Assert
+        XCTAssertEqual(newString, ScalarString())
+        
+    }
+    
+    func testTrim_normalCase_substring() {
+        
+        // Arrange
+        let myString = ScalarString(" \thello hi \n")
+        
+        // Act
+        let newString = myString.trim()
+        
+        // Assert
+        XCTAssertEqual(newString, ScalarString("hello hi"))
+        
+    }
+    
+    func testTrim_singleChar_singleChar() {
+        
+        // Arrange
+        let myString = ScalarString("a")
+        
+        // Act
+        let newString = myString.trim()
+        
+        // Assert
+        XCTAssertEqual(newString, ScalarString("a"))
+        
+    }
+    
+    
 }

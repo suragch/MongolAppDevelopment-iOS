@@ -1,5 +1,5 @@
 // This struct is an array of UInt32 to hold Unicode scalar values
-// Version 3.1.1
+// Version 3.2.1
 
 
 struct ScalarString: SequenceType, Hashable, CustomStringConvertible {
@@ -90,6 +90,10 @@ struct ScalarString: SequenceType, Hashable, CustomStringConvertible {
     // indexOf
     // returns first index of scalar string match
     func indexOf(string: ScalarString) -> Int? {
+        
+        if scalarArray.count < string.length {
+            return nil
+        }
         
         for i in 0...(scalarArray.count - string.length) {
             
@@ -218,6 +222,9 @@ struct ScalarString: SequenceType, Hashable, CustomStringConvertible {
     // split
     func split(atChar splitChar: UInt32) -> [ScalarString] {
         var partsArray: [ScalarString] = []
+        if self.scalarArray.count == 0 {
+            return partsArray
+        }
         var part: ScalarString = ScalarString()
         for scalar in self.scalarArray {
             if scalar == splitChar {
@@ -262,6 +269,47 @@ struct ScalarString: SequenceType, Hashable, CustomStringConvertible {
             string.append(UnicodeScalar(scalar))
         }
         return string
+    }
+    
+    // trim
+    // removes leading and trailing whitespace (space, tab, newline)
+    func trim() -> ScalarString {
+        
+        //var returnString = ScalarString()
+        let space: UInt32 = 0x00000020
+        let tab: UInt32 = 0x00000009
+        let newline: UInt32 = 0x0000000A
+        
+        var startIndex = self.scalarArray.count
+        var endIndex = 0
+        
+        // leading whitespace
+        for i in 0..<self.scalarArray.count {
+            if self.scalarArray[i] != space &&
+                self.scalarArray[i] != tab &&
+                self.scalarArray[i] != newline {
+                
+                startIndex = i
+                break
+            }
+        }
+        
+        // trailing whitespace
+        for i in (self.scalarArray.count - 1).stride(through: 0, by: -1) {
+            if self.scalarArray[i] != space &&
+                self.scalarArray[i] != tab &&
+                self.scalarArray[i] != newline {
+                
+                endIndex = i + 1
+                break
+            }
+        }
+        
+        if endIndex <= startIndex {
+            return ScalarString()
+        }
+        
+        return self.substring(startIndex, endIndex)
     }
     
     // values
