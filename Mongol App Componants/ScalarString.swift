@@ -1,5 +1,5 @@
 // This struct is an array of UInt32 to hold Unicode scalar values
-// Version 3.2.1
+// Version 3.3.0
 
 
 struct ScalarString: SequenceType, Hashable, CustomStringConvertible {
@@ -206,6 +206,19 @@ struct ScalarString: SequenceType, Hashable, CustomStringConvertible {
                 returnString.append(replacementString)
             } else {
                 returnString.append(scalar)
+            }
+        }
+        return returnString
+    }
+    func replaceRange(range: Range<Int>, withString replacementString: ScalarString) -> ScalarString {
+        
+        var returnString = ScalarString()
+        
+        for i in 0..<scalarArray.count {
+            if i < range.startIndex || i >= range.endIndex {
+                returnString.append(scalarArray[i])
+            } else if i == range.startIndex {
+                returnString.append(replacementString)
             }
         }
         return returnString

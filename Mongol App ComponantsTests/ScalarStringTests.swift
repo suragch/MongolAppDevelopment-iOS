@@ -168,6 +168,104 @@ class ScalarStringTests: XCTestCase {
         
     }
     
+    // MARK: - replace
+    
+    func testReplaceRange_normalRange_newString() {
+        
+        // Arrange
+        let string = ScalarString("aabbcc")
+        let replacementString = ScalarString("123")
+        let range = 2..<4
+        
+        // Act
+        let newString = string.replaceRange(range, withString: replacementString)
+        let expected = ScalarString("aa123cc")
+        
+        // Assert
+        XCTAssertEqual(newString, expected)
+        
+    }
+    
+    func testReplaceRange_beginningRange_newString() {
+        
+        // Arrange
+        let string = ScalarString("aabbcc")
+        let replacementString = ScalarString("123")
+        let range = 0..<4
+        
+        // Act
+        let newString = string.replaceRange(range, withString: replacementString)
+        let expected = ScalarString("123cc")
+        
+        // Assert
+        XCTAssertEqual(newString, expected)
+        
+    }
+    
+    func testReplaceRange_endRange_newString() {
+        
+        // Arrange
+        let string = ScalarString("aabbcc")
+        let replacementString = ScalarString("123")
+        let range = 2..<6
+        
+        // Act
+        let newString = string.replaceRange(range, withString: replacementString)
+        let expected = ScalarString("aa123")
+        
+        // Assert
+        XCTAssertEqual(newString, expected)
+        
+    }
+    
+    func testReplaceRange_fullRange_newString() {
+        
+        // Arrange
+        let string = ScalarString("aabbcc")
+        let replacementString = ScalarString("123")
+        let range = 0..<6
+        
+        // Act
+        let newString = string.replaceRange(range, withString: replacementString)
+        let expected = ScalarString("123")
+        
+        // Assert
+        XCTAssertEqual(newString, expected)
+        
+    }
+    
+    func testReplaceRange_emptyRange_oldString() {
+        
+        // Arrange
+        let string = ScalarString("aabbcc")
+        let replacementString = ScalarString("123")
+        let range = 3..<3
+        
+        // Act
+        let newString = string.replaceRange(range, withString: replacementString)
+        let expected = ScalarString("aabbcc")
+        
+        // Assert
+        XCTAssertEqual(newString, expected)
+        
+    }
+    
+    func testReplaceRange_singleValueRange_newString() {
+        
+        // Arrange
+        let string = ScalarString("aabbcc")
+        let replacementString = ScalarString("123")
+        let range = 3..<4
+        
+        // Act
+        let newString = string.replaceRange(range, withString: replacementString)
+        let expected = ScalarString("aab123cc")
+        
+        // Assert
+        XCTAssertEqual(newString, expected)
+        
+    }
+    
     // MARK: - split
     
     func testSplit_emptyString_emptyArray() {
