@@ -7,6 +7,7 @@ import UIKit
     
     // ********* Unique to TableView *********
     private var view = UITableView()
+    private let rotationView = UIView()
     private var userInteractionEnabledForSubviews = true
     
     // read only refernce to the underlying tableview
@@ -18,6 +19,9 @@ import UIKit
     
     func setup() {
         // do any setup necessary
+        
+        self.addSubview(rotationView)
+        rotationView.addSubview(view)
         
         view.backgroundColor = self.backgroundColor
         view.layoutMargins = UIEdgeInsetsZero
@@ -44,6 +48,15 @@ import UIKit
         }
     }
     
+    @IBInspectable var scrollEnabled: Bool {
+        get {
+            return view.scrollEnabled
+        }
+        set {
+            view.scrollEnabled = newValue
+        }
+    }
+    
     func scrollToRowAtIndexPath(indexPath: NSIndexPath, atScrollPosition: UITableViewScrollPosition, animated: Bool) {
         view.scrollToRowAtIndexPath(indexPath, atScrollPosition: atScrollPosition, animated: animated)
     }
@@ -65,9 +78,6 @@ import UIKit
     // ****** General code for Mongol views ******
     // *******************************************
     
-    private var oldWidth: CGFloat = 0
-    private var oldHeight: CGFloat = 0
-    
     // This method gets called if you create the view in the Interface Builder
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -87,33 +97,11 @@ import UIKit
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        // layoutSubviews gets called multiple times, only need it once
-        if self.frame.height == oldHeight && self.frame.width == oldWidth {
-            return
-        } else {
-            oldWidth = self.frame.width
-            oldHeight = self.frame.height
-        }
-        
-        // Remove the old rotation view
-        if self.subviews.count > 0 {
-            self.subviews[0].removeFromSuperview()
-        }
-        
-        // setup rotationView container
-        let rotationView = UIView()
+        rotationView.transform = CGAffineTransformIdentity
         rotationView.frame = CGRect(origin: CGPointZero, size: CGSize(width: self.bounds.height, height: self.bounds.width))
-        rotationView.userInteractionEnabled = userInteractionEnabledForSubviews
-        self.addSubview(rotationView)
-        
-        // transform rotationView (so that it covers the same frame as self)
         rotationView.transform = translateRotateFlip()
         
-        
-        
-        // add view
         view.frame = rotationView.bounds
-        rotationView.addSubview(view)
         
     }
     

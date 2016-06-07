@@ -1,14 +1,14 @@
 /*
-* Chimee Mongol Unicode Rendering Engine for iOS
-*
-* Version 1.4.0
-*
-* Current version needs to be used with Almas font 1.0 glyphs
-* copied to PUA starting at \uE360. To use different glyph
-* encodings, adjust the Glyph.* static final constants below.
-* These PUA encodings are only to be used internally for glyph
-* selection. All external text should use Unicode.
-*/
+ * Chimee Mongol Unicode Rendering Engine for iOS
+ *
+ * Version 1.4.1
+ *
+ * Current version needs to be used with Almas font 1.0 glyphs
+ * copied to PUA starting at \uE360. To use different glyph
+ * encodings, adjust the Glyph.* static final constants below.
+ * These PUA encodings are only to be used internally for glyph
+ * selection. All external text should use Unicode.
+ */
 
 class MongolUnicodeRenderer {
     
@@ -1885,8 +1885,8 @@ class MongolUnicodeRenderer {
                 // following char is a vowel
                 if (i == word.length - 2
                     && (word.charAt(i + 1) == Uni.A || word.charAt(i + 1) == Uni.E)) {
-                        // insert FVS2 (this is the lower form of FVS1)
-                        word.insert(Uni.FVS2, atIndex: i + 2)
+                    // insert FVS2 (this is the lower form of FVS1)
+                    word.insert(Uni.FVS2, atIndex: i + 2)
                 } else if (i == word.length - 2 && (word.charAt(i + 1) == Uni.ZWJ)) {
                     // This will still allow consonant to display correctly
                 } else { // following letter is not final A/E or ZWJ
@@ -2076,8 +2076,8 @@ class MongolUnicodeRenderer {
                 // previous char is a masculine vowel or E and next char is not FVS
                 if (isVowel(word.charAt(i - 1)) && word.charAt(i - 1) != Uni.I
                     && !isFVS(word.charAt(i + 1))) {
-                        // insert FVS3 (double tooth medial I)
-                        word.insert(Uni.FVS3, atIndex: i + 1)
+                    // insert FVS3 (double tooth medial I)
+                    word.insert(Uni.FVS3, atIndex: i + 1)
                 }
             }
         }
@@ -2087,7 +2087,7 @@ class MongolUnicodeRenderer {
     
     // MARK: Boolean methods
     
-    private func isVowel(character: UInt32) -> Bool {
+    func isVowel(character: UInt32) -> Bool {
         return character >= Uni.A && character <= Uni.EE
     }
     
@@ -2099,7 +2099,7 @@ class MongolUnicodeRenderer {
         return (character == Uni.E || character == Uni.EE || character == Uni.OE || character == Uni.UE)
     }
     
-    private func isConsonant(character: UInt32) -> Bool {
+    func isConsonant(character: UInt32) -> Bool {
         return (character >= Uni.NA && character <= Uni.CHI)
     }
     
@@ -2112,7 +2112,7 @@ class MongolUnicodeRenderer {
         return ((character >= Uni.A && character <= Uni.CHI) || (character >= Uni.MONGOLIAN_NIRUGU && character <= Uni.MVS) || character == Uni.ZWJ)
     }
     
-    private func isBGDRS(character: UInt32) -> Bool {
+    func isBGDRS(character: UInt32) -> Bool {
         // This method is not used internally, only for external use.
         return (character == Uni.BA || character == Uni.GA || character == Uni.DA
             || character == Uni.RA || character == Uni.SA)
@@ -2127,7 +2127,7 @@ class MongolUnicodeRenderer {
         return (character >= Glyph.ISOL_A && character <= Glyph.INIT_KHA_MEDI_UE_FVS1)
     }
     
-    private func isMasculineWord(word: ScalarString) -> Bool {
+    func isMasculineWord(word: ScalarString) -> Bool {
         // This method is not used internally, only for external use.
         if (word.isEmpty) {
             return false
@@ -2141,7 +2141,7 @@ class MongolUnicodeRenderer {
         return false
     }
     
-    private func isFeminineWord(word: ScalarString) -> Bool {
+    func isFeminineWord(word: ScalarString) -> Bool {
         // This method is not used internally, only for external use.
         if (word.isEmpty) {
             return false
@@ -2150,7 +2150,7 @@ class MongolUnicodeRenderer {
         for i in (word.length - 1).stride(through: 0, by: -1) {
             if (word.charAt(i) == Uni.E || word.charAt(i) == Uni.OE || word.charAt(i) == Uni.UE
                 || word.charAt(i) == Uni.EE) {
-                    return true
+                return true
             }
         }
         return false

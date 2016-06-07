@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="4UM-Jk-6wK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="4UM-Jk-6wK">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -97,8 +97,28 @@
                                             <segue destination="f3M-9i-1NO" kind="show" id="Bo0-bR-HBu"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="tUh-Xm-u2z" style="IBUITableViewCellStyleDefault" id="oXQ-9f-7IN">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="hDs-RE-n74" style="IBUITableViewCellStyleDefault" id="UGM-Ti-c61">
                                         <rect key="frame" x="0.0" y="275" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UGM-Ti-c61" id="8Id-Qo-who">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="UIMongolAlertController" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hDs-RE-n74">
+                                                    <rect key="frame" x="15" y="0.0" width="570" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="VOu-84-DMZ" kind="show" id="Ht9-us-e2G"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="tUh-Xm-u2z" style="IBUITableViewCellStyleDefault" id="oXQ-9f-7IN">
+                                        <rect key="frame" x="0.0" y="319" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oXQ-9f-7IN" id="cXW-4h-jI3">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -118,7 +138,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="AX7-En-oUI" style="IBUITableViewCellStyleDefault" id="C4Z-Hm-eCL">
-                                        <rect key="frame" x="0.0" y="319" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="363" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="C4Z-Hm-eCL" id="LsO-IQ-mbK">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -138,7 +158,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="zpJ-d3-IEz" style="IBUITableViewCellStyleDefault" id="N02-h6-IRc">
-                                        <rect key="frame" x="0.0" y="363" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="407" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="N02-h6-IRc" id="ZMX-8u-Spu">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -455,6 +475,76 @@
             </objects>
             <point key="canvasLocation" x="1847" y="-336"/>
         </scene>
+        <!--Mongol Alert Controller-->
+        <scene sceneID="URy-d3-DGU">
+            <objects>
+                <viewController storyboardIdentifier="MongolAlertControllerID" id="gcq-w0-Qwj" customClass="UIMongolAlertController" customModule="Mongol_App_Componants" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ptW-5J-Qhj"/>
+                        <viewControllerLayoutGuide type="bottom" id="opB-bY-6ue"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="e0c-LZ-g3t">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xbj-gl-h78" userLabel="Alert Container View">
+                                <rect key="frame" x="200" y="150" width="200" height="300"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ina-7i-BU9" userLabel="Title" customClass="UIMongolLabel" customModule="Mongol_App_Componants" customModuleProvider="target">
+                                        <rect key="frame" x="8" y="8" width="22" height="284"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="text" value="ᠳᠤᠰ ᠪᠢᠴᠢᠯᠭᠡ ᠬᠠᠭᠤᠯᠠᠭᠳᠠᠪᠠ"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="centerText" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                <real key="value" value="19"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="od1-xc-8rt" userLabel="Message" customClass="UIMongolLabel" customModule="Mongol_App_Componants" customModuleProvider="target">
+                                        <rect key="frame" x="38" y="20" width="154" height="260"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="text">
+                                                <string key="value">ᠳᠤᠰ ᠪᠢᠴᠢᠯᠭᠡ ᠶᠢᠨ ᠶᠦᠨᠢᠺᠤᠳ᠋ ᠲᠡᠺᠧᠰᠲ ᠢ ᠭᠠᠷ ᠤᠳᠠᠰᠤᠨ ᠰᠢᠰᠲ᠋ᠧᠮ ᠦᠨ ᠨᠠᠭᠠᠬᠤ ᠰᠠᠮᠪᠠᠷ᠎ᠠ ᠳᠤ ᠬᠠᠭᠤᠯᠠᠭᠳᠠᠪᠠ᠃ ᠳᠠ ᠡᠭᠦᠨ ᠢ ᠪᠤᠰᠤᠳ APP ᠳᠤ ᠨᠠᠭᠠᠵᠤ ᠬᠡᠷᠡᠭᠯᠡᠵᠤ ᠪᠤᠯᠤᠨ᠎ᠠ᠃ ᠭᠡᠪᠡᠴᠦ ᠮᠤᠩᠭᠤᠯ ᠬᠡᠯᠡᠨ ᠦ ᠶᠦᠨᠢᠺᠤᠳ᠋ ᠤᠨ ᠪᠠᠷᠢᠮᠵᠢᠶ᠎ᠠ ᠨᠢᠭᠡᠳᠦᠭᠡᠳᠦᠢ ᠳᠤᠯᠠ ᠵᠠᠷᠢᠮ ᠰᠤᠹᠲ ᠪᠤᠷᠤᠭᠤ ᠦᠰᠦᠭ ᠢᠶᠡᠷ ᠢᠯᠡᠷᠡᠬᠦ ᠮᠠᠭᠠᠳ᠃ </string>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="lines">
+                                                <integer key="value" value="0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                <real key="value" value="17"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.94991262335526316" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="4Au-BI-WEO"/>
+                                    <constraint firstItem="od1-xc-8rt" firstAttribute="leading" secondItem="Ina-7i-BU9" secondAttribute="trailing" constant="8" id="5wK-hz-saD"/>
+                                    <constraint firstAttribute="width" constant="200" id="AcQ-UO-VPZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ina-7i-BU9" secondAttribute="bottom" constant="8" id="Ams-0n-jSL"/>
+                                    <constraint firstAttribute="trailing" secondItem="od1-xc-8rt" secondAttribute="trailing" constant="8" id="Pn6-39-yWB"/>
+                                    <constraint firstItem="Ina-7i-BU9" firstAttribute="leading" secondItem="Xbj-gl-h78" secondAttribute="leading" constant="8" id="Sta-LU-hJJ"/>
+                                    <constraint firstItem="od1-xc-8rt" firstAttribute="top" secondItem="Xbj-gl-h78" secondAttribute="top" constant="20" id="n6t-gF-RpL"/>
+                                    <constraint firstItem="Ina-7i-BU9" firstAttribute="top" secondItem="Xbj-gl-h78" secondAttribute="top" constant="8" id="r2f-Um-w3X"/>
+                                    <constraint firstAttribute="bottom" secondItem="od1-xc-8rt" secondAttribute="bottom" constant="20" id="vBK-BW-1Xi"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.20059121621621623" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Xbj-gl-h78" firstAttribute="centerY" secondItem="e0c-LZ-g3t" secondAttribute="centerY" id="LuM-1k-7IX"/>
+                            <constraint firstItem="Xbj-gl-h78" firstAttribute="centerX" secondItem="e0c-LZ-g3t" secondAttribute="centerX" id="rw1-dz-E3c"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="alertContainerView" destination="Xbj-gl-h78" id="b3k-eW-CKO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g9Y-gG-DwU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3086" y="-995"/>
+        </scene>
         <!--Alert DemoVC-->
         <scene sceneID="TTU-CU-M1p">
             <objects>
@@ -485,6 +575,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xa9-ui-tp8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1769" y="-1024"/>
+        </scene>
+        <!--Alert Controller DemoVC-->
+        <scene sceneID="CHN-eL-ue2">
+            <objects>
+                <viewController id="VOu-84-DMZ" customClass="AlertControllerDemoVC" customModule="Mongol_App_Componants" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3Ig-Iv-c1z"/>
+                        <viewControllerLayoutGuide type="bottom" id="G7m-gH-mQf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wIp-4N-7NE">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ni-en-ege">
+                                <rect key="frame" x="217" y="285" width="167" height="30"/>
+                                <state key="normal" title="UIMongolAlertController"/>
+                                <connections>
+                                    <action selector="showMongolAlertButtonTapped:" destination="VOu-84-DMZ" eventType="touchUpInside" id="Utg-CV-bvY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jto-CI-zZv">
+                                <rect key="frame" x="242" y="339" width="116" height="30"/>
+                                <state key="normal" title="UIAlertController"/>
+                                <connections>
+                                    <action selector="showStandardAlertButtonTapped:" destination="VOu-84-DMZ" eventType="touchUpInside" id="oq7-qB-Otl"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8Ni-en-ege" firstAttribute="centerX" secondItem="wIp-4N-7NE" secondAttribute="centerX" id="Sr3-ev-wkh"/>
+                            <constraint firstItem="Jto-CI-zZv" firstAttribute="centerX" secondItem="wIp-4N-7NE" secondAttribute="centerX" id="sJf-Go-8td"/>
+                            <constraint firstItem="8Ni-en-ege" firstAttribute="centerY" secondItem="wIp-4N-7NE" secondAttribute="centerY" id="t8x-P7-lzk"/>
+                            <constraint firstItem="Jto-CI-zZv" firstAttribute="top" secondItem="8Ni-en-ege" secondAttribute="bottom" constant="24" id="wa1-ML-z8Q"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OZc-1A-OL0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2454" y="-1024"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sbd-GY-Eky">

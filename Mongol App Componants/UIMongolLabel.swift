@@ -8,6 +8,7 @@ import UIKit
     
     // ********* Unique to Label *********
     private let view = UILabel()
+    private let rotationView = UIView()
     private var userInteractionEnabledForSubviews = true
     let mongolFontName = "ChimeeWhiteMirrored"
     let defaultFontSize: CGFloat = 17
@@ -18,6 +19,7 @@ import UIKit
         }
         set {
             view.text = newValue
+            view.invalidateIntrinsicContentSize()
         }
     }
         
@@ -31,6 +33,7 @@ import UIKit
         }
         set {
             view.font = UIFont(name: mongolFontName, size: newValue)
+            view.invalidateIntrinsicContentSize()
         }
     }
     
@@ -99,7 +102,14 @@ import UIKit
         }
     }
     
+    override func intrinsicContentSize() -> CGSize {
+        return CGSize(width: view.frame.height, height: view.frame.width)
+    }
+    
     func setup() {
+        
+        self.addSubview(rotationView)
+        rotationView.addSubview(view)
         
         // set font if user didn't specify size in IB
         if self.view.font.fontName != mongolFontName {
@@ -114,9 +124,6 @@ import UIKit
     // *******************************************
     // ****** General code for Mongol views ******
     // *******************************************
-    
-    private var oldWidth: CGFloat = 0
-    private var oldHeight: CGFloat = 0
     
     // This method gets called if you create the view in the Interface Builder
     required init?(coder aDecoder: NSCoder) {
@@ -137,33 +144,11 @@ import UIKit
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        // layoutSubviews gets called multiple times, only need it once
-        if self.frame.height == oldHeight && self.frame.width == oldWidth {
-            return
-        } else {
-            oldWidth = self.frame.width
-            oldHeight = self.frame.height
-        }
-        
-        // Remove the old rotation view
-        if self.subviews.count > 0 {
-            self.subviews[0].removeFromSuperview()
-        }
-        
-        // setup rotationView container
-        let rotationView = UIView()
+        rotationView.transform = CGAffineTransformIdentity
         rotationView.frame = CGRect(origin: CGPointZero, size: CGSize(width: self.bounds.height, height: self.bounds.width))
-        rotationView.userInteractionEnabled = userInteractionEnabledForSubviews
-        self.addSubview(rotationView)
-        
-        // transform rotationView (so that it covers the same frame as self)
         rotationView.transform = translateRotateFlip()
         
-        
-        
-        // add view
         view.frame = rotationView.bounds
-        rotationView.addSubview(view)
         
     }
     
