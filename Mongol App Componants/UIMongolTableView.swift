@@ -57,6 +57,7 @@ import UIKit
         }
     }
     
+    
     func scrollToRowAtIndexPath(indexPath: NSIndexPath, atScrollPosition: UITableViewScrollPosition, animated: Bool) {
         view.scrollToRowAtIndexPath(indexPath, atScrollPosition: atScrollPosition, animated: animated)
     }
@@ -69,6 +70,9 @@ import UIKit
         return view.dequeueReusableCellWithIdentifier(identifier)
     }
     
+    func reloadData() {
+        view.reloadData()
+    }
     
     
     
