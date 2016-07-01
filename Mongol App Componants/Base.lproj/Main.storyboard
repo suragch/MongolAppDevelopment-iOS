@@ -545,6 +545,145 @@
             </objects>
             <point key="canvasLocation" x="3086" y="-995"/>
         </scene>
+        <!--Mongol Alert Controller2-->
+        <scene sceneID="6v7-y3-FGz">
+            <objects>
+                <viewController storyboardIdentifier="MongolAlertController2ID" id="OyT-6v-O8G" customClass="UIMongolAlertController2" customModule="Mongol_App_Componants" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gI7-gC-wbk"/>
+                        <viewControllerLayoutGuide type="bottom" id="GaY-u6-SWA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eEu-IF-2fN">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YJT-PA-HaI" userLabel="Alert Container">
+                                <rect key="frame" x="143" y="185" width="315" height="230"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zlz-WC-kAs" userLabel="MessageParent">
+                                        <rect key="frame" x="0.0" y="0.0" width="255" height="230"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k0c-X8-78v" userLabel="Title Label" customClass="UIMongolLabel" customModule="Mongol_App_Componants" customModuleProvider="target">
+                                                <rect key="frame" x="8" y="8" width="37" height="214"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="centerText" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="My Title"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nxo-8t-z3w" userLabel="Message Label" customClass="UIMongolLabel" customModule="Mongol_App_Componants" customModuleProvider="target">
+                                                <rect key="frame" x="53" y="8" width="194" height="214"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="This is my message."/>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="centerText" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="lines">
+                                                        <integer key="value" value="0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="nxo-8t-z3w" firstAttribute="leading" secondItem="k0c-X8-78v" secondAttribute="trailing" constant="8" id="032-vD-Z3b"/>
+                                            <constraint firstItem="nxo-8t-z3w" firstAttribute="top" secondItem="Zlz-WC-kAs" secondAttribute="top" constant="8" id="10F-l6-Lmk"/>
+                                            <constraint firstItem="k0c-X8-78v" firstAttribute="leading" secondItem="Zlz-WC-kAs" secondAttribute="leading" constant="8" id="4oY-9v-YaH"/>
+                                            <constraint firstAttribute="bottom" secondItem="nxo-8t-z3w" secondAttribute="bottom" constant="8" id="RI8-6L-xcV"/>
+                                            <constraint firstAttribute="bottom" secondItem="k0c-X8-78v" secondAttribute="bottom" constant="8" id="X3Q-G1-4aO"/>
+                                            <constraint firstItem="k0c-X8-78v" firstAttribute="top" secondItem="Zlz-WC-kAs" secondAttribute="top" constant="8" id="sMY-Gw-POF"/>
+                                            <constraint firstAttribute="trailing" secondItem="nxo-8t-z3w" secondAttribute="trailing" constant="8" id="ubM-cU-vxt"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P95-kV-0fA" userLabel="ButtonsParent">
+                                        <rect key="frame" x="255" y="0.0" width="60" height="230"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p5x-tA-PgT" userLabel="HorizDividerView">
+                                                <rect key="frame" x="0.0" y="0.0" width="1" height="230"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="1" id="sxX-h8-HqO"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uo3-2l-EmB" userLabel="VertDividerView">
+                                                <rect key="frame" x="1" y="115" width="59" height="1"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" id="X8M-K8-hcS"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I9N-ew-EX8" userLabel="Bottom Button Label" customClass="UIMongolLabel" customModule="Mongol_App_Componants" customModuleProvider="target">
+                                                <rect key="frame" x="1" y="116" width="59" height="114"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="Cancel"/>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="centerText" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iYI-on-NZC" userLabel="Top Button Label" customClass="UIMongolLabel" customModule="Mongol_App_Componants" customModuleProvider="target">
+                                                <rect key="frame" x="1" y="0.0" width="59" height="115"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="centerText" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="OK"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="ChU-aT-JEg"/>
+                                            <constraint firstItem="iYI-on-NZC" firstAttribute="top" secondItem="P95-kV-0fA" secondAttribute="top" id="Igd-gA-ONK"/>
+                                            <constraint firstItem="p5x-tA-PgT" firstAttribute="leading" secondItem="P95-kV-0fA" secondAttribute="leading" id="KJS-ie-hR6"/>
+                                            <constraint firstItem="uo3-2l-EmB" firstAttribute="top" secondItem="iYI-on-NZC" secondAttribute="bottom" id="MXj-bG-9Vd"/>
+                                            <constraint firstAttribute="bottom" secondItem="I9N-ew-EX8" secondAttribute="bottom" id="Nxn-cC-YBn"/>
+                                            <constraint firstAttribute="trailing" secondItem="uo3-2l-EmB" secondAttribute="trailing" id="PqL-bw-dj7"/>
+                                            <constraint firstItem="iYI-on-NZC" firstAttribute="leading" secondItem="p5x-tA-PgT" secondAttribute="trailing" id="RYH-Lz-QDO"/>
+                                            <constraint firstItem="I9N-ew-EX8" firstAttribute="top" secondItem="uo3-2l-EmB" secondAttribute="bottom" id="Rcv-5U-nXQ"/>
+                                            <constraint firstAttribute="trailing" secondItem="I9N-ew-EX8" secondAttribute="trailing" id="T07-Rp-njN"/>
+                                            <constraint firstItem="uo3-2l-EmB" firstAttribute="leading" secondItem="p5x-tA-PgT" secondAttribute="trailing" id="VT0-WB-Dg2"/>
+                                            <constraint firstItem="I9N-ew-EX8" firstAttribute="leading" secondItem="p5x-tA-PgT" secondAttribute="trailing" id="Y9g-Dr-H2v"/>
+                                            <constraint firstItem="p5x-tA-PgT" firstAttribute="top" secondItem="P95-kV-0fA" secondAttribute="top" id="mQT-lQ-wOF"/>
+                                            <constraint firstAttribute="trailing" secondItem="iYI-on-NZC" secondAttribute="trailing" id="qf6-aa-Kvz"/>
+                                            <constraint firstAttribute="bottom" secondItem="p5x-tA-PgT" secondAttribute="bottom" id="tRk-T8-Eqc"/>
+                                            <constraint firstItem="I9N-ew-EX8" firstAttribute="height" secondItem="iYI-on-NZC" secondAttribute="height" id="ud3-Wm-qRV"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.86032563447952271" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="315" id="7kd-GY-g2P"/>
+                                    <constraint firstAttribute="trailing" secondItem="P95-kV-0fA" secondAttribute="trailing" id="Dom-sr-u0Q"/>
+                                    <constraint firstAttribute="height" constant="230" id="HeD-ws-jdJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="Zlz-WC-kAs" secondAttribute="bottom" id="Xxt-T3-Xf9"/>
+                                    <constraint firstItem="Zlz-WC-kAs" firstAttribute="leading" secondItem="YJT-PA-HaI" secondAttribute="leading" id="eB8-aJ-mnr"/>
+                                    <constraint firstItem="Zlz-WC-kAs" firstAttribute="top" secondItem="YJT-PA-HaI" secondAttribute="top" id="hdM-4w-r2k"/>
+                                    <constraint firstItem="P95-kV-0fA" firstAttribute="leading" secondItem="Zlz-WC-kAs" secondAttribute="trailing" id="l8m-NN-jcc"/>
+                                    <constraint firstAttribute="bottom" secondItem="P95-kV-0fA" secondAttribute="bottom" id="wu8-9u-jJn"/>
+                                    <constraint firstItem="P95-kV-0fA" firstAttribute="top" secondItem="YJT-PA-HaI" secondAttribute="top" id="y9D-Su-oKq"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YJT-PA-HaI" firstAttribute="centerY" secondItem="eEu-IF-2fN" secondAttribute="centerY" id="DYi-FX-Aom"/>
+                            <constraint firstItem="YJT-PA-HaI" firstAttribute="centerX" secondItem="eEu-IF-2fN" secondAttribute="centerX" id="iYu-pW-Rwi"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="alertContainerView" destination="YJT-PA-HaI" id="W9D-t6-iGm"/>
+                        <outlet property="alertMessage" destination="nxo-8t-z3w" id="NnA-kK-bbJ"/>
+                        <outlet property="alertTitle" destination="k0c-X8-78v" id="Q8y-mg-UFR"/>
+                        <outlet property="bottomButton" destination="I9N-ew-EX8" id="oLx-Be-IZp"/>
+                        <outlet property="topButton" destination="iYI-on-NZC" id="fCX-ZN-aH9"/>
+                        <outlet property="widthConstraint" destination="7kd-GY-g2P" id="KAq-AU-6oS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ebj-os-nAR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3086" y="-304"/>
+        </scene>
         <!--Alert DemoVC-->
         <scene sceneID="TTU-CU-M1p">
             <objects>
@@ -602,12 +741,21 @@
                                     <action selector="showStandardAlertButtonTapped:" destination="VOu-84-DMZ" eventType="touchUpInside" id="oq7-qB-Otl"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pBG-e0-7hy">
+                                <rect key="frame" x="230" y="388" width="141" height="30"/>
+                                <state key="normal" title="UIMongolAlertView2"/>
+                                <connections>
+                                    <action selector="alert2button:" destination="VOu-84-DMZ" eventType="touchUpInside" id="ceQ-CL-I2F"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="8Ni-en-ege" firstAttribute="centerX" secondItem="wIp-4N-7NE" secondAttribute="centerX" id="Sr3-ev-wkh"/>
+                            <constraint firstItem="pBG-e0-7hy" firstAttribute="top" secondItem="Jto-CI-zZv" secondAttribute="bottom" constant="19" id="jkK-6h-Usx"/>
                             <constraint firstItem="Jto-CI-zZv" firstAttribute="centerX" secondItem="wIp-4N-7NE" secondAttribute="centerX" id="sJf-Go-8td"/>
                             <constraint firstItem="8Ni-en-ege" firstAttribute="centerY" secondItem="wIp-4N-7NE" secondAttribute="centerY" id="t8x-P7-lzk"/>
+                            <constraint firstItem="pBG-e0-7hy" firstAttribute="centerX" secondItem="wIp-4N-7NE" secondAttribute="centerX" id="vgl-Sm-WOu"/>
                             <constraint firstItem="Jto-CI-zZv" firstAttribute="top" secondItem="8Ni-en-ege" secondAttribute="bottom" constant="24" id="wa1-ML-z8Q"/>
                         </constraints>
                     </view>

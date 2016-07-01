@@ -17,6 +17,17 @@ import UIKit
         }
     }
     
+    var setTableFooterView: UIView? {
+        
+        get {
+            return view.tableFooterView
+        }
+        set {
+            view.tableFooterView = newValue
+        }
+        
+    }
+    
     func setup() {
         // do any setup necessary
         
