@@ -77,28 +77,8 @@
                                             <segue destination="Szp-c5-erE" kind="show" id="9nf-pl-U24"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="xdB-8K-nA0" style="IBUITableViewCellStyleDefault" id="Ir0-5S-VD1">
-                                        <rect key="frame" x="0.0" y="231" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ir0-5S-VD1" id="HB9-Cu-37H">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="UIMongolAlert" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xdB-8K-nA0">
-                                                    <rect key="frame" x="15" y="0.0" width="570" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="f3M-9i-1NO" kind="show" id="Bo0-bR-HBu"/>
-                                        </connections>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="hDs-RE-n74" style="IBUITableViewCellStyleDefault" id="UGM-Ti-c61">
-                                        <rect key="frame" x="0.0" y="275" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="231" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UGM-Ti-c61" id="8Id-Qo-who">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -118,7 +98,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="tUh-Xm-u2z" style="IBUITableViewCellStyleDefault" id="oXQ-9f-7IN">
-                                        <rect key="frame" x="0.0" y="319" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="275" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oXQ-9f-7IN" id="cXW-4h-jI3">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -138,7 +118,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="AX7-En-oUI" style="IBUITableViewCellStyleDefault" id="C4Z-Hm-eCL">
-                                        <rect key="frame" x="0.0" y="363" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="319" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="C4Z-Hm-eCL" id="LsO-IQ-mbK">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -158,7 +138,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="zpJ-d3-IEz" style="IBUITableViewCellStyleDefault" id="N02-h6-IRc">
-                                        <rect key="frame" x="0.0" y="407" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="363" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="N02-h6-IRc" id="ZMX-8u-Spu">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -476,84 +456,14 @@
             <point key="canvasLocation" x="1847" y="-336"/>
         </scene>
         <!--Mongol Alert Controller-->
-        <scene sceneID="URy-d3-DGU">
-            <objects>
-                <viewController storyboardIdentifier="MongolAlertControllerID" id="gcq-w0-Qwj" customClass="UIMongolAlertController" customModule="Mongol_App_Componants" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ptW-5J-Qhj"/>
-                        <viewControllerLayoutGuide type="bottom" id="opB-bY-6ue"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="e0c-LZ-g3t">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xbj-gl-h78" userLabel="Alert Container View">
-                                <rect key="frame" x="200" y="150" width="200" height="300"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ina-7i-BU9" userLabel="Title" customClass="UIMongolLabel" customModule="Mongol_App_Componants" customModuleProvider="target">
-                                        <rect key="frame" x="8" y="8" width="22" height="284"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="text" value="ᠳᠤᠰ ᠪᠢᠴᠢᠯᠭᠡ ᠬᠠᠭᠤᠯᠠᠭᠳᠠᠪᠠ"/>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="centerText" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
-                                                <real key="value" value="19"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="od1-xc-8rt" userLabel="Message" customClass="UIMongolLabel" customModule="Mongol_App_Componants" customModuleProvider="target">
-                                        <rect key="frame" x="38" y="20" width="154" height="260"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="text">
-                                                <string key="value">ᠳᠤᠰ ᠪᠢᠴᠢᠯᠭᠡ ᠶᠢᠨ ᠶᠦᠨᠢᠺᠤᠳ᠋ ᠲᠡᠺᠧᠰᠲ ᠢ ᠭᠠᠷ ᠤᠳᠠᠰᠤᠨ ᠰᠢᠰᠲ᠋ᠧᠮ ᠦᠨ ᠨᠠᠭᠠᠬᠤ ᠰᠠᠮᠪᠠᠷ᠎ᠠ ᠳᠤ ᠬᠠᠭᠤᠯᠠᠭᠳᠠᠪᠠ᠃ ᠳᠠ ᠡᠭᠦᠨ ᠢ ᠪᠤᠰᠤᠳ APP ᠳᠤ ᠨᠠᠭᠠᠵᠤ ᠬᠡᠷᠡᠭᠯᠡᠵᠤ ᠪᠤᠯᠤᠨ᠎ᠠ᠃ ᠭᠡᠪᠡᠴᠦ ᠮᠤᠩᠭᠤᠯ ᠬᠡᠯᠡᠨ ᠦ ᠶᠦᠨᠢᠺᠤᠳ᠋ ᠤᠨ ᠪᠠᠷᠢᠮᠵᠢᠶ᠎ᠠ ᠨᠢᠭᠡᠳᠦᠭᠡᠳᠦᠢ ᠳᠤᠯᠠ ᠵᠠᠷᠢᠮ ᠰᠤᠹᠲ ᠪᠤᠷᠤᠭᠤ ᠦᠰᠦᠭ ᠢᠶᠡᠷ ᠢᠯᠡᠷᠡᠬᠦ ᠮᠠᠭᠠᠳ᠃ </string>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="lines">
-                                                <integer key="value" value="0"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
-                                                <real key="value" value="17"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" white="0.94991262335526316" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="4Au-BI-WEO"/>
-                                    <constraint firstItem="od1-xc-8rt" firstAttribute="leading" secondItem="Ina-7i-BU9" secondAttribute="trailing" constant="8" id="5wK-hz-saD"/>
-                                    <constraint firstAttribute="width" constant="200" id="AcQ-UO-VPZ"/>
-                                    <constraint firstAttribute="bottom" secondItem="Ina-7i-BU9" secondAttribute="bottom" constant="8" id="Ams-0n-jSL"/>
-                                    <constraint firstAttribute="trailing" secondItem="od1-xc-8rt" secondAttribute="trailing" constant="8" id="Pn6-39-yWB"/>
-                                    <constraint firstItem="Ina-7i-BU9" firstAttribute="leading" secondItem="Xbj-gl-h78" secondAttribute="leading" constant="8" id="Sta-LU-hJJ"/>
-                                    <constraint firstItem="od1-xc-8rt" firstAttribute="top" secondItem="Xbj-gl-h78" secondAttribute="top" constant="20" id="n6t-gF-RpL"/>
-                                    <constraint firstItem="Ina-7i-BU9" firstAttribute="top" secondItem="Xbj-gl-h78" secondAttribute="top" constant="8" id="r2f-Um-w3X"/>
-                                    <constraint firstAttribute="bottom" secondItem="od1-xc-8rt" secondAttribute="bottom" constant="20" id="vBK-BW-1Xi"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.20059121621621623" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Xbj-gl-h78" firstAttribute="centerY" secondItem="e0c-LZ-g3t" secondAttribute="centerY" id="LuM-1k-7IX"/>
-                            <constraint firstItem="Xbj-gl-h78" firstAttribute="centerX" secondItem="e0c-LZ-g3t" secondAttribute="centerX" id="rw1-dz-E3c"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="alertContainerView" destination="Xbj-gl-h78" id="b3k-eW-CKO"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="g9Y-gG-DwU" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3086" y="-995"/>
-        </scene>
-        <!--Mongol Alert Controller2-->
         <scene sceneID="6v7-y3-FGz">
             <objects>
-                <viewController storyboardIdentifier="MongolAlertController2ID" id="OyT-6v-O8G" customClass="UIMongolAlertController2" customModule="Mongol_App_Componants" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MongolAlertControllerID" id="OyT-6v-O8G" customClass="UIMongolAlertController" customModule="Mongol_App_Componants" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gI7-gC-wbk"/>
                         <viewControllerLayoutGuide type="bottom" id="GaY-u6-SWA"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="eEu-IF-2fN">
+                    <view key="view" alpha="0.29999999999999999" contentMode="scaleToFill" id="eEu-IF-2fN">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -617,6 +527,9 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I9N-ew-EX8" userLabel="Bottom Button Label" customClass="UIMongolLabel" customModule="Mongol_App_Componants" customModuleProvider="target">
                                                 <rect key="frame" x="1" y="116" width="59" height="114"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" priority="100" constant="114" id="G93-DN-WyL"/>
+                                                </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="text" value="Cancel"/>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="centerText" value="YES"/>
@@ -676,44 +589,18 @@
                         <outlet property="alertMessage" destination="nxo-8t-z3w" id="NnA-kK-bbJ"/>
                         <outlet property="alertTitle" destination="k0c-X8-78v" id="Q8y-mg-UFR"/>
                         <outlet property="bottomButton" destination="I9N-ew-EX8" id="oLx-Be-IZp"/>
+                        <outlet property="bottomButtonHeightConstraint" destination="G93-DN-WyL" id="K5x-83-fHt"/>
+                        <outlet property="buttonContainerWidthConstraint" destination="ChU-aT-JEg" id="nvq-ar-Ub3"/>
+                        <outlet property="buttonEqualHeightsConstraint" destination="ud3-Wm-qRV" id="H6a-mG-shd"/>
+                        <outlet property="horizontalDividerWidthConstraint" destination="sxX-h8-HqO" id="MMB-Xk-AMl"/>
                         <outlet property="topButton" destination="iYI-on-NZC" id="fCX-ZN-aH9"/>
+                        <outlet property="verticalDividerHeightConstraint" destination="X8M-K8-hcS" id="3Ki-9g-z7t"/>
                         <outlet property="widthConstraint" destination="7kd-GY-g2P" id="KAq-AU-6oS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ebj-os-nAR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3086" y="-304"/>
-        </scene>
-        <!--Alert DemoVC-->
-        <scene sceneID="TTU-CU-M1p">
-            <objects>
-                <viewController id="f3M-9i-1NO" customClass="AlertDemoVC" customModule="Mongol_App_Componants" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="60w-df-Yne"/>
-                        <viewControllerLayoutGuide type="bottom" id="ayO-iO-q6R"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="A7v-EG-NMf">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hcb-s5-gD8">
-                                <rect key="frame" x="251" y="285" width="99" height="30"/>
-                                <state key="normal" title="UIMongolAlert"/>
-                                <connections>
-                                    <action selector="showAlert:" destination="f3M-9i-1NO" eventType="touchUpInside" id="Ma1-KI-6L1"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="hcb-s5-gD8" firstAttribute="centerX" secondItem="A7v-EG-NMf" secondAttribute="centerX" id="bHD-A5-nF4"/>
-                            <constraint firstItem="hcb-s5-gD8" firstAttribute="centerY" secondItem="A7v-EG-NMf" secondAttribute="centerY" id="npC-m0-8vJ"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xa9-ui-tp8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1769" y="-1024"/>
+            <point key="canvasLocation" x="3094" y="-1024"/>
         </scene>
         <!--Alert Controller DemoVC-->
         <scene sceneID="CHN-eL-ue2">
@@ -728,35 +615,44 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ni-en-ege">
-                                <rect key="frame" x="217" y="285" width="167" height="30"/>
-                                <state key="normal" title="UIMongolAlertController"/>
+                                <rect key="frame" x="172" y="84" width="257" height="30"/>
+                                <state key="normal" title="UIMongolAlertController (No buttons)"/>
                                 <connections>
-                                    <action selector="showMongolAlertButtonTapped:" destination="VOu-84-DMZ" eventType="touchUpInside" id="Utg-CV-bvY"/>
+                                    <action selector="showButtonlessAlertTapped:" destination="VOu-84-DMZ" eventType="touchUpInside" id="0D7-7W-54C"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LOq-FL-yAK">
+                                <rect key="frame" x="178" y="122" width="244" height="30"/>
+                                <state key="normal" title="UIMongolAlertController (1 buttons)"/>
+                                <connections>
+                                    <action selector="showOneButtonAlertTapped:" destination="VOu-84-DMZ" eventType="touchUpInside" id="d93-Q4-jj8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LWW-ZS-G0S">
+                                <rect key="frame" x="177" y="160" width="246" height="30"/>
+                                <state key="normal" title="UIMongolAlertController (2 buttons)"/>
+                                <connections>
+                                    <action selector="showTwoButtonAlertTapped:" destination="VOu-84-DMZ" eventType="touchUpInside" id="JFb-L3-Myn"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jto-CI-zZv">
-                                <rect key="frame" x="242" y="339" width="116" height="30"/>
+                                <rect key="frame" x="242" y="198" width="116" height="30"/>
                                 <state key="normal" title="UIAlertController"/>
                                 <connections>
                                     <action selector="showStandardAlertButtonTapped:" destination="VOu-84-DMZ" eventType="touchUpInside" id="oq7-qB-Otl"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pBG-e0-7hy">
-                                <rect key="frame" x="230" y="388" width="141" height="30"/>
-                                <state key="normal" title="UIMongolAlertView2"/>
-                                <connections>
-                                    <action selector="alert2button:" destination="VOu-84-DMZ" eventType="touchUpInside" id="ceQ-CL-I2F"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="8Ni-en-ege" firstAttribute="centerX" secondItem="wIp-4N-7NE" secondAttribute="centerX" id="Sr3-ev-wkh"/>
-                            <constraint firstItem="pBG-e0-7hy" firstAttribute="top" secondItem="Jto-CI-zZv" secondAttribute="bottom" constant="19" id="jkK-6h-Usx"/>
-                            <constraint firstItem="Jto-CI-zZv" firstAttribute="centerX" secondItem="wIp-4N-7NE" secondAttribute="centerX" id="sJf-Go-8td"/>
-                            <constraint firstItem="8Ni-en-ege" firstAttribute="centerY" secondItem="wIp-4N-7NE" secondAttribute="centerY" id="t8x-P7-lzk"/>
-                            <constraint firstItem="pBG-e0-7hy" firstAttribute="centerX" secondItem="wIp-4N-7NE" secondAttribute="centerX" id="vgl-Sm-WOu"/>
-                            <constraint firstItem="Jto-CI-zZv" firstAttribute="top" secondItem="8Ni-en-ege" secondAttribute="bottom" constant="24" id="wa1-ML-z8Q"/>
+                            <constraint firstItem="8Ni-en-ege" firstAttribute="centerX" secondItem="wIp-4N-7NE" secondAttribute="centerX" id="4FF-nU-i9z"/>
+                            <constraint firstItem="Jto-CI-zZv" firstAttribute="top" secondItem="LWW-ZS-G0S" secondAttribute="bottom" constant="8" id="8G4-iV-YgN"/>
+                            <constraint firstItem="LOq-FL-yAK" firstAttribute="centerX" secondItem="wIp-4N-7NE" secondAttribute="centerX" id="Erz-TY-6M6"/>
+                            <constraint firstItem="LWW-ZS-G0S" firstAttribute="centerX" secondItem="wIp-4N-7NE" secondAttribute="centerX" id="GsY-JU-2NO"/>
+                            <constraint firstItem="LOq-FL-yAK" firstAttribute="top" secondItem="8Ni-en-ege" secondAttribute="bottom" constant="8" id="MAz-5Q-Kgn"/>
+                            <constraint firstItem="LWW-ZS-G0S" firstAttribute="top" secondItem="LOq-FL-yAK" secondAttribute="bottom" constant="8" id="OAJ-7A-49E"/>
+                            <constraint firstItem="8Ni-en-ege" firstAttribute="top" secondItem="3Ig-Iv-c1z" secondAttribute="bottom" constant="20" id="Rfs-4C-1KD"/>
+                            <constraint firstItem="Jto-CI-zZv" firstAttribute="centerX" secondItem="wIp-4N-7NE" secondAttribute="centerX" id="sAb-iy-sxs"/>
                         </constraints>
                     </view>
                 </viewController>

@@ -16,15 +16,38 @@ class AlertControllerDemoVC: UIViewController {
         
     }
 
-    
-    @IBAction func showMongolAlertButtonTapped(sender: UIButton) {
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let myAlert = storyboard.instantiateViewControllerWithIdentifier("MongolAlertControllerID")
-        myAlert.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
-        myAlert.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
-        self.presentViewController(myAlert, animated: true, completion: nil)
+    @IBAction func showButtonlessAlertTapped(sender: UIButton) {
+        let title = "ᠳᠤᠰ ᠪᠢᠴᠢᠯᠭᠡ ᠬᠠᠭᠤᠯᠠᠭᠳᠠᠪᠠ"
+        let message = "ᠳᠤᠰ ᠪᠢᠴᠢᠯᠭᠡ ᠶᠢᠨ ᠶᠦᠨᠢᠺᠤᠳ᠋ ᠲᠡᠺᠧᠰᠲ ᠢ ᠭᠠᠷ ᠤᠳᠠᠰᠤᠨ ᠰᠢᠰᠲ᠋ᠧᠮ ᠦᠨ ᠨᠠᠭᠠᠬᠤ ᠰᠠᠮᠪᠠᠷ᠎ᠠ ᠳᠤ ᠬᠠᠭᠤᠯᠠᠭᠳᠠᠪᠠ᠃ ᠳᠠ ᠡᠭᠦᠨ ᠢ ᠪᠤᠰᠤᠳ APP ᠳᠤ ᠨᠠᠭᠠᠵᠤ ᠬᠡᠷᠡᠭᠯᠡᠵᠤ ᠪᠤᠯᠤᠨ᠎ᠠ᠃ ᠭᠡᠪᠡᠴᠦ ᠮᠤᠩᠭᠤᠯ ᠬᠡᠯᠡᠨ ᠦ ᠶᠦᠨᠢᠺᠤᠳ᠋ ᠤᠨ ᠪᠠᠷᠢᠮᠵᠢᠶ᠎ᠠ ᠨᠢᠭᠡᠳᠦᠭᠡᠳᠦᠢ ᠳᠤᠯᠠ ᠵᠠᠷᠢᠮ ᠰᠤᠹᠲ ᠪᠤᠷᠤᠭᠤ ᠦᠰᠦᠭ ᠢᠶᠡᠷ ᠢᠯᠡᠷᠡᠬᠦ ᠮᠠᠭᠠᠳ᠃ "
+        showZeroButtonAlert(withTitle: title, message: message, alertWidth: 250)
     }
+    @IBAction func showOneButtonAlertTapped(sender: UIButton) {
+        
+        let title = "ᠳᠤᠰ ᠪᠢᠴᠢᠯᠭᠡ ᠬᠠᠭᠤᠯᠠᠭᠳᠠᠪᠠ"
+        let message = "ᠳᠤᠰ ᠪᠢᠴᠢᠯᠭᠡ ᠶᠢᠨ ᠶᠦᠨᠢᠺᠤᠳ᠋ ᠲᠡᠺᠧᠰᠲ ᠢ ᠭᠠᠷ ᠤᠳᠠᠰᠤᠨ ᠰᠢᠰᠲ᠋ᠧᠮ ᠦᠨ ᠨᠠᠭᠠᠬᠤ ᠰᠠᠮᠪᠠᠷ᠎ᠠ ᠳᠤ ᠬᠠᠭᠤᠯᠠᠭᠳᠠᠪᠠ᠃ ᠳᠠ ᠡᠭᠦᠨ ᠢ ᠪᠤᠰᠤᠳ APP ᠳᠤ ᠨᠠᠭᠠᠵᠤ ᠬᠡᠷᠡᠭᠯᠡᠵᠤ ᠪᠤᠯᠤᠨ᠎ᠠ᠃ ᠭᠡᠪᠡᠴᠦ ᠮᠤᠩᠭᠤᠯ ᠬᠡᠯᠡᠨ ᠦ ᠶᠦᠨᠢᠺᠤᠳ᠋ ᠤᠨ ᠪᠠᠷᠢᠮᠵᠢᠶ᠎ᠠ ᠨᠢᠭᠡᠳᠦᠭᠡᠳᠦᠢ ᠳᠤᠯᠠ ᠵᠠᠷᠢᠮ ᠰᠤᠹᠲ ᠪᠤᠷᠤᠭᠤ ᠦᠰᠦᠭ ᠢᠶᠡᠷ ᠢᠯᠡᠷᠡᠬᠦ ᠮᠠᠭᠠᠳ᠃ "
+        let action = {
+            () -> Void in
+            print("button works")
+        }
+        showOneButtonAlert(withTitle: title, message: message, topButtonText: "ᠮᠡᠳᠡᠯ᠎ᠡ", action: action, alertWidth: 300)
+    }
+    @IBAction func showTwoButtonAlertTapped(sender: UIButton) {
+        
+        let title = "ᠤᠰᠠᠳᠬᠠᠬᠤ"
+        let message = "ᠲᠠ ᠦᠨᠡᠭᠡᠷ ᠪᠦᠬᠦ ᠵᠠᠬᠢᠵ᠎ᠠ ᠶᠢ ᠤᠰᠠᠳᠬᠠᠬᠤ ᠤᠤ?"
+        
+        let actionOne = {
+            () -> Void in
+            print("top button works")
+        }
+        let actionTwo = {
+            () -> Void in
+            print("bottom button works")
+        }
+        
+        showAlert(withTitle: title, message: message, numberOfButtons: 2, topButtonText: "ᠲᠡᠭᠡ", topButtonAction: actionOne, bottomButtonText: "ᠪᠤᠯᠢ", bottomButtonAction: actionTwo, alertWidth: 170)
+    }
+
 
     @IBAction func showStandardAlertButtonTapped(sender: UIButton) {
         
@@ -38,30 +61,38 @@ class AlertControllerDemoVC: UIViewController {
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
-    @IBAction func alert2button(sender: UIButton) {
+
+    func showZeroButtonAlert(withTitle title: String?, message: String?, alertWidth: CGFloat?) {
         
-        showAlert(withTitle: "Hello", message: "This is my message", topButtonText: "OK", bottomButtonText: "Cancel")
+        //showAlert(withTitle: title, message: message, numberOfButtons: 0, topButtonText: nil, bottomButtonText: nil, alertWidth: alertSize)
+        showAlert(withTitle: title, message: message, numberOfButtons: 0, topButtonText: nil, topButtonAction: nil, bottomButtonText: nil, bottomButtonAction: nil, alertWidth: 170)
+
     }
     
-    func showAlert(withTitle title: String?, message: String?, topButtonText: String?, bottomButtonText: String?) {
+    func showOneButtonAlert(withTitle title: String?, message: String?, topButtonText: String?, action: (()->Void)?, alertWidth: CGFloat?){
+        
+        //showAlert(withTitle: title, message: message, numberOfButtons: 1, topButtonText: topButtonText, bottomButtonText: nil, alertWidth: alertSize)
+        showAlert(withTitle: title, message: message, numberOfButtons: 1, topButtonText: topButtonText, topButtonAction: action, bottomButtonText: nil, bottomButtonAction: nil, alertWidth: alertWidth)
+
+    }
+    
+    
+    func showAlert(withTitle title: String?, message: String?, numberOfButtons: Int, topButtonText: String?, topButtonAction: (()->Void)?, bottomButtonText: String?, bottomButtonAction: (()->Void)?, alertWidth: CGFloat?) {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let myAlertController = storyboard.instantiateViewControllerWithIdentifier("MongolAlertController2ID") as! UIMongolAlertController2
+        let myAlertController = storyboard.instantiateViewControllerWithIdentifier("MongolAlertControllerID") as! UIMongolAlertController
         myAlertController.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
         myAlertController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
         
+        
         myAlertController.titleText = title
         myAlertController.messageText = message
+        myAlertController.numberOfButtons = numberOfButtons
+        myAlertController.alertWidth = alertWidth
         myAlertController.buttonOneText = topButtonText
         myAlertController.buttonTwoText = bottomButtonText
-        myAlertController.buttonOneAction = {
-            () -> Void in
-            print("botton one works")
-        }
-        myAlertController.buttonTwoAction = {
-            () -> Void in
-            print("button two works")
-        }
+        myAlertController.buttonOneAction = topButtonAction
+        myAlertController.buttonTwoAction = bottomButtonAction
         
         self.presentViewController(myAlertController, animated: true, completion: nil)
     }
