@@ -1,3 +1,8 @@
+// UIMongolSingleLineLabel
+// version 1.0
+
+// supports intrinsic content auto resizing
+
 import UIKit
 
 @IBDesignable
@@ -18,6 +23,12 @@ class UIMongolSingleLineLabel: UIView {
     }
     
     @IBInspectable var fontSize: CGFloat = 17 {
+        didSet {
+            updateTextLayerFrame()
+        }
+    }
+    
+    @IBInspectable var textColor: UIColor = UIColor.blackColor() {
         didSet {
             updateTextLayerFrame()
         }
@@ -58,8 +69,11 @@ class UIMongolSingleLineLabel: UIView {
     
     func updateTextLayerFrame() {
         
-        let myAttribute = [ NSFontAttributeName: UIFont(name: mongolFontName, size: fontSize )! ]
-        let attrString = NSMutableAttributedString(string: textLayer.displayString, attributes: myAttribute )
+        let myAttributes = [
+            NSFontAttributeName: UIFont(name: mongolFontName, size: fontSize )! ,
+            NSForegroundColorAttributeName: textColor
+        ]
+        let attrString = NSMutableAttributedString(string: textLayer.displayString, attributes: myAttributes )
         let size = dimensionsForAttributedString(attrString)
         
         // This is the frame for the soon-to-be rotated layer

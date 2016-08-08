@@ -1,5 +1,8 @@
-import UIKit
+// UIMongolTextView
+// version 1.0
 
+
+import UIKit
 
 class UITextViewWithoutMenu: UITextView {
     

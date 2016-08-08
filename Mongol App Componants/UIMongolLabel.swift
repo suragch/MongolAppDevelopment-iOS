@@ -1,3 +1,6 @@
+// UIMongolLabel
+// version 1.0
+
 import UIKit
 
 @IBDesignable class UIMongolLabel: UIView {
