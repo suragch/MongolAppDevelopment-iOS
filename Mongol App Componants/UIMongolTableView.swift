@@ -28,13 +28,32 @@ import UIKit
         
     }
     
+    var backgroundView: UIView? {
+        get {
+            return view.backgroundView
+        }
+        set {
+            view.backgroundView = newValue
+        }
+    }
+    
+    override var backgroundColor: UIColor? {
+        get {
+            return view.backgroundColor
+        }
+        set {
+            view.backgroundColor = newValue
+        }
+    }
+    
     func setup() {
         // do any setup necessary
+        
         
         self.addSubview(rotationView)
         rotationView.addSubview(view)
         
-        view.backgroundColor = self.backgroundColor
+        self.backgroundColor = UIColor.clearColor()
         view.layoutMargins = UIEdgeInsetsZero
         view.separatorInset = UIEdgeInsetsZero
     }

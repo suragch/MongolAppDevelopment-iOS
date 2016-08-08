@@ -1,11 +1,3 @@
-//
-//  TableViewDemoVC.swift
-//  Mongol App Componants
-//
-//  Created by MongolSuragch on 7/28/15.
-//  Copyright © 2015 MongolSuragch. All rights reserved.
-//
-
 import UIKit
 
 class TableViewDemoVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -47,8 +39,5 @@ class TableViewDemoVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         print("You selected cell #\(indexPath.row)!")
-        
-        //let tmp = UIViewController()
-        //self.navigationController?.pushViewController(tmp, animated:false )
     }
 }
