@@ -1,7 +1,8 @@
 // UIMongolSingleLineLabel
-// version 1.0
+// version 1.1
 
 // supports intrinsic content auto resizing
+// supports auto rendering of unicode text
 
 import UIKit
 
@@ -10,6 +11,7 @@ class UIMongolSingleLineLabel: UIView {
     
     private let textLayer = LabelTextLayer()
     let mongolFontName = "ChimeeWhiteMirrored"
+    let renderer = MongolUnicodeRenderer.sharedInstance
     var useMirroredFont = true
     //private var oldFrame = CGRectZero
     
@@ -73,7 +75,8 @@ class UIMongolSingleLineLabel: UIView {
             NSFontAttributeName: UIFont(name: mongolFontName, size: fontSize )! ,
             NSForegroundColorAttributeName: textColor
         ]
-        let attrString = NSMutableAttributedString(string: textLayer.displayString, attributes: myAttributes )
+        let renderedString = renderer.unicodeToGlyphs(textLayer.displayString)
+        let attrString = NSMutableAttributedString(string: renderedString, attributes: myAttributes )
         let size = dimensionsForAttributedString(attrString)
         
         // This is the frame for the soon-to-be rotated layer
