@@ -1,5 +1,7 @@
-// This keyboard key has two text string locations for vertical Mongolian script, one centered and one in the bottom right.
+// KeyboardTextKey
+// version 1.0
 
+// This keyboard key has two text string locations for vertical Mongolian script, one centered and one in the bottom right.
 
 import UIKit
 
@@ -34,6 +36,11 @@ class KeyboardTextKey: KeyboardKey {
             updatePrimaryLayerFrame()
         }
     }
+    @IBInspectable var primaryStringFontColor: UIColor = UIColor.blackColor() {
+        didSet {
+            updatePrimaryLayerFrame()
+        }
+    }
     
     // MARK: Secondary (long press) input value
     
@@ -51,6 +58,11 @@ class KeyboardTextKey: KeyboardKey {
         }
     }
     @IBInspectable var secondaryStringFontSize: CGFloat = 12 {
+        didSet {
+            updateSecondaryLayerFrame()
+        }
+    }
+    @IBInspectable var secondaryStringFontColor: UIColor = UIColor.blackColor() {
         didSet {
             updateSecondaryLayerFrame()
         }
@@ -101,8 +113,11 @@ class KeyboardTextKey: KeyboardKey {
     
     func updatePrimaryLayerFrame() {
         
-        let myAttribute = [ NSFontAttributeName: UIFont(name: mongolFontName, size: primaryStringFontSize )! ]
-        let attrString = NSMutableAttributedString(string: primaryLayer.displayString, attributes: myAttribute )
+        let myAttributes = [
+            NSFontAttributeName: UIFont(name: mongolFontName, size: primaryStringFontSize )! ,
+            NSForegroundColorAttributeName: primaryStringFontColor
+        ]
+        let attrString = NSMutableAttributedString(string: primaryLayer.displayString, attributes: myAttributes )
         let size = dimensionsForAttributedString(attrString)
         
         // This is the frame for the soon-to-be rotated layer
@@ -113,8 +128,12 @@ class KeyboardTextKey: KeyboardKey {
     }
     
     func updateSecondaryLayerFrame() {
-        let myAttribute = [ NSFontAttributeName: UIFont(name: mongolFontName, size: secondaryStringFontSize )! ]
-        let attrString = NSMutableAttributedString(string: secondaryLayer.displayString, attributes: myAttribute )
+        
+        let myAttributes = [
+            NSFontAttributeName: UIFont(name: mongolFontName, size: secondaryStringFontSize )! ,
+            NSForegroundColorAttributeName: secondaryStringFontColor
+        ]
+        let attrString = NSMutableAttributedString(string: secondaryLayer.displayString, attributes: myAttributes )
         let size = dimensionsForAttributedString(attrString)
         
         // This is the frame for the soon-to-be rotated layer
