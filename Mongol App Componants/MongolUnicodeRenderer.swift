@@ -1,7 +1,7 @@
 /*
  * Chimee Mongol Unicode Rendering Engine for iOS
  *
- * Version 1.4.1
+ * Version 1.5.0
  *
  * Current version needs to be used with Almas font 1.0 glyphs
  * copied to PUA starting at \uE360. To use different glyph
@@ -81,6 +81,70 @@ class MongolUnicodeRenderer {
         static let LHA: UInt32 = 0x1840
         static let ZHI: UInt32 = 0x1841
         static let CHI: UInt32 = 0x1842
+        
+    }
+    
+    struct UniString {
+        // Class constants
+        static let ZWJ = "\u{200d}" // Zero-width joiner
+        static let NNBS = "\u{202F}" // Narrow No-Break Space
+        // Unicode Mongolian Values
+        static let MONGOLIAN_BIRGA = "\u{1800}"
+        static let MONGOLIAN_ELLIPSIS = "\u{1801}"
+        static let MONGOLIAN_COMMA = "\u{1802}"
+        static let MONGOLIAN_FULL_STOP = "\u{1803}"
+        static let MONGOLIAN_COLON = "\u{1804}"
+        static let MONGOLIAN_FOUR_DOTS = "\u{1805}"
+        static let MONGOLIAN_NIRUGU = "\u{180a}"
+        static let FVS1 = "\u{180b}"
+        static let FVS2 = "\u{180c}"
+        static let FVS3 = "\u{180d}"
+        static let MVS = "\u{180e}" // MONGOLIAN_VOWEL_SEPARATOR
+        static let MONGOLIAN_DIGIT_ZERO = "\u{1810}"
+        static let MONGOLIAN_DIGIT_ONE = "\u{1811}"
+        static let MONGOLIAN_DIGIT_TWO = "\u{1812}"
+        static let MONGOLIAN_DIGIT_THREE = "\u{1813}"
+        static let MONGOLIAN_DIGIT_FOUR = "\u{1814}"
+        static let MONGOLIAN_DIGIT_FIVE = "\u{1815}"
+        static let MONGOLIAN_DIGIT_SIX = "\u{1816}"
+        static let MONGOLIAN_DIGIT_SEVEN = "\u{1817}"
+        static let MONGOLIAN_DIGIT_EIGHT = "\u{1818}"
+        static let MONGOLIAN_DIGIT_NINE = "\u{1819}"
+        static let A = "\u{1820}" // MONGOLIAN_LETTER_xx
+        static let E = "\u{1821}"
+        static let I = "\u{1822}"
+        static let O = "\u{1823}"
+        static let U = "\u{1824}"
+        static let OE = "\u{1825}"
+        static let UE = "\u{1826}"
+        static let EE = "\u{1827}"
+        static let NA = "\u{1828}"
+        static let ANG = "\u{1829}"
+        static let BA = "\u{182A}"
+        static let PA = "\u{182B}"
+        static let QA = "\u{182C}"
+        static let GA = "\u{182D}"
+        static let MA = "\u{182E}"
+        static let LA = "\u{182F}"
+        static let SA = "\u{1830}"
+        static let SHA = "\u{1831}"
+        static let TA = "\u{1832}"
+        static let DA = "\u{1833}"
+        static let CHA = "\u{1834}"
+        static let JA = "\u{1835}"
+        static let YA = "\u{1836}"
+        static let RA = "\u{1837}"
+        static let WA = "\u{1838}"
+        static let FA = "\u{1839}"
+        static let KA = "\u{183A}"
+        static let KHA = "\u{183B}"
+        static let TSA = "\u{183C}"
+        static let ZA = "\u{183D}"
+        static let HAA = "\u{183E}"
+        static let ZRA = "\u{183F}"
+        static let LHA = "\u{1840}"
+        static let ZHI = "\u{1841}"
+        static let CHI = "\u{1842}"
         
     }
     
