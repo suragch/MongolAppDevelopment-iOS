@@ -1,5 +1,3 @@
-// UIMongolTableView
-// version 1.0
 
 import UIKit
 
@@ -39,6 +37,33 @@ import UIKit
         }
     }
     
+    var estimatedRowHeight: CGFloat {
+        get {
+            return view.estimatedRowHeight
+        }
+        set {
+            view.estimatedRowHeight = newValue
+        }
+    }
+    
+    var rowHeight: CGFloat {
+        get {
+            return view.rowHeight
+        }
+        set {
+            view.rowHeight = newValue
+        }
+    }
+    
+    var separatorInset: UIEdgeInsets {
+        get {
+            return view.separatorInset
+        }
+        set {
+            view.separatorInset = newValue
+        }
+    }
+    
     override var backgroundColor: UIColor? {
         get {
             return view.backgroundColor
@@ -46,6 +71,10 @@ import UIKit
         set {
             view.backgroundColor = newValue
         }
+    }
+    
+    func registerNib(nib: UINib?, forCellReuseIdentifier identifier: String) {
+        view.registerNib(nib, forCellReuseIdentifier: identifier)
     }
     
     func setup() {
