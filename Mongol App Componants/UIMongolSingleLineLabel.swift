@@ -9,7 +9,7 @@ import UIKit
 @IBDesignable
 class UIMongolSingleLineLabel: UIView {
     
-    private let textLayer = LabelTextLayer()
+    fileprivate let textLayer = LabelTextLayer()
     let mongolFontName = "ChimeeWhiteMirrored"
     let renderer = MongolUnicodeRenderer.sharedInstance
     var useMirroredFont = true
@@ -30,7 +30,7 @@ class UIMongolSingleLineLabel: UIView {
         }
     }
     
-    @IBInspectable var textColor: UIColor = UIColor.blackColor() {
+    @IBInspectable var textColor: UIColor = UIColor.black {
         didSet {
             updateTextLayerFrame()
         }
@@ -60,12 +60,12 @@ class UIMongolSingleLineLabel: UIView {
         
         // Text layer
         textLayer.useMirroredFont = useMirroredFont
-        textLayer.contentsScale = UIScreen.mainScreen().scale
+        textLayer.contentsScale = UIScreen.main.scale
         layer.addSublayer(textLayer)
         
     }
     
-    override func intrinsicContentSize() -> CGSize {
+    override var intrinsicContentSize : CGSize {
         return textLayer.frame.size
     }
     
@@ -74,7 +74,7 @@ class UIMongolSingleLineLabel: UIView {
         let myAttributes = [
             NSFontAttributeName: UIFont(name: mongolFontName, size: fontSize )! ,
             NSForegroundColorAttributeName: textColor
-        ]
+        ] as [String : Any]
         let renderedString = renderer.unicodeToGlyphs(textLayer.displayString)
         let attrString = NSMutableAttributedString(string: renderedString, attributes: myAttributes )
         let size = dimensionsForAttributedString(attrString)
@@ -95,12 +95,12 @@ class UIMongolSingleLineLabel: UIView {
     
     
     
-    func dimensionsForAttributedString(attrString: NSAttributedString) -> CGSize {
+    func dimensionsForAttributedString(_ attrString: NSAttributedString) -> CGSize {
         
         var ascent: CGFloat = 0
         var descent: CGFloat = 0
         var width: CGFloat = 0
-        let line: CTLineRef = CTLineCreateWithAttributedString(attrString)
+        let line: CTLine = CTLineCreateWithAttributedString(attrString)
         width = CGFloat(CTLineGetTypographicBounds(line, &ascent, &descent, nil))
         
         // make width an even integer for better graphics rendering
@@ -121,21 +121,21 @@ class LabelTextLayer: CATextLayer {
     var useMirroredFont = true
     var displayString = ""
     
-    override func drawInContext(ctx: CGContext) {
+    override func draw(in ctx: CGContext) {
         // A frame is passed in, in which the frame size is already rotated at the center but the content is not.
         
-        CGContextSaveGState(ctx)
+        ctx.saveGState()
         
         if useMirroredFont {
-            CGContextRotateCTM(ctx, CGFloat(M_PI_2))
-            CGContextScaleCTM(ctx, 1.0, -1.0)
+            ctx.rotate(by: CGFloat(M_PI_2))
+            ctx.scaleBy(x: 1.0, y: -1.0)
         } else {
-            CGContextRotateCTM(ctx, CGFloat(M_PI_2))
-            CGContextTranslateCTM(ctx, 0, -self.bounds.width)
+            ctx.rotate(by: CGFloat(M_PI_2))
+            ctx.translateBy(x: 0, y: -self.bounds.width)
         }
         
-        super.drawInContext(ctx)
-        CGContextRestoreGState(ctx)
+        super.draw(in: ctx)
+        ctx.restoreGState()
     }
 }
 

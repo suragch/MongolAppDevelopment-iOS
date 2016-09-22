@@ -34,7 +34,7 @@ class KeyboardDemoVC: UIViewController, KeyboardDelegate {
     }
     
     // required methods for keyboard delegate protocol
-    func keyWasTapped(character: String) {
+    func keyWasTapped(_ character: String) {
         textField.insertText(character)
     }
     
@@ -47,16 +47,16 @@ class KeyboardDemoVC: UIViewController, KeyboardDelegate {
         if let cursorRange = textField.selectedTextRange {
             
             // get the position one character before the cursor start position
-            if let newPosition = textField.positionFromPosition(cursorRange.start, inDirection: UITextLayoutDirection.Left, offset: 1) {
+            if let newPosition = textField.position(from: cursorRange.start, in: UITextLayoutDirection.left, offset: 1) {
                 
-                let range = textField.textRangeFromPosition(newPosition, toPosition: cursorRange.start)
-                return textField.textInRange(range!)
+                let range = textField.textRange(from: newPosition, to: cursorRange.start)
+                return textField.text(in: range!)
             }
         }
         return nil
     }
     
-    func keyNewKeyboardChosen(keyboardName: String) {
+    func keyNewKeyboardChosen(_ keyboardName: String) {
         switch keyboardName {
         case KeyboardName.Aeiou.rawValue:
             

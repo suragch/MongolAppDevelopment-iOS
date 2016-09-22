@@ -21,23 +21,23 @@ class TableViewDemoVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.items.count;
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         // set up the cells for the table view
         let cell: UITableViewCell = self.mongolTableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell!
         
         // TODO: use a custom UIMongolTableViewCell to render and choose font
-        cell.textLabel?.text = renderer.unicodeToGlyphs(self.items[indexPath.row])
+        cell.textLabel?.text = renderer.unicodeToGlyphs(self.items[(indexPath as NSIndexPath).row])
         cell.textLabel?.font = UIFont(name: mongolFont, size: fontSize)
         
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print("You selected cell #\(indexPath.row)!")
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("You selected cell #\((indexPath as NSIndexPath).row)!")
     }
 }

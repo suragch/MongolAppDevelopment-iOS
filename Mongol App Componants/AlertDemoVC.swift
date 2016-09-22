@@ -17,7 +17,7 @@ class AlertDemoVC: UIViewController, UIGestureRecognizerDelegate {
     let alertMessageTextView = UIMongolTextView()
     let renderer = MongolUnicodeRenderer.sharedInstance
     
-    @IBAction func showAlert(sender: AnyObject) {
+    @IBAction func showAlert(_ sender: AnyObject) {
         
         
         let message = "1-10: ᠨᠢᠭᠡ ᠬᠤᠶᠠᠷ ᠭᠤᠷᠪᠠ ᠳᠦᠷᠪᠡ ᠲᠠᠪᠤ ᠵᠢᠷᠭᠤᠭ᠎ᠠ ᠳᠤᠯᠤᠭ᠎ᠠ ᠨᠠᠢ᠌ᠮᠠ ᠶᠢᠰᠦ ᠠᠷᠪᠠ one two three four five six seven eight nine ten"
@@ -33,15 +33,15 @@ class AlertDemoVC: UIViewController, UIGestureRecognizerDelegate {
     }
     
     
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         
         dismissMongolAlert()
         
-        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
+        super.viewWillTransition(to: size, with: coordinator)
     }
     
     
-    func showMongolAlert(message: String) {
+    func showMongolAlert(_ message: String) {
         
         print("showing alert")
         
@@ -53,9 +53,9 @@ class AlertDemoVC: UIViewController, UIGestureRecognizerDelegate {
         let backgroundAlpha: CGFloat = 0.5
         
         // make alert visible
-        alertView.hidden = false
-        alertMessageBorder.hidden = false
-        alertMessageTextView.hidden = false
+        alertView.isHidden = false
+        alertMessageBorder.isHidden = false
+        alertMessageTextView.isHidden = false
         
         // ------------------------------
         // Initialize alert on first call
@@ -63,7 +63,7 @@ class AlertDemoVC: UIViewController, UIGestureRecognizerDelegate {
         if alertMessageBorder.subviews.count == 0 {
             
             // background
-            alertView.backgroundColor = UIColor.grayColor()
+            alertView.backgroundColor = UIColor.gray
             alertView.alpha = backgroundAlpha
             
             // message
@@ -71,7 +71,7 @@ class AlertDemoVC: UIViewController, UIGestureRecognizerDelegate {
             alertMessageTextView.fontSize = fontSize
             
             // message border
-            alertMessageBorder.backgroundColor = UIColor.whiteColor()
+            alertMessageBorder.backgroundColor = UIColor.white
             alertMessageBorder.layer.cornerRadius = cornerRadius
             
             // Gesture recognizer to dismiss view
@@ -94,7 +94,7 @@ class AlertDemoVC: UIViewController, UIGestureRecognizerDelegate {
         
         // message
         alertMessageTextView.text = message
-        let textViewSize = alertMessageTextView.sizeThatFits(CGSize(width: CGFloat.max, height: messageHeight))
+        let textViewSize = alertMessageTextView.sizeThatFits(CGSize(width: CGFloat.greatestFiniteMagnitude, height: messageHeight))
         // adjust view width, or scroll if wider than screen width
         if textViewSize.width + 2 * margin < self.view.bounds.width {
             alertMessageTextView.frame = CGRect(x: margin, y: margin, width: textViewSize.width, height: textViewSize.height)
@@ -111,9 +111,9 @@ class AlertDemoVC: UIViewController, UIGestureRecognizerDelegate {
     
     func dismissMongolAlert() {
         print("dismissing alert")
-        alertView.hidden = true
-        alertMessageBorder.hidden = true
-        alertMessageTextView.hidden = true
+        alertView.isHidden = true
+        alertMessageBorder.isHidden = true
+        alertMessageTextView.isHidden = true
     }
 
 }

@@ -6,7 +6,7 @@ import UIKit
 
 class UITextViewWithoutMenu: UITextView {
     
-    override func canPerformAction(action: Selector, withSender sender: AnyObject?) -> Bool {
+    override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
         
         return false
     }
@@ -20,12 +20,12 @@ class UITextViewWithoutMenu: UITextView {
     // MARK:- Unique to TextView
     
     // ********* Unique to TextView *********
-    private var view = UITextViewWithoutMenu()
-    private let rotationView = UIView()
-    private var userInteractionEnabledForSubviews = true
-    private let mongolFontName = "ChimeeWhiteMirrored"
-    private let defaultFontSize: CGFloat = 17
-    private let mongolTextStorage = MongolTextStorage()
+    fileprivate var view = UITextViewWithoutMenu()
+    fileprivate let rotationView = UIView()
+    fileprivate var userInteractionEnabledForSubviews = true
+    fileprivate let mongolFontName = "ChimeeWhiteMirrored"
+    fileprivate let defaultFontSize: CGFloat = 17
+    fileprivate let mongolTextStorage = MongolTextStorage()
     
     @IBInspectable var text: String {
         get {
@@ -57,7 +57,7 @@ class UITextViewWithoutMenu: UITextView {
             if let color = view.textColor {
                 return color
             } else {
-                return UIColor.blackColor()
+                return UIColor.black
             }
         }
         set {
@@ -67,39 +67,39 @@ class UITextViewWithoutMenu: UITextView {
     
     @IBInspectable var centerText: Bool {
         get {
-            return view.textAlignment == NSTextAlignment.Center
+            return view.textAlignment == NSTextAlignment.center
         }
         set {
             if newValue {
-                view.textAlignment = NSTextAlignment.Center
+                view.textAlignment = NSTextAlignment.center
             }
         }
     }
     
     @IBInspectable var editable: Bool {
         get {
-            return view.editable
+            return view.isEditable
         }
         set {
-            view.editable = newValue
+            view.isEditable = newValue
         }
     }
     
     @IBInspectable var selectable: Bool {
         get {
-            return view.selectable
+            return view.isSelectable
         }
         set {
-            view.selectable = newValue
+            view.isSelectable = newValue
         }
     }
     
     var scrollEnabled: Bool {
         get {
-            return view.scrollEnabled
+            return view.isScrollEnabled
         }
         set {
-            view.scrollEnabled = newValue
+            view.isScrollEnabled = newValue
         }
     }
     
@@ -142,11 +142,11 @@ class UITextViewWithoutMenu: UITextView {
         }
     }
     
-    override func intrinsicContentSize() -> CGSize {
+    override var intrinsicContentSize : CGSize {
         return CGSize(width: view.frame.height, height: view.frame.width)
     }
     
-    override func sizeThatFits(size: CGSize) -> CGSize {
+    override func sizeThatFits(_ size: CGSize) -> CGSize {
         // swap the length and width coming in and going out
         let fitSize = view.sizeThatFits(CGSize(width: size.height, height: size.width))
         return CGSize(width: fitSize.height, height: fitSize.width)
@@ -163,15 +163,15 @@ class UITextViewWithoutMenu: UITextView {
         
         // get caret or selected range
         // "view.selectedRange" may be easier but use method below as a first step for future emoji support
-        let startGlyphIndex = view.offsetFromPosition(view.beginningOfDocument, toPosition: selection.start)
-        let length = view.offsetFromPosition(selection.start, toPosition: selection.end)
+        let startGlyphIndex = view.offset(from: view.beginningOfDocument, to: selection.start)
+        let length = view.offset(from: selection.start, to: selection.end)
         let selectedRange = NSRange(location: startGlyphIndex, length: length)
         
         // insert or replace selection with unicode
         return mongolTextStorage.unicodeForGlyphRange(selectedRange)
     }
     
-    func insertMongolText(unicode: String) {
+    func insertMongolText(_ unicode: String) {
         
         // get the current selected range / cursor position
         // TODO: this could give error if selected range has emoji
@@ -179,8 +179,8 @@ class UITextViewWithoutMenu: UITextView {
             
             // get caret or selected range
             // "view.selectedRange" may be easier but use method below as a first step for future emoji support
-            let startGlyphIndex = view.offsetFromPosition(view.beginningOfDocument, toPosition: selection.start)
-            let length = view.offsetFromPosition(selection.start, toPosition: selection.end)
+            let startGlyphIndex = view.offset(from: view.beginningOfDocument, to: selection.start)
+            let length = view.offset(from: selection.start, to: selection.end)
             let selectedRange = NSRange(location: startGlyphIndex, length: length)
             
             // insert or replace selection with unicode
@@ -191,27 +191,27 @@ class UITextViewWithoutMenu: UITextView {
             view.text = mongolTextStorage.render()
             
             // set caret position
-            if let newPosition = view.positionFromPosition(view.beginningOfDocument, inDirection: UITextLayoutDirection.Right, offset: mongolTextStorage.glyphIndexForCursor) {
+            if let newPosition = view.position(from: view.beginningOfDocument, in: UITextLayoutDirection.right, offset: mongolTextStorage.glyphIndexForCursor) {
                 
-                view.selectedTextRange = view.textRangeFromPosition(newPosition, toPosition: newPosition)
+                view.selectedTextRange = view.textRange(from: newPosition, to: newPosition)
             }
         }
         
     }
     
-    func replaceWordAtCursorWith(replacementString: String) {
+    func replaceWordAtCursorWith(_ replacementString: String) {
         // get the cursor position
         if let cursorRange = view.selectedTextRange {
-            let cursorPosition = view.offsetFromPosition(view.beginningOfDocument, toPosition: cursorRange.start)
+            let cursorPosition = view.offset(from: view.beginningOfDocument, to: cursorRange.start)
             mongolTextStorage.replaceWordAtCursorWith(replacementString, atGlyphIndex: cursorPosition)
             // render unicode again
             // FIXME: It is inefficient and unnesessary to render everything
             view.text = mongolTextStorage.render()
             
             // set caret position
-            if let newPosition = view.positionFromPosition(view.beginningOfDocument, inDirection: UITextLayoutDirection.Right, offset: mongolTextStorage.glyphIndexForCursor) {
+            if let newPosition = view.position(from: view.beginningOfDocument, in: UITextLayoutDirection.right, offset: mongolTextStorage.glyphIndexForCursor) {
                 
-                view.selectedTextRange = view.textRangeFromPosition(newPosition, toPosition: newPosition)
+                view.selectedTextRange = view.textRange(from: newPosition, to: newPosition)
             }
         }
     }
@@ -224,8 +224,8 @@ class UITextViewWithoutMenu: UITextView {
             
             // get caret or selected range
             // "view.selectedRange" may be easier but use method below as a first step for future emoji support
-            let startGlyphIndex = view.offsetFromPosition(view.beginningOfDocument, toPosition: selection.start)
-            let length = view.offsetFromPosition(selection.start, toPosition: selection.end)
+            let startGlyphIndex = view.offset(from: view.beginningOfDocument, to: selection.start)
+            let length = view.offset(from: selection.start, to: selection.end)
             let selectedRange = NSRange(location: startGlyphIndex, length: length)
             
             // delete unicode backward
@@ -237,9 +237,9 @@ class UITextViewWithoutMenu: UITextView {
             view.text = mongolTextStorage.render()
             
             // set caret position
-            if let newPosition = view.positionFromPosition(view.beginningOfDocument, inDirection: UITextLayoutDirection.Right, offset: mongolTextStorage.glyphIndexForCursor) {
+            if let newPosition = view.position(from: view.beginningOfDocument, in: UITextLayoutDirection.right, offset: mongolTextStorage.glyphIndexForCursor) {
                 
-                view.selectedTextRange = view.textRangeFromPosition(newPosition, toPosition: newPosition)
+                view.selectedTextRange = view.textRange(from: newPosition, to: newPosition)
             }
         }
     }
@@ -249,7 +249,7 @@ class UITextViewWithoutMenu: UITextView {
         // get the cursor position
         if let cursorRange = view.selectedTextRange {
             
-            let cursorPosition = view.offsetFromPosition(view.beginningOfDocument, toPosition: cursorRange.start)
+            let cursorPosition = view.offset(from: view.beginningOfDocument, to: cursorRange.start)
             return mongolTextStorage.unicodeCharBeforeCursor(cursorPosition)
         }
         return nil
@@ -258,7 +258,7 @@ class UITextViewWithoutMenu: UITextView {
     func oneMongolWordBeforeCursor() -> String? {
         // get the cursor position
         if let cursorRange = view.selectedTextRange {
-            let cursorPosition = view.offsetFromPosition(view.beginningOfDocument, toPosition: cursorRange.start)
+            let cursorPosition = view.offset(from: view.beginningOfDocument, to: cursorRange.start)
             return mongolTextStorage.unicodeOneWordBeforeCursor(cursorPosition)
         }
         return nil
@@ -268,7 +268,7 @@ class UITextViewWithoutMenu: UITextView {
         // get the cursor position
         if let cursorRange = view.selectedTextRange {
             
-            let cursorPosition = view.offsetFromPosition(view.beginningOfDocument, toPosition: cursorRange.start)
+            let cursorPosition = view.offset(from: view.beginningOfDocument, to: cursorRange.start)
             return mongolTextStorage.unicodeTwoWordsBeforeCursor(cursorPosition)
         }
         return (nil, nil)
@@ -281,7 +281,7 @@ class UITextViewWithoutMenu: UITextView {
         
         // FIXME: UI related settings should go in LayoutSubviews
         //view.backgroundColor = UIColor.yellowColor()
-        rotationView.userInteractionEnabled = userInteractionEnabledForSubviews
+        rotationView.isUserInteractionEnabled = userInteractionEnabledForSubviews
         
         self.view.translatesAutoresizingMaskIntoConstraints = false
         
@@ -290,10 +290,10 @@ class UITextViewWithoutMenu: UITextView {
         rotationView.addSubview(view)
         
         // add constraints to pin TextView to rotation view edges.
-        let leadingConstraint = NSLayoutConstraint(item: self.view, attribute: NSLayoutAttribute.Leading, relatedBy: NSLayoutRelation.Equal, toItem: rotationView, attribute: NSLayoutAttribute.Leading, multiplier: 1.0, constant: 0)
-        let trailingConstraint = NSLayoutConstraint(item: self.view, attribute: NSLayoutAttribute.Trailing, relatedBy: NSLayoutRelation.Equal, toItem: rotationView, attribute: NSLayoutAttribute.Trailing, multiplier: 1.0, constant: 0)
-        let topConstraint = NSLayoutConstraint(item: self.view, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: rotationView, attribute: NSLayoutAttribute.Top, multiplier: 1.0, constant: 0)
-        let bottomConstraint = NSLayoutConstraint(item: self.view, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: rotationView, attribute: NSLayoutAttribute.Bottom, multiplier: 1.0, constant: 0)
+        let leadingConstraint = NSLayoutConstraint(item: self.view, attribute: NSLayoutAttribute.leading, relatedBy: NSLayoutRelation.equal, toItem: rotationView, attribute: NSLayoutAttribute.leading, multiplier: 1.0, constant: 0)
+        let trailingConstraint = NSLayoutConstraint(item: self.view, attribute: NSLayoutAttribute.trailing, relatedBy: NSLayoutRelation.equal, toItem: rotationView, attribute: NSLayoutAttribute.trailing, multiplier: 1.0, constant: 0)
+        let topConstraint = NSLayoutConstraint(item: self.view, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: rotationView, attribute: NSLayoutAttribute.top, multiplier: 1.0, constant: 0)
+        let bottomConstraint = NSLayoutConstraint(item: self.view, attribute: NSLayoutAttribute.bottom, relatedBy: NSLayoutRelation.equal, toItem: rotationView, attribute: NSLayoutAttribute.bottom, multiplier: 1.0, constant: 0)
         rotationView.addConstraints([leadingConstraint, trailingConstraint, topConstraint, bottomConstraint])
         
         // set font if user didn't specify size in IB
@@ -328,8 +328,8 @@ class UITextViewWithoutMenu: UITextView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        rotationView.transform = CGAffineTransformIdentity
-        rotationView.frame = CGRect(origin: CGPointZero, size: CGSize(width: self.bounds.height, height: self.bounds.width))
+        rotationView.transform = CGAffineTransform.identity
+        rotationView.frame = CGRect(origin: CGPoint.zero, size: CGSize(width: self.bounds.height, height: self.bounds.width))
         rotationView.transform = translateRotateFlip()
         
         if self.view.text.isEmpty == false {
@@ -343,14 +343,14 @@ class UITextViewWithoutMenu: UITextView {
     
     func translateRotateFlip() -> CGAffineTransform {
         
-        var transform = CGAffineTransformIdentity
+        var transform = CGAffineTransform.identity
         
         // translate to new center
-        transform = CGAffineTransformTranslate(transform, (self.bounds.width / 2)-(self.bounds.height / 2), (self.bounds.height / 2)-(self.bounds.width / 2))
+        transform = transform.translatedBy(x: (self.bounds.width / 2)-(self.bounds.height / 2), y: (self.bounds.height / 2)-(self.bounds.width / 2))
         // rotate counterclockwise around center
-        transform = CGAffineTransformRotate(transform, CGFloat(-M_PI_2))
+        transform = transform.rotated(by: CGFloat(-M_PI_2))
         // flip vertically
-        transform = CGAffineTransformScale(transform, -1, 1)
+        transform = transform.scaledBy(x: -1, y: 1)
         
         return transform
     }

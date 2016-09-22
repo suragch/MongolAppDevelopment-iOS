@@ -9,12 +9,12 @@ import UIKit
 class KeyboardTextKey: KeyboardKey {
     
     //private let imageLayer = CALayer()
-    private let primaryLayer = KeyboardKeyTextLayer()
-    private let secondaryLayer = KeyboardKeyTextLayer()
+    fileprivate let primaryLayer = KeyboardKeyTextLayer()
+    fileprivate let secondaryLayer = KeyboardKeyTextLayer()
     let secondaryLayerMargin: CGFloat = 5.0
     let mongolFontName = "ChimeeWhiteMirrored"
     var useMirroredFont = true
-    private var oldFrame = CGRectZero
+    fileprivate var oldFrame = CGRect.zero
     
     // MARK: Primary input value
     
@@ -36,7 +36,7 @@ class KeyboardTextKey: KeyboardKey {
             updatePrimaryLayerFrame()
         }
     }
-    @IBInspectable var primaryStringFontColor: UIColor = UIColor.blackColor() {
+    @IBInspectable var primaryStringFontColor: UIColor = UIColor.black {
         didSet {
             updatePrimaryLayerFrame()
         }
@@ -62,7 +62,7 @@ class KeyboardTextKey: KeyboardKey {
             updateSecondaryLayerFrame()
         }
     }
-    @IBInspectable var secondaryStringFontColor: UIColor = UIColor.blackColor() {
+    @IBInspectable var secondaryStringFontColor: UIColor = UIColor.black {
         didSet {
             updateSecondaryLayerFrame()
         }
@@ -85,7 +85,7 @@ class KeyboardTextKey: KeyboardKey {
         didSet {
             
             // only update frames if non-zero and changed
-            if frame != CGRectZero && frame != oldFrame {
+            if frame != CGRect.zero && frame != oldFrame {
                 updatePrimaryLayerFrame()
                 updateSecondaryLayerFrame()
                 oldFrame = frame
@@ -100,12 +100,12 @@ class KeyboardTextKey: KeyboardKey {
         
         // Primary text layer
         primaryLayer.useMirroredFont = useMirroredFont
-        primaryLayer.contentsScale = UIScreen.mainScreen().scale
+        primaryLayer.contentsScale = UIScreen.main.scale
         layer.addSublayer(primaryLayer)
         
         // Secondary text layer
         secondaryLayer.useMirroredFont = useMirroredFont
-        secondaryLayer.contentsScale = UIScreen.mainScreen().scale
+        secondaryLayer.contentsScale = UIScreen.main.scale
         layer.addSublayer(secondaryLayer)
         
         
@@ -116,7 +116,7 @@ class KeyboardTextKey: KeyboardKey {
         let myAttributes = [
             NSFontAttributeName: UIFont(name: mongolFontName, size: primaryStringFontSize )! ,
             NSForegroundColorAttributeName: primaryStringFontColor
-        ]
+        ] as [String : Any]
         let attrString = NSMutableAttributedString(string: primaryLayer.displayString, attributes: myAttributes )
         let size = dimensionsForAttributedString(attrString)
         
@@ -132,7 +132,7 @@ class KeyboardTextKey: KeyboardKey {
         let myAttributes = [
             NSFontAttributeName: UIFont(name: mongolFontName, size: secondaryStringFontSize )! ,
             NSForegroundColorAttributeName: secondaryStringFontColor
-        ]
+        ] as [String : Any]
         let attrString = NSMutableAttributedString(string: secondaryLayer.displayString, attributes: myAttributes )
         let size = dimensionsForAttributedString(attrString)
         
@@ -144,7 +144,7 @@ class KeyboardTextKey: KeyboardKey {
     }
     
     
-    override func longPressBegun(guesture: UILongPressGestureRecognizer) {
+    override func longPressBegun(_ guesture: UILongPressGestureRecognizer) {
         if self.secondaryString != "" {
             delegate?.keyTextEntered(self.secondaryString)
         } else {
@@ -154,19 +154,19 @@ class KeyboardTextKey: KeyboardKey {
     }
     
     // tap event (do when finger lifted)
-    override func endTrackingWithTouch(touch: UITouch?, withEvent event: UIEvent?) {
-        super.endTrackingWithTouch(touch, withEvent: event)
+    override func endTracking(_ touch: UITouch?, with event: UIEvent?) {
+        super.endTracking(touch, with: event)
         
         delegate?.keyTextEntered(self.primaryString)
         
     }
     
-    func dimensionsForAttributedString(attrString: NSAttributedString) -> CGSize {
+    func dimensionsForAttributedString(_ attrString: NSAttributedString) -> CGSize {
         
         var ascent: CGFloat = 0
         var descent: CGFloat = 0
         var width: CGFloat = 0
-        let line: CTLineRef = CTLineCreateWithAttributedString(attrString)
+        let line: CTLine = CTLineCreateWithAttributedString(attrString)
         width = CGFloat(CTLineGetTypographicBounds(line, &ascent, &descent, nil))
         
         // make width an even integer for better graphics rendering
@@ -187,21 +187,21 @@ class KeyboardKeyTextLayer: CATextLayer {
     var useMirroredFont = true
     var displayString = ""
     
-    override func drawInContext(ctx: CGContext) {
+    override func draw(in ctx: CGContext) {
         // A frame is passed in, in which the frame size is already rotated at the center but the content is not.
         
-        CGContextSaveGState(ctx)
+        ctx.saveGState()
         
         if useMirroredFont {
-            CGContextRotateCTM(ctx, CGFloat(M_PI_2))
-            CGContextScaleCTM(ctx, 1.0, -1.0)
+            ctx.rotate(by: CGFloat(M_PI_2))
+            ctx.scaleBy(x: 1.0, y: -1.0)
         } else {
-            CGContextRotateCTM(ctx, CGFloat(M_PI_2))
-            CGContextTranslateCTM(ctx, 0, -self.bounds.width)
+            ctx.rotate(by: CGFloat(M_PI_2))
+            ctx.translateBy(x: 0, y: -self.bounds.width)
         }
         
-        super.drawInContext(ctx)
-        CGContextRestoreGState(ctx)
+        super.draw(in: ctx)
+        ctx.restoreGState()
     }
 }
 

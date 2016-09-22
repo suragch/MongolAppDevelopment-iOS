@@ -2,9 +2,9 @@ import UIKit
 
 // View Controllers must adapt this protocol
 protocol KeyboardDelegate: class {
-    func keyWasTapped(character: String)
+    func keyWasTapped(_ character: String)
     func keyBackspace()
-    func keyNewKeyboardChosen(keyboardName: String)
+    func keyNewKeyboardChosen(_ keyboardName: String)
     func charBeforeCursor() -> String?
 }
 
@@ -12,52 +12,52 @@ class AeiouKeyboard: UIView, KeyboardKeyDelegate {
     
     weak var delegate: KeyboardDelegate? // probably the view controller
     
-    private let renderer = MongolUnicodeRenderer.sharedInstance
-    private var punctuationOn = false
-    private let nirugu = "\u{180a}"
-    private let fvs1 = "\u{180b}"
-    private let fvs2 = "\u{180c}"
-    private let fvs3 = "\u{180d}"
+    fileprivate let renderer = MongolUnicodeRenderer.sharedInstance
+    fileprivate var punctuationOn = false
+    fileprivate let nirugu = "\u{180a}"
+    fileprivate let fvs1 = "\u{180b}"
+    fileprivate let fvs2 = "\u{180c}"
+    fileprivate let fvs3 = "\u{180d}"
     
     // Keyboard Keys
     
     // Row 1
-    private let keyA = KeyboardTextKey()
-    private let keyE = KeyboardTextKey()
-    private let keyI = KeyboardTextKey()
-    private let keyO = KeyboardTextKey()
-    private let keyU = KeyboardTextKey()
+    fileprivate let keyA = KeyboardTextKey()
+    fileprivate let keyE = KeyboardTextKey()
+    fileprivate let keyI = KeyboardTextKey()
+    fileprivate let keyO = KeyboardTextKey()
+    fileprivate let keyU = KeyboardTextKey()
     
     // Row 2
-    private let keyNA = KeyboardTextKey()
-    private let keyBA = KeyboardTextKey()
-    private let keyQA = KeyboardTextKey()
-    private let keyGA = KeyboardTextKey()
-    private let keyMA = KeyboardTextKey()
-    private let keyLA = KeyboardTextKey()
+    fileprivate let keyNA = KeyboardTextKey()
+    fileprivate let keyBA = KeyboardTextKey()
+    fileprivate let keyQA = KeyboardTextKey()
+    fileprivate let keyGA = KeyboardTextKey()
+    fileprivate let keyMA = KeyboardTextKey()
+    fileprivate let keyLA = KeyboardTextKey()
     
     // Row 3
-    private let keySA = KeyboardTextKey()
-    private let keyDA = KeyboardTextKey()
-    private let keyCHA = KeyboardTextKey()
-    private let keyJA = KeyboardTextKey()
-    private let keyYA = KeyboardTextKey()
-    private let keyRA = KeyboardTextKey()
+    fileprivate let keySA = KeyboardTextKey()
+    fileprivate let keyDA = KeyboardTextKey()
+    fileprivate let keyCHA = KeyboardTextKey()
+    fileprivate let keyJA = KeyboardTextKey()
+    fileprivate let keyYA = KeyboardTextKey()
+    fileprivate let keyRA = KeyboardTextKey()
     
     // Row 4
-    private let keyFVS = KeyboardFvsKey()
-    private let keyMVS = KeyboardTextKey()
-    private let keyWA = KeyboardTextKey()
-    private let keyZA = KeyboardTextKey()
-    private let keySuffix = KeyboardTextKey()
-    private let keyBackspace = KeyboardImageKey()
+    fileprivate let keyFVS = KeyboardFvsKey()
+    fileprivate let keyMVS = KeyboardTextKey()
+    fileprivate let keyWA = KeyboardTextKey()
+    fileprivate let keyZA = KeyboardTextKey()
+    fileprivate let keySuffix = KeyboardTextKey()
+    fileprivate let keyBackspace = KeyboardImageKey()
     
     // Row 5
-    private let keyKeyboard = KeyboardChooserKey()
-    private let keyComma = KeyboardTextKey()
-    private let keySpace = KeyboardImageKey()
-    private let keyQuestion = KeyboardTextKey()
-    private let keyReturn = KeyboardImageKey()
+    fileprivate let keyKeyboard = KeyboardChooserKey()
+    fileprivate let keyComma = KeyboardTextKey()
+    fileprivate let keySpace = KeyboardImageKey()
+    fileprivate let keyQuestion = KeyboardTextKey()
+    fileprivate let keyReturn = KeyboardImageKey()
     
     
     
@@ -75,7 +75,7 @@ class AeiouKeyboard: UIView, KeyboardKeyDelegate {
         setup()
     }
     
-    private func setup() {
+    fileprivate func setup() {
         
         
         addSubviews()
@@ -83,11 +83,9 @@ class AeiouKeyboard: UIView, KeyboardKeyDelegate {
         setMongolKeyStrings()
         assignDelegates()
         
-        //print(renderer.unicodeToGlyphs("ᠠᠨ\u{180E}ᠠ ᠠᠮ\u{180E}ᠠ ᠠᠭ\u{180E}ᠠ"))
-        //print(renderer.unicodeToGlyphs("\u{202F}ᠶᠢ\u{202F}ᠳᠦ\u{202F}ᠦᠨ"))
     }
     
-    private func addSubviews() {
+    fileprivate func addSubviews() {
         // Row 1
         self.addSubview(keyA)
         self.addSubview(keyE)
@@ -129,7 +127,7 @@ class AeiouKeyboard: UIView, KeyboardKeyDelegate {
         
     }
     
-    private func initializeNonChangingKeys() {
+    fileprivate func initializeNonChangingKeys() {
         
         
         // Row 4
@@ -144,7 +142,7 @@ class AeiouKeyboard: UIView, KeyboardKeyDelegate {
         keySuffix.primaryStringDisplayOverride = "  " // yi du un
         keySuffix.primaryStringFontSize = 14.0
         keyBackspace.image = UIImage(named: "backspace_dark")
-        keyBackspace.keyType = KeyboardImageKey.KeyType.Backspace
+        keyBackspace.keyType = KeyboardImageKey.KeyType.backspace
         keyBackspace.repeatOnLongPress = true
         
         // Row 5
@@ -159,7 +157,7 @@ class AeiouKeyboard: UIView, KeyboardKeyDelegate {
         keyReturn.image = UIImage(named: "return_dark")
     }
     
-    private func setMongolKeyStrings() {
+    fileprivate func setMongolKeyStrings() {
         
         // Row 1
         keyA.primaryString = "ᠠ"
@@ -212,7 +210,7 @@ class AeiouKeyboard: UIView, KeyboardKeyDelegate {
         
     }
     
-    private func setPunctuationKeyStrings() {
+    fileprivate func setPunctuationKeyStrings() {
         
         // Row 1
         keyA.primaryString = "("
@@ -263,7 +261,7 @@ class AeiouKeyboard: UIView, KeyboardKeyDelegate {
     
     
     
-    private func assignDelegates() {
+    fileprivate func assignDelegates() {
         
         // Row 1
         keyA.delegate = self
@@ -303,7 +301,7 @@ class AeiouKeyboard: UIView, KeyboardKeyDelegate {
         keyComma.delegate = self
         keySpace.delegate = self
         keyQuestion.delegate = self
-        keyReturn.addTarget(self, action: #selector(keyReturnTapped), forControlEvents: UIControlEvents.TouchUpInside)
+        keyReturn.addTarget(self, action: #selector(keyReturnTapped), for: UIControlEvents.touchUpInside)
 
     }
     
@@ -367,11 +365,11 @@ class AeiouKeyboard: UIView, KeyboardKeyDelegate {
     
     // MARK: - Other
     
-    func otherAvailableKeyboards(displayNames: [String]) {
+    func otherAvailableKeyboards(_ displayNames: [String]) {
         keyKeyboard.menuItems = displayNames
     }
     
-    func updateFvsKey(previousChar: String?, currentChar: String) {
+    func updateFvsKey(_ previousChar: String?, currentChar: String) {
         
         // get the last character (previousChar is not necessarily a single char)
         var lastChar: UInt32 = 0
@@ -450,7 +448,7 @@ class AeiouKeyboard: UIView, KeyboardKeyDelegate {
     
     // MARK: - KeyboardKeyDelegate protocol
     
-    func keyTextEntered(keyText: String) {
+    func keyTextEntered(_ keyText: String) {
         print("key text: \(keyText)")
         // pass the input up to the Keyboard delegate
         let previousChar = self.delegate?.charBeforeCursor()
@@ -473,7 +471,7 @@ class AeiouKeyboard: UIView, KeyboardKeyDelegate {
         updateFvsKey("", currentChar: "")
     }
     
-    func keyFvsTapped(fvs: String) {
+    func keyFvsTapped(_ fvs: String) {
         print("key text: fvs")
         self.delegate?.keyWasTapped(fvs)
     }
@@ -494,7 +492,7 @@ class AeiouKeyboard: UIView, KeyboardKeyDelegate {
     }
     
     // tell the view controller to switch keyboards
-    func keyNewKeyboardChosen(keyboardName: String) {
+    func keyNewKeyboardChosen(_ keyboardName: String) {
         delegate?.keyNewKeyboardChosen(keyboardName)
         updateFvsKey("", currentChar: "")
     }

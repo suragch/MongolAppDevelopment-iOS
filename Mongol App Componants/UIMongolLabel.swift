@@ -10,9 +10,9 @@ import UIKit
     // MARK:- Unique to Label
     
     // ********* Unique to Label *********
-    private let view = UILabel()
-    private let rotationView = UIView()
-    private var userInteractionEnabledForSubviews = true
+    fileprivate let view = UILabel()
+    fileprivate let rotationView = UIView()
+    fileprivate var userInteractionEnabledForSubviews = true
     let mongolFontName = "ChimeeWhiteMirrored"
     let defaultFontSize: CGFloat = 17
     
@@ -51,11 +51,11 @@ import UIKit
     
     @IBInspectable var centerText: Bool {
         get {
-            return view.textAlignment == NSTextAlignment.Center
+            return view.textAlignment == NSTextAlignment.center
         }
         set {
             if newValue {
-                view.textAlignment = NSTextAlignment.Center
+                view.textAlignment = NSTextAlignment.center
             }
         }
     }
@@ -105,7 +105,7 @@ import UIKit
         }
     }
     
-    override func intrinsicContentSize() -> CGSize {
+    override var intrinsicContentSize : CGSize {
         return CGSize(width: view.frame.height, height: view.frame.width)
     }
     
@@ -147,8 +147,8 @@ import UIKit
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        rotationView.transform = CGAffineTransformIdentity
-        rotationView.frame = CGRect(origin: CGPointZero, size: CGSize(width: self.bounds.height, height: self.bounds.width))
+        rotationView.transform = CGAffineTransform.identity
+        rotationView.frame = CGRect(origin: CGPoint.zero, size: CGSize(width: self.bounds.height, height: self.bounds.width))
         rotationView.transform = translateRotateFlip()
         
         view.frame = rotationView.bounds
@@ -157,14 +157,14 @@ import UIKit
     
     func translateRotateFlip() -> CGAffineTransform {
         
-        var transform = CGAffineTransformIdentity
+        var transform = CGAffineTransform.identity
         
         // translate to new center
-        transform = CGAffineTransformTranslate(transform, (self.bounds.width / 2)-(self.bounds.height / 2), (self.bounds.height / 2)-(self.bounds.width / 2))
+        transform = transform.translatedBy(x: (self.bounds.width / 2)-(self.bounds.height / 2), y: (self.bounds.height / 2)-(self.bounds.width / 2))
         // rotate counterclockwise around center
-        transform = CGAffineTransformRotate(transform, CGFloat(-M_PI_2))
+        transform = transform.rotated(by: CGFloat(-M_PI_2))
         // flip vertically
-        transform = CGAffineTransformScale(transform, -1, 1)
+        transform = transform.scaledBy(x: -1, y: 1)
         
         return transform
     }

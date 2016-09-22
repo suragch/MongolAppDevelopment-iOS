@@ -17,7 +17,7 @@ class MongolUnicodeRenderer {
     static let sharedInstance = MongolUnicodeRenderer()
     
     enum Location {
-        case ISOLATE, INITIAL, MEDIAL, FINAL, NOT_MONGOLIAN
+        case isolate, initial, medial, final, not_MONGOLIAN
     }
     
     struct Uni {
@@ -759,7 +759,7 @@ class MongolUnicodeRenderer {
         static let INIT_KHA_MEDI_UE_FVS1: UInt32 = 0xE5CF
     }
     
-    private static let isolateDictionary = [
+    fileprivate static let isolateDictionary = [
         // Single letters
         ScalarString(Uni.A) : ScalarString(Glyph.ISOL_A),
         ScalarString([Uni.A, Uni.FVS1]) : ScalarString(Glyph.ISOL_A_FVS1),
@@ -912,7 +912,7 @@ class MongolUnicodeRenderer {
         ScalarString(Uni.FVS3) : ScalarString("")
     ]
     
-    private static let initialDictionary = [
+    fileprivate static let initialDictionary = [
         ScalarString(Uni.A) : ScalarString(Glyph.INIT_A),
         ScalarString([Uni.A, Uni.FVS1]) : ScalarString(Glyph.INIT_A_FVS1),
         ScalarString(Uni.E) : ScalarString(Glyph.INIT_E),
@@ -1055,7 +1055,7 @@ class MongolUnicodeRenderer {
         ScalarString(Uni.FVS3) : ScalarString("")
     ]
     
-    private static let medialDictionary = [
+    fileprivate static let medialDictionary = [
         ScalarString(Uni.A) : ScalarString(Glyph.MEDI_A),
         ScalarString([Uni.A, Uni.FVS1]) : ScalarString(Glyph.MEDI_A_FVS1),
         ScalarString(Uni.E) : ScalarString(Glyph.MEDI_E),
@@ -1276,7 +1276,7 @@ class MongolUnicodeRenderer {
         ScalarString(Uni.FVS3) : ScalarString("")
     ]
     
-    private static let finalDictionary = [
+    fileprivate static let finalDictionary = [
         ScalarString(Uni.A) : ScalarString(Glyph.FINA_A),
         ScalarString([Uni.A, Uni.FVS1]) : ScalarString(Glyph.FINA_A_FVS1),
         ScalarString([Uni.A, Uni.FVS2]) : ScalarString(Glyph.FINA_A_FVS2),
@@ -1449,7 +1449,7 @@ class MongolUnicodeRenderer {
         ScalarString(Uni.FVS3) : ScalarString("")
     ]
     
-    private static let suffixDictionary = [
+    fileprivate static let suffixDictionary = [
         
         // Vocative Case
         ScalarString(Uni.A) : ScalarString(Glyph.FINA_A_FVS1),
@@ -1593,7 +1593,7 @@ class MongolUnicodeRenderer {
     
     // MARK: Public methods
     
-    func unicodeToGlyphs(inputString: ScalarString) -> ScalarString {
+    func unicodeToGlyphs(_ inputString: ScalarString) -> ScalarString {
         
         //let inputString: ScalarString = ScalarString(unicodeString)
         var outputString: ScalarString = ScalarString()
@@ -1707,14 +1707,14 @@ class MongolUnicodeRenderer {
         
     }
     
-    func unicodeToGlyphs(unicodeString: String) -> String {
+    func unicodeToGlyphs(_ unicodeString: String) -> String {
         
         let inputString: ScalarString = ScalarString(unicodeString)
         return unicodeToGlyphs(inputString).toString()
     }
     
     // Used to get the unicode character position index from a touch event that gives a glyph position index
-    func getUnicodeIndex(unicodeString: ScalarString, glyphIndex: Int) -> Int {
+    func getUnicodeIndex(_ unicodeString: ScalarString, glyphIndex: Int) -> Int {
         
         // TODO This will be slow for long strings
         // Could I just pass in the glyph string?
@@ -1786,25 +1786,25 @@ class MongolUnicodeRenderer {
     
     
     
-    func isolateGlyphForUnicode(unicode: String) -> String? {
+    func isolateGlyphForUnicode(_ unicode: String) -> String? {
         return MongolUnicodeRenderer.isolateDictionary[ScalarString(unicode)]?.toString()
     }
     
-    func initialGlyphForUnicode(unicode: String) -> String? {
+    func initialGlyphForUnicode(_ unicode: String) -> String? {
         return MongolUnicodeRenderer.initialDictionary[ScalarString(unicode)]?.toString()
     }
     
-    func medialGlyphForUnicode(unicode: String) -> String? {
+    func medialGlyphForUnicode(_ unicode: String) -> String? {
         return MongolUnicodeRenderer.medialDictionary[ScalarString(unicode)]?.toString()
     }
     
-    func finalGlyphForUnicode(unicode: String) -> String? {
+    func finalGlyphForUnicode(_ unicode: String) -> String? {
         return MongolUnicodeRenderer.finalDictionary[ScalarString(unicode)]?.toString()
     }
     
     // MARK: - Private methods
     
-    private func convertWord(mongolWord: ScalarString) -> ScalarString {
+    fileprivate func convertWord(_ mongolWord: ScalarString) -> ScalarString {
         
         // Error checking
         if mongolWord.length == 0 {
@@ -1862,7 +1862,7 @@ class MongolUnicodeRenderer {
         } else {
             start = formattedMongolWord.length - 1
         }
-        for i in start.stride(to: 0, by: -1) {
+        for i in stride(from: start, to: 0, by: -1) {
             subString = formattedMongolWord.substring(0, i)
             if let value = MongolUnicodeRenderer.initialDictionary[subString] {
                 match = value
@@ -1904,7 +1904,7 @@ class MongolUnicodeRenderer {
             } else {
                 start = medialEndIndex
             }
-            for i in start.stride(to: medialStartIndex, by: -1) {
+            for i in stride(from: start, to: medialStartIndex, by: -1) {
                 subString = formattedMongolWord.substring(medialStartIndex, i)
                 if let value = MongolUnicodeRenderer.medialDictionary[subString] {
                     match = value
@@ -1932,7 +1932,7 @@ class MongolUnicodeRenderer {
     
     // MARK: Formatting rules
     
-    private func preFormatter(mongolWord: ScalarString) -> ScalarString {
+    fileprivate func preFormatter(_ mongolWord: ScalarString) -> ScalarString {
         
         // This method applies context based formatting rules by adding the appropriate FVS character
         // TODO This method is slow because every rule has to loop through the word. However, this was intentional in order to separate the rules for easier debugging
@@ -1944,7 +1944,7 @@ class MongolUnicodeRenderer {
         // MVS rule (only formats A/E after the MVS)
         // Consonant before is formatted by lookup table
         // If A/E is not final then ignore MVS (mingg-a -> minggan)
-        for i in (word.length - 2).stride(through: 0, by: -1) {
+        for i in stride(from: (word.length - 2), through: 0, by: -1) {
             if (word.charAt(i) == Uni.MVS) {
                 // following char is a vowel
                 if (i == word.length - 2
@@ -1961,7 +1961,7 @@ class MongolUnicodeRenderer {
         }
         
         // Only allow the NG/B/P/F/K/KH and G/Q ligature if A/O/U or MVS follows
-        for i in (word.length - 3).stride(through: 0, by: -1) {
+        for i in stride(from: (word.length - 3), through: 0, by: -1) {
             // this char is NG/B/P/F/K/KH
             if (word.charAt(i) == Uni.ANG || word.charAt(i) == Uni.BA || word.charAt(i) == Uni.PA || word.charAt(i) == Uni.FA || word.charAt(i) == Uni.KA || word.charAt(i) == Uni.KHA) {
                 // following char is Q/G
@@ -2000,7 +2000,7 @@ class MongolUnicodeRenderer {
         }
         
         // *** medial N rule ***
-        for i in (word.length - 2).stride(to: 0, by: -1) {
+        for i in stride(from: (word.length - 2), to: 0, by: -1) {
             if (word.charAt(i) == Uni.NA) {
                 // following char is a vowel
                 if (isVowel(word.charAt(i + 1))) {
@@ -2011,7 +2011,7 @@ class MongolUnicodeRenderer {
         }
         
         // *** medial D rule ***
-        for i in (word.length - 2).stride(to: 0, by: -1) {
+        for i in stride(from: (word.length - 2), to: 0, by: -1) {
             if (word.charAt(i) == Uni.DA) {
                 // following char is a vowel
                 if (isVowel(word.charAt(i + 1))) {
@@ -2031,7 +2031,7 @@ class MongolUnicodeRenderer {
                 word.insert(Uni.FVS2, atIndex: 1)
             }
         }
-        for i in (word.length - 1).stride(to: 0, by: -1) {
+        for i in stride(from: (word.length - 1), to: 0, by: -1) {
             if (word.charAt(i) == Uni.GA) {
                 
                 // final GA
@@ -2039,7 +2039,7 @@ class MongolUnicodeRenderer {
                 if (i == word.length - 1) {
                     
                     // **** feminine final GA rule ****
-                    for j in (i-1).stride(through: 0, by: -1) {
+                    for j in stride(from: (i-1), through: 0, by: -1) {
                         // vowel I also defaults to feminine
                         if (isMasculineVowel(word.charAt(j))) {
                             isMasculineWord = true
@@ -2070,7 +2070,7 @@ class MongolUnicodeRenderer {
                             isFeminineWord = true
                         }else{
                             // check before GA for gender of vowel
-                            for j in (i-1).stride(through: 0, by: -1) {
+                            for j in stride(from: (i-1), through: 0, by: -1) {
                                 if (isFeminineVowel(word.charAt(j))) {
                                     isFeminineWord = true
                                     break
@@ -2110,7 +2110,7 @@ class MongolUnicodeRenderer {
         
         // *** medial Y rule ***
         // upturn the Y before any vowel except I (when YI follows vowel)
-        for i in (word.length - 2).stride(to: 0, by: -1) {
+        for i in stride(from: (word.length - 2), to: 0, by: -1) {
             if (word.charAt(i) == Uni.YA) {
                 let nextChar = word.charAt(i + 1)
                 let prevChar = word.charAt(i - 1)
@@ -2124,7 +2124,7 @@ class MongolUnicodeRenderer {
         
         // *** medial W rule ***
         // Use the hooked W before any vowel
-        for i in (word.length - 2).stride(to: 0, by: -1) {
+        for i in stride(from: (word.length - 2), to: 0, by: -1) {
             if (word.charAt(i) == Uni.WA) {
                 if (isVowel(word.charAt(i + 1))) {
                     // insert FVS1 (hooked W)
@@ -2135,7 +2135,7 @@ class MongolUnicodeRenderer {
         
         // *** AI, EI, OI, UI, OEI, UEI medial I diphthong rule ***
         // (this rule should come after OE/UE long tooth in first syllable rule)
-        for i in (word.length - 2).stride(to: 0, by: -1) {
+        for i in stride(from: (word.length - 2), to: 0, by: -1) {
             if (word.charAt(i) == Uni.I) {
                 // previous char is a masculine vowel or E and next char is not FVS
                 if (isVowel(word.charAt(i - 1)) && word.charAt(i - 1) != Uni.I
@@ -2151,53 +2151,53 @@ class MongolUnicodeRenderer {
     
     // MARK: Boolean methods
     
-    func isVowel(character: UInt32) -> Bool {
+    func isVowel(_ character: UInt32) -> Bool {
         return character >= Uni.A && character <= Uni.EE
     }
     
-    private func isMasculineVowel(character: UInt32) -> Bool {
+    fileprivate func isMasculineVowel(_ character: UInt32) -> Bool {
         return (character == Uni.A || character == Uni.O || character == Uni.U)
     }
     
-    private func isFeminineVowel(character: UInt32) -> Bool {
+    fileprivate func isFeminineVowel(_ character: UInt32) -> Bool {
         return (character == Uni.E || character == Uni.EE || character == Uni.OE || character == Uni.UE)
     }
     
-    func isConsonant(character: UInt32) -> Bool {
+    func isConsonant(_ character: UInt32) -> Bool {
         return (character >= Uni.NA && character <= Uni.CHI)
     }
     
-    private func isFVS(character: UInt32) -> Bool {
+    fileprivate func isFVS(_ character: UInt32) -> Bool {
         return (character >= Uni.FVS1 && character <= Uni.FVS3)
     }
     
-    func isMongolian(character: UInt32) -> Bool {
+    func isMongolian(_ character: UInt32) -> Bool {
         // Mongolian letters, MVS, FVS1-3, NIRUGU, ZWJ, (but not NNBS)
         return ((character >= Uni.A && character <= Uni.CHI) || (character >= Uni.MONGOLIAN_NIRUGU && character <= Uni.MVS) || character == Uni.ZWJ)
     }
     
-    func isBGDRS(character: UInt32) -> Bool {
+    func isBGDRS(_ character: UInt32) -> Bool {
         // This method is not used internally, only for external use.
         return (character == Uni.BA || character == Uni.GA || character == Uni.DA
             || character == Uni.RA || character == Uni.SA)
     }
     
-    private func isMongolianAlphabet(character: UInt32) -> Bool {
+    fileprivate func isMongolianAlphabet(_ character: UInt32) -> Bool {
         // This method is not used internally, only for external use.
         return (character >= Uni.A && character <= Uni.CHI)
     }
     
-    private func isMongolianGlyphAlphabet(character: UInt32) -> Bool {
+    fileprivate func isMongolianGlyphAlphabet(_ character: UInt32) -> Bool {
         return (character >= Glyph.ISOL_A && character <= Glyph.INIT_KHA_MEDI_UE_FVS1)
     }
     
-    func isMasculineWord(word: ScalarString) -> Bool {
+    func isMasculineWord(_ word: ScalarString) -> Bool {
         // This method is not used internally, only for external use.
         if (word.isEmpty) {
             return false
         }
         
-        for i in (word.length - 1).stride(through: 0, by: -1) {
+        for i in stride(from: (word.length - 1), through: 0, by: -1) {
             if (word.charAt(i) == Uni.A || word.charAt(i) == Uni.O || word.charAt(i) == Uni.U) {
                 return true
             }
@@ -2205,13 +2205,13 @@ class MongolUnicodeRenderer {
         return false
     }
     
-    func isFeminineWord(word: ScalarString) -> Bool {
+    func isFeminineWord(_ word: ScalarString) -> Bool {
         // This method is not used internally, only for external use.
         if (word.isEmpty) {
             return false
         }
         
-        for i in (word.length - 1).stride(through: 0, by: -1) {
+        for i in stride(from: (word.length - 1), through: 0, by: -1) {
             if (word.charAt(i) == Uni.E || word.charAt(i) == Uni.OE || word.charAt(i) == Uni.UE
                 || word.charAt(i) == Uni.EE) {
                 return true

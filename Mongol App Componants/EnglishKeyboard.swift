@@ -5,52 +5,52 @@ class EnglishKeyboard: UIView, KeyboardKeyDelegate {
     weak var delegate: KeyboardDelegate? // probably the view controller
     
     //private let renderer = MongolUnicodeRenderer.sharedInstance
-    private var punctuationOn = false
-    private var shiftOn = false
+    fileprivate var punctuationOn = false
+    fileprivate var shiftOn = false
     
     // Keyboard Keys
     
     // Row 1
-    private let keyQ = KeyboardEnglishTextKey()
-    private let keyW = KeyboardEnglishTextKey()
-    private let keyE = KeyboardEnglishTextKey()
-    private let keyR = KeyboardEnglishTextKey()
-    private let keyT = KeyboardEnglishTextKey()
-    private let keyY = KeyboardEnglishTextKey()
-    private let keyU = KeyboardEnglishTextKey()
-    private let keyI = KeyboardEnglishTextKey()
-    private let keyO = KeyboardEnglishTextKey()
-    private let keyP = KeyboardEnglishTextKey()
+    fileprivate let keyQ = KeyboardEnglishTextKey()
+    fileprivate let keyW = KeyboardEnglishTextKey()
+    fileprivate let keyE = KeyboardEnglishTextKey()
+    fileprivate let keyR = KeyboardEnglishTextKey()
+    fileprivate let keyT = KeyboardEnglishTextKey()
+    fileprivate let keyY = KeyboardEnglishTextKey()
+    fileprivate let keyU = KeyboardEnglishTextKey()
+    fileprivate let keyI = KeyboardEnglishTextKey()
+    fileprivate let keyO = KeyboardEnglishTextKey()
+    fileprivate let keyP = KeyboardEnglishTextKey()
     
     // Row 2
-    private let keyA = KeyboardEnglishTextKey()
-    private let keyS = KeyboardEnglishTextKey()
-    private let keyD = KeyboardEnglishTextKey()
-    private let keyF = KeyboardEnglishTextKey()
-    private let keyG = KeyboardEnglishTextKey()
-    private let keyH = KeyboardEnglishTextKey()
-    private let keyJ = KeyboardEnglishTextKey()
-    private let keyK = KeyboardEnglishTextKey()
-    private let keyL = KeyboardEnglishTextKey()
+    fileprivate let keyA = KeyboardEnglishTextKey()
+    fileprivate let keyS = KeyboardEnglishTextKey()
+    fileprivate let keyD = KeyboardEnglishTextKey()
+    fileprivate let keyF = KeyboardEnglishTextKey()
+    fileprivate let keyG = KeyboardEnglishTextKey()
+    fileprivate let keyH = KeyboardEnglishTextKey()
+    fileprivate let keyJ = KeyboardEnglishTextKey()
+    fileprivate let keyK = KeyboardEnglishTextKey()
+    fileprivate let keyL = KeyboardEnglishTextKey()
     
     // Row 3
     //private let keyFVS = KeyboardFvsKey()
-    private let keyShift = KeyboardImageKey()
-    private let keyZ = KeyboardEnglishTextKey()
-    private let keyX = KeyboardEnglishTextKey()
-    private let keyC = KeyboardEnglishTextKey()
-    private let keyV = KeyboardEnglishTextKey()
-    private let keyB = KeyboardEnglishTextKey()
-    private let keyN = KeyboardEnglishTextKey()
-    private let keyM = KeyboardEnglishTextKey()
-    private let keyBackspace = KeyboardImageKey()
+    fileprivate let keyShift = KeyboardImageKey()
+    fileprivate let keyZ = KeyboardEnglishTextKey()
+    fileprivate let keyX = KeyboardEnglishTextKey()
+    fileprivate let keyC = KeyboardEnglishTextKey()
+    fileprivate let keyV = KeyboardEnglishTextKey()
+    fileprivate let keyB = KeyboardEnglishTextKey()
+    fileprivate let keyN = KeyboardEnglishTextKey()
+    fileprivate let keyM = KeyboardEnglishTextKey()
+    fileprivate let keyBackspace = KeyboardImageKey()
     
     // Row 4
-    private let keyKeyboard = KeyboardChooserKey()
-    private let keyComma = KeyboardEnglishTextKey()
-    private let keySpace = KeyboardImageKey()
-    private let keyQuestion = KeyboardEnglishTextKey()
-    private let keyReturn = KeyboardImageKey()
+    fileprivate let keyKeyboard = KeyboardChooserKey()
+    fileprivate let keyComma = KeyboardEnglishTextKey()
+    fileprivate let keySpace = KeyboardImageKey()
+    fileprivate let keyQuestion = KeyboardEnglishTextKey()
+    fileprivate let keyReturn = KeyboardImageKey()
     
     
     // MARK:- keyboard initialization
@@ -127,7 +127,7 @@ class EnglishKeyboard: UIView, KeyboardKeyDelegate {
         // Row 3
         keyShift.image = UIImage(named: "shift_dark") // TODO
         keyBackspace.image = UIImage(named: "backspace_dark")
-        keyBackspace.keyType = KeyboardImageKey.KeyType.Backspace
+        keyBackspace.keyType = KeyboardImageKey.KeyType.backspace
         keyBackspace.repeatOnLongPress = true
         
         // Row 4
@@ -277,7 +277,7 @@ class EnglishKeyboard: UIView, KeyboardKeyDelegate {
         keyL.delegate = self
         
         // Row 3
-        keyShift.addTarget(self, action: #selector(keyShiftTapped), forControlEvents: UIControlEvents.TouchUpInside)
+        keyShift.addTarget(self, action: #selector(keyShiftTapped), for: UIControlEvents.touchUpInside)
         keyZ.delegate = self
         keyX.delegate = self
         keyC.delegate = self
@@ -292,7 +292,7 @@ class EnglishKeyboard: UIView, KeyboardKeyDelegate {
         keyComma.delegate = self
         keySpace.delegate = self
         keyQuestion.delegate = self
-        keyReturn.addTarget(self, action: #selector(keyReturnTapped), forControlEvents: UIControlEvents.TouchUpInside)
+        keyReturn.addTarget(self, action: #selector(keyReturnTapped), for: UIControlEvents.touchUpInside)
         
     }
     
@@ -368,13 +368,13 @@ class EnglishKeyboard: UIView, KeyboardKeyDelegate {
     
     // MARK: - Other
     
-    func otherAvailableKeyboards(displayNames: [String]) {
+    func otherAvailableKeyboards(_ displayNames: [String]) {
         keyKeyboard.menuItems = displayNames
     }
     
     // MARK: - KeyboardKeyDelegate protocol
     
-    func keyTextEntered(keyText: String) {
+    func keyTextEntered(_ keyText: String) {
         print("key text: \(keyText)")
         
         if shiftOn {
@@ -396,7 +396,7 @@ class EnglishKeyboard: UIView, KeyboardKeyDelegate {
         print("key text: return")
     }
     
-    func keyFvsTapped(fvs: String) {
+    func keyFvsTapped(_ fvs: String) {
         // only here to conform to protocol
     }
     
@@ -431,7 +431,7 @@ class EnglishKeyboard: UIView, KeyboardKeyDelegate {
     }
     
     // tell the view controller to switch keyboards
-    func keyNewKeyboardChosen(keyboardName: String) {
+    func keyNewKeyboardChosen(_ keyboardName: String) {
         delegate?.keyNewKeyboardChosen(keyboardName)
     }
     

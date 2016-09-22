@@ -7,10 +7,10 @@ import UIKit
 class KeyboardEnglishTextKey: KeyboardKey {
     
 
-    private let primaryLayer = CATextLayer()
-    private let secondaryLayer = CATextLayer()
+    fileprivate let primaryLayer = CATextLayer()
+    fileprivate let secondaryLayer = CATextLayer()
     let secondaryLayerMargin: CGFloat = 5.0
-    private var oldFrame = CGRectZero
+    fileprivate var oldFrame = CGRect.zero
     
     // MARK: Primary input value
     
@@ -57,7 +57,7 @@ class KeyboardEnglishTextKey: KeyboardKey {
         didSet {
             
             // only update frames if non-zero and changed
-            if frame != CGRectZero && frame != oldFrame {
+            if frame != CGRect.zero && frame != oldFrame {
                 updatePrimaryLayerFrame()
                 updateSecondaryLayerFrame()
                 oldFrame = frame
@@ -72,12 +72,12 @@ class KeyboardEnglishTextKey: KeyboardKey {
         
         // Primary text layer
         //primaryLayer.useMirroredFont = useMirroredFont
-        primaryLayer.contentsScale = UIScreen.mainScreen().scale
+        primaryLayer.contentsScale = UIScreen.main.scale
         layer.addSublayer(primaryLayer)
         
         // Secondary text layer
         //secondaryLayer.useMirroredFont = useMirroredFont
-        secondaryLayer.contentsScale = UIScreen.mainScreen().scale
+        secondaryLayer.contentsScale = UIScreen.main.scale
         layer.addSublayer(secondaryLayer)
         
         
@@ -85,7 +85,7 @@ class KeyboardEnglishTextKey: KeyboardKey {
     
     func updatePrimaryLayerFrame() {
         
-        let myAttribute = [ NSFontAttributeName: UIFont.systemFontOfSize(primaryStringFontSize) ]
+        let myAttribute = [ NSFontAttributeName: UIFont.systemFont(ofSize: primaryStringFontSize) ]
         //let myString = primaryLayer.string as? String ?? ""
         let attrString = NSMutableAttributedString(string: primaryString, attributes: myAttribute )
         let size = dimensionsForAttributedString(attrString)
@@ -98,7 +98,7 @@ class KeyboardEnglishTextKey: KeyboardKey {
     }
     
     func updateSecondaryLayerFrame() {
-        let myAttribute = [ NSFontAttributeName: UIFont.systemFontOfSize(secondaryStringFontSize) ]
+        let myAttribute = [ NSFontAttributeName: UIFont.systemFont(ofSize: secondaryStringFontSize) ]
         
         //let myString = secondaryString  // secondaryLayer.string as? String ?? ""
         let attrString = NSMutableAttributedString(string: secondaryString, attributes: myAttribute )
@@ -112,7 +112,7 @@ class KeyboardEnglishTextKey: KeyboardKey {
     }
     
     
-    override func longPressBegun(guesture: UILongPressGestureRecognizer) {
+    override func longPressBegun(_ guesture: UILongPressGestureRecognizer) {
         if self.secondaryString != "" {
             delegate?.keyTextEntered(self.secondaryString)
         } else {
@@ -122,19 +122,19 @@ class KeyboardEnglishTextKey: KeyboardKey {
     }
     
     // tap event (do when finger lifted)
-    override func endTrackingWithTouch(touch: UITouch?, withEvent event: UIEvent?) {
-        super.endTrackingWithTouch(touch, withEvent: event)
+    override func endTracking(_ touch: UITouch?, with event: UIEvent?) {
+        super.endTracking(touch, with: event)
         
         delegate?.keyTextEntered(self.primaryString)
         
     }
     
-    func dimensionsForAttributedString(attrString: NSAttributedString) -> CGSize {
+    func dimensionsForAttributedString(_ attrString: NSAttributedString) -> CGSize {
         
         var ascent: CGFloat = 0
         var descent: CGFloat = 0
         var width: CGFloat = 0
-        let line: CTLineRef = CTLineCreateWithAttributedString(attrString)
+        let line: CTLine = CTLineCreateWithAttributedString(attrString)
         width = CGFloat(CTLineGetTypographicBounds(line, &ascent, &descent, nil))
         
         // make width an even integer for better graphics rendering

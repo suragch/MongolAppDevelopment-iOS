@@ -15,11 +15,11 @@ class ButtonDemoVC: UIViewController {
     
     
     
-    @IBAction func mongolButton(sender: AnyObject) {
+    @IBAction func mongolButton(_ sender: AnyObject) {
         
         print("UIMongolButton tapped")
     }
-    @IBAction func myActionObject(sender: AnyObject) {
+    @IBAction func myActionObject(_ sender: AnyObject) {
         print("UIButton tapped")
     }
     

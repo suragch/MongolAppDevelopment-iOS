@@ -12,13 +12,13 @@ class KeyboardChooserKey: KeyboardKey {
     
     // MARK: - Properties
     
-    private let imageLayer = CALayer()
-    private let menuLayerBackbround = CAShapeLayer()
-    private var menuItemLayers = [KeyboardKeyTextLayer]()
+    fileprivate let imageLayer = CALayer()
+    fileprivate let menuLayerBackbround = CAShapeLayer()
+    fileprivate var menuItemLayers = [KeyboardKeyTextLayer]()
     
     
     // popup keyboard menu
-    var menuItemRectSize = CGSizeZero
+    var menuItemRectSize = CGSize.zero
     let menuItemPadding: CGFloat = 15
     var menuItems: [String]? { // display string array
         didSet {
@@ -29,17 +29,17 @@ class KeyboardChooserKey: KeyboardKey {
     }
     let mongolFontName = "ChimeeWhiteMirrored"
     var menuFontSize: CGFloat = 17
-    private var touchDownPoint = CGPointZero
-    private var longTouchMovementWidthThreshold: CGFloat = 0 // updated according to menu item width
-    private var oldSelectedItem = 0
-    private let defaultMenuItemBackgroundColor = UIColor.clearColor().CGColor
-    private let selectedMenuItemBackgroundColor = UIColor.grayColor().CGColor
-    private var oldFrame = CGRectZero
+    fileprivate var touchDownPoint = CGPoint.zero
+    fileprivate var longTouchMovementWidthThreshold: CGFloat = 0 // updated according to menu item width
+    fileprivate var oldSelectedItem = 0
+    fileprivate let defaultMenuItemBackgroundColor = UIColor.clear.cgColor
+    fileprivate let selectedMenuItemBackgroundColor = UIColor.gray.cgColor
+    fileprivate var oldFrame = CGRect.zero
     
     @IBInspectable var image: UIImage?
         {
         didSet {
-            imageLayer.contents = image?.CGImage
+            imageLayer.contents = image?.cgImage
             updateImageLayerFrame()
         }
     }
@@ -61,7 +61,7 @@ class KeyboardChooserKey: KeyboardKey {
         didSet {
             
             // only update frames if non-zero and changed
-            if frame != CGRectZero && frame != oldFrame {
+            if frame != CGRect.zero && frame != oldFrame {
                 updateImageLayerFrame()
                 updateMenuLayers()
                 oldFrame = frame
@@ -72,16 +72,16 @@ class KeyboardChooserKey: KeyboardKey {
     func setup() {
         
         // image layer
-        imageLayer.contentsScale = UIScreen.mainScreen().scale
+        imageLayer.contentsScale = UIScreen.main.scale
         layer.addSublayer(imageLayer)
         
         // menu background
-        menuLayerBackbround.contentsScale = UIScreen.mainScreen().scale
-        menuLayerBackbround.path = popupMenuPath().CGPath
-        menuLayerBackbround.strokeColor = self.borderColor.CGColor
-        menuLayerBackbround.fillColor = self.fillColor.CGColor
+        menuLayerBackbround.contentsScale = UIScreen.main.scale
+        menuLayerBackbround.path = popupMenuPath().cgPath
+        menuLayerBackbround.strokeColor = self.borderColor.cgColor
+        menuLayerBackbround.fillColor = self.fillColor.cgColor
         menuLayerBackbround.lineWidth = 0.5
-        menuLayerBackbround.hidden = true
+        menuLayerBackbround.isHidden = true
         layer.addSublayer(menuLayerBackbround)
         
         
@@ -97,7 +97,7 @@ class KeyboardChooserKey: KeyboardKey {
         if let items = menuItems {
             for _ in items {
                 let textLayer = KeyboardKeyTextLayer()
-                textLayer.contentsScale = UIScreen.mainScreen().scale
+                textLayer.contentsScale = UIScreen.main.scale
                 menuLayerBackbround.addSublayer(textLayer)
                 menuItemLayers.append(textLayer)
             }
@@ -129,7 +129,7 @@ class KeyboardChooserKey: KeyboardKey {
         menuItemRectSize = maxMenuItemSize(attributedMenuItems)
         longTouchMovementWidthThreshold = menuItemRectSize.width + menuItemPadding
         menuLayerBackbround.frame = bounds
-        menuLayerBackbround.path = popupMenuPath().CGPath
+        menuLayerBackbround.path = popupMenuPath().cgPath
         
         
         // menu item layers
@@ -166,7 +166,7 @@ class KeyboardChooserKey: KeyboardKey {
         return attrStringArray
     }
     
-    func maxMenuItemSize(attrStrings: [NSAttributedString]) -> CGSize {
+    func maxMenuItemSize(_ attrStrings: [NSAttributedString]) -> CGSize {
         
         var maxWidth: CGFloat = 0
         var maxHeight: CGFloat = 0
@@ -185,12 +185,12 @@ class KeyboardChooserKey: KeyboardKey {
         return CGSize(width: maxWidth, height: maxHeight)
     }
     
-    func dimensionsForAttributedString(attrString: NSAttributedString) -> CGSize {
+    func dimensionsForAttributedString(_ attrString: NSAttributedString) -> CGSize {
         
         var ascent: CGFloat = 0
         var descent: CGFloat = 0
         var width: CGFloat = 0
-        let line: CTLineRef = CTLineCreateWithAttributedString(attrString)
+        let line: CTLine = CTLineCreateWithAttributedString(attrString)
         width = CGFloat(CTLineGetTypographicBounds(line, &ascent, &descent, nil))
         
         // make width an even integer for better graphics rendering
@@ -204,7 +204,7 @@ class KeyboardChooserKey: KeyboardKey {
     
     // MARK: - Gesture recognizer
     
-    override func longPressBegun(guesture: UILongPressGestureRecognizer) {
+    override func longPressBegun(_ guesture: UILongPressGestureRecognizer) {
         
         // ignore long press if this is the only keyboard
         if menuItemLayers.count == 0 {
@@ -218,20 +218,20 @@ class KeyboardChooserKey: KeyboardKey {
         oldSelectedItem = 0
         menuItemLayers[0].backgroundColor = selectedMenuItemBackgroundColor
         
-        touchDownPoint = guesture.locationInView(self)
+        touchDownPoint = guesture.location(in: self)
         
-        menuLayerBackbround.hidden = false
+        menuLayerBackbround.isHidden = false
         
     }
     
-    override func longPressStateChanged(guesture: UILongPressGestureRecognizer) {
+    override func longPressStateChanged(_ guesture: UILongPressGestureRecognizer) {
         
         // ignore long press if this is the only keyboard
         if menuItemLayers.count == 0 {
             return
         }
         
-        let touchPoint = guesture.locationInView(self)
+        let touchPoint = guesture.location(in: self)
         let dx = touchPoint.x - touchDownPoint.x
         
         // set the color for the selected item
@@ -260,7 +260,7 @@ class KeyboardChooserKey: KeyboardKey {
             return
         }
         
-        menuLayerBackbround.hidden = true
+        menuLayerBackbround.isHidden = true
         
         if let items = menuItems {
             if oldSelectedItem >= 0 && oldSelectedItem < items.count {
@@ -273,8 +273,8 @@ class KeyboardChooserKey: KeyboardKey {
     }
     
     // tap event (do when finger lifted) -- This is canceled if long press occurs
-    override func endTrackingWithTouch(touch: UITouch?, withEvent event: UIEvent?) {
-        super.endTrackingWithTouch(touch, withEvent: event)
+    override func endTracking(_ touch: UITouch?, with event: UIEvent?) {
+        super.endTracking(touch, with: event)
         
         delegate?.keyKeyboardTapped()
         
@@ -311,13 +311,13 @@ class KeyboardChooserKey: KeyboardKey {
         
         // starting point for the path (on left side)
         x = padding
-        path.moveToPoint(CGPoint(x: x, y: y))
+        path.move(to: CGPoint(x: x, y: y))
         
         // top-left corner
         x = x + self.cornerRadius
         y = -padding - 2*self.menuItemPadding - self.menuItemRectSize.height + self.cornerRadius
-        path.addArcWithCenter(
-            CGPoint(x: x, y: y),
+        path.addArc(
+            withCenter: CGPoint(x: x, y: y),
             radius: self.cornerRadius,
             startAngle: CGFloat(M_PI), // straight left
             endAngle: CGFloat(3*M_PI_2), // straight up
@@ -325,8 +325,8 @@ class KeyboardChooserKey: KeyboardKey {
         
         // top-right corner
         x = x - 2*self.cornerRadius + 2*self.menuItemPadding + contentWidth
-        path.addArcWithCenter(
-            CGPoint(x: x, y: y),
+        path.addArc(
+            withCenter: CGPoint(x: x, y: y),
             radius: self.cornerRadius,
             startAngle: CGFloat(3*M_PI_2), // straight up
             endAngle: CGFloat(0), // straight right
@@ -334,8 +334,8 @@ class KeyboardChooserKey: KeyboardKey {
         
         // mid-right corner
         y = -padding - self.cornerRadius
-        path.addArcWithCenter(
-            CGPoint(x: x, y: y),
+        path.addArc(
+            withCenter: CGPoint(x: x, y: y),
             radius: self.cornerRadius,
             startAngle: CGFloat(0), // straight right
             endAngle: CGFloat(M_PI_2), // straight down
@@ -344,8 +344,8 @@ class KeyboardChooserKey: KeyboardKey {
         // mid-bottom upper corner
         x = bounds.width - padding + self.cornerRadius
         y = -padding + self.cornerRadius
-        path.addArcWithCenter(
-            CGPoint(x: x, y: y),
+        path.addArc(
+            withCenter: CGPoint(x: x, y: y),
             radius: self.cornerRadius,
             startAngle: CGFloat(3*M_PI_2), // straight up
             endAngle: CGFloat(M_PI), // straight left
@@ -354,8 +354,8 @@ class KeyboardChooserKey: KeyboardKey {
         // mid-bottom lower corner
         x = x - 2*self.cornerRadius
         y = bounds.height - padding - self.cornerRadius
-        path.addArcWithCenter(
-            CGPoint(x: x, y: y),
+        path.addArc(
+            withCenter: CGPoint(x: x, y: y),
             radius: self.cornerRadius,
             startAngle: CGFloat(0), // straight right
             endAngle: CGFloat(M_PI_2), // straight down
@@ -363,15 +363,15 @@ class KeyboardChooserKey: KeyboardKey {
         
         // bottom-left corner
         x = padding + self.cornerRadius
-        path.addArcWithCenter(
-            CGPoint(x: x, y: y),
+        path.addArc(
+            withCenter: CGPoint(x: x, y: y),
             radius: self.cornerRadius,
             startAngle: CGFloat(M_PI_2), // straight down
             endAngle: CGFloat(M_PI), // straight left
             clockwise: true)
         
         
-        path.closePath() // draws the final line to close the path
+        path.close() // draws the final line to close the path
         
         return path
     }

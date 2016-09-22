@@ -5,60 +5,60 @@ class CyrillicKeyboard: UIView, KeyboardKeyDelegate {
     weak var delegate: KeyboardDelegate? // probably the view controller
     
     //private let renderer = MongolUnicodeRenderer.sharedInstance
-    private var punctuationOn = false
-    private var shiftOn = false
+    fileprivate var punctuationOn = false
+    fileprivate var shiftOn = false
     
     // Keyboard Keys
     
     // Row 1
-    private let key11 = KeyboardEnglishTextKey()
-    private let key12 = KeyboardEnglishTextKey()
-    private let key13 = KeyboardEnglishTextKey()
-    private let key14 = KeyboardEnglishTextKey()
-    private let key15 = KeyboardEnglishTextKey()
-    private let key16 = KeyboardEnglishTextKey()
-    private let key17 = KeyboardEnglishTextKey()
-    private let key18 = KeyboardEnglishTextKey()
-    private let key19 = KeyboardEnglishTextKey()
-    private let key110 = KeyboardEnglishTextKey()
-    private let key111 = KeyboardEnglishTextKey()
-    private let key112 = KeyboardEnglishTextKey()
+    fileprivate let key11 = KeyboardEnglishTextKey()
+    fileprivate let key12 = KeyboardEnglishTextKey()
+    fileprivate let key13 = KeyboardEnglishTextKey()
+    fileprivate let key14 = KeyboardEnglishTextKey()
+    fileprivate let key15 = KeyboardEnglishTextKey()
+    fileprivate let key16 = KeyboardEnglishTextKey()
+    fileprivate let key17 = KeyboardEnglishTextKey()
+    fileprivate let key18 = KeyboardEnglishTextKey()
+    fileprivate let key19 = KeyboardEnglishTextKey()
+    fileprivate let key110 = KeyboardEnglishTextKey()
+    fileprivate let key111 = KeyboardEnglishTextKey()
+    fileprivate let key112 = KeyboardEnglishTextKey()
     
     // Row 2
-    private let key21 = KeyboardEnglishTextKey()
-    private let key22 = KeyboardEnglishTextKey()
-    private let key23 = KeyboardEnglishTextKey()
-    private let key24 = KeyboardEnglishTextKey()
-    private let key25 = KeyboardEnglishTextKey()
-    private let key26 = KeyboardEnglishTextKey()
-    private let key27 = KeyboardEnglishTextKey()
-    private let key28 = KeyboardEnglishTextKey()
-    private let key29 = KeyboardEnglishTextKey()
-    private let key210 = KeyboardEnglishTextKey()
-    private let key211 = KeyboardEnglishTextKey()
-    private let key212 = KeyboardEnglishTextKey()
+    fileprivate let key21 = KeyboardEnglishTextKey()
+    fileprivate let key22 = KeyboardEnglishTextKey()
+    fileprivate let key23 = KeyboardEnglishTextKey()
+    fileprivate let key24 = KeyboardEnglishTextKey()
+    fileprivate let key25 = KeyboardEnglishTextKey()
+    fileprivate let key26 = KeyboardEnglishTextKey()
+    fileprivate let key27 = KeyboardEnglishTextKey()
+    fileprivate let key28 = KeyboardEnglishTextKey()
+    fileprivate let key29 = KeyboardEnglishTextKey()
+    fileprivate let key210 = KeyboardEnglishTextKey()
+    fileprivate let key211 = KeyboardEnglishTextKey()
+    fileprivate let key212 = KeyboardEnglishTextKey()
     
     // Row 3
     //private let keyFVS = KeyboardFvsKey()
-    private let keyShift = KeyboardImageKey()
-    private let key31 = KeyboardEnglishTextKey()
-    private let key32 = KeyboardEnglishTextKey()
-    private let key33 = KeyboardEnglishTextKey()
-    private let key34 = KeyboardEnglishTextKey()
-    private let key35 = KeyboardEnglishTextKey()
-    private let key36 = KeyboardEnglishTextKey()
-    private let key37 = KeyboardEnglishTextKey()
-    private let key38 = KeyboardEnglishTextKey()
-    private let key39 = KeyboardEnglishTextKey()
-    private let keyBackspace = KeyboardImageKey()
+    fileprivate let keyShift = KeyboardImageKey()
+    fileprivate let key31 = KeyboardEnglishTextKey()
+    fileprivate let key32 = KeyboardEnglishTextKey()
+    fileprivate let key33 = KeyboardEnglishTextKey()
+    fileprivate let key34 = KeyboardEnglishTextKey()
+    fileprivate let key35 = KeyboardEnglishTextKey()
+    fileprivate let key36 = KeyboardEnglishTextKey()
+    fileprivate let key37 = KeyboardEnglishTextKey()
+    fileprivate let key38 = KeyboardEnglishTextKey()
+    fileprivate let key39 = KeyboardEnglishTextKey()
+    fileprivate let keyBackspace = KeyboardImageKey()
     
     // Row 4
-    private let keyKeyboard = KeyboardChooserKey()
-    private let keyComma = KeyboardEnglishTextKey()
-    private let keySpace = KeyboardImageKey()
-    private let keyQuestion = KeyboardEnglishTextKey()
-    private let key41 = KeyboardEnglishTextKey()
-    private let keyReturn = KeyboardImageKey()
+    fileprivate let keyKeyboard = KeyboardChooserKey()
+    fileprivate let keyComma = KeyboardEnglishTextKey()
+    fileprivate let keySpace = KeyboardImageKey()
+    fileprivate let keyQuestion = KeyboardEnglishTextKey()
+    fileprivate let key41 = KeyboardEnglishTextKey()
+    fileprivate let keyReturn = KeyboardImageKey()
     
     
     // MARK:- keyboard initialization
@@ -143,7 +143,7 @@ class CyrillicKeyboard: UIView, KeyboardKeyDelegate {
         // Row 3
         keyShift.image = UIImage(named: "shift_dark") // TODO
         keyBackspace.image = UIImage(named: "backspace_dark")
-        keyBackspace.keyType = KeyboardImageKey.KeyType.Backspace
+        keyBackspace.keyType = KeyboardImageKey.KeyType.backspace
         keyBackspace.repeatOnLongPress = true
         
         // Row 4
@@ -330,7 +330,7 @@ class CyrillicKeyboard: UIView, KeyboardKeyDelegate {
         key212.delegate = self
         
         // Row 3
-        keyShift.addTarget(self, action: #selector(keyShiftTapped), forControlEvents: UIControlEvents.TouchUpInside)
+        keyShift.addTarget(self, action: #selector(keyShiftTapped), for: UIControlEvents.touchUpInside)
         key31.delegate = self
         key32.delegate = self
         key33.delegate = self
@@ -348,7 +348,7 @@ class CyrillicKeyboard: UIView, KeyboardKeyDelegate {
         keySpace.delegate = self
         keyQuestion.delegate = self
         key41.delegate = self
-        keyReturn.addTarget(self, action: #selector(keyReturnTapped), forControlEvents: UIControlEvents.TouchUpInside)
+        keyReturn.addTarget(self, action: #selector(keyReturnTapped), for: UIControlEvents.touchUpInside)
         
     }
     
@@ -426,13 +426,13 @@ class CyrillicKeyboard: UIView, KeyboardKeyDelegate {
     
     // MARK: - Other
     
-    func otherAvailableKeyboards(displayNames: [String]) {
+    func otherAvailableKeyboards(_ displayNames: [String]) {
         keyKeyboard.menuItems = displayNames
     }
     
     // MARK: - KeyboardKeyDelegate protocol
     
-    func keyTextEntered(keyText: String) {
+    func keyTextEntered(_ keyText: String) {
         print("key text: \(keyText)")
         
         if shiftOn {
@@ -454,7 +454,7 @@ class CyrillicKeyboard: UIView, KeyboardKeyDelegate {
         print("key text: return")
     }
     
-    func keyFvsTapped(fvs: String) {
+    func keyFvsTapped(_ fvs: String) {
         // only here to conform to protocol
     }
     
@@ -489,7 +489,7 @@ class CyrillicKeyboard: UIView, KeyboardKeyDelegate {
     }
     
     // tell the view controller to switch keyboards
-    func keyNewKeyboardChosen(keyboardName: String) {
+    func keyNewKeyboardChosen(_ keyboardName: String) {
         delegate?.keyNewKeyboardChosen(keyboardName)
     }
     

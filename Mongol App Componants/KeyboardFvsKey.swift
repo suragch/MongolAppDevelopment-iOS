@@ -9,16 +9,16 @@ import UIKit
 @IBDesignable
 class KeyboardFvsKey: KeyboardKey {
     
-    private let fvs1TopLayer = KeyboardKeyTextLayer()
-    private let fvs2TopLayer = KeyboardKeyTextLayer()
-    private let fvs3TopLayer = KeyboardKeyTextLayer()
-    private let horizonalDividerLayer = CALayer()
-    private let fvs1BottomLayer = KeyboardKeyTextLayer()
-    private let fvs2BottomLayer = KeyboardKeyTextLayer()
-    private let fvs3BottomLayer = KeyboardKeyTextLayer()
-    private let popupLayerBackground = CAShapeLayer()
-    private let highlightLayer = CALayer()
-    private var oldFrame = CGRectZero
+    fileprivate let fvs1TopLayer = KeyboardKeyTextLayer()
+    fileprivate let fvs2TopLayer = KeyboardKeyTextLayer()
+    fileprivate let fvs3TopLayer = KeyboardKeyTextLayer()
+    fileprivate let horizonalDividerLayer = CALayer()
+    fileprivate let fvs1BottomLayer = KeyboardKeyTextLayer()
+    fileprivate let fvs2BottomLayer = KeyboardKeyTextLayer()
+    fileprivate let fvs3BottomLayer = KeyboardKeyTextLayer()
+    fileprivate let popupLayerBackground = CAShapeLayer()
+    fileprivate let highlightLayer = CALayer()
+    fileprivate var oldFrame = CGRect.zero
     
     
     let mongolFontName = "ChimeeWhiteMirrored"
@@ -26,31 +26,31 @@ class KeyboardFvsKey: KeyboardKey {
     let popupFontSize: CGFloat = 24
     let popupHeight: CGFloat = 100
     var popupWidth: CGFloat = 0 // to be updated later
-    private var touchDownPoint = CGPointZero
-    private var currentSelection = CurrentSelection.FVS1
+    fileprivate var touchDownPoint = CGPoint.zero
+    fileprivate var currentSelection = CurrentSelection.fvs1
     let fvs1 = "\u{180b}"
     let fvs2 = "\u{180c}"
     let fvs3 = "\u{180d}"
-    private var numberOfFvsChoices = 0
+    fileprivate var numberOfFvsChoices = 0
     
-    private enum CurrentSelection {
-        case OutOfBoundsLeft
-        case FVS1
-        case FVS2
-        case FVS3
-        case OutOfBoundsRight
+    fileprivate enum CurrentSelection {
+        case outOfBoundsLeft
+        case fvs1
+        case fvs2
+        case fvs3
+        case outOfBoundsRight
     }
     
     // MARK: Primary input value
     
     var primaryString: String = "A"
     
-    private var fvs1TopString = ""
-    private var fvs2TopString = ""
-    private var fvs3TopString = ""
-    private var fvs1BottomString = ""
-    private var fvs2BottomString = ""
-    private var fvs3BottomString = ""
+    fileprivate var fvs1TopString = ""
+    fileprivate var fvs2TopString = ""
+    fileprivate var fvs3TopString = ""
+    fileprivate var fvs1BottomString = ""
+    fileprivate var fvs2BottomString = ""
+    fileprivate var fvs3BottomString = ""
     
     var fontSize: CGFloat = 12 {
         didSet {
@@ -76,7 +76,7 @@ class KeyboardFvsKey: KeyboardKey {
     override var frame: CGRect {
         didSet {
             // only update frames if non-zero and changed
-            if frame != CGRectZero && frame != oldFrame {
+            if frame != CGRect.zero && frame != oldFrame {
                 updateTextFrames()
                 oldFrame = frame
             }
@@ -86,54 +86,54 @@ class KeyboardFvsKey: KeyboardKey {
     func setup() {
         
         // Popup layer
-        popupLayerBackground.contentsScale = UIScreen.mainScreen().scale
+        popupLayerBackground.contentsScale = UIScreen.main.scale
         //popupLayerBackground.path = popupMenuPath(3).CGPath
-        popupLayerBackground.strokeColor = self.borderColor.CGColor
-        popupLayerBackground.fillColor = self.fillColor.CGColor
+        popupLayerBackground.strokeColor = self.borderColor.cgColor
+        popupLayerBackground.fillColor = self.fillColor.cgColor
         popupLayerBackground.lineWidth = 0.5
-        popupLayerBackground.hidden = true
+        popupLayerBackground.isHidden = true
         layer.addSublayer(popupLayerBackground)
         
         //
         // highlight layer
-        highlightLayer.contentsScale = UIScreen.mainScreen().scale
-        highlightLayer.backgroundColor = UIColor.grayColor().CGColor
+        highlightLayer.contentsScale = UIScreen.main.scale
+        highlightLayer.backgroundColor = UIColor.gray.cgColor
         highlightLayer.cornerRadius = 4
         layer.addSublayer(highlightLayer)
         
         // FVS1 Top Layer
         fvs1TopLayer.useMirroredFont = useMirroredFont
-        fvs1TopLayer.contentsScale = UIScreen.mainScreen().scale
+        fvs1TopLayer.contentsScale = UIScreen.main.scale
         layer.addSublayer(fvs1TopLayer)
         
         // FVS2 Top Layer
         fvs2TopLayer.useMirroredFont = useMirroredFont
-        fvs2TopLayer.contentsScale = UIScreen.mainScreen().scale
+        fvs2TopLayer.contentsScale = UIScreen.main.scale
         layer.addSublayer(fvs2TopLayer)
         
         // FVS3 Top Layer
         fvs3TopLayer.useMirroredFont = useMirroredFont
-        fvs3TopLayer.contentsScale = UIScreen.mainScreen().scale
+        fvs3TopLayer.contentsScale = UIScreen.main.scale
         layer.addSublayer(fvs3TopLayer)
         
         // Horizonal divider layer
-        horizonalDividerLayer.contentsScale = UIScreen.mainScreen().scale
-        horizonalDividerLayer.backgroundColor = borderColor.CGColor
+        horizonalDividerLayer.contentsScale = UIScreen.main.scale
+        horizonalDividerLayer.backgroundColor = borderColor.cgColor
         layer.addSublayer(horizonalDividerLayer)
         
         // FVS1 Bottom Layer
         fvs1BottomLayer.useMirroredFont = useMirroredFont
-        fvs1BottomLayer.contentsScale = UIScreen.mainScreen().scale
+        fvs1BottomLayer.contentsScale = UIScreen.main.scale
         layer.addSublayer(fvs1BottomLayer)
         
         // FVS2 Bottom Layer
         fvs2BottomLayer.useMirroredFont = useMirroredFont
-        fvs2BottomLayer.contentsScale = UIScreen.mainScreen().scale
+        fvs2BottomLayer.contentsScale = UIScreen.main.scale
         layer.addSublayer(fvs2BottomLayer)
         
         // FVS3 Bottom Layer
         fvs3BottomLayer.useMirroredFont = useMirroredFont
-        fvs3BottomLayer.contentsScale = UIScreen.mainScreen().scale
+        fvs3BottomLayer.contentsScale = UIScreen.main.scale
         layer.addSublayer(fvs3BottomLayer)
         
         
@@ -148,7 +148,7 @@ class KeyboardFvsKey: KeyboardKey {
         let myAttribute = [ NSFontAttributeName: UIFont(name: mongolFontName, size: fontSize )! ]
         
         // highlight layer
-        highlightLayer.frame = CGRectZero
+        highlightLayer.frame = CGRect.zero
         
         // FVS1 top
         var attrString = NSMutableAttributedString(string: fvs1TopString, attributes: myAttribute )
@@ -213,7 +213,7 @@ class KeyboardFvsKey: KeyboardKey {
         
         // hightlight layer
         highlightLayer.frame = CGRect(x: 2*padding, y: -popupHeight + self.cornerRadius, width: (popupWidth - 2*padding)/3, height: popupHeight - 2*self.cornerRadius)
-        currentSelection = CurrentSelection.FVS1
+        currentSelection = CurrentSelection.fvs1
         
         // FVS1 top
         var attrString = NSMutableAttributedString(string: fvs1TopString, attributes: myAttribute )
@@ -270,7 +270,7 @@ class KeyboardFvsKey: KeyboardKey {
         fvs3BottomLayer.string = attrString
     }
     
-    func setStrings(fvs1Top: String, fvs2Top: String, fvs3Top: String, fvs1Bottom: String, fvs2Bottom: String, fvs3Bottom: String) {
+    func setStrings(_ fvs1Top: String, fvs2Top: String, fvs3Top: String, fvs1Bottom: String, fvs2Bottom: String, fvs3Bottom: String) {
         
         // set the number of fvs choices available 
         // (assume that blank lower fvs means blank upper fvs)
@@ -301,65 +301,73 @@ class KeyboardFvsKey: KeyboardKey {
         // don't let super class add long press gesture recognizer
     }
     
-    override func beginTrackingWithTouch(touch: UITouch, withEvent event: UIEvent?) -> Bool {
+    override func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
         
         // disable key if no fvs choices available
         if numberOfFvsChoices == 0 {
             return false
         }
-        super.beginTrackingWithTouch(touch, withEvent: event)
+        super.beginTracking(touch, with: event)
         
         // don's show popup menu if only fvs1 available
         if numberOfFvsChoices == 1 {
             return true
         }
         
-        touchDownPoint = touch.locationInView(self)
+        touchDownPoint = touch.location(in: self)
         
         // popup menu
-        popupLayerBackground.path = popupMenuPath().CGPath
+        popupLayerBackground.path = popupMenuPath().cgPath
         updateTextFramesForPopup()
-        popupLayerBackground.hidden = false
+        popupLayerBackground.isHidden = false
         
         return true
     }
     
-    override func continueTrackingWithTouch(touch: UITouch, withEvent event: UIEvent?) -> Bool {
+    override func continueTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
         
         // don's update popup menu if only fvs1 available
         if numberOfFvsChoices == 1 {
             return true
         }
 
-        let touchPoint = touch.locationInView(self)
+        let touchPoint = touch.location(in: self)
         let x = touchPoint.x
         let unit = (popupWidth - 2*padding)/3
         
         // set highlight background frame
         if x < 0 {
-            if currentSelection != CurrentSelection.OutOfBoundsLeft {
+            if currentSelection != CurrentSelection.outOfBoundsLeft {
                 highlightLayer.frame = CGRect(x: 2*padding, y: -popupHeight + self.cornerRadius, width: 0, height: popupHeight - 2*self.cornerRadius)
-                currentSelection = CurrentSelection.OutOfBoundsLeft
+                currentSelection = CurrentSelection.outOfBoundsLeft
             }
         } else if x > 0 && x <= unit {
-            if currentSelection != CurrentSelection.FVS1 {
+            if currentSelection != CurrentSelection.fvs1 {
                 highlightLayer.frame = CGRect(x: 2*padding, y: -popupHeight + self.cornerRadius, width: (popupWidth - 2*padding)/3, height: popupHeight - 2*self.cornerRadius)
-                currentSelection = CurrentSelection.FVS1
+                currentSelection = CurrentSelection.fvs1
             }
         } else if x > unit && x <= 2*unit {
-            if currentSelection != CurrentSelection.FVS2 {
+            if currentSelection != CurrentSelection.fvs2 {
                 highlightLayer.frame = CGRect(x: 2*padding + (popupWidth - 2*padding)/3, y: -popupHeight + self.cornerRadius, width: (popupWidth - 2*padding)/3, height: popupHeight - 2*self.cornerRadius)
-                currentSelection = CurrentSelection.FVS2
+                currentSelection = CurrentSelection.fvs2
             }
         } else if x > 2*unit && x <= 3*unit && numberOfFvsChoices != 2 {
-            if currentSelection != CurrentSelection.FVS3 {
-                highlightLayer.frame = CGRect(x: 2*padding + 2*(popupWidth - 2*padding)/3, y: -popupHeight + self.cornerRadius, width: (popupWidth - 2*padding)/3, height: popupHeight - 2*self.cornerRadius)
-                currentSelection = CurrentSelection.FVS3
+            if currentSelection != CurrentSelection.fvs3 {
+                let x: CGFloat = 2*padding + 2*(popupWidth - 2*padding)/3
+                let y: CGFloat = -popupHeight + self.cornerRadius
+                let width: CGFloat = (popupWidth - 2*padding)/3
+                let height: CGFloat = popupHeight - 2*self.cornerRadius
+                highlightLayer.frame = CGRect(x: x, y: y, width: width, height: height)
+                currentSelection = CurrentSelection.fvs3
             }
         } else if x > 3*unit {
-            if currentSelection != CurrentSelection.OutOfBoundsRight {
-                highlightLayer.frame = CGRect(x: 2*padding + 3*(popupWidth - 2*padding)/3, y: -popupHeight + self.cornerRadius, width: 0, height: popupHeight - 2*self.cornerRadius)
-                currentSelection = CurrentSelection.OutOfBoundsRight
+            if currentSelection != CurrentSelection.outOfBoundsRight {
+                let x: CGFloat = 2*padding + 3*(popupWidth - 2*padding)/3
+                let y: CGFloat = -popupHeight + self.cornerRadius
+                let width: CGFloat = 0
+                let height: CGFloat = popupHeight - 2*self.cornerRadius
+                highlightLayer.frame = CGRect(x: x, y: y, width: width, height: height)
+                currentSelection = CurrentSelection.outOfBoundsRight
             }
         }
         
@@ -368,8 +376,8 @@ class KeyboardFvsKey: KeyboardKey {
     }
     
     // tap event (do when finger lifted)
-    override func endTrackingWithTouch(touch: UITouch?, withEvent event: UIEvent?) {
-        super.endTrackingWithTouch(touch, withEvent: event)
+    override func endTracking(_ touch: UITouch?, with event: UIEvent?) {
+        super.endTracking(touch, with: event)
         
         // return early if only fvs1 is available
         if numberOfFvsChoices == 1 {
@@ -377,15 +385,15 @@ class KeyboardFvsKey: KeyboardKey {
             return
         }
         
-        popupLayerBackground.hidden = true
+        popupLayerBackground.isHidden = true
         updateTextFrames()
         
         switch currentSelection {
-        case CurrentSelection.FVS1:
+        case CurrentSelection.fvs1:
             delegate?.keyTextEntered(fvs1)
-        case CurrentSelection.FVS2:
+        case CurrentSelection.fvs2:
             delegate?.keyTextEntered(fvs2)
-        case CurrentSelection.FVS3:
+        case CurrentSelection.fvs3:
             delegate?.keyTextEntered(fvs3)
         default:
             break
@@ -394,12 +402,12 @@ class KeyboardFvsKey: KeyboardKey {
         
     }
     
-    func dimensionsForAttributedString(attrString: NSAttributedString) -> CGSize {
+    func dimensionsForAttributedString(_ attrString: NSAttributedString) -> CGSize {
         
         var ascent: CGFloat = 0
         var descent: CGFloat = 0
         var width: CGFloat = 0
-        let line: CTLineRef = CTLineCreateWithAttributedString(attrString)
+        let line: CTLine = CTLineCreateWithAttributedString(attrString)
         width = CGFloat(CTLineGetTypographicBounds(line, &ascent, &descent, nil))
         
         // make width an even integer for better graphics rendering
@@ -442,13 +450,13 @@ class KeyboardFvsKey: KeyboardKey {
         
         // starting point for the path (on left side)
         x = padding
-        path.moveToPoint(CGPoint(x: x, y: y))
+        path.move(to: CGPoint(x: x, y: y))
         
         // top-left corner
         x = x + self.cornerRadius
         y = -padding - popupHeight + self.cornerRadius
-        path.addArcWithCenter(
-            CGPoint(x: x, y: y),
+        path.addArc(
+            withCenter: CGPoint(x: x, y: y),
             radius: self.cornerRadius,
             startAngle: CGFloat(M_PI), // straight left
             endAngle: CGFloat(3*M_PI_2), // straight up
@@ -456,8 +464,8 @@ class KeyboardFvsKey: KeyboardKey {
         
         // top-right corner
         x = x - 2*self.cornerRadius +  popupWidth
-        path.addArcWithCenter(
-            CGPoint(x: x, y: y),
+        path.addArc(
+            withCenter: CGPoint(x: x, y: y),
             radius: self.cornerRadius,
             startAngle: CGFloat(3*M_PI_2), // straight up
             endAngle: CGFloat(0), // straight right
@@ -465,8 +473,8 @@ class KeyboardFvsKey: KeyboardKey {
         
         // mid-right corner
         y = -padding - self.cornerRadius
-        path.addArcWithCenter(
-            CGPoint(x: x, y: y),
+        path.addArc(
+            withCenter: CGPoint(x: x, y: y),
             radius: self.cornerRadius,
             startAngle: CGFloat(0), // straight right
             endAngle: CGFloat(M_PI_2), // straight down
@@ -475,8 +483,8 @@ class KeyboardFvsKey: KeyboardKey {
         // mid-bottom upper corner
         x = bounds.width - padding + self.cornerRadius
         y = -padding + self.cornerRadius
-        path.addArcWithCenter(
-            CGPoint(x: x, y: y),
+        path.addArc(
+            withCenter: CGPoint(x: x, y: y),
             radius: self.cornerRadius,
             startAngle: CGFloat(3*M_PI_2), // straight up
             endAngle: CGFloat(M_PI), // straight left
@@ -485,8 +493,8 @@ class KeyboardFvsKey: KeyboardKey {
         // mid-bottom lower corner
         x = x - 2*self.cornerRadius
         y = bounds.height - padding - self.cornerRadius
-        path.addArcWithCenter(
-            CGPoint(x: x, y: y),
+        path.addArc(
+            withCenter: CGPoint(x: x, y: y),
             radius: self.cornerRadius,
             startAngle: CGFloat(0), // straight right
             endAngle: CGFloat(M_PI_2), // straight down
@@ -494,15 +502,15 @@ class KeyboardFvsKey: KeyboardKey {
         
         // bottom-left corner
         x = padding + self.cornerRadius
-        path.addArcWithCenter(
-            CGPoint(x: x, y: y),
+        path.addArc(
+            withCenter: CGPoint(x: x, y: y),
             radius: self.cornerRadius,
             startAngle: CGFloat(M_PI_2), // straight down
             endAngle: CGFloat(M_PI), // straight left
             clockwise: true)
         
         
-        path.closePath() // draws the final line to close the path
+        path.close() // draws the final line to close the path
         
         return path
     }

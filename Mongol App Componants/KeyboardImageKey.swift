@@ -6,26 +6,26 @@ import UIKit
 @IBDesignable
 class KeyboardImageKey: KeyboardKey {
     
-    private let imageLayer = CALayer()
-    private var oldFrame = CGRectZero
-    private var timer = NSTimer()
+    fileprivate let imageLayer = CALayer()
+    fileprivate var oldFrame = CGRect.zero
+    fileprivate var timer = Timer()
     
     var primaryString: String = ""
     var secondaryString: String = ""
     var repeatOnLongPress = false
     var repeatInterval = 0.1 // sec
-    var keyType = KeyType.Other
+    var keyType = KeyType.other
     
     enum KeyType {
-        case Backspace
-        case Other
+        case backspace
+        case other
     }
 
     
     @IBInspectable var image: UIImage?
         {
         didSet {
-            imageLayer.contents = image?.CGImage
+            imageLayer.contents = image?.cgImage
             updateImageLayerFrame()
         }
     }
@@ -47,7 +47,7 @@ class KeyboardImageKey: KeyboardKey {
         didSet {
             
             // only update frames if non-zero and changed
-            if frame != CGRectZero && frame != oldFrame {
+            if frame != CGRect.zero && frame != oldFrame {
                 updateImageLayerFrame()
                 oldFrame = frame
             }    
@@ -57,7 +57,7 @@ class KeyboardImageKey: KeyboardKey {
     func setup() {
         
         // image layer
-        imageLayer.contentsScale = UIScreen.mainScreen().scale
+        imageLayer.contentsScale = UIScreen.main.scale
         layer.addSublayer(imageLayer)
         
     }
@@ -79,21 +79,21 @@ class KeyboardImageKey: KeyboardKey {
     }
     
     // long press
-    override func longPressBegun(guesture: UILongPressGestureRecognizer) {
+    override func longPressBegun(_ guesture: UILongPressGestureRecognizer) {
         if self.secondaryString != "" {
             delegate?.keyTextEntered(self.secondaryString)
         } else {
             // enter primary string if this key has no seconary string
             //delegate?.keyTextEntered(self.primaryString)
             
-            if keyType == KeyType.Backspace {
+            if keyType == KeyType.backspace {
                 delegate?.keyBackspaceTapped()
             } else {
                 delegate?.keyTextEntered(self.primaryString)
             }
             
             if repeatOnLongPress {
-                timer = NSTimer.scheduledTimerWithTimeInterval(repeatInterval, target: self, selector: #selector(repeatAction), userInfo: nil, repeats: true)
+                timer = Timer.scheduledTimer(timeInterval: repeatInterval, target: self, selector: #selector(repeatAction), userInfo: nil, repeats: true)
             }
         }
     }
@@ -107,12 +107,12 @@ class KeyboardImageKey: KeyboardKey {
     }
     
     // tap event (do when finger lifted)
-    override func endTrackingWithTouch(touch: UITouch?, withEvent event: UIEvent?) {
-        super.endTrackingWithTouch(touch, withEvent: event)
+    override func endTracking(_ touch: UITouch?, with event: UIEvent?) {
+        super.endTracking(touch, with: event)
         
         timer.invalidate()
         
-        if keyType == KeyType.Backspace {
+        if keyType == KeyType.backspace {
             delegate?.keyBackspaceTapped()
         } else {
             delegate?.keyTextEntered(self.primaryString)
@@ -125,7 +125,7 @@ class KeyboardImageKey: KeyboardKey {
     // do if repeating on long press
     func repeatAction() {
         
-        if keyType == KeyType.Backspace {
+        if keyType == KeyType.backspace {
             delegate?.keyBackspaceTapped()
         } else {
             delegate?.keyTextEntered(self.primaryString)
