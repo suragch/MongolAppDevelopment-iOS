@@ -159,7 +159,7 @@ struct ScalarString: Sequence, Hashable, CustomStringConvertible {
         
         return returnString
     }
-    func removeRange(_ range: Range<Int>) -> ScalarString? {
+    func removeRange(_ range: CountableRange<Int>) -> ScalarString? {
         
         if range.lowerBound < 0 || range.upperBound > scalarArray.count {
             return nil
@@ -204,7 +204,7 @@ struct ScalarString: Sequence, Hashable, CustomStringConvertible {
         }
         return returnString
     }
-    func replaceRange(_ range: Range<Int>, withString replacementString: ScalarString) -> ScalarString {
+    func replaceRange(_ range: CountableRange<Int>, withString replacementString: ScalarString) -> ScalarString {
         
         var returnString = ScalarString()
         

@@ -307,7 +307,7 @@ class KeyboardFvsKey: KeyboardKey {
         if numberOfFvsChoices == 0 {
             return false
         }
-        super.beginTracking(touch, with: event)
+        _ = super.beginTracking(touch, with: event)
         
         // don's show popup menu if only fvs1 available
         if numberOfFvsChoices == 1 {
